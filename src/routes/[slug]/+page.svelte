@@ -36,12 +36,16 @@
 	{/if}
 </svelte:head>
 
-<article class="swyxcontent prose dark:prose-invert mx-auto mt-16 mb-32 w-full max-w-none items-start justify-center">
-	<h1 class="mb-8 text-3xl font-bold tracking-tight text-black dark:text-white md:text-5xl ">
+<article
+	class="swyxcontent prose mx-auto mt-16 mb-32 w-full max-w-none items-start justify-center dark:prose-invert"
+>
+	<h1
+		class="mb-8 text-3xl font-bold tracking-tight text-gray-900 dark:text-yellow-400 md:text-5xl "
+	>
 		{json.title}
 	</h1>
 	<div
-		class="bg mt-2 flex w-full justify-between border-red sm:flex-col sm:items-start md:flex-row md:items-center"
+		class="bg border-red mt-2 flex w-full justify-between sm:flex-col sm:items-start md:flex-row md:items-center"
 	>
 		<p class="flex items-center text-sm text-gray-700 dark:text-gray-300">swyx</p>
 		<p class="min-w-32 flex items-center text-sm text-gray-600 dark:text-gray-400 md:mt-0">
@@ -81,37 +85,37 @@
 
 <style>
 	/* https://ryanmulligan.dev/blog/layout-breakouts/ */
+	.swyxcontent {
+		--gap: clamp(1rem, 6vw, 3rem);
+		--full: minmax(var(--gap), 1fr);
+		/* --content: min(65ch, 100% - var(--gap) * 2); */
+		--content: 65ch;
+		--popout: minmax(0, 2rem);
+		--feature: minmax(0, 5rem);
+
+		display: grid;
+		grid-template-columns:
+			[full-start] var(--full)
+			[feature-start] 0rem
+			[popout-start] 0rem
+			[content-start] var(--content) [content-end]
+			[popout-end] 0rem
+			[feature-end] 0rem
+			var(--full) [full-end];
+	}
+
+	@media (min-width: 768px) {
 		.swyxcontent {
-			--gap: clamp(1rem, 6vw, 3rem);
-			--full: minmax(var(--gap), 1fr);
-			/* --content: min(65ch, 100% - var(--gap) * 2); */
-			--content: 65ch;
-			--popout: minmax(0, 2rem);
-			--feature: minmax(0, 5rem);
-
-			display: grid;
-			grid-template-columns: 
+			grid-template-columns:
 				[full-start] var(--full)
-				[feature-start] 0rem
-				[popout-start] 0rem
+				[feature-start] var(--feature)
+				[popout-start] var(--popout)
 				[content-start] var(--content) [content-end]
-				[popout-end] 0rem
-				[feature-end] 0rem
-				var(--full) [full-end]
+				var(--popout) [popout-end]
+				var(--feature) [feature-end]
+				var(--full) [full-end];
 		}
-
-		@media (min-width: 768px) {
-			.swyxcontent {
-				grid-template-columns:
-					[full-start] var(--full)
-					[feature-start] var(--feature)
-					[popout-start] var(--popout)
-					[content-start] var(--content) [content-end]
-					var(--popout) [popout-end]
-					var(--feature) [feature-end]
-					var(--full) [full-end];
-			}
-		}
+	}
 
 	:global(.swyxcontent > *) {
 		grid-column: content;
@@ -135,6 +139,6 @@
 	}
 
 	article :global(.admonition) {
-		@apply p-8 border-4 border-red-500;
+		@apply border-4 border-red-500 p-8;
 	}
 </style>

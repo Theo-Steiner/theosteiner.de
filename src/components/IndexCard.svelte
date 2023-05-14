@@ -10,19 +10,19 @@
 	export let stringData = 'no date';
 </script>
 
-<a
-	class="w-full text-gray-900 hover:text-yellow-600 dark:text-gray-100 dark:hover:text-yellow-100"
-	{href}
-	><div class="w-full mb-8">
+<a class="w-full text-gray-800 dark:text-gray-200" {href}
+	><div class="mb-8 w-full">
 		<div class="flex flex-col justify-between md:flex-row">
-			<h4 class="flex-auto w-full mb-2 text-lg font-medium md:text-xl">
+			<h4 class="mb-2 w-full flex-auto text-lg font-medium md:text-xl">
 				{title}
 			</h4>
 		</div>
-		<p class="text-gray-600 break-all sm:break-words dark:text-gray-400">
+		<p class="break-all text-gray-600 dark:text-gray-400 sm:break-words">
 			<slot />
 		</p>
-		<div class="flex justify-between gap-1 text-left text-gray-500 sm:justify-start sm:flex-row sm:gap-4 md:mb-0 md:text-sm">
+		<div
+			class="flex justify-between gap-1 text-left text-gray-500 sm:flex-row sm:justify-start sm:gap-4 md:mb-0 md:text-sm"
+		>
 			<!-- {JSON.stringify(item.readingTime)} -->
 			<p>{stringData}</p>
 			{#if item?.readingTime}

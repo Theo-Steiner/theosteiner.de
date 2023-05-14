@@ -69,7 +69,7 @@
 <svelte:window on:keyup={focusSearch} />
 
 <section class="mx-auto mb-16 flex max-w-2xl flex-col items-start justify-center px-4 sm:px-8">
-	<h1 class="mb-4 text-3xl font-bold tracking-tight text-black dark:text-white md:text-5xl">
+	<h1 class="text-dark-900 mb-4 text-3xl font-bold tracking-tight dark:text-yellow-400 md:text-5xl">
 		Blog
 	</h1>
 	<p class="mb-4 text-gray-600 dark:text-gray-400">
@@ -123,7 +123,9 @@
 	</div>
 
 	{#if !search}
-		<h3 class="mt-8 mb-4 text-2xl font-bold tracking-tight text-black dark:text-white md:text-4xl">
+		<h3
+			class="text-dark-900 mt-8 mb-4 text-2xl font-bold tracking-tight dark:text-yellow-400 md:text-4xl"
+		>
 			Most Popular
 		</h3>
 		<IndexCard href="/foo" title="Hardcoded Blogpost # 1" stringData="106,255 views">
@@ -136,7 +138,9 @@
 			Just a hardcorded blogpost or you can use the metadata up to you
 		</IndexCard>
 
-		<h3 class="mt-8 mb-4 text-2xl font-bold tracking-tight text-black dark:text-white md:text-4xl">
+		<h3
+			class="text-dark-900 mt-8 mb-4 text-2xl font-bold tracking-tight dark:text-yellow-400 md:text-4xl"
+		>
 			All Posts
 		</h3>
 	{/if}
@@ -161,7 +165,7 @@
 			<div class="flex justify-center">
 				<button
 					on:click={() => (isTruncated = false)}
-					class="inline-block rounded bg-blue-100 p-4 text-lg font-bold tracking-tight text-black hover:text-yellow-900 dark:bg-blue-900 dark:text-white hover:dark:text-yellow-200 md:text-2xl"
+					class="inline-block rounded bg-blue-100 p-4 text-lg font-bold tracking-tight text-gray-900 hover:text-yellow-900 dark:bg-blue-900 dark:text-yellow-400 hover:dark:text-yellow-200 md:text-2xl"
 				>
 					Load More Posts...
 				</button>

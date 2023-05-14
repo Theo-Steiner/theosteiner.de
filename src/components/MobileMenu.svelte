@@ -1,6 +1,7 @@
-<script>
+<script lang="ts">
+	import Logo from './Logo.svelte';
 	let isOpen = false;
-	let isMenuRendered;
+	let isMenuRendered: boolean;
 	$: {
 		if (isOpen) {
 			setTimeout(() => {
@@ -60,55 +61,49 @@
 	</button>
 	{#if isOpen}
 		<ul
-			class="menu absolute flex flex-col bg-gray-50 text-2xl  uppercase dark:bg-gray-900"
+			class="menu absolute flex flex-col bg-yellow-400 text-2xl uppercase dark:bg-gray-900"
 			class:menuRendered={isMenuRendered}
 		>
 			<li
-				class="border-b border-gray-300 font-semibold text-gray-900 dark:border-gray-700 dark:text-gray-100"
+				class="font-semibold dark:border-gray-700 dark:text-gray-100"
 				style="transition-delay: 150ms;"
 			>
 				<a
-					class="flex w-auto pb-4"
+					class="flex w-auto pb-4 text-gray-900"
 					on:click={() => setTimeout(() => (isOpen = false), 300)}
-					href="/">Home</a
+					href="/"><Logo /></a
 				>
 			</li>
 			<li
-				class="border-b border-gray-300 font-semibold text-gray-900 dark:border-gray-700 dark:text-gray-100"
+				class="font-semibold dark:border-gray-700 dark:text-gray-100"
 				style="transition-delay: 250ms;"
 			>
 				<a
-					class="flex w-auto pb-4"
+					class="flex w-auto pb-4 text-gray-900"
 					on:click={() => setTimeout(() => (isOpen = false), 300)}
 					href="/blog">Blog</a
 				>
 			</li>
 			<li
-				class="border-b border-gray-300 font-semibold text-gray-900 dark:border-gray-700 dark:text-gray-100"
+				class="font-semibold dark:border-gray-700 dark:text-gray-100"
 				style="transition-delay: 350ms;"
 			>
 				<a
-					class="flex w-auto pb-4"
+					class="flex w-auto pb-4 text-gray-900"
 					on:click={() => setTimeout(() => (isOpen = false), 300)}
 					href="/about">About</a
 				>
 			</li>
 			<li
-				class="border-b border-gray-300 font-semibold text-gray-900 dark:border-gray-700 dark:text-gray-100"
+				class="font-semibold dark:border-gray-700 dark:text-gray-100"
 				style="transition-delay: 400ms;"
 			>
 				<a
-					class="flex w-auto pb-4"
+					class="flex w-auto pb-4 text-gray-900"
 					on:click={() => setTimeout(() => (isOpen = false), 300)}
-					href="https://github.com/sw-yx/swyxkit">GitHub</a
+					href="https://github.com/Theo-Steiner">GitHub</a
 				>
 			</li>
-			<!-- <li
-			class="border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 font-semibold"
-			style="transition-delay: 325ms;"
-		>
-			<a class="flex w-auto pb-4" on:click={() => setTimeout(() => isOpen = false, 200)} href="/tweets">Tweets</a>
-		</li> -->
 		</ul>
 	{/if}
 </div>

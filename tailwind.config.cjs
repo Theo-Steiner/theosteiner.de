@@ -8,6 +8,14 @@ module.exports = {
 	darkMode: 'class',
 	theme: {
 		extend: {
+			colors: {
+				'logo-red': '#E1000D'
+			},
+			backgroundImage: {
+				clouds: "url('/img/clouds.svg')",
+				circuit: "url('/img/circuit.svg')",
+				topography: "url('/img/topography.svg')"
+			},
 			typography: (theme) => ({
 				DEFAULT: {
 					css: {
@@ -25,7 +33,6 @@ module.exports = {
 						'blockquote p:last-of-type::after': {
 							content: ''
 						},
-
 						'code::before': false,
 						'code::after': false,
 						code: {
@@ -35,15 +42,14 @@ module.exports = {
 							borderColor: 'rgba(0,0,0,0.1)'
 						},
 						pre: {
-							'border-radius': '0rem',
-						},
-						'a:hover': {
-							color: '#31cdce !important',
-							textDecoration: 'underline !important'
+							'border-radius': '0rem'
 						},
 						a: {
-							color: '#3182ce',
-							textDecoration: 'none'
+							color: theme('colors.gray[900]'),
+							textDecoration: 'underline',
+							'&:hover': {
+								color: theme('colors[logo-red]')
+							}
 						},
 						'a code': {
 							color: 'unset'
@@ -70,7 +76,5 @@ module.exports = {
 		}
 	},
 	variants: {},
-	plugins: [
-		require('@tailwindcss/typography')
-	]
+	plugins: [require('@tailwindcss/typography')]
 };
