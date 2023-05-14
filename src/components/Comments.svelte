@@ -9,20 +9,28 @@
 	import Comment from './Comment.svelte';
 </script>
 
-<div class="prose mb-8 w-full dark:prose-invert">
-	{#each data as comment}
-		<Comment {comment} />
-	{/each}
-</div>
-<a
-	href={`${ghMetadata.issueUrl}#issuecomment-new`}
-	rel="external"
-	target="_blank"
-	class="flex justify-center border-y border-blue-700 p-4 no-underline hover:text-yellow-700 dark:hover:text-yellow-200 sm:inline sm:rounded-xl sm:border-x"
->
-	Leave a new comment!
-</a>
+{@html `<script
+			src="https://utteranc.es/client.js"
+			repo="Theo-Steiner/theosteiner.de"
+			issue-term="title"
+			theme="github-dark"
+			crossorigin="anonymous"
+			async
+		 ✂prettier:content✂="" ✂prettier:content✂="e30=" ✂prettier:content✂="e30=" ✂prettier:content✂="e30=">{}</script>`}
 
+<!-- <div class="prose mb-8 w-full dark:prose-invert"> -->
+<!-- 	{#each data as comment} -->
+<!-- 		<Comment {comment} /> -->
+<!-- 	{/each} -->
+<!-- </div> -->
+<!-- <a -->
+<!-- 	href={`${ghMetadata.issueUrl}#issuecomment-new`} -->
+<!-- 	rel="external" -->
+<!-- 	target="_blank" -->
+<!-- 	class="flex justify-center p-4 no-underline hover:text-yellow-700 dark:hover:text-yellow-200 sm:inline sm:rounded-xl" -->
+<!-- > -->
+<!-- 	Leave a new comment! -->
+<!-- </a> -->
 <!-- <pre class="prose dark:prose-invert">
   {JSON.stringify(data, null, 2)}
 </pre> -->

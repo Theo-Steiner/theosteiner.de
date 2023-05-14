@@ -13,7 +13,7 @@
 <a class="w-full text-gray-800 dark:text-gray-200" {href}
 	><div class="mb-8 w-full">
 		<div class="flex flex-col justify-between md:flex-row">
-			<h4 class="mb-2 w-full flex-auto text-lg font-medium md:text-xl">
+			<h4 class="mb-2 w-full flex-auto text-xl font-semibold md:text-xl">
 				{title}
 			</h4>
 		</div>
