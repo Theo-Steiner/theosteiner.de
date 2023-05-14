@@ -1,14 +1,14 @@
 <script>
 	import { MY_TWITTER_HANDLE, SITE_URL } from '$lib/siteConfig';
-	import Comments from '../../components/Comments.svelte';
 
 	import 'prism-themes/themes/prism-shades-of-purple.min.css';
-	import Newsletter from '../../components/Newsletter.svelte';
 	import Reactions from '../../components/Reactions.svelte';
 	import { page } from '$app/stores';
+	import utterances, { injectScript } from '$lib/utterances';
 
 	/** @type {import('./$types').PageData} */
 	export let data;
+	let commentsEl;
 
 	/** @type {import('$lib/types').ContentItem} */
 	$: json = data.json; // warning: if you try to destructure content here, make sure to make it reactive, or your page content will not update when your user navigates
@@ -66,7 +66,7 @@
 	</div> -->
 </article>
 <div>
-	<div class="prose flex flex-col gap-2 p-4 text-center dark:prose-invert">
+	<div class="align-center prose flex flex-col gap-2 p-4 text-center dark:prose-invert">
 		{#if json.ghMetadata.reactions.total_count > 0}
 			Reactions: <Reactions
 				issueUrl={json.ghMetadata.issueUrl}
@@ -76,7 +76,20 @@
 			<a href={json.ghMetadata.issueUrl}>Leave a reaction </a>
 			if you liked this post! 🧡
 		{/if}
-		<Comments ghMetadata={json.ghMetadata} />
+		<div
+			class="mb-8 text-black dark:text-white "
+			bind:this={commentsEl}
+			use:utterances={{ number: json?.ghMetadata?.issueUrl?.split('/')?.pop() }}
+		>
+			Loading comments...
+			<!-- svelte-ignore a11y-mouse-events-have-key-events -->
+			<button
+				class="my-4 rounded-lg bg-blue-200 p-2 text-black hover:bg-blue-100"
+				on:click={() => injectScript(commentsEl, issueNumber)}
+				on:mouseover={() => injectScript(commentsEl, issueNumber)}>Load now</button
+			>
+			<!-- <Comments ghMetadata={json.ghMetadata} /> -->
+		</div>
 	</div>
 </div>
 
