@@ -2,7 +2,7 @@
 	import { page } from '$app/stores';
 	import '../tailwind.css';
 	import Nav from '../components/Nav.svelte';
-	import { MY_TWITTER_HANDLE, MY_YOUTUBE, REPO_URL, SITE_TITLE } from '$lib/siteConfig';
+	import { MY_TWITTER_HANDLE, REPO_URL, SITE_TITLE } from '$lib/siteConfig';
 </script>
 
 <svelte:head>

@@ -18,8 +18,7 @@
 
 <svelte:head>
 	<title>{json.title}</title>
-	<meta name="description" content="swyxkit blog" />
-
+	<meta name="description" content={json.frontmatter.description} />
 	<link rel="canonical" href={canonical} />
 	<meta property="og:url" content={canonical} />
 	<meta property="og:type" content="article" />
@@ -47,7 +46,9 @@
 	<div
 		class="bg border-red mt-2 flex w-full justify-between sm:flex-col sm:items-start md:flex-row md:items-center"
 	>
-		<p class="flex items-center text-sm text-gray-700 dark:text-gray-300">swyx</p>
+		<a href="/about" class="flex items-center text-sm text-gray-700 dark:text-gray-300"
+			>Theo-Steiner</a
+		>
 		<p class="min-w-32 flex items-center text-sm text-gray-600 dark:text-gray-400 md:mt-0">
 			<a href={json.ghMetadata.issueUrl} rel="external" class="no-underline" target="_blank">
 				<span class="mr-4 font-mono text-xs text-gray-700 text-opacity-70 dark:text-gray-300"
@@ -58,7 +59,7 @@
 		</p>
 	</div>
 	<div
-		class="-mx-4 my-2 flex h-1 w-[100vw] bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 sm:mx-0 sm:w-full"
+		class="-mx-4 my-2 flex h-1 w-[100vw] bg-gradient-to-r from-yellow-400 via-logo-red to-gray-400/50 sm:mx-0 sm:w-full"
 	/>
 	{@html json.content}
 	<!-- <div class="swyxcontent prose mt-16 mb-32 w-full max-w-none flex-row dark:prose-invert">
@@ -79,8 +80,6 @@
 	<div class="mb-8">
 		<Comments ghMetadata={json.ghMetadata} />
 	</div>
-
-	<Newsletter />
 </div>
 
 <style>
