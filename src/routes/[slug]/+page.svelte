@@ -65,8 +65,8 @@
 	<!-- <div class="swyxcontent prose mt-16 mb-32 w-full max-w-none flex-row dark:prose-invert">
 	</div> -->
 </article>
-<div class="mx-auto max-w-2xl">
-	<div class="prose mb-12 border-t border-b border-blue-800 p-4 dark:prose-invert">
+<div>
+	<div class="prose flex flex-col gap-2 p-4 text-center dark:prose-invert">
 		{#if json.ghMetadata.reactions.total_count > 0}
 			Reactions: <Reactions
 				issueUrl={json.ghMetadata.issueUrl}
@@ -76,8 +76,6 @@
 			<a href={json.ghMetadata.issueUrl}>Leave a reaction </a>
 			if you liked this post! 🧡
 		{/if}
-	</div>
-	<div class="mb-8">
 		<Comments ghMetadata={json.ghMetadata} />
 	</div>
 </div>
