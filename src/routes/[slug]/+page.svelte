@@ -14,6 +14,7 @@
 	$: json = data.json; // warning: if you try to destructure content here, make sure to make it reactive, or your page content will not update when your user navigates
 
 	$: canonical = SITE_URL + $page.url.pathname;
+	$: issueNumber = json?.ghMetadata?.issueUrl?.split('/')?.pop();
 </script>
 
 <svelte:head>
@@ -66,7 +67,7 @@
 	</div> -->
 </article>
 <div>
-	<div class="align-center prose flex flex-col gap-2 p-4 text-center dark:prose-invert">
+	<div class="align-center prose flex max-w-none flex-col gap-2 p-4 text-center dark:prose-invert">
 		{#if json.ghMetadata.reactions.total_count > 0}
 			Reactions: <Reactions
 				issueUrl={json.ghMetadata.issueUrl}
@@ -76,20 +77,22 @@
 			<a href={json.ghMetadata.issueUrl}>Leave a reaction </a>
 			if you liked this post! 🧡
 		{/if}
-		<div
-			class="mb-8 text-black dark:text-white "
-			bind:this={commentsEl}
-			use:utterances={{ number: json?.ghMetadata?.issueUrl?.split('/')?.pop() }}
-		>
-			Loading comments...
-			<!-- svelte-ignore a11y-mouse-events-have-key-events -->
-			<button
-				class="my-4 rounded-lg bg-blue-200 p-2 text-black hover:bg-blue-100"
-				on:click={() => injectScript(commentsEl, issueNumber)}
-				on:mouseover={() => injectScript(commentsEl, issueNumber)}>Load now</button
+		{#if issueNumber}
+			<div
+				class="mb-8 text-black dark:text-white "
+				bind:this={commentsEl}
+				use:utterances={{ number: issueNumber }}
 			>
-			<!-- <Comments ghMetadata={json.ghMetadata} /> -->
-		</div>
+				Loading comments...
+				<!-- svelte-ignore a11y-mouse-events-have-key-events -->
+				<button
+					class="my-4 rounded-lg bg-blue-200 p-2 text-black hover:bg-blue-100"
+					on:click={() => injectScript(commentsEl, issueNumber)}
+					on:mouseover={() => injectScript(commentsEl, issueNumber)}>Load now</button
+				>
+				<!-- <Comments ghMetadata={json.ghMetadata} /> -->
+			</div>
+		{/if}
 	</div>
 </div>
 
