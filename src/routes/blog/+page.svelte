@@ -40,7 +40,10 @@
 		})
 		.filter((item) => {
 			if ($search) {
-				return item.title.toLowerCase().includes($search.toLowerCase());
+				const searchSummary = `${item.title.toLowerCase()} ${item.description} ${item.tags.concat(
+					' '
+				)}`;
+				return searchSummary.includes($search.toLowerCase());
 			}
 			return true;
 		})
