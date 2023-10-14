@@ -1,5 +1,5 @@
 <script>
-	import { MY_TWITTER_HANDLE, SITE_URL } from '$lib/siteConfig';
+	import { DEFAULT_OG_IMAGE, MY_TWITTER_HANDLE, SITE_URL } from '$lib/siteConfig';
 
 	import 'prism-themes/themes/prism-shades-of-purple.min.css';
 	import Reactions from '../../components/Reactions.svelte';
@@ -26,14 +26,12 @@
 	<meta property="og:title" content={json.title} />
 	<meta name="Description" content={json.description} />
 	<meta property="og:description" content={json.description} />
-	<meta name="twitter:card" content={json.image ? 'summary_large_image' : 'summary'} />
+	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:creator" content={'@' + MY_TWITTER_HANDLE} />
 	<meta name="twitter:title" content={json.title} />
 	<meta name="twitter:description" content={json.description} />
-	{#if json.image}
-		<meta property="og:image" content={json.image} />
-		<meta name="twitter:image" content={json.image} />
-	{/if}
+	<meta property="og:image" content={json.image || DEFAULT_OG_IMAGE} />
+	<meta name="twitter:image" content={json.image || DEFAULT_OG_IMAGE} />
 </svelte:head>
 
 <article
