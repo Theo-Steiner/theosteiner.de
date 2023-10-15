@@ -32,7 +32,7 @@
 >
 	<p>Hey, nice to meet you!</p>
 	<p>My name is</p>
-	<a href="/about"><Logo /></a>
+	<a href="/about"><span class="hidden">theosteiner</span><Logo /></a>
 	<p>and on here I write about</p>
 </header>
 <div class="mb-6 flex flex-col gap-6 md:flex-row">
