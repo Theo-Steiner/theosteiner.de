@@ -1,3 +1,6 @@
+If you're just here to get my socials, here ya go: 
+[GitHub](https://github.com/theo-steiner), [twitter](https://twitter.com/_TheoSteiner), [linkedin](https://www.linkedin.com/in/theodor-steiner-b3aa8113b?trk=contact-info)
+
 ## Hey there! 
 My name is Theo Steiner and I'm a Software Engineer working for `LINE Corporation` in beautiful Tokyo, Japan.<br/>
 When it comes to coding, I'm a big proponent of TDD: *tummy-driven-development*.
