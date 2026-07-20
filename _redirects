@@ -1,0 +1,7 @@
+# old swyxkit-era RSS locations
+/api/rss.xml /rss.xml 301
+/feed /rss.xml 301
+/rss /rss.xml 301
+
+# the old blog index
+/blog /contents 301

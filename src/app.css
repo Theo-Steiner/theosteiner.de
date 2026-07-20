@@ -1,0 +1,186 @@
+/* open-props scales used throughout the components */
+@import 'open-props/sizes';
+@import 'open-props/easings';
+@import 'open-props/borders';
+@import 'open-props/fonts';
+
+/* ==========================================================================
+   theosteiner.de — "Highlighter" theme
+   Quiet cream/near-black pages; yellow only as a marker-pen accent, red in
+   tiny doses. Instrument Sans for UI, Newsreader italic for emphasis,
+   Geist Mono for everything computery.
+   ========================================================================== */
+
+:root {
+	/* brand */
+	--yellow: #facc15;
+	--red: #e1000d;
+
+	/* surfaces & ink */
+	--bg: #fcfcfa;
+	--ink: #21201c;
+	--muted: #57544b;
+	--soft: #8a877e;
+	--faint: #a5a299;
+	--ghost: #c9c6bc;
+	--hair: #ebe9e3;
+	--codebg: #f3f1ea;
+	--pre-bg: #1b1a17;
+	--wash: rgba(250, 204, 21, 0.16);
+	--mark: rgba(250, 204, 21, 0.55);
+
+	/* type */
+	--font-sans: 'Instrument Sans Variable', var(--font-humanist);
+	--font-serif: 'Newsreader Variable', var(--font-old-style);
+	--font-mono: 'Geist Mono Variable', var(--font-monospace-code);
+
+	/* motion (design-specific springs; open-props easings for the rest) */
+	--ease-pop: cubic-bezier(0.3, 1.4, 0.4, 1);
+	--ease-slide: cubic-bezier(0.2, 0.7, 0.2, 1);
+
+	color-scheme: light;
+	accent-color: var(--yellow);
+}
+
+html.dark {
+	--bg: #181712;
+	--ink: #e8e6e1;
+	--muted: #b5b2a8;
+	--soft: #93907f;
+	--faint: #807d73;
+	--ghost: #4d4a42;
+	--hair: #2d2b24;
+	--codebg: #2a2820;
+	--wash: rgba(250, 204, 21, 0.1);
+	--mark: rgba(250, 204, 21, 0.3);
+
+	color-scheme: dark;
+}
+
+html {
+	scrollbar-gutter: stable;
+}
+
+body {
+	margin: 0;
+	background: var(--bg);
+	color: var(--ink);
+	font-family: var(--font-sans);
+	-webkit-font-smoothing: antialiased;
+	overflow-wrap: break-word;
+}
+
+::selection {
+	background: var(--yellow);
+	color: #21201c;
+}
+
+:focus-visible {
+	outline: 2px solid var(--yellow);
+	outline-offset: 2px;
+}
+
+/* --- the centered reading column every page uses --------------------- */
+.page {
+	max-width: 620px;
+	margin: 0 auto;
+	padding: 56px 24px 64px;
+	box-sizing: border-box;
+	min-height: 100dvh;
+	display: flex;
+	flex-direction: column;
+}
+
+.page > main {
+	flex: 1;
+}
+
+/* --- link treatments -------------------------------------------------- */
+
+/* nav & "everything →" links: yellow marker underline grows on hover */
+.link-marker {
+	color: var(--soft);
+	text-decoration: none;
+	background-image: linear-gradient(var(--yellow), var(--yellow));
+	background-repeat: no-repeat;
+	background-position: 0 100%;
+	background-size: 0% 6px;
+	transition:
+		background-size 0.25s,
+		color 0.2s;
+	padding-bottom: 1px;
+}
+.link-marker:hover,
+.link-marker[aria-current='page'] {
+	background-size: 100% 6px;
+	color: var(--ink);
+}
+
+/* inline prose links: hairline underline that inks up on hover */
+.link-inline {
+	color: var(--ink);
+	text-decoration: none;
+	background-image: linear-gradient(var(--ghost), var(--ghost));
+	background-repeat: no-repeat;
+	background-position: 0 100%;
+	background-size: 100% 1px;
+}
+.link-inline:hover {
+	background-image: linear-gradient(var(--ink), var(--ink));
+}
+
+/* mono meta links (footer, ← everything) */
+.link-mono {
+	font-family: var(--font-mono);
+	font-size: 12px;
+	color: var(--faint);
+	text-decoration: none;
+	transition: color 0.2s;
+}
+.link-mono:hover {
+	color: var(--ink);
+}
+
+/* --- text helpers ------------------------------------------------------ */
+
+/* the marker-pen highlight */
+.mark {
+	background-image: linear-gradient(var(--mark), var(--mark));
+	background-repeat: no-repeat;
+	background-position: 0 88%;
+	background-size: 100% 38%;
+	padding: 0 2px;
+}
+
+/* serif italic emphasis */
+.serif {
+	font-family: var(--font-serif);
+	font-style: italic;
+	font-size: 1.06em;
+	color: var(--ink);
+}
+
+/* section kicker: LATELY 最近 */
+.kicker {
+	display: flex;
+	align-items: baseline;
+	gap: 10px;
+}
+.kicker h2,
+.kicker .kicker-label {
+	margin: 0;
+	font-size: 12px;
+	font-weight: 600;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--faint);
+}
+.kicker .kicker-ja {
+	font-family: var(--font-mono);
+	font-size: 11px;
+	color: var(--ghost);
+}
+
+.mono {
+	font-family: var(--font-mono);
+}

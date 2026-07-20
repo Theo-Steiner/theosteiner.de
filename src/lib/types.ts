@@ -1,0 +1,71 @@
+export interface PostMeta {
+	title: string;
+	date: string;
+	description?: string;
+	tags?: string[];
+	image?: string;
+	canonical?: string;
+	/** total GitHub reaction count, frozen at migration time */
+	reactions?: number;
+	/** the archived swyxkit GitHub issue this post was migrated from */
+	githubIssue?: string;
+}
+
+export interface Talk {
+	title: string;
+	date: string;
+	description?: string;
+	/** conference / meetup name */
+	event: string;
+	location?: string;
+	duration?: string;
+	/** recording or slides */
+	href: string;
+}
+
+export interface PodcastAppearance {
+	title: string;
+	date: string;
+	/** episode page */
+	href: string;
+	/** direct audio file, enables the inline player */
+	audioSrc?: string;
+}
+
+export interface BlueskyStatus {
+	text: string;
+	date: string;
+	href: string;
+	likes?: number;
+	reposts?: number;
+}
+
+export type FeedType = 'blog' | 'talk' | 'podcast' | 'bluesky';
+
+export interface FeedItem {
+	type: FeedType;
+	date: string;
+	href: string;
+	/** row headline (blog/talk/podcast title, or the status text for bluesky) */
+	text: string;
+	/** bluesky statuses render in serif italic quotes */
+	isStatus: boolean;
+	/** present on podcast rows: enables the inline audio player */
+	audioSrc?: string;
+	/** longer description, shown on detail-ish surfaces */
+	description?: string;
+	/** e.g. "15 minutes · 6 ♥" or "Svelte Summit · 東京 Tokyo" */
+	meta?: string;
+	/** blog posts only: local slug */
+	slug?: string;
+}
+
+export interface ArchivedComment {
+	author: string;
+	avatar: string | null;
+	url: string;
+	profileUrl: string;
+	date: string;
+	body: string;
+	reactions: number;
+}
