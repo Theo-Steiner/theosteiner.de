@@ -2,7 +2,8 @@ import { marked } from 'marked';
 import { talks } from '../../content/talks';
 import { podcasts } from '../../content/podcasts';
 import { statuses } from '../../content/statuses';
-import type { ArchivedComment, FeedItem, PostMeta } from '$lib/types';
+import { slugify } from '$lib/slug';
+import type { ArchivedComment, FeedItem, PodcastAppearance, PostMeta, Talk } from '$lib/types';
 
 const metadataModules = import.meta.glob<PostMeta>('/src/content/posts/*.md', {
 	eager: true,
@@ -43,6 +44,24 @@ export const posts: Post[] = Object.entries(metadataModules)
 	}))
 	.sort((a, b) => Date.parse(b.date) - Date.parse(a.date));
 
+export interface TalkEntry extends Talk {
+	slug: string;
+}
+
+export interface PodcastEntry extends PodcastAppearance {
+	slug: string;
+}
+
+export const talkEntries: TalkEntry[] = talks.map((talk) => ({
+	...talk,
+	slug: talk.slug ?? slugify(talk.title)
+}));
+
+export const podcastEntries: PodcastEntry[] = podcasts.map((podcast) => ({
+	...podcast,
+	slug: podcast.slug ?? slugify(podcast.title)
+}));
+
 export function commentsFor(slug: string): ArchivedComment[] {
 	const comments = commentModules[`/src/content/comments/${slug}.json`] ?? [];
 	// GitHub comments treat single newlines as breaks, like the web UI does
@@ -68,19 +87,21 @@ export function buildFeed(): FeedItem[] {
 				.filter(Boolean)
 				.join(mid)
 		})),
-		...talks.map((talk) => ({
+		...talkEntries.map((talk) => ({
 			type: 'talk' as const,
 			date: talk.date,
-			href: talk.href,
+			href: `/talks/${talk.slug}`,
+			slug: talk.slug,
 			text: talk.title,
 			isStatus: false,
 			description: talk.description,
 			meta: [talk.event, talk.location, talk.duration].filter(Boolean).join(mid)
 		})),
-		...podcasts.map((podcast) => ({
+		...podcastEntries.map((podcast) => ({
 			type: 'podcast' as const,
 			date: podcast.date,
-			href: podcast.href,
+			href: `/podcasts/${podcast.slug}`,
+			slug: podcast.slug,
 			text: podcast.title,
 			isStatus: false,
 			audioSrc: podcast.audioSrc

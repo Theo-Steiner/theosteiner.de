@@ -10,7 +10,8 @@
 		"prepare": "svelte-kit sync || echo ''",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-		"migrate": "node scripts/migrate-from-github.mjs"
+		"migrate": "node scripts/migrate-from-github.mjs",
+		"import:podcasts": "node scripts/import-podcasts.mjs"
 	},
 	"devDependencies": {
 		"@fontsource-variable/geist-mono": "^5.3.0",

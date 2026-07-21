@@ -1,85 +1,21 @@
 <script lang="ts">
 	import type { FeedItem } from '$lib/types';
+	import { PodcastPlayerState, formatPlaybackTime } from '$lib/podcast-player.svelte';
 
 	let { item, date }: { item: FeedItem; date: string } = $props();
 
-	let audio: HTMLAudioElement | undefined = $state();
-	let playing = $state(false);
-	let started = $state(false);
-	let current = $state(0);
-	let duration = $state(0);
-
-	const storageKey = $derived(`theo-podcast-pos:${item.audioSrc ?? ''}`);
-	const progress = $derived(duration ? (current / duration) * 100 : 0);
-
-	function fmt(t: number) {
-		if (!t || !isFinite(t)) return '0:00';
-		const m = Math.floor(t / 60);
-		const s = Math.floor(t % 60);
-		return `${m}:${s < 10 ? '0' : ''}${s}`;
-	}
-
-	function toggle() {
-		if (!audio) return;
-		if (audio.paused) {
-			audio.play();
-			playing = true;
-			started = true;
-		} else {
-			audio.pause();
-			playing = false;
-		}
-	}
-
-	function seek(event: MouseEvent) {
-		if (!audio || !duration) return;
-		const rect = (event.currentTarget as HTMLElement).getBoundingClientRect();
-		const ratio = Math.min(1, Math.max(0, (event.clientX - rect.left) / rect.width));
-		audio.currentTime = ratio * duration;
-		current = audio.currentTime;
-	}
-
-	function onTime() {
-		if (!audio) return;
-		current = audio.currentTime;
-		try {
-			localStorage.setItem(storageKey, String(current));
-		} catch {}
-	}
-
-	function onMeta() {
-		if (!audio) return;
-		duration = audio.duration;
-		let saved = 0;
-		try {
-			saved = parseFloat(localStorage.getItem(storageKey) ?? '') || 0;
-		} catch {}
-		// resume where the listener left off, unless they basically finished
-		if (saved > 1 && saved < duration - 2) {
-			audio.currentTime = saved;
-			current = saved;
-			started = true;
-		}
-	}
-
-	function onEnded() {
-		try {
-			localStorage.removeItem(storageKey);
-		} catch {}
-		playing = false;
-		current = 0;
-	}
+	const player = new PodcastPlayerState(item.audioSrc ?? '');
 </script>
 
 <div class="row">
 	<button
 		type="button"
 		class="play"
-		onclick={toggle}
-		aria-label={playing ? 'Pause' : 'Play'}
+		onclick={player.toggle}
+		aria-label={player.playing ? 'Pause' : 'Play'}
 		disabled={!item.audioSrc}
 	>
-		{#if playing}
+		{#if player.playing}
 			<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
 				<rect x="6" y="5" width="4" height="14" rx="1" />
 				<rect x="14" y="5" width="4" height="14" rx="1" />
@@ -91,15 +27,26 @@
 		{/if}
 	</button>
 	<div class="body">
-		<a href={item.href} class="title">{item.text}</a>
-		{#if started}
+		<a
+			href={item.href}
+			class="title"
+			style:view-transition-name={item.slug ? `podcast-${item.slug}` : undefined}>{item.text}</a
+		>
+		{#if player.started}
 			<div class="scrubber">
-				<span class="time">{fmt(current)}</span>
+				<span class="time">{formatPlaybackTime(player.current)}</span>
 				<!-- svelte-ignore a11y_click_events_have_key_events, a11y_no_static_element_interactions -->
-				<div class="track" onclick={seek} role="slider" aria-label="Seek" aria-valuenow={progress} tabindex="-1">
-					<div class="fill" style:width="{progress}%"></div>
+				<div
+					class="track"
+					onclick={player.seek}
+					role="slider"
+					aria-label="Seek"
+					aria-valuenow={player.progress}
+					tabindex="-1"
+				>
+					<div class="fill" style:width="{player.progress}%"></div>
 				</div>
-				<span class="time right">{fmt(duration)}</span>
+				<span class="time right">{formatPlaybackTime(player.duration)}</span>
 			</div>
 		{/if}
 	</div>
@@ -107,12 +54,12 @@
 	<span class="date">{date}</span>
 	{#if item.audioSrc}
 		<audio
-			bind:this={audio}
+			bind:this={player.audio}
 			src={item.audioSrc}
-			preload="metadata"
-			ontimeupdate={onTime}
-			onloadedmetadata={onMeta}
-			onended={onEnded}
+			preload="none"
+			ontimeupdate={player.onTime}
+			onloadedmetadata={player.onMeta}
+			onended={player.onEnded}
 		></audio>
 	{/if}
 </div>

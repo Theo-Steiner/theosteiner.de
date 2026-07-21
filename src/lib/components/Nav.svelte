@@ -37,6 +37,7 @@
 		color: var(--ink);
 		display: block;
 		transition: transform 0.3s var(--ease-pop);
+		view-transition-name: logo;
 	}
 	.logo:hover {
 		transform: rotate(-2deg) scale(1.04);

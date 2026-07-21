@@ -26,7 +26,7 @@
 
 <header>
 	<a href="/contents" class="back">&larr; everything</a>
-	<h1>{meta.title}</h1>
+	<h1 style:view-transition-name={`post-${data.slug}`}>{meta.title}</h1>
 	<div class="meta">
 		<span>{longDate(meta.date)}</span>
 		<span>{data.readingTime}</span>

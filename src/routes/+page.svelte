@@ -5,7 +5,14 @@
 	import FeedList from '$lib/components/FeedList.svelte';
 
 	// async Svelte: awaited straight in the component, resolved at prerender time
-	const items = $derived((await getFeed()).slice(0, 6));
+	const feed = $derived(await getFeed());
+
+	// newest first, but cap each type at 2 so a run of podcast episodes
+	// doesn't crowd everything else out of "Lately"
+	const items = $derived.by(() => {
+		const perType: Record<string, number> = {};
+		return feed.filter((item) => (perType[item.type] = (perType[item.type] ?? 0) + 1) <= 2).slice(0, 6);
+	});
 </script>
 
 <svelte:head>
@@ -42,7 +49,7 @@
 		<span class="kicker-ja">最近</span>
 	</div>
 	<div class="feed">
-		<FeedList {items} />
+		<FeedList {items} withYear />
 	</div>
 	<a href="/contents" class="link-marker more">Everything I&rsquo;ve made &rarr;</a>
 </section>
@@ -71,6 +78,7 @@
 		display: inline-flex;
 		transform: translateY(1px);
 		transition: transform 0.3s var(--ease-pop);
+		view-transition-name: logo;
 	}
 	.wordmark:hover {
 		transform: translateY(1px) rotate(-2deg) scale(1.04);

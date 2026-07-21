@@ -8,7 +8,13 @@
 	{#if item.isStatus}
 		<span class="status">&ldquo;{item.text}&rdquo;</span>
 	{:else}
-		<span class="title">{item.text}</span>
+		<!-- titles morph into the detail-page heading via view transitions -->
+		<span
+			class="title"
+			style:view-transition-name={item.slug
+				? `${item.type === 'blog' ? 'post' : item.type}-${item.slug}`
+				: undefined}>{item.text}</span
+		>
 	{/if}
 	<span class="label">{item.type}</span>
 	<span class="date">{date}</span>

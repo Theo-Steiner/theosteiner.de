@@ -1,13 +1,39 @@
 <script lang="ts">
 	import { getFeed } from '$lib/data.remote';
+	import { page } from '$app/state';
+	import { goto } from '$app/navigation';
 	import { SITE_URL } from '$lib/siteConfig';
 	import FeedList from '$lib/components/FeedList.svelte';
-	import type { FeedType } from '$lib/types';
 
 	const feed = $derived(await getFeed());
 
 	const types = ['all', 'blog', 'talk', 'podcast', 'bluesky'] as const;
-	let filter: (typeof types)[number] = $state('all');
+	type Filter = (typeof types)[number];
+
+	function readFilter(): Filter {
+		const type = page.url.searchParams.get('type');
+		return (types as readonly string[]).includes(type ?? '') ? (type as Filter) : 'all';
+	}
+
+	// synced to ?type= so the filter survives a browser-back from a post.
+	// reading the query string is only allowed client-side on a prerendered
+	// page, and /contents isn't remounted when only the query changes (e.g.
+	// on back/forward), so this stays an effect rather than a one-shot read.
+	let filter: Filter = $state('all');
+
+	$effect(() => {
+		filter = readFilter();
+	});
+
+	function setFilter(type: Filter) {
+		const url = new URL(page.url);
+		if (type === 'all') url.searchParams.delete('type');
+		else url.searchParams.set('type', type);
+		// a real (if history-replacing) navigation, not shallow routing —
+		// pushState/replaceState from $app/navigation update the address bar
+		// but deliberately leave `page.url` (and thus back/forward) alone
+		goto(url, { replaceState: true, keepFocus: true, noScroll: true });
+	}
 
 	const items = $derived(feed.filter((item) => filter === 'all' || item.type === filter));
 </script>
@@ -38,7 +64,7 @@
 			type="button"
 			class="chip"
 			class:active={filter === type}
-			onclick={() => (filter = type)}
+			onclick={() => setFilter(type)}
 		>
 			{type}
 		</button>

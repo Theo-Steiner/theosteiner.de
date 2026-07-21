@@ -21,6 +21,8 @@ export interface Talk {
 	duration?: string;
 	/** recording or slides */
 	href: string;
+	/** overrides the auto-generated (slugified-title) detail-page slug */
+	slug?: string;
 }
 
 export interface PodcastAppearance {
@@ -30,6 +32,8 @@ export interface PodcastAppearance {
 	href: string;
 	/** direct audio file, enables the inline player */
 	audioSrc?: string;
+	/** overrides the auto-generated (slugified-title) detail-page slug */
+	slug?: string;
 }
 
 export interface BlueskyStatus {
@@ -56,7 +60,7 @@ export interface FeedItem {
 	description?: string;
 	/** e.g. "15 minutes · 6 ♥" or "Svelte Summit · 東京 Tokyo" */
 	meta?: string;
-	/** blog posts only: local slug */
+	/** local detail-page slug (blog/talk/podcast); absent for bluesky */
 	slug?: string;
 }
 
