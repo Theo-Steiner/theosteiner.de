@@ -10,6 +10,9 @@
 		"prepare": "svelte-kit sync || echo ''",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+		"freeze:comments": "node scripts/freeze-comments.mjs",
+		"test:comments": "node --test scripts/lib/render-comment-html.test.mjs",
+		"migrate:atproto": "node --env-file-if-exists=.env scripts/migrate-to-atproto.mjs",
 		"migrate": "node scripts/migrate-from-github.mjs",
 		"import:podcasts": "node scripts/import-podcasts.mjs"
 	},
@@ -25,10 +28,15 @@
 		"mdsvex": "^0.12.8",
 		"open-props": "^1.7.23",
 		"rehype-slug": "^6.0.0",
+		"sanitize-html": "^2.17.6",
 		"shiki": "^4.3.1",
 		"svelte": "^5.56.1",
 		"svelte-check": "^4.6.0",
 		"typescript": "^6.0.3",
 		"vite": "^8.0.16"
+	},
+	"dependencies": {
+		"@svebcomponents/atproto.comments": "^0.2.0",
+		"@svebcomponents/ssr": "^0.3.1"
 	}
 }

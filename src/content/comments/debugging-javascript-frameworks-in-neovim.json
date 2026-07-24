@@ -5,8 +5,8 @@
 		"url": "https://github.com/Theo-Steiner/theosteiner.de/issues/2#issuecomment-1638013867",
 		"profileUrl": "https://github.com/Hacksore",
 		"date": "2023-07-17T12:17:19Z",
-		"body": "Very nice! \n\nI’ve got a setup that works in neovim but often times if I have to debug I use VSCode 😂",
-		"reactions": 1
+		"reactions": 1,
+		"bodyHtml": "<p>Very nice! </p>\n<p>I’ve got a setup that works in neovim but often times if I have to debug I use VSCode 😂</p>\n"
 	},
 	{
 		"author": "oordnave",
@@ -14,8 +14,8 @@
 		"url": "https://github.com/Theo-Steiner/theosteiner.de/issues/2#issuecomment-1706052511",
 		"profileUrl": "https://github.com/oordnave",
 		"date": "2023-09-05T07:00:53Z",
-		"body": "I've just found your article in Google and I must say - it is so well written and clear, and I really enjoyed putting it all together in my nvim! Thanks!",
-		"reactions": 0
+		"reactions": 0,
+		"bodyHtml": "<p>I've just found your article in Google and I must say - it is so well written and clear, and I really enjoyed putting it all together in my nvim! Thanks!</p>\n"
 	},
 	{
 		"author": "ndom91",
@@ -23,8 +23,8 @@
 		"url": "https://github.com/Theo-Steiner/theosteiner.de/issues/2#issuecomment-1712167123",
 		"profileUrl": "https://github.com/ndom91",
 		"date": "2023-09-08T20:06:13Z",
-		"body": "Came here to say thanks a lot for this, was struggling getting this setup as well. Also wanted to mention this great additional plugin that puts the value of variables into virtual text when stopped at a breakpoint. i.e.\n\n![image](https://github.com/Theo-Steiner/theosteiner.de/assets/7415984/28ea0448-b89f-4d19-9e34-e46e3a398301)\n\nhttps://github.com/theHamsta/nvim-dap-virtual-text\n\n*EDIT*: After rereading I see you had actually mentioned it already anyway haha",
-		"reactions": 0
+		"reactions": 0,
+		"bodyHtml": "<p>Came here to say thanks a lot for this, was struggling getting this setup as well. Also wanted to mention this great additional plugin that puts the value of variables into virtual text when stopped at a breakpoint. i.e.</p>\n<p><img src=\"https://github.com/Theo-Steiner/theosteiner.de/assets/7415984/28ea0448-b89f-4d19-9e34-e46e3a398301\" alt=\"image\" /></p>\n<p><a href=\"https://github.com/theHamsta/nvim-dap-virtual-text\" rel=\"nofollow noopener noreferrer\">https://github.com/theHamsta/nvim-dap-virtual-text</a></p>\n<p><em>EDIT</em>: After rereading I see you had actually mentioned it already anyway haha</p>\n"
 	},
 	{
 		"author": "kolchurinvv",
@@ -32,8 +32,8 @@
 		"url": "https://github.com/Theo-Steiner/theosteiner.de/issues/2#issuecomment-1779896493",
 		"profileUrl": "https://github.com/kolchurinvv",
 		"date": "2023-10-25T19:15:03Z",
-		"body": "thank so much for the guide. as a recovering vscoder it's really hard to get into nvim. this has helped. A LOT!",
-		"reactions": 0
+		"reactions": 0,
+		"bodyHtml": "<p>thank so much for the guide. as a recovering vscoder it's really hard to get into nvim. this has helped. A LOT!</p>\n"
 	},
 	{
 		"author": "emmanuelchucks",
@@ -41,8 +41,8 @@
 		"url": "https://github.com/Theo-Steiner/theosteiner.de/issues/2#issuecomment-1828750959",
 		"profileUrl": "https://github.com/emmanuelchucks",
 		"date": "2023-11-27T22:43:26Z",
-		"body": "This was very helpful in helping set mine up. Here's an improvement for debugging typescript files:\n```lua\n{\n    type = \"pwa-node\",\n    request = \"launch\",\n    name = \"Launch (Node)\",\n    program = \"${file}\",\n    cwd = \"${workspaceFolder}\",\n    runtimeExecutable = \"npx\",\n    runtimeArgs = { \"tsx\" },\n},\n\n```",
-		"reactions": 2
+		"reactions": 2,
+		"bodyHtml": "<p>This was very helpful in helping set mine up. Here's an improvement for debugging typescript files:</p>\n<pre><code class=\"language-lua\">{\n    type = \"pwa-node\",\n    request = \"launch\",\n    name = \"Launch (Node)\",\n    program = \"${file}\",\n    cwd = \"${workspaceFolder}\",\n    runtimeExecutable = \"npx\",\n    runtimeArgs = { \"tsx\" },\n},\n</code></pre>\n"
 	},
 	{
 		"author": "thomasmcinnis",
@@ -50,8 +50,8 @@
 		"url": "https://github.com/Theo-Steiner/theosteiner.de/issues/2#issuecomment-2118680951",
 		"profileUrl": "https://github.com/thomasmcinnis",
 		"date": "2024-05-18T07:43:15Z",
-		"body": "Fantastic guide it is so well written actually taking the time to step through all the components like that. Much appreciated 👏",
-		"reactions": 0
+		"reactions": 0,
+		"bodyHtml": "<p>Fantastic guide it is so well written actually taking the time to step through all the components like that. Much appreciated 👏</p>\n"
 	},
 	{
 		"author": "arjenbloemsma",
@@ -59,8 +59,8 @@
 		"url": "https://github.com/Theo-Steiner/theosteiner.de/issues/2#issuecomment-2120472662",
 		"profileUrl": "https://github.com/arjenbloemsma",
 		"date": "2024-05-20T13:32:56Z",
-		"body": "Very nice. Thanks a million",
-		"reactions": 0
+		"reactions": 0,
+		"bodyHtml": "<p>Very nice. Thanks a million</p>\n"
 	},
 	{
 		"author": "grobruegge",
@@ -68,8 +68,8 @@
 		"url": "https://github.com/Theo-Steiner/theosteiner.de/issues/2#issuecomment-2161409637",
 		"profileUrl": "https://github.com/grobruegge",
 		"date": "2024-06-11T18:52:27Z",
-		"body": "Much appreciated. Very much liked the writing sytle. Gave me a few smiles during the rather rough journey to neovim.",
-		"reactions": 0
+		"reactions": 0,
+		"bodyHtml": "<p>Much appreciated. Very much liked the writing sytle. Gave me a few smiles during the rather rough journey to neovim.</p>\n"
 	},
 	{
 		"author": "rswdch",
@@ -77,8 +77,8 @@
 		"url": "https://github.com/Theo-Steiner/theosteiner.de/issues/2#issuecomment-2307379890",
 		"profileUrl": "https://github.com/rswdch",
 		"date": "2024-08-23T16:03:24Z",
-		"body": "Worked for me for debugging Vitest on AstroNvim (naturally should work since Astro uses Lazy). The UI still isn't the best compared to VSCode or WebStorm but it works enough for me to not have to break out VSCode unless I'm very stuck debugging something complex. It helps me spend a little more time in Neovim.\n\nOne big caveat though is make sure you have installed gulp. I didn't have it installed and kept getting errors about the entrypoint not existing. It turns out that the build script won't build but also won't tell you that it failed, so the only thing you see is that the entrypoint can't be found.",
-		"reactions": 0
+		"reactions": 0,
+		"bodyHtml": "<p>Worked for me for debugging Vitest on AstroNvim (naturally should work since Astro uses Lazy). The UI still isn't the best compared to VSCode or WebStorm but it works enough for me to not have to break out VSCode unless I'm very stuck debugging something complex. It helps me spend a little more time in Neovim.</p>\n<p>One big caveat though is make sure you have installed gulp. I didn't have it installed and kept getting errors about the entrypoint not existing. It turns out that the build script won't build but also won't tell you that it failed, so the only thing you see is that the entrypoint can't be found.</p>\n"
 	},
 	{
 		"author": "ripplejb",
@@ -86,8 +86,8 @@
 		"url": "https://github.com/Theo-Steiner/theosteiner.de/issues/2#issuecomment-2330738219",
 		"profileUrl": "https://github.com/ripplejb",
 		"date": "2024-09-05T06:49:20Z",
-		"body": "Thank you for the nice article.\nI am having an issue. While debugging, on error, the dap-ui gets disconnected and closes. Therefore, I cannot see the error message. How do I fix that?",
-		"reactions": 0
+		"reactions": 0,
+		"bodyHtml": "<p>Thank you for the nice article.<br />I am having an issue. While debugging, on error, the dap-ui gets disconnected and closes. Therefore, I cannot see the error message. How do I fix that?</p>\n"
 	},
 	{
 		"author": "pookdeveloper",
@@ -95,7 +95,7 @@
 		"url": "https://github.com/Theo-Steiner/theosteiner.de/issues/2#issuecomment-2564039683",
 		"profileUrl": "https://github.com/pookdeveloper",
 		"date": "2024-12-27T21:20:53Z",
-		"body": "Works perfect! but I have to compile the .ts and run the debugger for the .js file, is there no way to run the .ts directly?\n\n",
-		"reactions": 0
+		"reactions": 0,
+		"bodyHtml": "<p>Works perfect! but I have to compile the .ts and run the debugger for the .js file, is there no way to run the .ts directly?</p>\n"
 	}
 ]

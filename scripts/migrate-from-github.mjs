@@ -12,6 +12,7 @@
  */
 import { mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
+import { renderCommentHtml } from './lib/render-comment-html.mjs';
 
 const REPO = 'Theo-Steiner/theosteiner.de';
 const ROOT = new URL('..', import.meta.url).pathname;
@@ -126,7 +127,7 @@ for (const issue of issues) {
 			url: c.html_url,
 			profileUrl: c.user.html_url,
 			date: c.created_at,
-			body: c.body.replaceAll('\r\n', '\n'),
+			bodyHtml: renderCommentHtml(c.body.replaceAll('\r\n', '\n')),
 			reactions: c.reactions.total_count
 		});
 	}

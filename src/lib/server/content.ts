@@ -1,4 +1,3 @@
-import { marked } from 'marked';
 import { talks } from '../../content/talks';
 import { podcasts } from '../../content/podcasts';
 import { statuses } from '../../content/statuses';
@@ -63,12 +62,7 @@ export const podcastEntries: PodcastEntry[] = podcasts.map((podcast) => ({
 }));
 
 export function commentsFor(slug: string): ArchivedComment[] {
-	const comments = commentModules[`/src/content/comments/${slug}.json`] ?? [];
-	// GitHub comments treat single newlines as breaks, like the web UI does
-	return comments.map((comment) => ({
-		...comment,
-		body: marked.parse(comment.body, { gfm: true, breaks: true, async: false })
-	}));
+	return commentModules[`/src/content/comments/${slug}.json`] ?? [];
 }
 
 const mid = '  ·  ';

@@ -9,6 +9,8 @@ export interface PostMeta {
 	reactions?: number;
 	/** the archived swyxkit GitHub issue this post was migrated from */
 	githubIssue?: string;
+	/** at:// URI or bsky.app URL of the Bluesky post that hosts this post's comment thread */
+	bskyThread?: string;
 }
 
 export interface Talk {
@@ -70,6 +72,7 @@ export interface ArchivedComment {
 	url: string;
 	profileUrl: string;
 	date: string;
-	body: string;
+	/** sanitized, immutable HTML generated when the GitHub archive is imported */
+	bodyHtml: string;
 	reactions: number;
 }

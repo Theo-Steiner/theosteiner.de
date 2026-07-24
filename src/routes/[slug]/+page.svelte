@@ -2,6 +2,7 @@
 	import { BLUESKY_URL, SITE_URL, DEFAULT_OG_IMAGE } from '$lib/siteConfig';
 	import { longDate } from '$lib/format';
 	import Comments from '$lib/components/Comments.svelte';
+	import BskyComments from '$lib/components/BskyComments.svelte';
 
 	let { data } = $props();
 
@@ -50,6 +51,10 @@
 </div>
 
 <Comments slug={data.slug} />
+
+{#if meta.bskyThread}
+	<BskyComments thread={meta.bskyThread} />
+{/if}
 
 <style>
 	header {

@@ -31,8 +31,8 @@
 						{/if}
 					</div>
 					<div class="body">
-						<!-- markdown rendered at build time from the frozen GitHub archive -->
-						{@html comment.body}
+						<!-- sanitized once and frozen when the GitHub archive is imported -->
+						{@html comment.bodyHtml}
 					</div>
 				</li>
 			{/each}
