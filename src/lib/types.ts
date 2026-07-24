@@ -32,8 +32,10 @@ export interface PodcastAppearance {
 	date: string;
 	/** episode page */
 	href: string;
-	/** direct audio file, enables the inline player */
+	/** direct audio file; enables the player on the episode's detail page */
 	audioSrc?: string;
+	/** WebVTT transcript URL; when present the player shows captions synced to playback */
+	subtitlesSrc?: string;
 	/** overrides the auto-generated (slugified-title) detail-page slug */
 	slug?: string;
 }
@@ -56,8 +58,6 @@ export interface FeedItem {
 	text: string;
 	/** bluesky statuses render in serif italic quotes */
 	isStatus: boolean;
-	/** present on podcast rows: enables the inline audio player */
-	audioSrc?: string;
 	/** longer description, shown on detail-ish surfaces */
 	description?: string;
 	/** e.g. "15 minutes · 6 ♥" or "Svelte Summit · 東京 Tokyo" */

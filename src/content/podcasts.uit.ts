@@ -8,14 +8,16 @@ export const uitPodcasts: PodcastAppearance[] = [
 		date: "2026-06-10",
 		href: "https://uit-inside.linecorp.com/episode/189",
 		slug: "uit-inside-189",
-		audioSrc: "https://vos.line-scdn.net/landpress-content-v2-aolf0l4r424gmi3gqsmdyi9q/73f77a3d8e024d8fa83187d3fde5d47a.mp3?updatedAt=1781067188000"
+		audioSrc: "https://vos.line-scdn.net/landpress-content-v2-aolf0l4r424gmi3gqsmdyi9q/73f77a3d8e024d8fa83187d3fde5d47a.mp3?updatedAt=1781067188000",
+		subtitlesSrc: "/transcripts/uit-inside-189.vtt"
 	},
 	{
 		title: "UIT INSIDE — ep.188『コアチームと語るvite 8 - 再構築されるフロントエンドツールチェーン』",
 		date: "2026-05-27",
 		href: "https://uit-inside.linecorp.com/episode/188",
 		slug: "uit-inside-188",
-		audioSrc: "https://vos.line-scdn.net/landpress-content-v2-aolf0l4r424gmi3gqsmdyi9q/39b7bc5c5202498883cf6a688189f4ca.mp3?updatedAt=1779865175000"
+		audioSrc: "https://vos.line-scdn.net/landpress-content-v2-aolf0l4r424gmi3gqsmdyi9q/39b7bc5c5202498883cf6a688189f4ca.mp3?updatedAt=1779865175000",
+		subtitlesSrc: "/transcripts/uit-inside-188.vtt"
 	},
 	{
 		title: "UIT INSIDE — ep.185『ブラウザを壊す人たち — バグハンティングとセキュリティリサーチの世界』",
@@ -29,69 +31,79 @@ export const uitPodcasts: PodcastAppearance[] = [
 		date: "2025-12-09",
 		href: "https://uit-inside.linecorp.com/episode/182",
 		slug: "uit-inside-182",
-		audioSrc: "https://vos.line-scdn.net/landpress-content-v2-aolf0l4r424gmi3gqsmdyi9q/da3510195e044d43bb92dc3881da00be.mp3?updatedAt=1779950265000"
+		audioSrc: "https://vos.line-scdn.net/landpress-content-v2-aolf0l4r424gmi3gqsmdyi9q/da3510195e044d43bb92dc3881da00be.mp3?updatedAt=1779950265000",
+		subtitlesSrc: "/transcripts/uit-inside-182.vtt"
 	},
 	{
 		title: "UIT INSIDE — ep.180『コミュニティースターと語るVue Fes Japan 2025 の魅力』",
 		date: "2025-09-26",
 		href: "https://uit-inside.linecorp.com/episode/180",
 		slug: "uit-inside-180",
-		audioSrc: "https://vos.line-scdn.net/landpress-content-v2-aolf0l4r424gmi3gqsmdyi9q/fc0591f224a24602a356a960bb5b83a0.mp3?updatedAt=1779950788000"
+		audioSrc: "https://vos.line-scdn.net/landpress-content-v2-aolf0l4r424gmi3gqsmdyi9q/fc0591f224a24602a356a960bb5b83a0.mp3?updatedAt=1779950788000",
+		subtitlesSrc: "/transcripts/uit-inside-180.vtt"
 	},
 	{
 		title: "UIT INSIDE — ep.174『Google I/O ライブ特集：AI、グラス、新たなWebの進展』",
 		date: "2025-06-11",
 		href: "https://uit-inside.linecorp.com/episode/174",
 		slug: "uit-inside-174",
-		audioSrc: "https://vos.line-scdn.net/landpress-content-v2-aolf0l4r424gmi3gqsmdyi9q/37200f238f414c389541f0f64070e90f.mp3?updatedAt=1779950780000"
+		audioSrc: "https://vos.line-scdn.net/landpress-content-v2-aolf0l4r424gmi3gqsmdyi9q/37200f238f414c389541f0f64070e90f.mp3?updatedAt=1779950780000",
+		subtitlesSrc: "/transcripts/uit-inside-174.vtt"
 	},
 	{
 		title: "UIT INSIDE — ep.173『Recap: Svelte Summit 2025 注目プレゼンを振り返る』",
 		date: "2025-06-03",
 		href: "https://uit-inside.linecorp.com/episode/173",
 		slug: "uit-inside-173",
-		audioSrc: "https://vos.line-scdn.net/landpress-content-v2-aolf0l4r424gmi3gqsmdyi9q/29ce4dbbd0644f078a2a6202c12353a8.mp3?updatedAt=1779950776000"
+		audioSrc: "https://vos.line-scdn.net/landpress-content-v2-aolf0l4r424gmi3gqsmdyi9q/29ce4dbbd0644f078a2a6202c12353a8.mp3?updatedAt=1779950776000",
+		subtitlesSrc: "/transcripts/uit-inside-173.vtt"
 	},
 	{
 		title: "UIT INSIDE — ep.165『Upcoming Vue.js Ecosystem Developments with @​posva』",
 		date: "2024-11-15",
 		href: "https://uit-inside.linecorp.com/episode/165",
 		slug: "uit-inside-165",
-		audioSrc: "https://vos.line-scdn.net/landpress-content-v2-aolf0l4r424gmi3gqsmdyi9q/cc251cbb211a406291a38ada1d0243cb.mp3?updatedAt=1779950759000"
+		audioSrc: "https://vos.line-scdn.net/landpress-content-v2-aolf0l4r424gmi3gqsmdyi9q/cc251cbb211a406291a38ada1d0243cb.mp3?updatedAt=1779950759000",
+		subtitlesSrc: "/transcripts/uit-inside-165.vtt"
 	},
 	{
 		title: "UIT INSIDE — ep.164『コアメンバーと語る！Svelte 5の革新』",
 		date: "2024-10-30",
 		href: "https://uit-inside.linecorp.com/episode/164",
 		slug: "uit-inside-164",
-		audioSrc: "https://vos.line-scdn.net/landpress-content-v2-aolf0l4r424gmi3gqsmdyi9q/87dfc9e192f54a9c9b55dd97f69fc1be.mp3?updatedAt=1779950757000"
+		audioSrc: "https://vos.line-scdn.net/landpress-content-v2-aolf0l4r424gmi3gqsmdyi9q/87dfc9e192f54a9c9b55dd97f69fc1be.mp3?updatedAt=1779950757000",
+		subtitlesSrc: "/transcripts/uit-inside-164.vtt"
 	},
 	{
 		title: "UIT INSIDE — ep.163『LINEヤフー初！フロントエンド開発インターンシップを参加者と振り返る』",
 		date: "2024-10-04",
 		href: "https://uit-inside.linecorp.com/episode/163",
 		slug: "uit-inside-163",
-		audioSrc: "https://vos.line-scdn.net/landpress-content-v2-aolf0l4r424gmi3gqsmdyi9q/f516fd7208d646329544923b40bc91f9.mp3?updatedAt=1779950754000"
+		audioSrc: "https://vos.line-scdn.net/landpress-content-v2-aolf0l4r424gmi3gqsmdyi9q/f516fd7208d646329544923b40bc91f9.mp3?updatedAt=1779950754000",
+		subtitlesSrc: "/transcripts/uit-inside-163.vtt"
 	},
 	{
 		title: "UIT INSIDE — ep.157『Google I/O 2024 Web front-end 現地レポート』",
 		date: "2024-06-04",
 		href: "https://uit-inside.linecorp.com/episode/157",
 		slug: "uit-inside-157",
-		audioSrc: "https://vos.line-scdn.net/landpress-content-v2-aolf0l4r424gmi3gqsmdyi9q/ed5d20fabc394dc08197676bfe1dce91.mp3?updatedAt=1779950743000"
+		audioSrc: "https://vos.line-scdn.net/landpress-content-v2-aolf0l4r424gmi3gqsmdyi9q/ed5d20fabc394dc08197676bfe1dce91.mp3?updatedAt=1779950743000",
+		subtitlesSrc: "/transcripts/uit-inside-157.vtt"
 	},
 	{
 		title: "UIT INSIDE — ep.148『UIT新卒エンジニアが話すWeb開発の原体験』",
 		date: "2023-07-28",
 		href: "https://uit-inside.linecorp.com/episode/148",
 		slug: "uit-inside-148",
-		audioSrc: "https://vos.line-scdn.net/landpress-content-v2-aolf0l4r424gmi3gqsmdyi9q/931df024d803434982c406be5899d2c8.mp3?updatedAt=1779950724000"
+		audioSrc: "https://vos.line-scdn.net/landpress-content-v2-aolf0l4r424gmi3gqsmdyi9q/931df024d803434982c406be5899d2c8.mp3?updatedAt=1779950724000",
+		subtitlesSrc: "/transcripts/uit-inside-148.vtt"
 	},
 	{
 		title: "UIT INSIDE — ep.146 変更点が少ないのに期待が高まる？ Lit v3.0メジャーバージョンアップのねらい",
 		date: "2023-06-16",
 		href: "https://uit-inside.linecorp.com/episode/146",
 		slug: "uit-inside-146",
-		audioSrc: "https://vos.line-scdn.net/landpress-content-v2-aolf0l4r424gmi3gqsmdyi9q/d9c36d993e5140198be80752221c1d85.mp3?updatedAt=1779950718000"
+		audioSrc: "https://vos.line-scdn.net/landpress-content-v2-aolf0l4r424gmi3gqsmdyi9q/d9c36d993e5140198be80752221c1d85.mp3?updatedAt=1779950718000",
+		subtitlesSrc: "/transcripts/uit-inside-146.vtt"
 	}
 ];

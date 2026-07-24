@@ -97,8 +97,7 @@ export function buildFeed(): FeedItem[] {
 			href: `/podcasts/${podcast.slug}`,
 			slug: podcast.slug,
 			text: podcast.title,
-			isStatus: false,
-			audioSrc: podcast.audioSrc
+			isStatus: false
 		})),
 		...statuses.map((status) => ({
 			type: 'bluesky' as const,

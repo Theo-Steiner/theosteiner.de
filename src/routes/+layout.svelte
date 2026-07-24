@@ -7,6 +7,7 @@
 	import { onNavigate } from '$app/navigation';
 	import Nav from '$lib/components/Nav.svelte';
 	import Footer from '$lib/components/Footer.svelte';
+	import NowPlayingBar from '$lib/components/NowPlayingBar.svelte';
 
 	let { children } = $props();
 
@@ -32,3 +33,4 @@
 	</main>
 	<Footer />
 </div>
+<NowPlayingBar />

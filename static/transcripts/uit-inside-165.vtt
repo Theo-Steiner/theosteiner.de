@@ -1,0 +1,4337 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:17.000
+NOTE Speaker: TheoSteiner
+Hey there, my name is Theo Steiner and you are listening to UIT Inside, our weekly podcast
+
+2
+00:00:13.000 --> 00:00:21.000
+NOTE Speaker: TheoSteiner
+for front-end developers who love user interfaces and technologies.
+
+3
+00:00:17.000 --> 00:00:27.000
+NOTE Speaker: TheoSteiner
+You might be wondering why I am speaking in English and not Japanese as usual.
+
+4
+00:00:21.000 --> 00:00:57.000
+NOTE Speaker: TheoSteiner
+The reason is, we have a special guest on the show today, and I am very excited for you to meet him today.
+
+5
+00:00:27.000 --> 00:00:58.000
+NOTE Speaker: TheoSteiner
+Eduardo, could you give us a brief self-introduction?
+
+6
+00:00:57.000 --> 00:00:59.000
+NOTE Speaker: posva
+Yes, sure.
+
+7
+00:00:58.000 --> 00:01:00.000
+NOTE Speaker: posva
+Last week.
+
+8
+00:00:59.000 --> 00:01:01.000
+NOTE Speaker: posva
+How was it?
+
+9
+00:01:00.000 --> 00:01:04.000
+NOTE Speaker: posva
+It was great.
+
+10
+00:01:01.000 --> 00:01:05.000
+NOTE Speaker: TheoSteiner
+Honestly, it's such a nice conference.
+
+11
+00:01:04.000 --> 00:01:11.000
+NOTE Speaker: posva
+To me, it's crazy.
+
+12
+00:01:05.000 --> 00:01:13.000
+NOTE Speaker: TheoSteiner
+As someone who has organized conferences before, it's crazy how dedicated the team is, how
+
+13
+00:01:11.000 --> 00:01:15.000
+NOTE Speaker: TheoSteiner
+many they are, like 60.
+
+14
+00:01:13.000 --> 00:01:21.000
+NOTE Speaker: TheoSteiner
+I think there were 60.
+
+15
+00:01:15.000 --> 00:01:24.000
+NOTE Speaker: TheoSteiner
+And the organization, the coordination, the level of detail is impressive.
+
+16
+00:01:21.000 --> 00:01:26.000
+NOTE Speaker: TheoSteiner
+I don't think we go that deep, at least in France.
+
+17
+00:01:24.000 --> 00:01:27.000
+NOTE Speaker: TheoSteiner
+You know, the conferences I helped.
+
+18
+00:01:26.000 --> 00:01:31.000
+NOTE Speaker: posva
+So for some reason, I was like, oh, I'm going to do this.
+
+19
+00:01:27.000 --> 00:01:32.000
+NOTE Speaker: TheoSteiner
+For people who are just doing that for free, I think it's really amazing.
+
+20
+00:01:31.000 --> 00:01:33.000
+NOTE Speaker: posva
+It's really impressive.
+
+21
+00:01:32.000 --> 00:01:36.000
+NOTE Speaker: Speaker_2
+I respect it.
+
+22
+00:01:33.000 --> 00:01:41.000
+NOTE Speaker: TheoSteiner
+Yeah, it was also my first Vue Fest, and I was super blown away.
+
+23
+00:01:36.000 --> 00:01:43.000
+NOTE Speaker: TheoSteiner
+So like, I'm usually more active in the Svelte community, and we can only dream of having
+
+24
+00:01:41.000 --> 00:01:50.000
+NOTE Speaker: posva
+a conference this big in Japan.
+
+25
+00:01:43.000 --> 00:01:54.000
+NOTE Speaker: TheoSteiner
+I mean, I'm trying my best, but so far, yeah, nowhere near that level of professionality.
+
+26
+00:01:50.000 --> 00:01:57.000
+NOTE Speaker: TheoSteiner
+And you actually, you did a talk at the Vue Fest Japan.
+
+27
+00:01:54.000 --> 00:02:01.000
+NOTE Speaker: TheoSteiner
+We're going to dive into that later.
+
+28
+00:01:57.000 --> 00:02:03.000
+NOTE Speaker: TheoSteiner
+But first, how did you get to be a core contributor on Vue?
+
+29
+00:02:01.000 --> 00:02:08.000
+NOTE Speaker: TheoSteiner
+Like, what's your history in the Vue community?
+
+30
+00:02:03.000 --> 00:02:10.000
+NOTE Speaker: TheoSteiner
+So my history with Vue started, I think it's eight years now.
+
+31
+00:02:08.000 --> 00:02:13.000
+NOTE Speaker: TheoSteiner
+I didn't really know down the year.
+
+32
+00:02:10.000 --> 00:02:15.000
+NOTE Speaker: TheoSteiner
+Maybe I should at some point, actually look at the date.
+
+33
+00:02:13.000 --> 00:02:16.000
+NOTE Speaker: posva
+But it's pretty early.
+
+34
+00:02:15.000 --> 00:02:19.000
+NOTE Speaker: TheoSteiner
+It's pretty early days of Vue.
+
+35
+00:02:16.000 --> 00:02:20.000
+NOTE Speaker: TheoSteiner
+I started using Vue on version 0.12.
+
+36
+00:02:19.000 --> 00:02:22.000
+NOTE Speaker: posva
+0.12?
+
+37
+00:02:20.000 --> 00:02:23.000
+NOTE Speaker: TheoSteiner
+Yeah, it was just released.
+
+38
+00:02:22.000 --> 00:02:26.000
+NOTE Speaker: posva
+It was right after 0.11.
+
+39
+00:02:23.000 --> 00:02:27.000
+NOTE Speaker: TheoSteiner
+For example, I know Kazupon, who is also a core team member.
+
+40
+00:02:26.000 --> 00:02:29.000
+NOTE Speaker: posva
+He's a member of the team.
+
+41
+00:02:27.000 --> 00:02:32.000
+NOTE Speaker: TheoSteiner
+And was one of the organizers of Vue Fest.
+
+42
+00:02:29.000 --> 00:02:37.000
+NOTE Speaker: TheoSteiner
+He was there in 0.11, maybe before even.
+
+43
+00:02:32.000 --> 00:02:41.000
+NOTE Speaker: TheoSteiner
+And so I remember seeing his face already in the issues and pull request.
+
+44
+00:02:37.000 --> 00:02:43.000
+NOTE Speaker: TheoSteiner
+And so initially, I was working at a company as a consultant.
+
+45
+00:02:41.000 --> 00:02:44.000
+NOTE Speaker: posva
+So I was really young.
+
+46
+00:02:43.000 --> 00:02:46.000
+NOTE Speaker: TheoSteiner
+I was right after my studies.
+
+47
+00:02:44.000 --> 00:02:49.000
+NOTE Speaker: TheoSteiner
+And we were doing a lot of AngularJS.
+
+48
+00:02:46.000 --> 00:02:53.000
+NOTE Speaker: TheoSteiner
+I don't know which version it was at the time.
+
+49
+00:02:49.000 --> 00:02:56.000
+NOTE Speaker: TheoSteiner
+I find as I kept using it, I found a lot of issues.
+
+50
+00:02:53.000 --> 00:02:59.000
+NOTE Speaker: TheoSteiner
+And also the mental model didn't fit the way I like to think.
+
+51
+00:02:56.000 --> 00:03:03.000
+NOTE Speaker: TheoSteiner
+So I felt like it was getting more in the way.
+
+52
+00:02:59.000 --> 00:03:08.000
+NOTE Speaker: TheoSteiner
+I would check up documentation more often than not.
+
+53
+00:03:03.000 --> 00:03:11.000
+NOTE Speaker: TheoSteiner
+And in the evenings, I would check out all the libraries that were existing.
+
+54
+00:03:08.000 --> 00:03:13.000
+NOTE Speaker: TheoSteiner
+I think Riot was also one of the libraries at the time.
+
+55
+00:03:11.000 --> 00:03:17.000
+NOTE Speaker: TheoSteiner
+React, of course, was also there.
+
+56
+00:03:13.000 --> 00:03:20.000
+NOTE Speaker: TheoSteiner
+And Vue really clicked with me when I started using the documentation.
+
+57
+00:03:17.000 --> 00:03:23.000
+NOTE Speaker: TheoSteiner
+I started building projects because of the simplicity.
+
+58
+00:03:20.000 --> 00:03:26.000
+NOTE Speaker: TheoSteiner
+So it was a very different time, honestly.
+
+59
+00:03:23.000 --> 00:03:28.000
+NOTE Speaker: TheoSteiner
+The whole bundler scene was not there.
+
+60
+00:03:26.000 --> 00:03:30.000
+NOTE Speaker: TheoSteiner
+We were still using Gulp and Grunt.
+
+61
+00:03:28.000 --> 00:03:34.000
+NOTE Speaker: TheoSteiner
+So it was very different.
+
+62
+00:03:30.000 --> 00:03:35.000
+NOTE Speaker: TheoSteiner
+The kind of performance, not performance, but things were not as fast when building,
+
+63
+00:03:34.000 --> 00:03:36.000
+NOTE Speaker: posva
+right?
+
+64
+00:03:35.000 --> 00:03:43.000
+NOTE Speaker: TheoSteiner
+So we have other interests in other things.
+
+65
+00:03:36.000 --> 00:03:48.000
+NOTE Speaker: TheoSteiner
+And it was more in the API and how simple it made to communicate between I have this
+
+66
+00:03:43.000 --> 00:03:51.000
+NOTE Speaker: TheoSteiner
+mental model of data I want to display and I want to base that as a source of truth.
+
+67
+00:03:48.000 --> 00:03:53.000
+NOTE Speaker: TheoSteiner
+And I want it to render always and to always be updated.
+
+68
+00:03:51.000 --> 00:03:55.000
+NOTE Speaker: posva
+That was the main, main issue, the most important one.
+
+69
+00:03:53.000 --> 00:03:56.000
+NOTE Speaker: posva
+I think nowadays we forget about that a lot.
+
+70
+00:03:55.000 --> 00:03:58.000
+NOTE Speaker: posva
+Yeah.
+
+71
+00:03:56.000 --> 00:03:59.000
+NOTE Speaker: TheoSteiner
+I think it was a lot, but in those days it was very important.
+
+72
+00:03:58.000 --> 00:04:04.000
+NOTE Speaker: posva
+So I started using it a lot.
+
+73
+00:03:59.000 --> 00:04:06.000
+NOTE Speaker: TheoSteiner
+I started diving a lot in the issues, commenting here and there, sometimes helping out with
+
+74
+00:04:04.000 --> 00:04:12.000
+NOTE Speaker: TheoSteiner
+triaging mostly, I think.
+
+75
+00:04:06.000 --> 00:04:15.000
+NOTE Speaker: TheoSteiner
+So I would help people, help people with their issues to see if there were bugs or not.
+
+76
+00:04:12.000 --> 00:04:19.000
+NOTE Speaker: TheoSteiner
+So I will tell them, oh, you're just doing this, but you should be doing that.
+
+77
+00:04:15.000 --> 00:04:20.000
+NOTE Speaker: TheoSteiner
+When I look back, back at my comments, I can see that there is a lot of, at least I improved
+
+78
+00:04:19.000 --> 00:04:22.000
+NOTE Speaker: posva
+a lot.
+
+79
+00:04:20.000 --> 00:04:25.000
+NOTE Speaker: TheoSteiner
+It wasn't that great back then helping people.
+
+80
+00:04:22.000 --> 00:04:29.000
+NOTE Speaker: TheoSteiner
+Also English is obviously not my first language.
+
+81
+00:04:25.000 --> 00:04:30.000
+NOTE Speaker: TheoSteiner
+Although I'm fluent, I think a few years ago, I would definitely have a different
+
+82
+00:04:29.000 --> 00:04:35.000
+NOTE Speaker: posva
+tone with speaking.
+
+83
+00:04:30.000 --> 00:04:37.000
+NOTE Speaker: TheoSteiner
+So maybe more direct, or I would just not have the same level of subtlety when speaking,
+
+84
+00:04:35.000 --> 00:04:42.000
+NOTE Speaker: TheoSteiner
+which is fine in open source, I think.
+
+85
+00:04:37.000 --> 00:04:49.000
+NOTE Speaker: TheoSteiner
+So at some point Evan also asked for a core team to be formed and to reach out to him
+
+86
+00:04:42.000 --> 00:04:55.000
+NOTE Speaker: TheoSteiner
+via form maybe, I think, in order to more formally, more formally, more formality, more
+
+87
+00:04:49.000 --> 00:04:56.000
+NOTE Speaker: TheoSteiner
+of a formality to create a team, have a Slack, and we could discuss about things a little
+
+88
+00:04:55.000 --> 00:04:59.000
+NOTE Speaker: TheoSteiner
+bit more organized.
+
+89
+00:04:56.000 --> 00:05:04.000
+NOTE Speaker: TheoSteiner
+And so that's how I really got into the Vue core team.
+
+90
+00:04:59.000 --> 00:05:09.000
+NOTE Speaker: TheoSteiner
+I think, so Kazubong was also there, and we were like 20, a bit less.
+
+91
+00:05:04.000 --> 00:05:10.000
+NOTE Speaker: TheoSteiner
+A lot of the people from the initial team has disappeared, not disappeared, but they
+
+92
+00:05:09.000 --> 00:05:12.000
+NOTE Speaker: posva
+are not there anymore.
+
+93
+00:05:10.000 --> 00:05:16.000
+NOTE Speaker: TheoSteiner
+Maybe they passed on to something else.
+
+94
+00:05:12.000 --> 00:05:18.000
+NOTE Speaker: TheoSteiner
+In the end, it's always difficult, I think, to contribute to open source and have a full
+
+95
+00:05:16.000 --> 00:05:20.000
+NOTE Speaker: TheoSteiner
+time job.
+
+96
+00:05:18.000 --> 00:05:22.000
+NOTE Speaker: TheoSteiner
+Definitely something you cannot do at all ages.
+
+97
+00:05:20.000 --> 00:05:23.000
+NOTE Speaker: TheoSteiner
+I think the window is actually very short.
+
+98
+00:05:22.000 --> 00:05:24.000
+NOTE Speaker: Speaker_3
+Yeah.
+
+99
+00:05:23.000 --> 00:05:29.000
+NOTE Speaker: posva
+Or you have...
+
+100
+00:05:24.000 --> 00:05:33.000
+NOTE Speaker: TheoSteiner
+You have a life where you have a lot of freedom, which is not something everybody can afford.
+
+101
+00:05:29.000 --> 00:05:34.000
+NOTE Speaker: TheoSteiner
+And as again, with age comes more issues, even with health or anything, you have more,
+
+102
+00:05:33.000 --> 00:05:36.000
+NOTE Speaker: posva
+you're more likely to have issues.
+
+103
+00:05:34.000 --> 00:05:37.000
+NOTE Speaker: TheoSteiner
+If you want to have a family, then that's another thing.
+
+104
+00:05:36.000 --> 00:05:42.000
+NOTE Speaker: posva
+You have more responsibility.
+
+105
+00:05:37.000 --> 00:05:48.000
+NOTE Speaker: TheoSteiner
+So yeah, there is a small window, I think, in developer's life where you have these opportunities
+
+106
+00:05:42.000 --> 00:05:54.000
+NOTE Speaker: TheoSteiner
+to join some kind of community and try to be part of it in different ways.
+
+107
+00:05:48.000 --> 00:05:57.000
+NOTE Speaker: TheoSteiner
+And once that time window has passed, you can not join in the same way.
+
+108
+00:05:54.000 --> 00:06:00.000
+NOTE Speaker: TheoSteiner
+Or because you cannot, you won't be able to find yourself.
+
+109
+00:05:57.000 --> 00:06:06.000
+NOTE Speaker: TheoSteiner
+So if you get the opportunity, you have to grab it.
+
+110
+00:06:00.000 --> 00:06:10.000
+NOTE Speaker: TheoSteiner
+I'm already wanting to go off script because you said you started with Vue version zero
+
+111
+00:06:06.000 --> 00:06:14.000
+NOTE Speaker: TheoSteiner
+and I only started with version three.
+
+112
+00:06:10.000 --> 00:06:16.000
+NOTE Speaker: TheoSteiner
+So I'm really interested in what the API looked like at version zero.
+
+113
+00:06:14.000 --> 00:06:19.000
+NOTE Speaker: TheoSteiner
+It was honestly the biggest difference is options API.
+
+114
+00:06:16.000 --> 00:06:22.000
+NOTE Speaker: TheoSteiner
+At the beginning, it was really based on options.
+
+115
+00:06:19.000 --> 00:06:23.000
+NOTE Speaker: TheoSteiner
+So we have separations of type of things.
+
+116
+00:06:22.000 --> 00:06:24.000
+NOTE Speaker: posva
+We have data methods.
+
+117
+00:06:23.000 --> 00:06:26.000
+NOTE Speaker: posva
+We have a lot of things.
+
+118
+00:06:24.000 --> 00:06:27.000
+NOTE Speaker: posva
+We have computed.
+
+119
+00:06:26.000 --> 00:06:29.000
+NOTE Speaker: TheoSteiner
+There was a compiler.
+
+120
+00:06:27.000 --> 00:06:32.000
+NOTE Speaker: TheoSteiner
+Where is it?
+
+121
+00:06:29.000 --> 00:06:33.000
+NOTE Speaker: TheoSteiner
+I think there was no compiler in the beginning.
+
+122
+00:06:32.000 --> 00:06:34.000
+NOTE Speaker: posva
+Compiler is V1 or V2.
+
+123
+00:06:33.000 --> 00:06:39.000
+NOTE Speaker: TheoSteiner
+Maybe V2 actually.
+
+124
+00:06:34.000 --> 00:06:41.000
+NOTE Speaker: TheoSteiner
+So it was more of modifications to have done directly.
+
+125
+00:06:39.000 --> 00:06:44.000
+NOTE Speaker: TheoSteiner
+But I think Angular would also like that.
+
+126
+00:06:41.000 --> 00:06:49.000
+NOTE Speaker: TheoSteiner
+And the main idea was there and it hasn't changed.
+
+127
+00:06:44.000 --> 00:06:54.000
+NOTE Speaker: TheoSteiner
+The fundamental idea of having a source of truth and you write your template and you
+
+128
+00:06:49.000 --> 00:07:00.000
+NOTE Speaker: TheoSteiner
+have some syntax on top of HTML that is still valid in HTML was there.
+
+129
+00:06:54.000 --> 00:07:04.000
+NOTE Speaker: TheoSteiner
+Also, you had a lot of and this was a big strength back then.
+
+130
+00:07:00.000 --> 00:07:07.000
+NOTE Speaker: TheoSteiner
+It's not a big strength that more than much anymore, but it's still something that only
+
+131
+00:07:04.000 --> 00:07:10.000
+NOTE Speaker: TheoSteiner
+Vue has compared to any other framework in front end.
+
+132
+00:07:07.000 --> 00:07:15.000
+NOTE Speaker: TheoSteiner
+It's that you can still have an HTML.
+
+133
+00:07:10.000 --> 00:07:21.000
+NOTE Speaker: TheoSteiner
+You have your page with HTML and you have these extra things that are Vue.js specific
+
+134
+00:07:15.000 --> 00:07:23.000
+NOTE Speaker: TheoSteiner
+and you add JS on top for the Vue and it will re like not hydrate because it's not SSR.
+
+135
+00:07:21.000 --> 00:07:24.000
+NOTE Speaker: posva
+It's not the right term, but it will rebuild the HTML.
+
+136
+00:07:23.000 --> 00:07:26.000
+NOTE Speaker: posva
+So it's not a big deal.
+
+137
+00:07:24.000 --> 00:07:27.000
+NOTE Speaker: TheoSteiner
+So you don't need a build phase.
+
+138
+00:07:26.000 --> 00:07:29.000
+NOTE Speaker: posva
+Essentially, that's the point.
+
+139
+00:07:27.000 --> 00:07:34.000
+NOTE Speaker: TheoSteiner
+You don't need a build phase to actually use Vue.
+
+140
+00:07:29.000 --> 00:07:37.000
+NOTE Speaker: TheoSteiner
+And some projects I did in a consultancy, which now use Nuxt, if I'm not mistaken, but
+
+141
+00:07:34.000 --> 00:07:42.000
+NOTE Speaker: TheoSteiner
+I haven't been there for many years.
+
+142
+00:07:37.000 --> 00:07:49.000
+NOTE Speaker: TheoSteiner
+They started using Vue 1 and Vue 1 with templates and in the back end, it was like symphony.
+
+143
+00:07:42.000 --> 00:07:52.000
+NOTE Speaker: TheoSteiner
+So PHP and Vue helped us have a more maintainable front end code than using jQuery.
+
+144
+00:07:49.000 --> 00:07:57.000
+NOTE Speaker: TheoSteiner
+So it really it really was a better replacement for jQuery.
+
+145
+00:07:52.000 --> 00:07:59.000
+NOTE Speaker: TheoSteiner
+It helped to have this concept of components also, which hasn't changed.
+
+146
+00:07:57.000 --> 00:08:00.000
+NOTE Speaker: posva
+The concept of components has been the same.
+
+147
+00:07:59.000 --> 00:08:03.000
+NOTE Speaker: posva
+So yeah, that was the big thing.
+
+148
+00:08:00.000 --> 00:08:09.000
+NOTE Speaker: TheoSteiner
+No build phase and only options API.
+
+149
+00:08:03.000 --> 00:08:14.000
+NOTE Speaker: TheoSteiner
+Yeah, everything has changed a lot with composition API, but you can still write option API today
+
+150
+00:08:09.000 --> 00:08:17.000
+NOTE Speaker: posva
+and it still works, which is yeah, the backwards compatibility of Vue is great, I think.
+
+151
+00:08:14.000 --> 00:08:18.000
+NOTE Speaker: TheoSteiner
+So you're a very proficient open source library author.
+
+152
+00:08:17.000 --> 00:08:21.000
+NOTE Speaker: posva
+Yes.
+
+153
+00:08:18.000 --> 00:08:22.000
+NOTE Speaker: TheoSteiner
+And as you said earlier, maybe best known for Pinia and Vue.js.
+
+154
+00:08:21.000 --> 00:08:25.000
+NOTE Speaker: posva
+Yeah.
+
+155
+00:08:22.000 --> 00:08:26.000
+NOTE Speaker: TheoSteiner
+I'm a router or router, however you say it.
+
+156
+00:08:25.000 --> 00:08:30.000
+NOTE Speaker: posva
+American.
+
+157
+00:08:26.000 --> 00:08:33.000
+NOTE Speaker: TheoSteiner
+So let's dive maybe a bit into Pinia.
+
+158
+00:08:30.000 --> 00:08:36.000
+NOTE Speaker: TheoSteiner
+So Pinia is a state management library.
+
+159
+00:08:33.000 --> 00:08:37.000
+NOTE Speaker: TheoSteiner
+We use it actually here at Line Yahoo Corporation.
+
+160
+00:08:36.000 --> 00:08:40.000
+NOTE Speaker: TheoSteiner
+And thank you for that.
+
+161
+00:08:37.000 --> 00:08:43.000
+NOTE Speaker: TheoSteiner
+So what does Pinia enable?
+
+162
+00:08:40.000 --> 00:08:45.000
+NOTE Speaker: TheoSteiner
+So Pinia, it doesn't enable that much.
+
+163
+00:08:43.000 --> 00:08:50.000
+NOTE Speaker: TheoSteiner
+And that's the good thing about Pinia.
+
+164
+00:08:45.000 --> 00:08:52.000
+NOTE Speaker: TheoSteiner
+And it really is about global state management and having a centralized solution that is
+
+165
+00:08:50.000 --> 00:08:55.000
+NOTE Speaker: TheoSteiner
+safe and is compatible to use.
+
+166
+00:08:52.000 --> 00:08:57.000
+NOTE Speaker: TheoSteiner
+So it's the official state management solution.
+
+167
+00:08:55.000 --> 00:09:02.000
+NOTE Speaker: TheoSteiner
+You don't need to use it in other projects.
+
+168
+00:08:57.000 --> 00:09:05.000
+NOTE Speaker: TheoSteiner
+And you could get away by having like global, even global refs in some projects.
+
+169
+00:09:02.000 --> 00:09:10.000
+NOTE Speaker: TheoSteiner
+It's more about the some standards it introduces.
+
+170
+00:09:05.000 --> 00:09:12.000
+NOTE Speaker: TheoSteiner
+So people when going from a project to another, they will still be able to use the Pinia functions.
+
+171
+00:09:10.000 --> 00:09:14.000
+NOTE Speaker: TheoSteiner
+The API honestly is very small.
+
+172
+00:09:12.000 --> 00:09:20.000
+NOTE Speaker: TheoSteiner
+In the end, the surface API is really small.
+
+173
+00:09:14.000 --> 00:09:21.000
+NOTE Speaker: TheoSteiner
+The idea really is to be able to define global state in a way that looks like Vue.
+
+174
+00:09:20.000 --> 00:09:22.000
+NOTE Speaker: posva
+So Pinia is very, very simple.
+
+175
+00:09:21.000 --> 00:09:23.000
+NOTE Speaker: posva
+It's a very simple, very easy to use.
+
+176
+00:09:22.000 --> 00:09:24.000
+NOTE Speaker: posva
+It's a very simple, very easy to use.
+
+177
+00:09:23.000 --> 00:09:25.000
+NOTE Speaker: posva
+And it's very, very easy to use.
+
+178
+00:09:24.000 --> 00:09:28.000
+NOTE Speaker: posva
+So for example, you have two types of store.
+
+179
+00:09:25.000 --> 00:09:32.000
+NOTE Speaker: TheoSteiner
+You have option stores, which are going to look more like options API.
+
+180
+00:09:28.000 --> 00:09:36.000
+NOTE Speaker: TheoSteiner
+So you also have state, you have getters and actions, which basically is the equivalent
+
+181
+00:09:32.000 --> 00:09:37.000
+NOTE Speaker: TheoSteiner
+of a component data computed and methods.
+
+182
+00:09:36.000 --> 00:09:41.000
+NOTE Speaker: posva
+It's pretty much the same.
+
+183
+00:09:37.000 --> 00:09:44.000
+NOTE Speaker: TheoSteiner
+So you can also see the store as a component without a template that is always there, that
+
+184
+00:09:41.000 --> 00:09:48.000
+NOTE Speaker: TheoSteiner
+is outside of the tree of components.
+
+185
+00:09:44.000 --> 00:09:50.000
+NOTE Speaker: TheoSteiner
+And then you have setup stores, which are like composition, so composables, which are
+
+186
+00:09:48.000 --> 00:09:51.000
+NOTE Speaker: TheoSteiner
+functions that use the composition API.
+
+187
+00:09:50.000 --> 00:09:53.000
+NOTE Speaker: posva
+So you can see the store as a component.
+
+188
+00:09:51.000 --> 00:09:57.000
+NOTE Speaker: TheoSteiner
+You have the function API to encapsulate logic.
+
+189
+00:09:53.000 --> 00:10:03.000
+NOTE Speaker: TheoSteiner
+And so these offers a very low level of granularity.
+
+190
+00:09:57.000 --> 00:10:04.000
+NOTE Speaker: TheoSteiner
+You can really split up things, organize the code, the data, the functions the way you
+
+191
+00:10:03.000 --> 00:10:08.000
+NOTE Speaker: posva
+want.
+
+192
+00:10:04.000 --> 00:10:11.000
+NOTE Speaker: TheoSteiner
+And so Pinia allows to define a global composable, kind of like a singleton.
+
+193
+00:10:08.000 --> 00:10:16.000
+NOTE Speaker: TheoSteiner
+And it works with SSR, it has dev tools as well.
+
+194
+00:10:11.000 --> 00:10:20.000
+NOTE Speaker: TheoSteiner
+So it really tries to make things as close as Vue for state management.
+
+195
+00:10:16.000 --> 00:10:21.000
+NOTE Speaker: TheoSteiner
+And it was also a way to migrate more easily from Vuex.
+
+196
+00:10:20.000 --> 00:10:22.000
+NOTE Speaker: posva
+Because Vuex is not only a state management tool, but it's also a way to migrate more easily from Vuex because Vuex is a state management tool.
+
+197
+00:10:21.000 --> 00:10:26.000
+NOTE Speaker: posva
+And so Pinia is a very good example of this.
+
+198
+00:10:22.000 --> 00:10:32.000
+NOTE Speaker: TheoSteiner
+It's at the time of Vue 3, even Vue 2 has a poor TypeScript support.
+
+199
+00:10:26.000 --> 00:10:33.000
+NOTE Speaker: TheoSteiner
+And this is also inherent to the way the API is created and the way you interact with the
+
+200
+00:10:32.000 --> 00:10:36.000
+NOTE Speaker: Speaker_4
+store.
+
+201
+00:10:33.000 --> 00:10:41.000
+NOTE Speaker: TheoSteiner
+We would have what we call magic strings.
+
+202
+00:10:36.000 --> 00:10:43.000
+NOTE Speaker: TheoSteiner
+So we would access the store via these in components, dot dollar store, for example.
+
+203
+00:10:41.000 --> 00:10:49.000
+NOTE Speaker: posva
+We have dollar something.
+
+204
+00:10:43.000 --> 00:10:50.000
+NOTE Speaker: TheoSteiner
+And so there is no way to infer, I mean, you can infer with some manual code now in TypeScript,
+
+205
+00:10:49.000 --> 00:10:51.000
+NOTE Speaker: posva
+but not any of the time.
+
+206
+00:10:50.000 --> 00:10:57.000
+NOTE Speaker: posva
+It wasn't that easy in the time.
+
+207
+00:10:51.000 --> 00:11:00.000
+NOTE Speaker: TheoSteiner
+And it has other issues like you always have a big store with everything inside, even if
+
+208
+00:10:57.000 --> 00:11:02.000
+NOTE Speaker: TheoSteiner
+you create modules or you have to do dynamic modules.
+
+209
+00:11:00.000 --> 00:11:06.000
+NOTE Speaker: TheoSteiner
+But it's still it requires some extra code.
+
+210
+00:11:02.000 --> 00:11:09.000
+NOTE Speaker: TheoSteiner
+So Pinia has been engineered in a way that it doesn't get in your way.
+
+211
+00:11:06.000 --> 00:11:13.000
+NOTE Speaker: posva
+All these things, you get them for free is inherent to the API.
+
+212
+00:11:09.000 --> 00:11:15.000
+NOTE Speaker: TheoSteiner
+So I think I'm really happy with that part of things that it's mostly people don't don't
+
+213
+00:11:13.000 --> 00:11:17.000
+NOTE Speaker: TheoSteiner
+really see them because you don't need to.
+
+214
+00:11:15.000 --> 00:11:18.000
+NOTE Speaker: posva
+And I think that's the best kind of API when it's invisible.
+
+215
+00:11:17.000 --> 00:11:19.000
+NOTE Speaker: posva
+Yeah, that's true.
+
+216
+00:11:18.000 --> 00:11:20.000
+NOTE Speaker: posva
+It's a very lightweight API.
+
+217
+00:11:19.000 --> 00:11:21.000
+NOTE Speaker: Speaker_5
+And I love your work.
+
+218
+00:11:20.000 --> 00:11:26.000
+NOTE Speaker: Speaker_5
+I love your work.
+
+219
+00:11:21.000 --> 00:11:27.000
+NOTE Speaker: TheoSteiner
+I love your explanation of it basically being a component that is shared between other components,
+
+220
+00:11:26.000 --> 00:11:31.000
+NOTE Speaker: TheoSteiner
+but it doesn't have a template.
+
+221
+00:11:27.000 --> 00:11:32.000
+NOTE Speaker: TheoSteiner
+And that's like, especially true since you can use the composition API and the option
+
+222
+00:11:31.000 --> 00:11:36.000
+NOTE Speaker: posva
+API.
+
+223
+00:11:32.000 --> 00:11:43.000
+NOTE Speaker: TheoSteiner
+So it's, it's almost like a view component without a template.
+
+224
+00:11:36.000 --> 00:11:47.000
+NOTE Speaker: TheoSteiner
+Yeah, as I said, so a question regarding the the way you author Pinia stores is the composition
+
+225
+00:11:43.000 --> 00:11:50.000
+NOTE Speaker: TheoSteiner
+API is it like recommended to use it over the options API?
+
+226
+00:11:47.000 --> 00:11:53.000
+NOTE Speaker: TheoSteiner
+There is no like recommended.
+
+227
+00:11:50.000 --> 00:11:59.000
+NOTE Speaker: TheoSteiner
+Because it depends what you mean by recommended, right?
+
+228
+00:11:53.000 --> 00:12:02.000
+NOTE Speaker: TheoSteiner
+For me personally, yeah, I prefer to just you always use composition API, just to have
+
+229
+00:11:59.000 --> 00:12:07.000
+NOTE Speaker: TheoSteiner
+a more coherent writing of stores.
+
+230
+00:12:02.000 --> 00:12:10.000
+NOTE Speaker: TheoSteiner
+The reason is, there are things you cannot do with options, option stores simply, because
+
+231
+00:12:07.000 --> 00:12:15.000
+NOTE Speaker: TheoSteiner
+you are limited to are organizing things by type.
+
+232
+00:12:10.000 --> 00:12:16.000
+NOTE Speaker: TheoSteiner
+If you want to go have, what is the word in English, if you want to live it up your your
+
+233
+00:12:15.000 --> 00:12:17.000
+NOTE Speaker: posva
+your game and the way you organize code, you will have to go to a lower level.
+
+234
+00:12:16.000 --> 00:12:18.000
+NOTE Speaker: posva
+So you can't do that.
+
+235
+00:12:17.000 --> 00:12:19.000
+NOTE Speaker: posva
+You can't do that.
+
+236
+00:12:18.000 --> 00:12:20.000
+NOTE Speaker: Speaker_6
+You can't do that.
+
+237
+00:12:19.000 --> 00:12:20.000
+NOTE Speaker: Speaker_6
+You can't do that.
+
+238
+00:12:20.000 --> 00:12:21.000
+NOTE Speaker: posva
+You can't do that.
+
+239
+00:12:20.000 --> 00:12:22.000
+NOTE Speaker: Speaker_7
+You can't do that.
+
+240
+00:12:21.000 --> 00:12:23.000
+NOTE Speaker: posva
+You can't do that.
+
+241
+00:12:22.000 --> 00:12:24.000
+NOTE Speaker: Speaker_7
+You can't do that.
+
+242
+00:12:23.000 --> 00:12:28.000
+NOTE Speaker: posva
+So you have to go into a lower level in terms, sorry, you will have to go into a lower level
+
+243
+00:12:24.000 --> 00:12:29.000
+NOTE Speaker: TheoSteiner
+of code organization, which means that you are exposed to more risk, but you also have
+
+244
+00:12:28.000 --> 00:12:32.000
+NOTE Speaker: posva
+more control.
+
+245
+00:12:29.000 --> 00:12:37.000
+NOTE Speaker: TheoSteiner
+And this is where you should learn and grow.
+
+246
+00:12:32.000 --> 00:12:39.000
+NOTE Speaker: TheoSteiner
+And this is where you can create actually better code organic organization than just
+
+247
+00:12:37.000 --> 00:12:44.000
+NOTE Speaker: posva
+having a type organization.
+
+248
+00:12:39.000 --> 00:12:49.000
+NOTE Speaker: TheoSteiner
+So because of this, personally, I will recommend to use the setup stores whenever possible.
+
+249
+00:12:44.000 --> 00:12:50.000
+NOTE Speaker: TheoSteiner
+But some people are still not there, they are learning, and the option stores are there
+
+250
+00:12:49.000 --> 00:12:55.000
+NOTE Speaker: posva
+for them too.
+
+251
+00:12:50.000 --> 00:12:57.000
+NOTE Speaker: TheoSteiner
+I think this is also a good point to show that for people starting view was also a great
+
+252
+00:12:55.000 --> 00:13:01.000
+NOTE Speaker: TheoSteiner
+choice because of this because of the options API.
+
+253
+00:12:57.000 --> 00:13:04.000
+NOTE Speaker: TheoSteiner
+So when people are starting, they feel so much more comfortable not having to think
+
+254
+00:13:01.000 --> 00:13:09.000
+NOTE Speaker: TheoSteiner
+about where to put things.
+
+255
+00:13:04.000 --> 00:13:14.000
+NOTE Speaker: TheoSteiner
+Because the they are organizing by type is like having a I forgot the word where you
+
+256
+00:13:09.000 --> 00:13:18.000
+NOTE Speaker: TheoSteiner
+put your socket like a structure, not a structure, but in your clothes closet, where you put
+
+257
+00:13:14.000 --> 00:13:19.000
+NOTE Speaker: TheoSteiner
+your your clothes, you usually like a drawer.
+
+258
+00:13:18.000 --> 00:13:20.000
+NOTE Speaker: posva
+Exactly.
+
+259
+00:13:19.000 --> 00:13:21.000
+NOTE Speaker: posva
+Thank you.
+
+260
+00:13:20.000 --> 00:13:24.000
+NOTE Speaker: TheoSteiner
+So you can organize each kind of things, right?
+
+261
+00:13:21.000 --> 00:13:29.000
+NOTE Speaker: TheoSteiner
+Most people organize them by kind of thing.
+
+262
+00:13:24.000 --> 00:13:30.000
+NOTE Speaker: TheoSteiner
+So I have t shirts, you have pants, you have socket socks, you have underwear, right?
+
+263
+00:13:29.000 --> 00:13:33.000
+NOTE Speaker: posva
+So this is very easy to do.
+
+264
+00:13:30.000 --> 00:13:37.000
+NOTE Speaker: TheoSteiner
+I think mentally, we are used to this kind of mental model.
+
+265
+00:13:33.000 --> 00:13:43.000
+NOTE Speaker: TheoSteiner
+That's why it's also very easy for people to get started with view and why it was so
+
+266
+00:13:37.000 --> 00:13:47.000
+NOTE Speaker: TheoSteiner
+attractive for people in the first place, especially in view v1 and stuff, because people
+
+267
+00:13:43.000 --> 00:13:49.000
+NOTE Speaker: TheoSteiner
+just will look at a view code and be like, Oh, I understand right this right away, because
+
+268
+00:13:47.000 --> 00:13:52.000
+NOTE Speaker: TheoSteiner
+they can see data, they can see methods.
+
+269
+00:13:49.000 --> 00:13:54.000
+NOTE Speaker: TheoSteiner
+Now, when it gets complicated, the component is not easy, right?
+
+270
+00:13:52.000 --> 00:13:59.000
+NOTE Speaker: TheoSteiner
+So that's why the composition API helps.
+
+271
+00:13:54.000 --> 00:14:01.000
+NOTE Speaker: TheoSteiner
+Very interesting view as a drawer for your mind, or like the options API as a drawer
+
+272
+00:13:59.000 --> 00:14:04.000
+NOTE Speaker: TheoSteiner
+for to organize your code.
+
+273
+00:14:01.000 --> 00:14:10.000
+NOTE Speaker: TheoSteiner
+Okay, so that's Pinia.
+
+274
+00:14:04.000 --> 00:14:12.000
+NOTE Speaker: TheoSteiner
+And you're also known for another very, very big library, you've router, how did you come
+
+275
+00:14:10.000 --> 00:14:17.000
+NOTE Speaker: posva
+to write view router?
+
+276
+00:14:12.000 --> 00:14:18.000
+NOTE Speaker: TheoSteiner
+I think it's like the most common router API and not router, the most common router library
+
+277
+00:14:17.000 --> 00:14:19.000
+NOTE Speaker: posva
+in view.
+
+278
+00:14:18.000 --> 00:14:22.000
+NOTE Speaker: posva
+So how did it come to that?
+
+279
+00:14:19.000 --> 00:14:28.000
+NOTE Speaker: TheoSteiner
+So in view, we have official solutions.
+
+280
+00:14:22.000 --> 00:14:34.000
+NOTE Speaker: TheoSteiner
+So the idea is we gather feedback, we consider also a lot of backward compatibility things.
+
+281
+00:14:28.000 --> 00:14:39.000
+NOTE Speaker: TheoSteiner
+And we try to move fast when we need to move fast, and then we move slow to not break things.
+
+282
+00:14:34.000 --> 00:14:40.000
+NOTE Speaker: TheoSteiner
+So I think I applied this well to your router, because I slowed down on the parts where I
+
+283
+00:14:39.000 --> 00:14:44.000
+NOTE Speaker: TheoSteiner
+could break API's.
+
+284
+00:14:40.000 --> 00:14:48.000
+NOTE Speaker: TheoSteiner
+And I went fast when I needed to, but I still took the time it needed to develop.
+
+285
+00:14:44.000 --> 00:14:51.000
+NOTE Speaker: TheoSteiner
+I got into it very early on my journey with view, I think.
+
+286
+00:14:48.000 --> 00:14:54.000
+NOTE Speaker: TheoSteiner
+And I wrote the v4 version.
+
+287
+00:14:51.000 --> 00:14:57.000
+NOTE Speaker: TheoSteiner
+So there was a lot of things to take into account.
+
+288
+00:14:54.000 --> 00:15:00.000
+NOTE Speaker: TheoSteiner
+The v4 version of your router is for view three.
+
+289
+00:14:57.000 --> 00:15:03.000
+NOTE Speaker: TheoSteiner
+And routers are very interesting topic.
+
+290
+00:15:00.000 --> 00:15:07.000
+NOTE Speaker: TheoSteiner
+Everybody takes them for granted, but they're very complex.
+
+291
+00:15:03.000 --> 00:15:11.000
+NOTE Speaker: TheoSteiner
+And their responsibility spans all over the application code.
+
+292
+00:15:07.000 --> 00:15:14.000
+NOTE Speaker: TheoSteiner
+So it's it's a really hard piece of software to design property.
+
+293
+00:15:11.000 --> 00:15:16.000
+NOTE Speaker: TheoSteiner
+And sometimes it's better not to over design it.
+
+294
+00:15:14.000 --> 00:15:17.000
+NOTE Speaker: TheoSteiner
+So by that, I mean, not creating too many API's.
+
+295
+00:15:16.000 --> 00:15:18.000
+NOTE Speaker: posva
+But rather exposing lower level API's.
+
+296
+00:15:17.000 --> 00:15:19.000
+NOTE Speaker: posva
+So that's the first thing.
+
+297
+00:15:18.000 --> 00:15:24.000
+NOTE Speaker: posva
+And then the second thing is, I think, is the user experience.
+
+298
+00:15:19.000 --> 00:15:31.000
+NOTE Speaker: TheoSteiner
+Because people have opinions, and people want to use their own abstractions for some stuff.
+
+299
+00:15:24.000 --> 00:15:34.000
+NOTE Speaker: TheoSteiner
+So it's better to not over commit in an API that might end up not being useful in many
+
+300
+00:15:31.000 --> 00:15:38.000
+NOTE Speaker: TheoSteiner
+cases, but still adding to the bundle.
+
+301
+00:15:34.000 --> 00:15:44.000
+NOTE Speaker: TheoSteiner
+And ViewRouter is one of the most powerful routers out there, actually, when you in terms
+
+302
+00:15:38.000 --> 00:15:47.000
+NOTE Speaker: TheoSteiner
+of features, it has been way more powerful than any other in many years.
+
+303
+00:15:44.000 --> 00:15:48.000
+NOTE Speaker: TheoSteiner
+Now we have a lot of typed routes and typing like parameters.
+
+304
+00:15:47.000 --> 00:15:53.000
+NOTE Speaker: posva
+Yeah.
+
+305
+00:15:48.000 --> 00:15:59.000
+NOTE Speaker: TheoSteiner
+And there are a few features now that I'm still adding back to the router.
+
+306
+00:15:53.000 --> 00:16:02.000
+NOTE Speaker: TheoSteiner
+But even though it was one of the pioneers, I think, in typed route in typed pages and
+
+307
+00:15:59.000 --> 00:16:05.000
+NOTE Speaker: TheoSteiner
+type safety in ViewRouter, we have these for two years now.
+
+308
+00:16:02.000 --> 00:16:09.000
+NOTE Speaker: posva
+And there are other concepts that were not there.
+
+309
+00:16:05.000 --> 00:16:14.000
+NOTE Speaker: TheoSteiner
+So for me, it was a very interesting topic, but very time demanding.
+
+310
+00:16:09.000 --> 00:16:15.000
+NOTE Speaker: TheoSteiner
+And it's a big challenge because people don't really take a look too much into the router
+
+311
+00:16:14.000 --> 00:16:17.000
+NOTE Speaker: posva
+or it's like, yeah, it's just there.
+
+312
+00:16:15.000 --> 00:16:25.000
+NOTE Speaker: posva
+Also maybe a marketing issue on my side, to be honest.
+
+313
+00:16:17.000 --> 00:16:27.000
+NOTE Speaker: TheoSteiner
+I recently dove into your ViewUnplugin router, the one that has like full type safety and
+
+314
+00:16:25.000 --> 00:16:31.000
+NOTE Speaker: posva
+file based routing.
+
+315
+00:16:27.000 --> 00:16:33.000
+NOTE Speaker: TheoSteiner
+And I have to say that it's like a new way of doing routing because it's like end to
+
+316
+00:16:31.000 --> 00:16:35.000
+NOTE Speaker: posva
+end type safe.
+
+317
+00:16:33.000 --> 00:16:36.000
+NOTE Speaker: posva
+And I don't think we had that before in the view world.
+
+318
+00:16:35.000 --> 00:16:40.000
+NOTE Speaker: posva
+No, no.
+
+319
+00:16:36.000 --> 00:16:43.000
+NOTE Speaker: TheoSteiner
+I mean, oh, actually, yes, we did have some things that were so there was something in
+
+320
+00:16:40.000 --> 00:16:46.000
+NOTE Speaker: TheoSteiner
+the Nuxt ecosystem that was similar.
+
+321
+00:16:43.000 --> 00:16:47.000
+NOTE Speaker: TheoSteiner
+And I think I talked to the author of the library.
+
+322
+00:16:46.000 --> 00:16:49.000
+NOTE Speaker: posva
+And I think I talked to the author of the library.
+
+323
+00:16:47.000 --> 00:16:53.000
+NOTE Speaker: TheoSteiner
+And I'm not completely sure.
+
+324
+00:16:49.000 --> 00:16:55.000
+NOTE Speaker: TheoSteiner
+I'm trying to roll back to rewind in my memory.
+
+325
+00:16:53.000 --> 00:16:58.000
+NOTE Speaker: TheoSteiner
+So they had something similar.
+
+326
+00:16:55.000 --> 00:16:59.000
+NOTE Speaker: TheoSteiner
+They were using a different approach because they were only for Nuxt, right?
+
+327
+00:16:58.000 --> 00:17:02.000
+NOTE Speaker: posva
+It was specifically for Nuxt.
+
+328
+00:16:59.000 --> 00:17:05.000
+NOTE Speaker: TheoSteiner
+So you already had the file based routing.
+
+329
+00:17:02.000 --> 00:17:10.000
+NOTE Speaker: TheoSteiner
+It's a little bit different, but the idea is still the same.
+
+330
+00:17:05.000 --> 00:17:15.000
+NOTE Speaker: TheoSteiner
+Based on the file structure, you can infer the types of the routes.
+
+331
+00:17:10.000 --> 00:17:16.000
+NOTE Speaker: TheoSteiner
+And the way you do it in ViewUnplugin router is really cool with the like you create virtual
+
+332
+00:17:15.000 --> 00:17:17.000
+NOTE Speaker: posva
+modules.
+
+333
+00:17:16.000 --> 00:17:19.000
+NOTE Speaker: posva
+Yes, yes.
+
+334
+00:17:17.000 --> 00:17:21.000
+NOTE Speaker: TheoSteiner
+And then you import types from the virtual modules.
+
+335
+00:17:19.000 --> 00:17:22.000
+NOTE Speaker: TheoSteiner
+That's like as a as a techie.
+
+336
+00:17:21.000 --> 00:17:24.000
+NOTE Speaker: posva
+I just like that.
+
+337
+00:17:22.000 --> 00:17:29.000
+NOTE Speaker: TheoSteiner
+When I saw that, I was like, Oh, this is so cool.
+
+338
+00:17:24.000 --> 00:17:33.000
+NOTE Speaker: TheoSteiner
+It was a big headache with the with TypeScript.
+
+339
+00:17:29.000 --> 00:17:35.000
+NOTE Speaker: TheoSteiner
+Sometimes he's I can imagine he doesn't work and you don't know where to debug because
+
+340
+00:17:33.000 --> 00:17:36.000
+NOTE Speaker: TheoSteiner
+it's mostly the augmentation.
+
+341
+00:17:35.000 --> 00:17:38.000
+NOTE Speaker: posva
+You have to solve the type.
+
+342
+00:17:36.000 --> 00:17:40.000
+NOTE Speaker: TheoSteiner
+Yeah, you have to you remove stuff.
+
+343
+00:17:38.000 --> 00:17:41.000
+NOTE Speaker: TheoSteiner
+You comment stuff out and you're like, Oh, now it works.
+
+344
+00:17:40.000 --> 00:17:42.000
+NOTE Speaker: posva
+I comment this out.
+
+345
+00:17:41.000 --> 00:17:44.000
+NOTE Speaker: posva
+Now it doesn't work.
+
+346
+00:17:42.000 --> 00:17:45.000
+NOTE Speaker: posva
+You start tweaking things.
+
+347
+00:17:44.000 --> 00:17:46.000
+NOTE Speaker: posva
+Yeah.
+
+348
+00:17:45.000 --> 00:17:47.000
+NOTE Speaker: posva
+Type augmentation is can be a pain.
+
+349
+00:17:46.000 --> 00:17:49.000
+NOTE Speaker: posva
+Yeah.
+
+350
+00:17:47.000 --> 00:17:56.000
+NOTE Speaker: TheoSteiner
+It's a pain to debug for sure.
+
+351
+00:17:49.000 --> 00:18:00.000
+NOTE Speaker: TheoSteiner
+So the ViewUnplugin router brings us to the next section of our episode.
+
+352
+00:17:56.000 --> 00:18:02.000
+NOTE Speaker: TheoSteiner
+You actually had a talk at the ViewFest Japan, an amazing talk.
+
+353
+00:18:00.000 --> 00:18:06.000
+NOTE Speaker: posva
+I really enjoyed it.
+
+354
+00:18:02.000 --> 00:18:08.000
+NOTE Speaker: TheoSteiner
+And it was titled Async State Management with ViewRouter.
+
+355
+00:18:06.000 --> 00:18:11.000
+NOTE Speaker: TheoSteiner
+So what what is up with that?
+
+356
+00:18:08.000 --> 00:18:16.000
+NOTE Speaker: TheoSteiner
+What is async state management with view?
+
+357
+00:18:11.000 --> 00:18:20.000
+NOTE Speaker: TheoSteiner
+State management is so when something funny is people usually when they hear async state
+
+358
+00:18:16.000 --> 00:18:23.000
+NOTE Speaker: TheoSteiner
+management, they hear async and then state management.
+
+359
+00:18:20.000 --> 00:18:27.000
+NOTE Speaker: TheoSteiner
+But the real split is async state management.
+
+360
+00:18:23.000 --> 00:18:29.000
+NOTE Speaker: TheoSteiner
+And it's just a differentiation from state management or global state management.
+
+361
+00:18:27.000 --> 00:18:35.000
+NOTE Speaker: TheoSteiner
+When we say state management, it can be both.
+
+362
+00:18:29.000 --> 00:18:37.000
+NOTE Speaker: TheoSteiner
+Async state management, it's just a very generic word to say we handle the async state.
+
+363
+00:18:35.000 --> 00:18:38.000
+NOTE Speaker: TheoSteiner
+So that means is the operation running?
+
+364
+00:18:37.000 --> 00:18:39.000
+NOTE Speaker: posva
+Do we have an error?
+
+365
+00:18:38.000 --> 00:18:40.000
+NOTE Speaker: posva
+Do we have the data back?
+
+366
+00:18:39.000 --> 00:18:44.000
+NOTE Speaker: posva
+Can we refresh it?
+
+367
+00:18:40.000 --> 00:18:45.000
+NOTE Speaker: TheoSteiner
+So there is a lot of things around that and we can add things like cache, persistence,
+
+368
+00:18:44.000 --> 00:18:50.000
+NOTE Speaker: posva
+refreshing.
+
+369
+00:18:45.000 --> 00:18:52.000
+NOTE Speaker: TheoSteiner
+So by not refreshing, but rehydrating from the persistence, pausing, resuming.
+
+370
+00:18:50.000 --> 00:18:55.000
+NOTE Speaker: TheoSteiner
+There is a lot of things you can go really, really far.
+
+371
+00:18:52.000 --> 00:18:58.000
+NOTE Speaker: TheoSteiner
+So most of the time, this means data fetching in web applications.
+
+372
+00:18:55.000 --> 00:19:02.000
+NOTE Speaker: TheoSteiner
+We're not going to lie to ourselves.
+
+373
+00:18:58.000 --> 00:19:06.000
+NOTE Speaker: TheoSteiner
+The truth is that it still goes a little bit further.
+
+374
+00:19:02.000 --> 00:19:07.000
+NOTE Speaker: TheoSteiner
+The truth is that it still goes a little bit further because you can also integrate other
+
+375
+00:19:06.000 --> 00:19:11.000
+NOTE Speaker: posva
+kinds of async state management.
+
+376
+00:19:07.000 --> 00:19:13.000
+NOTE Speaker: TheoSteiner
+So you could have WebSockets and other more complex operations.
+
+377
+00:19:11.000 --> 00:19:15.000
+NOTE Speaker: TheoSteiner
+But data fetching is going to be the main topic.
+
+378
+00:19:13.000 --> 00:19:17.000
+NOTE Speaker: TheoSteiner
+So I'm going to limit to talking to data fetching.
+
+379
+00:19:15.000 --> 00:19:23.000
+NOTE Speaker: TheoSteiner
+Because it should be what most people are familiar with.
+
+380
+00:19:17.000 --> 00:19:27.000
+NOTE Speaker: TheoSteiner
+It means that so the talk was really about combining these data fetching that is not
+
+381
+00:19:23.000 --> 00:19:32.000
+NOTE Speaker: TheoSteiner
+always in the router to the router and the benefits of doing so.
+
+382
+00:19:27.000 --> 00:19:34.000
+NOTE Speaker: TheoSteiner
+The most of the time when you do data fetching or async state management in general, you
+
+383
+00:19:32.000 --> 00:19:35.000
+NOTE Speaker: TheoSteiner
+have some kind of solution that handles that.
+
+384
+00:19:34.000 --> 00:19:37.000
+NOTE Speaker: posva
+Is it loading?
+
+385
+00:19:35.000 --> 00:19:41.000
+NOTE Speaker: TheoSteiner
+Did we have an error?
+
+386
+00:19:37.000 --> 00:19:44.000
+NOTE Speaker: TheoSteiner
+Otherwise if you write the code by yourself, which you can, it's a lot of boilerplate.
+
+387
+00:19:41.000 --> 00:19:45.000
+NOTE Speaker: TheoSteiner
+So you end up abstracting it and then you keep adding features.
+
+388
+00:19:44.000 --> 00:19:51.000
+NOTE Speaker: posva
+And then it becomes a bit of a mess.
+
+389
+00:19:45.000 --> 00:19:53.000
+NOTE Speaker: TheoSteiner
+And you may end up writing your own library like like that's the query swear or not have
+
+390
+00:19:51.000 --> 00:19:57.000
+NOTE Speaker: posva
+their own implementation.
+
+391
+00:19:53.000 --> 00:20:03.000
+NOTE Speaker: TheoSteiner
+So the talk is more about is really about combining these solutions with the router
+
+392
+00:19:57.000 --> 00:20:07.000
+NOTE Speaker: TheoSteiner
+to bring also the benefits of being able to integrate data fetching into the navigation.
+
+393
+00:20:03.000 --> 00:20:08.000
+NOTE Speaker: TheoSteiner
+Because well, there is a lot of some of the benefits that are talked about in the in the
+
+394
+00:20:07.000 --> 00:20:12.000
+NOTE Speaker: posva
+talk.
+
+395
+00:20:08.000 --> 00:20:14.000
+NOTE Speaker: TheoSteiner
+But there can be easily summarizing to you want to be able to control the navigation.
+
+396
+00:20:12.000 --> 00:20:19.000
+NOTE Speaker: posva
+This means redirecting to a page.
+
+397
+00:20:14.000 --> 00:20:25.000
+NOTE Speaker: TheoSteiner
+If the user has no access, display the page with an error, maybe if it's a 404, when you
+
+398
+00:20:19.000 --> 00:20:29.000
+NOTE Speaker: TheoSteiner
+want to display the detail of a of a document in the database, but also having a better
+
+399
+00:20:25.000 --> 00:20:34.000
+NOTE Speaker: TheoSteiner
+analysis knowledge of what is going on in your page.
+
+400
+00:20:29.000 --> 00:20:39.000
+NOTE Speaker: TheoSteiner
+So if you just load the data synchronously on when the component mounts, your navigations
+
+401
+00:20:34.000 --> 00:20:43.000
+NOTE Speaker: TheoSteiner
+are going to be instant, and you will not have any metrics on what are the pages that
+
+402
+00:20:39.000 --> 00:20:44.000
+NOTE Speaker: TheoSteiner
+take the longer to load from our client side perspective.
+
+403
+00:20:43.000 --> 00:20:49.000
+NOTE Speaker: posva
+Because if you have service and rendering.
+
+404
+00:20:44.000 --> 00:20:53.000
+NOTE Speaker: TheoSteiner
+As long as you load the data on the server, you can see how that so it's more of a realistic
+
+405
+00:20:49.000 --> 00:20:59.000
+NOTE Speaker: TheoSteiner
+point of view on what is fast, what isn't fast in your application, integrating into
+
+406
+00:20:53.000 --> 00:21:01.000
+NOTE Speaker: TheoSteiner
+the navigation allows you to know how long take on the client side some of the pages.
+
+407
+00:20:59.000 --> 00:21:02.000
+NOTE Speaker: TheoSteiner
+So analytics wise, this is very nice too.
+
+408
+00:21:01.000 --> 00:21:07.000
+NOTE Speaker: posva
+And so this is that's it.
+
+409
+00:21:02.000 --> 00:21:12.000
+NOTE Speaker: TheoSteiner
+That's the that's the point, right is having these benefits, but without giving up all
+
+410
+00:21:07.000 --> 00:21:13.000
+NOTE Speaker: TheoSteiner
+the benefits of using a full fledged as in state management library, and this is the
+
+411
+00:21:12.000 --> 00:21:19.000
+NOTE Speaker: Speaker_8
+data loader, basically, or loader.
+
+412
+00:21:13.000 --> 00:21:21.000
+NOTE Speaker: TheoSteiner
+The name is not really sexy, but I don't think it requires to be that.
+
+413
+00:21:19.000 --> 00:21:22.000
+NOTE Speaker: TheoSteiner
+It's just it's loads something.
+
+414
+00:21:21.000 --> 00:21:28.000
+NOTE Speaker: posva
+That's it.
+
+415
+00:21:22.000 --> 00:21:30.000
+NOTE Speaker: TheoSteiner
+So my understanding is that data loaders are implemented on top of route guards or route
+
+416
+00:21:28.000 --> 00:21:31.000
+NOTE Speaker: TheoSteiner
+guards like the before enter route.
+
+417
+00:21:30.000 --> 00:21:33.000
+NOTE Speaker: Speaker_8
+Yes.
+
+418
+00:21:31.000 --> 00:21:37.000
+NOTE Speaker: TheoSteiner
+Yeah, route guards or middlewares, you can call them whatever you want.
+
+419
+00:21:33.000 --> 00:21:40.000
+NOTE Speaker: TheoSteiner
+The concept is the same is a function that runs before the navigation is confirmed, and
+
+420
+00:21:37.000 --> 00:21:42.000
+NOTE Speaker: TheoSteiner
+allows to control the navigation outcome.
+
+421
+00:21:40.000 --> 00:21:43.000
+NOTE Speaker: TheoSteiner
+By control, I mean cancel.
+
+422
+00:21:42.000 --> 00:21:44.000
+NOTE Speaker: TheoSteiner
+So abort redirect.
+
+423
+00:21:43.000 --> 00:21:45.000
+NOTE Speaker: posva
+And also delay.
+
+424
+00:21:44.000 --> 00:21:50.000
+NOTE Speaker: posva
+It's a synchronous.
+
+425
+00:21:45.000 --> 00:21:55.000
+NOTE Speaker: TheoSteiner
+Yeah, I think that really gives you a lot of flexibility because you can get the data
+
+426
+00:21:50.000 --> 00:21:58.000
+NOTE Speaker: TheoSteiner
+and look into the data and decide based on the data you got where you redirect the user
+
+427
+00:21:55.000 --> 00:22:00.000
+NOTE Speaker: TheoSteiner
+to or if you have to cancel or do something else.
+
+428
+00:21:58.000 --> 00:22:03.000
+NOTE Speaker: TheoSteiner
+It's a really beautiful pattern, I think.
+
+429
+00:22:00.000 --> 00:22:04.000
+NOTE Speaker: TheoSteiner
+Did you have like, any any sort of inspiration for this pattern?
+
+430
+00:22:03.000 --> 00:22:10.000
+NOTE Speaker: posva
+Yeah, definitely.
+
+431
+00:22:04.000 --> 00:22:13.000
+NOTE Speaker: TheoSteiner
+So I try to when I come with these ideas, I mean, the loading into a navigation guard,
+
+432
+00:22:10.000 --> 00:22:17.000
+NOTE Speaker: TheoSteiner
+that's something that has been has existed for a long time.
+
+433
+00:22:13.000 --> 00:22:22.000
+NOTE Speaker: TheoSteiner
+But I wanted to have an API that allow me to collocate the code that is relevant to
+
+434
+00:22:17.000 --> 00:22:24.000
+NOTE Speaker: TheoSteiner
+data fetching to the code that displays that results.
+
+435
+00:22:22.000 --> 00:22:28.000
+NOTE Speaker: TheoSteiner
+So usually this means page components.
+
+436
+00:22:24.000 --> 00:22:30.000
+NOTE Speaker: TheoSteiner
+In page components, I want to be able to define loaders without being limited to it.
+
+437
+00:22:28.000 --> 00:22:32.000
+NOTE Speaker: posva
+This is also the important part.
+
+438
+00:22:30.000 --> 00:22:34.000
+NOTE Speaker: TheoSteiner
+I don't want to be limited by this collocation.
+
+439
+00:22:32.000 --> 00:22:39.000
+NOTE Speaker: TheoSteiner
+And I want to be able to use it right away underneath.
+
+440
+00:22:34.000 --> 00:22:40.000
+NOTE Speaker: TheoSteiner
+When you have the navigation guards, you really are away from the component because it's a
+
+441
+00:22:39.000 --> 00:22:41.000
+NOTE Speaker: posva
+global thing.
+
+442
+00:22:40.000 --> 00:22:42.000
+NOTE Speaker: posva
+It's in the router.
+
+443
+00:22:41.000 --> 00:22:46.000
+NOTE Speaker: posva
+So I did look at what the navigation guards are.
+
+444
+00:22:42.000 --> 00:22:49.000
+NOTE Speaker: TheoSteiner
+I did look at what other frameworks were doing with loaders in general, because every single
+
+445
+00:22:46.000 --> 00:22:53.000
+NOTE Speaker: TheoSteiner
+framework had their own version of loader.
+
+446
+00:22:49.000 --> 00:22:56.000
+NOTE Speaker: TheoSteiner
+And they are mostly doing a very simple version compared to the version I'm doing.
+
+447
+00:22:53.000 --> 00:23:00.000
+NOTE Speaker: TheoSteiner
+So I wasn't really satisfied with the inspiration I got.
+
+448
+00:22:56.000 --> 00:23:04.000
+NOTE Speaker: TheoSteiner
+But it was still great to see that other people were going in a similar direction, because
+
+449
+00:23:00.000 --> 00:23:08.000
+NOTE Speaker: TheoSteiner
+I've been trying to advocate for the navigation in navigation data fetching for a long while.
+
+450
+00:23:04.000 --> 00:23:11.000
+NOTE Speaker: TheoSteiner
+And some of them do not really integrate into the navigation because they only do it on
+
+451
+00:23:08.000 --> 00:23:12.000
+NOTE Speaker: TheoSteiner
+server side, but not on client side.
+
+452
+00:23:11.000 --> 00:23:14.000
+NOTE Speaker: posva
+And so data loaders are basically the same.
+
+453
+00:23:12.000 --> 00:23:16.000
+NOTE Speaker: TheoSteiner
+They're both server and client side.
+
+454
+00:23:14.000 --> 00:23:20.000
+NOTE Speaker: TheoSteiner
+They're really hooked into the navigation itself.
+
+455
+00:23:16.000 --> 00:23:24.000
+NOTE Speaker: TheoSteiner
+And so the reason I say that some of the frameworks have a more simplified version is because
+
+456
+00:23:20.000 --> 00:23:27.000
+NOTE Speaker: TheoSteiner
+they don't allow, sometimes they don't allow multiple loaders, for example.
+
+457
+00:23:24.000 --> 00:23:33.000
+NOTE Speaker: TheoSteiner
+They don't allow nesting loaders, which is something I didn't talk about in the talk.
+
+458
+00:23:27.000 --> 00:23:37.000
+NOTE Speaker: TheoSteiner
+But you can nest loaders and have serial, by default is parallel, which I didn't even
+
+459
+00:23:33.000 --> 00:23:41.000
+NOTE Speaker: TheoSteiner
+say, but because I think it should be granted, like take it for granted.
+
+460
+00:23:37.000 --> 00:23:42.000
+NOTE Speaker: TheoSteiner
+Your navigation should maximize the parallelization of loading.
+
+461
+00:23:41.000 --> 00:23:43.000
+NOTE Speaker: posva
+As well.
+
+462
+00:23:42.000 --> 00:23:47.000
+NOTE Speaker: TheoSteiner
+So you can do the best, as much as it could.
+
+463
+00:23:43.000 --> 00:23:49.000
+NOTE Speaker: TheoSteiner
+And so the data loaders do this and you don't even need to worry about it, but you don't
+
+464
+00:23:47.000 --> 00:23:50.000
+NOTE Speaker: TheoSteiner
+need to have one loader per route.
+
+465
+00:23:49.000 --> 00:23:54.000
+NOTE Speaker: Speaker_4
+You can have multiple ones.
+
+466
+00:23:50.000 --> 00:23:59.000
+NOTE Speaker: TheoSteiner
+So you don't even think you need that and you don't even need to think about it.
+
+467
+00:23:54.000 --> 00:24:04.000
+NOTE Speaker: TheoSteiner
+And then you can also combine it with the full fledged libraries that bring all the
+
+468
+00:23:59.000 --> 00:24:07.000
+NOTE Speaker: TheoSteiner
+features like cache, persistence, as I was saying before, or just do the basic one.
+
+469
+00:24:04.000 --> 00:24:11.000
+NOTE Speaker: TheoSteiner
+So that's definitely something that no other framework has, right?
+
+470
+00:24:07.000 --> 00:24:12.000
+NOTE Speaker: TheoSteiner
+Having a loader that can be augmented like a spec.
+
+471
+00:24:11.000 --> 00:24:15.000
+NOTE Speaker: posva
+Yeah.
+
+472
+00:24:12.000 --> 00:24:16.000
+NOTE Speaker: TheoSteiner
+It's maybe a level lower than other frameworks.
+
+473
+00:24:15.000 --> 00:24:21.000
+NOTE Speaker: Speaker_9
+Yeah.
+
+474
+00:24:16.000 --> 00:24:26.000
+NOTE Speaker: TheoSteiner
+If I, for example, think of Remix or SvelteKit, which have a similar loading pattern, but
+
+475
+00:24:21.000 --> 00:24:27.000
+NOTE Speaker: TheoSteiner
+then it's not as composable because you don't have the loader itself that you can freely
+
+476
+00:24:26.000 --> 00:24:28.000
+NOTE Speaker: posva
+pass around.
+
+477
+00:24:27.000 --> 00:24:29.000
+NOTE Speaker: posva
+Exactly.
+
+478
+00:24:28.000 --> 00:24:33.000
+NOTE Speaker: posva
+Yeah.
+
+479
+00:24:29.000 --> 00:24:38.000
+NOTE Speaker: TheoSteiner
+You can still, for example, in Svelte, you could use the loader that is in your layout
+
+480
+00:24:33.000 --> 00:24:42.000
+NOTE Speaker: TheoSteiner
+and await it or something, but it's not as composable and low level as the data loaders
+
+481
+00:24:38.000 --> 00:24:45.000
+NOTE Speaker: TheoSteiner
+in Vue Router, which I think are really nice.
+
+482
+00:24:42.000 --> 00:24:49.000
+NOTE Speaker: TheoSteiner
+They're really cool, but they don't have this general, like a standard pattern.
+
+483
+00:24:45.000 --> 00:24:53.000
+NOTE Speaker: TheoSteiner
+And what I especially love about them is that there is not one data loader.
+
+484
+00:24:49.000 --> 00:24:57.000
+NOTE Speaker: TheoSteiner
+Like in your talk you were like, actually I lied to you.
+
+485
+00:24:53.000 --> 00:25:02.000
+NOTE Speaker: TheoSteiner
+There's no data loaders because data loaders are just a spec.
+
+486
+00:24:57.000 --> 00:25:04.000
+NOTE Speaker: TheoSteiner
+And for example, one that comes default with Vue Router is the basic.
+
+487
+00:25:02.000 --> 00:25:10.000
+NOTE Speaker: TheoSteiner
+Yeah, you have two defaults.
+
+488
+00:25:04.000 --> 00:25:11.000
+NOTE Speaker: TheoSteiner
+So like two official implementations in a way is the basic, as you were saying.
+
+489
+00:25:10.000 --> 00:25:15.000
+NOTE Speaker: posva
+So you can rename it.
+
+490
+00:25:11.000 --> 00:25:20.000
+NOTE Speaker: TheoSteiner
+bother too much with the naming is like define define basic loader and this is just takes a
+
+491
+00:25:15.000 --> 00:25:28.000
+NOTE Speaker: TheoSteiner
+function that returns a promise that's it and then the sorry and the colada there is the define colada
+
+492
+00:25:20.000 --> 00:25:34.000
+NOTE Speaker: TheoSteiner
+loader so this one is based on pinia colada and pinia colada is is a layer on top of pinia so you
+
+493
+00:25:28.000 --> 00:25:41.000
+NOTE Speaker: TheoSteiner
+can call it whatever you want is it uses pinia to so more specifically the stores to handle the
+
+494
+00:25:34.000 --> 00:25:48.000
+NOTE Speaker: TheoSteiner
+the data the global data the global state management and it adds sprinkles on top the
+
+495
+00:25:41.000 --> 00:25:53.000
+NOTE Speaker: TheoSteiner
+all the goodies for cache sync state and invalidation optimistic updates a lot of things
+
+496
+00:25:48.000 --> 00:25:57.000
+NOTE Speaker: TheoSteiner
+that are really useful and it makes it also in a way that is really progressive which is something
+
+497
+00:25:53.000 --> 00:26:03.000
+NOTE Speaker: TheoSteiner
+we really like in Vue so it should be simple to get started it should be simple to go further
+
+498
+00:25:57.000 --> 00:26:04.000
+NOTE Speaker: TheoSteiner
+away by adding things so you shouldn't be rewriting your whole code when you need to
+
+499
+00:26:03.000 --> 00:26:04.000
+NOTE Speaker: posva
+make things more complex
+
+500
+00:26:04.000 --> 00:26:08.000
+NOTE Speaker: posva
+you shouldn't be rewriting your whole code when you need to make things more complex
+
+501
+00:26:04.000 --> 00:26:15.000
+NOTE Speaker: TheoSteiner
+most of the time you should be able to just add things to the to the code you already have
+
+502
+00:26:08.000 --> 00:26:20.000
+NOTE Speaker: TheoSteiner
+and still stay simple i want to dive into pinia colada a bit further later on but like other than
+
+503
+00:26:15.000 --> 00:26:26.000
+NOTE Speaker: TheoSteiner
+the two basic loaders um you provide by default what what kind of loaders could be implemented
+
+504
+00:26:20.000 --> 00:26:34.000
+NOTE Speaker: TheoSteiner
+what like why is it a spec yeah it's a spec because i didn't want to lock in my users into
+
+505
+00:26:26.000 --> 00:26:39.000
+NOTE Speaker: TheoSteiner
+some specific implementation so the basic loader doesn't use any other library right it doesn't
+
+506
+00:26:34.000 --> 00:26:45.000
+NOTE Speaker: TheoSteiner
+have any other implementation so it only has data error loading state and you can refresh the data
+
+507
+00:26:39.000 --> 00:26:51.000
+NOTE Speaker: TheoSteiner
+without navigating that's pretty much pretty much it error management loading state data and
+
+508
+00:26:45.000 --> 00:26:57.000
+NOTE Speaker: TheoSteiner
+refreshing and any any implementation can add their set of features so like pinia colada does add the
+
+509
+00:26:51.000 --> 00:27:02.000
+NOTE Speaker: TheoSteiner
+cache and persistent annotation invalidations this is handled by an external library which is
+
+510
+00:26:57.000 --> 00:27:03.000
+NOTE Speaker: TheoSteiner
+independent to the router it works by itself right so we have some glue code you can you can even
+
+511
+00:27:02.000 --> 00:27:05.000
+NOTE Speaker: TheoSteiner
+think about the define uh the loaders as a whole but i'm not sure if we can get a lot of validation
+
+512
+00:27:03.000 --> 00:27:07.000
+NOTE Speaker: TheoSteiner
+loaders as glue code.
+
+513
+00:27:05.000 --> 00:27:09.000
+NOTE Speaker: TheoSteiner
+And then you could have something with other libraries
+
+514
+00:27:07.000 --> 00:27:11.000
+NOTE Speaker: TheoSteiner
+that other people use.
+
+515
+00:27:09.000 --> 00:27:13.000
+NOTE Speaker: posva
+So it could be TanStackQuery, which
+
+516
+00:27:11.000 --> 00:27:15.000
+NOTE Speaker: TheoSteiner
+is a very popular solution for async state management.
+
+517
+00:27:13.000 --> 00:27:17.000
+NOTE Speaker: posva
+And Pina Colada actually has an API
+
+518
+00:27:15.000 --> 00:27:20.000
+NOTE Speaker: TheoSteiner
+that looks a lot like TanStackQuery.
+
+519
+00:27:17.000 --> 00:27:22.000
+NOTE Speaker: TheoSteiner
+It's obviously on purpose to be able to seem familiar to people.
+
+520
+00:27:20.000 --> 00:27:25.000
+NOTE Speaker: posva
+And you can also do ViewFire.
+
+521
+00:27:22.000 --> 00:27:28.000
+NOTE Speaker: TheoSteiner
+So ViewFire would have the, what would be special about ViewFire
+
+522
+00:27:25.000 --> 00:27:31.000
+NOTE Speaker: TheoSteiner
+is that you will wait for the initial data to be ready,
+
+523
+00:27:28.000 --> 00:27:33.000
+NOTE Speaker: TheoSteiner
+and then it will become real time, something like that.
+
+524
+00:27:31.000 --> 00:27:37.000
+NOTE Speaker: TheoSteiner
+And so WebSockets, you could imagine something similar.
+
+525
+00:27:33.000 --> 00:27:39.000
+NOTE Speaker: TheoSteiner
+You wait for the WebSocket to be set up and the connection
+
+526
+00:27:37.000 --> 00:27:40.000
+NOTE Speaker: TheoSteiner
+to be ready, and then it's just alive.
+
+527
+00:27:39.000 --> 00:27:41.000
+NOTE Speaker: posva
+It's just there.
+
+528
+00:27:40.000 --> 00:27:44.000
+NOTE Speaker: TheoSteiner
+Of course, you still need to handle
+
+529
+00:27:41.000 --> 00:27:46.000
+NOTE Speaker: TheoSteiner
+some of the intrinsic behaviors of WebSockets,
+
+530
+00:27:44.000 --> 00:27:48.000
+NOTE Speaker: TheoSteiner
+like disconnecting and stuff like that.
+
+531
+00:27:46.000 --> 00:27:50.000
+NOTE Speaker: TheoSteiner
+That's a whole different story.
+
+532
+00:27:48.000 --> 00:27:52.000
+NOTE Speaker: TheoSteiner
+So you could imagine any loader that
+
+533
+00:27:50.000 --> 00:27:56.000
+NOTE Speaker: TheoSteiner
+integrates with any other technology, library
+
+534
+00:27:52.000 --> 00:27:59.000
+NOTE Speaker: TheoSteiner
+or technology, and that brings their own very special set
+
+535
+00:27:56.000 --> 00:28:01.000
+NOTE Speaker: TheoSteiner
+of features that is not specific to data loaders.
+
+536
+00:27:59.000 --> 00:28:03.000
+NOTE Speaker: TheoSteiner
+Because the idea is really, as long
+
+537
+00:28:01.000 --> 00:28:07.000
+NOTE Speaker: TheoSteiner
+as you implement these internal, like,
+
+538
+00:28:03.000 --> 00:28:11.000
+NOTE Speaker: posva
+I mean, low level API that the router relies on
+
+539
+00:28:07.000 --> 00:28:13.000
+NOTE Speaker: TheoSteiner
+for the navigation guard to run and to get data, it will work.
+
+540
+00:28:11.000 --> 00:28:15.000
+NOTE Speaker: TheoSteiner
+And it has a lot of features that are actually
+
+541
+00:28:13.000 --> 00:28:17.000
+NOTE Speaker: posva
+more complex to implement that it looks like,
+
+542
+00:28:15.000 --> 00:28:21.000
+NOTE Speaker: TheoSteiner
+like the ability to have consistent updates.
+
+543
+00:28:17.000 --> 00:28:26.000
+NOTE Speaker: TheoSteiner
+So the loaders are meant to delay updating the data
+
+544
+00:28:21.000 --> 00:28:31.000
+NOTE Speaker: TheoSteiner
+until navigation is validated, which is very abstract concept.
+
+545
+00:28:26.000 --> 00:28:33.000
+NOTE Speaker: TheoSteiner
+But when you have client side loading based on the routes,
+
+546
+00:28:31.000 --> 00:28:36.000
+NOTE Speaker: posva
+if you navigate to a different route,
+
+547
+00:28:33.000 --> 00:28:38.000
+NOTE Speaker: TheoSteiner
+and you have multiple parts of the application that
+
+548
+00:28:36.000 --> 00:28:41.000
+NOTE Speaker: posva
+have different fetches, you may end up
+
+549
+00:28:38.000 --> 00:28:43.000
+NOTE Speaker: TheoSteiner
+with data that arrives at different times.
+
+550
+00:28:41.000 --> 00:28:44.000
+NOTE Speaker: TheoSteiner
+And so, for example, you have profile information,
+
+551
+00:28:43.000 --> 00:28:47.000
+NOTE Speaker: posva
+which is the demo that I showed.
+
+552
+00:28:44.000 --> 00:28:49.000
+NOTE Speaker: TheoSteiner
+You might have some information that takes longer to load.
+
+553
+00:28:47.000 --> 00:28:52.000
+NOTE Speaker: TheoSteiner
+And you will have the information of the user
+
+554
+00:28:49.000 --> 00:28:54.000
+NOTE Speaker: TheoSteiner
+be displayed with different user information, actually.
+
+555
+00:28:52.000 --> 00:28:57.000
+NOTE Speaker: TheoSteiner
+But it looks like you're looking at one person.
+
+556
+00:28:54.000 --> 00:28:59.000
+NOTE Speaker: TheoSteiner
+So you have, like, this Frankenstein of information.
+
+557
+00:28:57.000 --> 00:29:02.000
+NOTE Speaker: posva
+So data loaders also are meant to fix that.
+
+558
+00:28:59.000 --> 00:29:03.000
+NOTE Speaker: TheoSteiner
+And no matter what library you use,
+
+559
+00:29:02.000 --> 00:29:08.000
+NOTE Speaker: TheoSteiner
+of course, you need to implement it
+
+560
+00:29:03.000 --> 00:29:11.000
+NOTE Speaker: TheoSteiner
+and I have a big suit of tests that you need to pass in order
+
+561
+00:29:08.000 --> 00:29:12.000
+NOTE Speaker: TheoSteiner
+to say, OK, this is a compatible data loader, but it's there.
+
+562
+00:29:11.000 --> 00:29:14.000
+NOTE Speaker: posva
+It's .
+
+563
+00:29:12.000 --> 00:29:18.000
+NOTE Speaker: posva
+That's really cool that you're trying
+
+564
+00:29:14.000 --> 00:29:19.000
+NOTE Speaker: TheoSteiner
+to verify that the community provides are actually
+
+565
+00:29:18.000 --> 00:29:23.000
+NOTE Speaker: TheoSteiner
+functional data loaders.
+
+566
+00:29:19.000 --> 00:29:28.000
+NOTE Speaker: TheoSteiner
+So given you can use Pina Colada or something like Vue
+
+567
+00:29:23.000 --> 00:29:31.000
+NOTE Speaker: TheoSteiner
+Query inside the data loaders, I wonder how they make data
+
+568
+00:29:28.000 --> 00:29:33.000
+NOTE Speaker: TheoSteiner
+loading, I think declarative is the key word here,
+
+569
+00:29:31.000 --> 00:29:37.000
+NOTE Speaker: posva
+where you define the dependencies.
+
+570
+00:29:33.000 --> 00:29:41.000
+NOTE Speaker: TheoSteiner
+So you can use the same thing for a set of data
+
+571
+00:29:37.000 --> 00:29:45.000
+NOTE Speaker: TheoSteiner
+and you refetch the data whenever the dependencies change.
+
+572
+00:29:41.000 --> 00:29:48.000
+NOTE Speaker: TheoSteiner
+How does it work if I put the declaration inside the loader?
+
+573
+00:29:45.000 --> 00:29:49.000
+NOTE Speaker: TheoSteiner
+Like, does the loader need to know about the state?
+
+574
+00:29:48.000 --> 00:29:51.000
+NOTE Speaker: TheoSteiner
+What do you mean by declaration?
+
+575
+00:29:49.000 --> 00:29:54.000
+NOTE Speaker: TheoSteiner
+Like, what are you putting inside?
+
+576
+00:29:51.000 --> 00:29:56.000
+NOTE Speaker: TheoSteiner
+Like, for example, if I put the use query inside the
+
+577
+00:29:54.000 --> 00:29:57.000
+NOTE Speaker: TheoSteiner
+You mean to create your own version of the query?
+
+578
+00:29:56.000 --> 00:29:58.000
+NOTE Speaker: posva
+Oh, sorry, of the loader?
+
+579
+00:29:57.000 --> 00:30:00.000
+NOTE Speaker: Speaker_9
+Yes.
+
+580
+00:29:58.000 --> 00:30:03.000
+NOTE Speaker: TheoSteiner
+No, it's a bit more complicated than that.
+
+581
+00:30:00.000 --> 00:30:07.000
+NOTE Speaker: TheoSteiner
+You need to create some custom defined, a query loader, for example,
+
+582
+00:30:03.000 --> 00:30:08.000
+NOTE Speaker: TheoSteiner
+a Tansy query loader that will at some point call use query
+
+583
+00:30:07.000 --> 00:30:09.000
+NOTE Speaker: Speaker_3
+instead of its code.
+
+584
+00:30:08.000 --> 00:30:10.000
+NOTE Speaker: posva
+Oh, OK.
+
+585
+00:30:09.000 --> 00:30:13.000
+NOTE Speaker: posva
+So I see.
+
+586
+00:30:10.000 --> 00:30:14.000
+NOTE Speaker: TheoSteiner
+So it's not as easy as just putting the loader into the query
+
+587
+00:30:13.000 --> 00:30:17.000
+NOTE Speaker: posva
+into the loader.
+
+588
+00:30:14.000 --> 00:30:20.000
+NOTE Speaker: TheoSteiner
+The reason it requires some, it's definitely not easy.
+
+589
+00:30:17.000 --> 00:30:22.000
+NOTE Speaker: TheoSteiner
+Also, because some of the features that I have on the loaders
+
+590
+00:30:20.000 --> 00:30:24.000
+NOTE Speaker: TheoSteiner
+are a bit complex.
+
+591
+00:30:22.000 --> 00:30:26.000
+NOTE Speaker: TheoSteiner
+So if you look at the implementation for the basic loader,
+
+592
+00:30:24.000 --> 00:30:30.000
+NOTE Speaker: posva
+it's a bit shorter.
+
+593
+00:30:26.000 --> 00:30:33.000
+NOTE Speaker: TheoSteiner
+The loader is a bit longer because of the extra features it had.
+
+594
+00:30:30.000 --> 00:30:37.000
+NOTE Speaker: TheoSteiner
+And they can serve as a starting point as well.
+
+595
+00:30:33.000 --> 00:30:41.000
+NOTE Speaker: TheoSteiner
+The reason is I tend to move a lot of the complexity
+
+596
+00:30:37.000 --> 00:30:46.000
+NOTE Speaker: TheoSteiner
+from the user code to the library code as much as possible.
+
+597
+00:30:41.000 --> 00:30:48.000
+NOTE Speaker: TheoSteiner
+I really believe that a good API should be very easy in 80%.
+
+598
+00:30:46.000 --> 00:30:50.000
+NOTE Speaker: TheoSteiner
+It's difficult to explain without the words,
+
+599
+00:30:48.000 --> 00:30:53.000
+NOTE Speaker: TheoSteiner
+but I have another talk where they explain this,
+
+600
+00:30:50.000 --> 00:30:56.000
+NOTE Speaker: TheoSteiner
+what is a good design, a good API design.
+
+601
+00:30:53.000 --> 00:30:58.000
+NOTE Speaker: TheoSteiner
+So for 80% of the use cases, it should be very easy.
+
+602
+00:30:56.000 --> 00:31:00.000
+NOTE Speaker: TheoSteiner
+And then it should get exponentially harder
+
+603
+00:30:58.000 --> 00:31:03.000
+NOTE Speaker: TheoSteiner
+to get things done.
+
+604
+00:31:00.000 --> 00:31:06.000
+NOTE Speaker: TheoSteiner
+So you're sacrificing the real hard work
+
+605
+00:31:03.000 --> 00:31:10.000
+NOTE Speaker: TheoSteiner
+and the real uncommon use cases for a more complex code,
+
+606
+00:31:06.000 --> 00:31:12.000
+NOTE Speaker: TheoSteiner
+but making extremely easy to get what most people need to do.
+
+607
+00:31:10.000 --> 00:31:14.000
+NOTE Speaker: TheoSteiner
+So you have a kind of curve.
+
+608
+00:31:12.000 --> 00:31:17.000
+NOTE Speaker: TheoSteiner
+What was the curve?
+
+609
+00:31:14.000 --> 00:31:19.000
+NOTE Speaker: TheoSteiner
+If you have the complexity.
+
+610
+00:31:17.000 --> 00:31:23.000
+NOTE Speaker: TheoSteiner
+Yeah, how common it is.
+
+611
+00:31:19.000 --> 00:31:25.000
+NOTE Speaker: TheoSteiner
+So on the original act, it goes like, is this very common?
+
+612
+00:31:23.000 --> 00:31:28.000
+NOTE Speaker: TheoSteiner
+And then the vertical acts will be the difficulty.
+
+613
+00:31:25.000 --> 00:31:30.000
+NOTE Speaker: TheoSteiner
+And so it should be something like it goes very low,
+
+614
+00:31:28.000 --> 00:31:32.000
+NOTE Speaker: posva
+and then it goes up really quick.
+
+615
+00:31:30.000 --> 00:31:33.000
+NOTE Speaker: TheoSteiner
+It's like it's, OK.
+
+616
+00:31:32.000 --> 00:31:33.000
+NOTE Speaker: posva
+So it should be.
+
+617
+00:31:33.000 --> 00:31:35.000
+NOTE Speaker: posva
+OK.
+
+618
+00:31:33.000 --> 00:31:36.000
+NOTE Speaker: TheoSteiner
+It's like an inverted logarithmic curve.
+
+619
+00:31:35.000 --> 00:31:39.000
+NOTE Speaker: posva
+Yes.
+
+620
+00:31:36.000 --> 00:31:42.000
+NOTE Speaker: TheoSteiner
+I haven't done a lot of math of this kind for a long time,
+
+621
+00:31:39.000 --> 00:31:43.000
+NOTE Speaker: posva
+so I don't want to say anything.
+
+622
+00:31:42.000 --> 00:31:44.000
+NOTE Speaker: TheoSteiner
+There is some exponential in there.
+
+623
+00:31:43.000 --> 00:31:48.000
+NOTE Speaker: posva
+Yeah, yeah, yeah.
+
+624
+00:31:44.000 --> 00:31:52.000
+NOTE Speaker: TheoSteiner
+So you optimize for the most common use cases
+
+625
+00:31:48.000 --> 00:31:54.000
+NOTE Speaker: TheoSteiner
+and sacrifice the very complex use cases.
+
+626
+00:31:52.000 --> 00:31:56.000
+NOTE Speaker: posva
+I mean, you don't sacrifice them.
+
+627
+00:31:54.000 --> 00:31:57.000
+NOTE Speaker: TheoSteiner
+You just make it a bit harder to implement them.
+
+628
+00:31:56.000 --> 00:32:00.000
+NOTE Speaker: Speaker_2
+Yeah, it's hard.
+
+629
+00:31:57.000 --> 00:32:03.000
+NOTE Speaker: TheoSteiner
+Sacrifice the API, I would say.
+
+630
+00:32:00.000 --> 00:32:04.000
+NOTE Speaker: TheoSteiner
+So the API is not adapted for those cases.
+
+631
+00:32:03.000 --> 00:32:08.000
+NOTE Speaker: posva
+This is very abstract.
+
+632
+00:32:04.000 --> 00:32:08.000
+NOTE Speaker: TheoSteiner
+But the idea is only very, very extremely personalized use
+
+633
+00:32:08.000 --> 00:32:10.000
+NOTE Speaker: posva
+cases.
+
+634
+00:32:08.000 --> 00:32:12.000
+NOTE Speaker: TheoSteiner
+It should be a little bit hard.
+
+635
+00:32:10.000 --> 00:32:12.000
+NOTE Speaker: TheoSteiner
+It should be harder to do, but not impossible.
+
+636
+00:32:12.000 --> 00:32:15.000
+NOTE Speaker: posva
+Not impossible at all.
+
+637
+00:32:12.000 --> 00:32:17.000
+NOTE Speaker: TheoSteiner
+It's just that you roll back to the lower level of the API,
+
+638
+00:32:15.000 --> 00:32:21.000
+NOTE Speaker: posva
+so you have to implement some other things yourself.
+
+639
+00:32:17.000 --> 00:32:23.000
+NOTE Speaker: TheoSteiner
+And so it requires way more work than having a linear API, which
+
+640
+00:32:21.000 --> 00:32:27.000
+NOTE Speaker: posva
+I think is really bad API design.
+
+641
+00:32:23.000 --> 00:32:30.000
+NOTE Speaker: TheoSteiner
+So you said earlier that the Vue community strives to always
+
+642
+00:32:27.000 --> 00:32:32.000
+NOTE Speaker: TheoSteiner
+have one solution for one problem.
+
+643
+00:32:30.000 --> 00:32:36.000
+NOTE Speaker: TheoSteiner
+Is there a similar effort with data loaders?
+
+644
+00:32:32.000 --> 00:32:39.000
+NOTE Speaker: posva
+Yes.
+
+645
+00:32:36.000 --> 00:32:41.000
+NOTE Speaker: TheoSteiner
+OK, so what I mean is, what I said is more,
+
+646
+00:32:39.000 --> 00:32:42.000
+NOTE Speaker: TheoSteiner
+we have official solutions for the,
+
+647
+00:32:41.000 --> 00:32:43.000
+NOTE Speaker: posva
+so we have official solutions.
+
+648
+00:32:42.000 --> 00:32:47.000
+NOTE Speaker: posva
+That's the short version.
+
+649
+00:32:43.000 --> 00:32:51.000
+NOTE Speaker: TheoSteiner
+It means that anything that is really needed in applications,
+
+650
+00:32:47.000 --> 00:32:52.000
+NOTE Speaker: TheoSteiner
+like the core foundation of, the core foundation should be,
+
+651
+00:32:51.000 --> 00:32:55.000
+NOTE Speaker: posva
+we have official solutions.
+
+652
+00:32:52.000 --> 00:32:57.000
+NOTE Speaker: TheoSteiner
+So that's the router and state management alongside Vue.
+
+653
+00:32:55.000 --> 00:33:00.000
+NOTE Speaker: posva
+And then we have things like ESLint.
+
+654
+00:32:57.000 --> 00:33:02.000
+NOTE Speaker: posva
+And there are other things that right now,
+
+655
+00:33:00.000 --> 00:33:05.000
+NOTE Speaker: TheoSteiner
+I don't have any other testing abstraction as well.
+
+656
+00:33:02.000 --> 00:33:08.000
+NOTE Speaker: TheoSteiner
+So we try as much as we can to have official solutions
+
+657
+00:33:05.000 --> 00:33:12.000
+NOTE Speaker: TheoSteiner
+for the things that are important, DevTools as well.
+
+658
+00:33:08.000 --> 00:33:14.000
+NOTE Speaker: TheoSteiner
+And then other specific solutions are created by the community,
+
+659
+00:33:12.000 --> 00:33:18.000
+NOTE Speaker: TheoSteiner
+right, contributed by the community.
+
+660
+00:33:14.000 --> 00:33:22.000
+NOTE Speaker: TheoSteiner
+Next, in the end, is still a community project in a way.
+
+661
+00:33:18.000 --> 00:33:25.000
+NOTE Speaker: TheoSteiner
+Internationalization, it's also a community project, and so on.
+
+662
+00:33:22.000 --> 00:33:27.000
+NOTE Speaker: TheoSteiner
+So data loaders, similar to Pinia,
+
+663
+00:33:25.000 --> 00:33:32.000
+NOTE Speaker: posva
+I like to start projects on the side.
+
+664
+00:33:27.000 --> 00:33:33.000
+NOTE Speaker: TheoSteiner
+That way I can iterate a bit faster on the ideas that are not leveled as,
+
+665
+00:33:32.000 --> 00:33:35.000
+NOTE Speaker: posva
+as official.
+
+666
+00:33:33.000 --> 00:33:38.000
+NOTE Speaker: posva
+And once they get leveled as official,
+
+667
+00:33:35.000 --> 00:33:41.000
+NOTE Speaker: TheoSteiner
+you get a lot more of users that have different, more different,
+
+668
+00:33:38.000 --> 00:33:44.000
+NOTE Speaker: TheoSteiner
+a more, a different demographic, right?
+
+669
+00:33:41.000 --> 00:33:49.000
+NOTE Speaker: TheoSteiner
+So you have people who have different levels of knowledge,
+
+670
+00:33:44.000 --> 00:33:51.000
+NOTE Speaker: TheoSteiner
+and it takes a lot more effort to adapt the documentation,
+
+671
+00:33:49.000 --> 00:33:56.000
+NOTE Speaker: TheoSteiner
+some of the warnings, some of the APIs as well,
+
+672
+00:33:51.000 --> 00:34:01.000
+NOTE Speaker: TheoSteiner
+to match the same level of quality that we have in Vue, I would say.
+
+673
+00:33:56.000 --> 00:34:02.000
+NOTE Speaker: TheoSteiner
+So it's easier to iterate faster during this period with less documentation,
+
+674
+00:34:01.000 --> 00:34:06.000
+NOTE Speaker: posva
+simplified API.
+
+675
+00:34:02.000 --> 00:34:10.000
+NOTE Speaker: TheoSteiner
+So you only have users who are actually quite good.
+
+676
+00:34:06.000 --> 00:34:13.000
+NOTE Speaker: TheoSteiner
+They are, they are more experienced developers, more seasoned developers.
+
+677
+00:34:10.000 --> 00:34:16.000
+NOTE Speaker: TheoSteiner
+And so they're able to give you interesting feedback,
+
+678
+00:34:13.000 --> 00:34:17.000
+NOTE Speaker: TheoSteiner
+which is not the case for some of the beginners developers.
+
+679
+00:34:16.000 --> 00:34:19.000
+NOTE Speaker: posva
+But then once you get official,
+
+680
+00:34:17.000 --> 00:34:21.000
+NOTE Speaker: TheoSteiner
+you need to be able to be easy for beginners as well.
+
+681
+00:34:19.000 --> 00:34:27.000
+NOTE Speaker: TheoSteiner
+And this is way harder than it looks like.
+
+682
+00:34:21.000 --> 00:34:31.000
+NOTE Speaker: TheoSteiner
+So actually, the reason I'm asking is on the Vue Unplugged in Router repository,
+
+683
+00:34:27.000 --> 00:34:33.000
+NOTE Speaker: TheoSteiner
+I looked through the issues and there are quite a few issues from like Vue,
+
+684
+00:34:31.000 --> 00:34:39.000
+NOTE Speaker: TheoSteiner
+Nuxt maintainers.
+
+685
+00:34:33.000 --> 00:34:43.000
+NOTE Speaker: TheoSteiner
+And I wondered, is there maybe a future where Nuxt uses the next generation Vue router under the hood?
+
+686
+00:34:39.000 --> 00:34:46.000
+NOTE Speaker: TheoSteiner
+So it already uses, this is why there are some issues with that.
+
+687
+00:34:43.000 --> 00:34:46.000
+NOTE Speaker: TheoSteiner
+It already uses, but only for the types.
+
+688
+00:34:46.000 --> 00:34:53.000
+NOTE Speaker: posva
+Okay.
+
+689
+00:34:46.000 --> 00:34:57.000
+NOTE Speaker: TheoSteiner
+So in the future, I mean, I talked to Daniel and Sebastian and I'm close to the team anyway.
+
+690
+00:34:53.000 --> 00:35:01.000
+NOTE Speaker: TheoSteiner
+So I try to ensure that there is nothing breaking for them.
+
+691
+00:34:57.000 --> 00:35:06.000
+NOTE Speaker: TheoSteiner
+In the future, it will be better if it could be completely integrated.
+
+692
+00:35:01.000 --> 00:35:10.000
+NOTE Speaker: TheoSteiner
+So for that, I only need to make sure that every piece of API is open enough for Nuxt to work with it.
+
+693
+00:35:06.000 --> 00:35:15.000
+NOTE Speaker: TheoSteiner
+Right now, they don't use the parsing of the file system.
+
+694
+00:35:10.000 --> 00:35:19.000
+NOTE Speaker: TheoSteiner
+So some of the APIs I expose them only for them.
+
+695
+00:35:15.000 --> 00:35:21.000
+NOTE Speaker: TheoSteiner
+So they can actually generate the types based on a structure.
+
+696
+00:35:19.000 --> 00:35:22.000
+NOTE Speaker: TheoSteiner
+And they can build a structure themselves.
+
+697
+00:35:21.000 --> 00:35:28.000
+NOTE Speaker: posva
+I think something like that.
+
+698
+00:35:22.000 --> 00:35:31.000
+NOTE Speaker: TheoSteiner
+So for example, you have an experimental type pages like on Nuxt config that you can set to true.
+
+699
+00:35:28.000 --> 00:35:33.000
+NOTE Speaker: TheoSteiner
+You have type routes, but you don't have the data.
+
+700
+00:35:31.000 --> 00:35:39.000
+NOTE Speaker: TheoSteiner
+You have data loaders and all the features.
+
+701
+00:35:33.000 --> 00:35:43.000
+NOTE Speaker: TheoSteiner
+So I need to build, which is one of the things that I do right now is build the modules to make that easy.
+
+702
+00:35:39.000 --> 00:35:48.000
+NOTE Speaker: TheoSteiner
+But there's still, because they don't use the Vite plugin, there is no parsing on the code.
+
+703
+00:35:43.000 --> 00:35:52.000
+NOTE Speaker: TheoSteiner
+And some of the things happen at build time to make just your life a little bit easier.
+
+704
+00:35:48.000 --> 00:35:53.000
+NOTE Speaker: TheoSteiner
+Like you can even remove the export of the data loaders and stuff like that.
+
+705
+00:35:52.000 --> 00:35:56.000
+NOTE Speaker: posva
+And it will still work.
+
+706
+00:35:53.000 --> 00:35:58.000
+NOTE Speaker: TheoSteiner
+So these are still not working on Nuxt unfortunately.
+
+707
+00:35:56.000 --> 00:36:00.000
+NOTE Speaker: posva
+Actually, a little fun side fact.
+
+708
+00:35:58.000 --> 00:36:02.000
+NOTE Speaker: TheoSteiner
+My team uses a Vue Unplugin router.
+
+709
+00:36:00.000 --> 00:36:04.000
+NOTE Speaker: TheoSteiner
+And I use Vue Unplugin router internally.
+
+710
+00:36:02.000 --> 00:36:08.000
+NOTE Speaker: posva
+And I needed to convince my boss before.
+
+711
+00:36:04.000 --> 00:36:10.000
+NOTE Speaker: TheoSteiner
+Because we were building this SBA and it has been around for a long time.
+
+712
+00:36:08.000 --> 00:36:12.000
+NOTE Speaker: posva
+And it's built on Vue router.
+
+713
+00:36:10.000 --> 00:36:18.000
+NOTE Speaker: TheoSteiner
+And I wanted to like introduce loaders.
+
+714
+00:36:12.000 --> 00:36:22.000
+NOTE Speaker: TheoSteiner
+And I didn't want to like write my own, roll my own version on top of before entry route hooks.
+
+715
+00:36:18.000 --> 00:36:25.000
+NOTE Speaker: TheoSteiner
+So I looked into your library and I was like, oh, this is beautiful.
+
+716
+00:36:22.000 --> 00:36:28.000
+NOTE Speaker: TheoSteiner
+But it had this like small little experimental label on it.
+
+717
+00:36:25.000 --> 00:36:30.000
+NOTE Speaker: TheoSteiner
+So I showed it to my boss and he was like, experimental.
+
+718
+00:36:28.000 --> 00:36:32.000
+NOTE Speaker: TheoSteiner
+That might be a hard, a hard thing.
+
+719
+00:36:30.000 --> 00:36:34.000
+NOTE Speaker: TheoSteiner
+It might change after, after.
+
+720
+00:36:32.000 --> 00:36:37.000
+NOTE Speaker: posva
+So I looked who is using it.
+
+721
+00:36:34.000 --> 00:36:41.000
+NOTE Speaker: TheoSteiner
+And I found it inside the Nuxt dependencies.
+
+722
+00:36:37.000 --> 00:36:44.000
+NOTE Speaker: TheoSteiner
+So I was like, I went to my boss and I was like, look, Nuxt is depending on it.
+
+723
+00:36:41.000 --> 00:36:47.000
+NOTE Speaker: posva
+There's not going to be so much breaking change.
+
+724
+00:36:44.000 --> 00:36:52.000
+NOTE Speaker: TheoSteiner
+But yeah, of course, we knew it was a high risk adventure.
+
+725
+00:36:47.000 --> 00:36:54.000
+NOTE Speaker: TheoSteiner
+But it was better than the opportunity, which was like hand rolling our own stack.
+
+726
+00:36:52.000 --> 00:36:56.000
+NOTE Speaker: TheoSteiner
+No one knows Vue router better than you.
+
+727
+00:36:54.000 --> 00:36:57.000
+NOTE Speaker: TheoSteiner
+So who else to implement it?
+
+728
+00:36:56.000 --> 00:37:00.000
+NOTE Speaker: posva
+Thanks.
+
+729
+00:36:57.000 --> 00:37:02.000
+NOTE Speaker: TheoSteiner
+And most of the API, yeah, it's, it's been good.
+
+730
+00:37:00.000 --> 00:37:05.000
+NOTE Speaker: TheoSteiner
+It's been pretty much stable.
+
+731
+00:37:02.000 --> 00:37:16.000
+NOTE Speaker: TheoSteiner
+Like most of the changes are, are small.
+
+732
+00:37:05.000 --> 00:37:19.000
+NOTE Speaker: TheoSteiner
+The whole structure, like if you use file based routing, the whole file based routing has been pretty much stable from the beginning because it was supposed to be mapped to what Nuxt could do.
+
+733
+00:37:16.000 --> 00:37:22.000
+NOTE Speaker: TheoSteiner
+I didn't want to buy shed too much on the syntax.
+
+734
+00:37:19.000 --> 00:37:25.000
+NOTE Speaker: TheoSteiner
+So there are a few things that do not exist in Nuxt.
+
+735
+00:37:22.000 --> 00:37:27.000
+NOTE Speaker: TheoSteiner
+Well, I mean, just one mainly named named views.
+
+736
+00:37:25.000 --> 00:37:29.000
+NOTE Speaker: posva
+So I had to introduce a syntax for that.
+
+737
+00:37:27.000 --> 00:37:37.000
+NOTE Speaker: TheoSteiner
+And I will probably introduce syntax.
+
+738
+00:37:29.000 --> 00:37:43.000
+NOTE Speaker: TheoSteiner
+Similar to SvelteKit or Nuxt, I think, where you have a page or route with a plus in the front or a dollar or whatever.
+
+739
+00:37:37.000 --> 00:37:45.000
+NOTE Speaker: TheoSteiner
+And these allows you to define sometimes information that are relative to the route.
+
+740
+00:37:43.000 --> 00:37:50.000
+NOTE Speaker: posva
+But you don't have a page.
+
+741
+00:37:45.000 --> 00:37:54.000
+NOTE Speaker: posva
+So you can have nesting of information like meta properties and stuff like that.
+
+742
+00:37:50.000 --> 00:37:58.000
+NOTE Speaker: posva
+And there are a few things that can change, but minor breaking changes.
+
+743
+00:37:54.000 --> 00:37:59.000
+NOTE Speaker: posva
+Most of the APIs, if they are exposed, they are unlikely to change too much.
+
+744
+00:37:58.000 --> 00:38:05.000
+NOTE Speaker: posva
+And everything.
+
+745
+00:37:59.000 --> 00:38:08.000
+NOTE Speaker: posva
+So things that are actually experimental, they are marked experimental again inside of the package.
+
+746
+00:38:05.000 --> 00:38:15.000
+NOTE Speaker: posva
+This is experimental, could change because I'm still having confirm.
+
+747
+00:38:08.000 --> 00:38:20.000
+NOTE Speaker: posva
+I think it's mostly the editable tree, editable route tree or something like that, which is it's a bit too much.
+
+748
+00:38:15.000 --> 00:38:27.000
+NOTE Speaker: posva
+You have to it's supposed to allow users to map to a route array.
+
+749
+00:38:20.000 --> 00:38:28.000
+NOTE Speaker: posva
+So you're able to edit the tree in a way that is similar to how you edited routes array, which is something people used to do a lot.
+
+750
+00:38:27.000 --> 00:38:31.000
+NOTE Speaker: posva
+But.
+
+751
+00:38:28.000 --> 00:38:40.000
+NOTE Speaker: posva
+Because it's done at build time, it gives the type safety.
+
+752
+00:38:31.000 --> 00:38:44.000
+NOTE Speaker: posva
+And so this part of being edited at build time also includes also add sorry limitations like you cannot add a random code into the functions.
+
+753
+00:38:40.000 --> 00:38:47.000
+NOTE Speaker: posva
+For example, anything that is not so realizable cannot be added to the tree.
+
+754
+00:38:44.000 --> 00:38:49.000
+NOTE Speaker: posva
+They have these limitations that you have to overcome in runtime.
+
+755
+00:38:47.000 --> 00:38:52.000
+NOTE Speaker: posva
+But people already already did that.
+
+756
+00:38:49.000 --> 00:38:53.000
+NOTE Speaker: posva
+So they should be able to copy paste that code anyway.
+
+757
+00:38:52.000 --> 00:38:57.000
+NOTE Speaker: posva
+Very interesting.
+
+758
+00:38:53.000 --> 00:39:01.000
+NOTE Speaker: posva
+And for data loaders, I believe they are like one of the more stable.
+
+759
+00:38:57.000 --> 00:39:06.000
+NOTE Speaker: posva
+Parts of the experimental view, which are sweet.
+
+760
+00:39:01.000 --> 00:39:07.000
+NOTE Speaker: posva
+Do you have like an estimate for when they might make it to the official viewer to the official view router?
+
+761
+00:39:06.000 --> 00:39:14.000
+NOTE Speaker: posva
+I don't know.
+
+762
+00:39:07.000 --> 00:39:22.000
+NOTE Speaker: posva
+It's true that in the future I would imagine integrating the unplugging view router or maybe just a VEET plugin.
+
+763
+00:39:14.000 --> 00:39:26.000
+NOTE Speaker: posva
+I know I'm not sure yet of how to integrate everything because I have issues that I can only fix issues with HHMR.
+
+764
+00:39:22.000 --> 00:39:32.000
+NOTE Speaker: posva
+So hot module replacement that can only be fixed for VEET.
+
+765
+00:39:26.000 --> 00:39:33.000
+NOTE Speaker: posva
+And I just don't have the capacity to write the code for how many bundlers do we have like six?
+
+766
+00:39:32.000 --> 00:39:36.000
+NOTE Speaker: posva
+It's just too much.
+
+767
+00:39:33.000 --> 00:39:39.000
+NOTE Speaker: posva
+So Webpack and VEET usually they work pretty much the same.
+
+768
+00:39:36.000 --> 00:39:43.000
+NOTE Speaker: posva
+And as long as people have the same API as VEET, it should be fine.
+
+769
+00:39:39.000 --> 00:39:45.000
+NOTE Speaker: posva
+My goal is probably to include this in view router package at some point.
+
+770
+00:39:43.000 --> 00:39:52.000
+NOTE Speaker: posva
+Not in the package in the repository.
+
+771
+00:39:45.000 --> 00:39:54.000
+NOTE Speaker: posva
+It will still be a separate package that you install, I think, because it's important to keep the separation for major version is just easier.
+
+772
+00:39:52.000 --> 00:39:56.000
+NOTE Speaker: posva
+It's not far from having a stable version.
+
+773
+00:39:54.000 --> 00:39:58.000
+NOTE Speaker: posva
+I think I have a few.
+
+774
+00:39:56.000 --> 00:40:03.000
+NOTE Speaker: posva
+This is just more personal.
+
+775
+00:39:58.000 --> 00:40:06.000
+NOTE Speaker: posva
+I take a lot of time to mark a version as stable way more than other people.
+
+776
+00:40:03.000 --> 00:40:14.000
+NOTE Speaker: posva
+And it's more that with personal life.
+
+777
+00:40:06.000 --> 00:40:19.000
+NOTE Speaker: posva
+I have delayed this a lot, but it's not far from having a stable release that I have like few small changes.
+
+778
+00:40:14.000 --> 00:40:26.000
+NOTE Speaker: posva
+I want to add to loaders improvements, which should not even be breaking changes.
+
+779
+00:40:19.000 --> 00:40:33.000
+NOTE Speaker: posva
+But just in case I have to wait, I have the naming the default naming because you can configure the naming of the routes anyway.
+
+780
+00:40:26.000 --> 00:40:35.000
+NOTE Speaker: posva
+So I wanted to change the default naming maybe to be easy to differentiate from a string path.
+
+781
+00:40:33.000 --> 00:40:36.000
+NOTE Speaker: posva
+So I still need to think a little bit about it.
+
+782
+00:40:35.000 --> 00:40:39.000
+NOTE Speaker: posva
+See what other people are doing.
+
+783
+00:40:36.000 --> 00:40:43.000
+NOTE Speaker: posva
+See if somebody has a better idea.
+
+784
+00:40:39.000 --> 00:40:47.000
+NOTE Speaker: posva
+And maybe sometimes it helps you see things from a different perspective.
+
+785
+00:40:43.000 --> 00:40:49.000
+NOTE Speaker: posva
+And apart from that, I think it's all features and it hasn't had any.
+
+786
+00:40:47.000 --> 00:40:51.000
+NOTE Speaker: posva
+It hasn't had many breaking changes.
+
+787
+00:40:49.000 --> 00:40:53.000
+NOTE Speaker: posva
+I mean, I still had nine breaking changes, right?
+
+788
+00:40:51.000 --> 00:40:54.000
+NOTE Speaker: posva
+Technically, because I had version 10.
+
+789
+00:40:53.000 --> 00:40:55.000
+NOTE Speaker: posva
+I mean, 0.10.
+
+790
+00:40:54.000 --> 00:41:00.000
+NOTE Speaker: posva
+So I do breaking changes.
+
+791
+00:40:55.000 --> 00:41:04.000
+NOTE Speaker: posva
+Since I'm still on 0. something, the breaking changes happens on the minor.
+
+792
+00:41:00.000 --> 00:41:10.000
+NOTE Speaker: posva
+So any minor version is a breaking change, at least sometimes small ones.
+
+793
+00:41:04.000 --> 00:41:12.000
+NOTE Speaker: posva
+To give a comment from a user perspective, the breaking changes have not been very big.
+
+794
+00:41:10.000 --> 00:41:13.000
+NOTE Speaker: posva
+It was very easy to adjust to them.
+
+795
+00:41:12.000 --> 00:41:15.000
+NOTE Speaker: posva
+I'm glad.
+
+796
+00:41:13.000 --> 00:41:17.000
+NOTE Speaker: posva
+I don't even remember anymore what were.
+
+797
+00:41:15.000 --> 00:41:22.000
+NOTE Speaker: posva
+The dialogs did have a breaking change.
+
+798
+00:41:17.000 --> 00:41:23.000
+NOTE Speaker: posva
+They were quite big, but it was necessary because I discovered a big flaw.
+
+799
+00:41:22.000 --> 00:41:24.000
+NOTE Speaker: posva
+I'm trying to check.
+
+800
+00:41:23.000 --> 00:41:25.000
+NOTE Speaker: posva
+What did I have?
+
+801
+00:41:24.000 --> 00:41:27.000
+NOTE Speaker: posva
+I have a breaking change.
+
+802
+00:41:25.000 --> 00:41:28.000
+NOTE Speaker: posva
+It requires your router for 0.4.
+
+803
+00:41:27.000 --> 00:41:29.000
+NOTE Speaker: posva
+Okay.
+
+804
+00:41:28.000 --> 00:41:30.000
+NOTE Speaker: posva
+Okay.
+
+805
+00:41:29.000 --> 00:41:31.000
+NOTE Speaker: posva
+Create router now requires the explicit router.
+
+806
+00:41:30.000 --> 00:41:35.000
+NOTE Speaker: posva
+So it was for TypeScript.
+
+807
+00:41:31.000 --> 00:41:37.000
+NOTE Speaker: posva
+Yeah, it was like I discovered flows and I was like, okay, I need to fix this.
+
+808
+00:41:35.000 --> 00:41:39.000
+NOTE Speaker: posva
+And then eight was a lot of data loaders.
+
+809
+00:41:37.000 --> 00:41:44.000
+NOTE Speaker: posva
+Yeah, it was changing types.
+
+810
+00:41:39.000 --> 00:41:48.000
+NOTE Speaker: posva
+Honestly, the whole type was I felt like it was so fragile at the beginning and also did
+
+811
+00:41:44.000 --> 00:41:50.000
+NOTE Speaker: posva
+relying on the virtual files on V has been a little bit of a roller coaster sometimes
+
+812
+00:41:48.000 --> 00:41:52.000
+NOTE Speaker: posva
+through no longer relative to routes folder.
+
+813
+00:41:50.000 --> 00:41:53.000
+NOTE Speaker: posva
+So this was more like a fix.
+
+814
+00:41:52.000 --> 00:41:55.000
+NOTE Speaker: posva
+Yeah.
+
+815
+00:41:53.000 --> 00:42:00.000
+NOTE Speaker: posva
+I mean, it's not that our fixes technically, but it's like, oh, I could break people.
+
+816
+00:41:55.000 --> 00:42:01.000
+NOTE Speaker: posva
+So let's just, oh, actually, no, there are another many breaking changes because before
+
+817
+00:42:00.000 --> 00:42:06.000
+NOTE Speaker: posva
+I was just doing it for features sometimes.
+
+818
+00:42:01.000 --> 00:42:07.000
+NOTE Speaker: posva
+There are a few like rename five pattern to five patterns because it's, I was an array.
+
+819
+00:42:06.000 --> 00:42:11.000
+NOTE Speaker: posva
+Yeah.
+
+820
+00:42:07.000 --> 00:42:12.000
+NOTE Speaker: posva
+These are small, small changes, but hopefully, yeah, it hasn't had big change, big, big breaking
+
+821
+00:42:11.000 --> 00:42:13.000
+NOTE Speaker: posva
+change for a while.
+
+822
+00:42:12.000 --> 00:42:15.000
+NOTE Speaker: posva
+I think it's June.
+
+823
+00:42:13.000 --> 00:42:16.000
+NOTE Speaker: posva
+No, may, may was the last one.
+
+824
+00:42:15.000 --> 00:42:21.000
+NOTE Speaker: posva
+The big last one.
+
+825
+00:42:16.000 --> 00:42:22.000
+NOTE Speaker: posva
+So I think like, this is probably all the time we've got for today.
+
+826
+00:42:21.000 --> 00:42:31.000
+NOTE Speaker: posva
+Mr.
+
+827
+00:42:22.000 --> 00:42:34.000
+NOTE Speaker: posva
+I guess I can always look myself as if your company uses, uses the sponge, the open source.
+
+828
+00:42:31.000 --> 00:42:39.000
+NOTE Speaker: posva
+I do consider reaching out or for sponsorships.
+
+829
+00:42:34.000 --> 00:42:44.000
+NOTE Speaker: posva
+I'm still looking to find a balance between the open source and freelancing.
+
+830
+00:42:39.000 --> 00:42:47.000
+NOTE Speaker: posva
+And I have very nice options for companies to have a direct connection.
+
+831
+00:42:44.000 --> 00:42:51.000
+NOTE Speaker: posva
+I can direct being able to just talk to me about the issue, the issues they have.
+
+832
+00:42:47.000 --> 00:42:52.000
+NOTE Speaker: posva
+So they can, the developers are usually really happy with these because they can ask very
+
+833
+00:42:51.000 --> 00:42:55.000
+NOTE Speaker: posva
+technical questions or again,
+
+834
+00:42:52.000 --> 00:42:58.000
+NOTE Speaker: posva
+I can help them debug bugs and it saves them hours.
+
+835
+00:42:55.000 --> 00:43:00.000
+NOTE Speaker: posva
+So it's really just worth the money, which is just sponsoring.
+
+836
+00:42:58.000 --> 00:43:01.000
+NOTE Speaker: posva
+You also have courses, right?
+
+837
+00:43:00.000 --> 00:43:05.000
+NOTE Speaker: posva
+Yeah.
+
+838
+00:43:01.000 --> 00:43:06.000
+NOTE Speaker: posva
+I have a mastering Pina course, which is named after Pina, but in reality is very, it's about
+
+839
+00:43:05.000 --> 00:43:07.000
+NOTE Speaker: posva
+stores.
+
+840
+00:43:06.000 --> 00:43:11.000
+NOTE Speaker: posva
+So it helps you out.
+
+841
+00:43:07.000 --> 00:43:12.000
+NOTE Speaker: posva
+It helps you learn a lot about view itself, the composition API.
+
+842
+00:43:11.000 --> 00:43:14.000
+NOTE Speaker: posva
+And yeah, it's very recent.
+
+843
+00:43:12.000 --> 00:43:17.000
+NOTE Speaker: posva
+It has only one year old.
+
+844
+00:43:14.000 --> 00:43:18.000
+NOTE Speaker: posva
+So it's still very, very, very, uh, what's the term not up to date, but relevant.
+
+845
+00:43:17.000 --> 00:43:19.000
+NOTE Speaker: posva
+Yeah.
+
+846
+00:43:18.000 --> 00:43:20.000
+NOTE Speaker: posva
+It's relevant.
+
+847
+00:43:19.000 --> 00:43:21.000
+NOTE Speaker: posva
+No, it's relevant for the currency.
+
+848
+00:43:20.000 --> 00:43:23.000
+NOTE Speaker: posva
+Yeah.
+
+849
+00:43:21.000 --> 00:43:25.000
+NOTE Speaker: posva
+So it's been very, very good.
+
+850
+00:43:23.000 --> 00:43:29.000
+NOTE Speaker: posva
+Like people are like, yeah, I learned so much.
+
+851
+00:43:25.000 --> 00:43:34.000
+NOTE Speaker: posva
+None of these, I never thought about these, never saw these API anywhere else.
+
+852
+00:43:29.000 --> 00:43:35.000
+NOTE Speaker: posva
+
+
+853
+00:43:34.000 --> 00:43:36.000
+NOTE Speaker: And now I can use it for some, some of my features and it simplifies my code so much.@posva
+Yeah.
+
+854
+00:43:35.000 --> 00:43:37.000
+NOTE Speaker: posva
+Really happy about it.
+
+855
+00:43:36.000 --> 00:43:38.000
+NOTE Speaker: posva
+It's also really fun.
+
+856
+00:43:37.000 --> 00:43:39.000
+NOTE Speaker: posva
+A lot of exercises.
+
+857
+00:43:38.000 --> 00:43:40.000
+NOTE Speaker: posva
+Fantastic.
+
+858
+00:43:39.000 --> 00:43:44.000
+NOTE Speaker: posva
+And where can people go to follow you?
+
+859
+00:43:40.000 --> 00:43:47.000
+NOTE Speaker: posva
+Uh, on Twitter on so X or GitHub as posva.
+
+860
+00:43:44.000 --> 00:43:48.000
+NOTE Speaker: posva
+That's where I hang out most of the time.
+
+861
+00:43:47.000 --> 00:43:49.000
+NOTE Speaker: posva
+Okay.
+
+862
+00:43:48.000 --> 00:43:50.000
+NOTE Speaker: posva
+Thank you so much for coming on today.
+
+863
+00:43:49.000 --> 00:43:51.000
+NOTE Speaker: posva
+It was a pleasure.
+
+864
+00:43:50.000 --> 00:43:52.000
+NOTE Speaker: posva
+Thank you.
+
+865
+00:43:51.000 --> 00:43:53.000
+NOTE Speaker: posva
+Bye.
+
+866
+00:43:52.000 --> 00:43:57.000
+NOTE Speaker: posva
+Bye.
+
+867
+00:43:53.000 --> 00:43:58.000
+NOTE Speaker: posva
+.
+

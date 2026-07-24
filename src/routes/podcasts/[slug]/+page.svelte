@@ -2,9 +2,20 @@
 	import { SITE_URL } from '$lib/siteConfig';
 	import { longDate } from '$lib/format';
 	import PodcastPlayer from '$lib/components/PodcastPlayer.svelte';
+	import PodcastTranscript from '$lib/components/PodcastTranscript.svelte';
+	import { podcastPlayer } from '$lib/podcast-player.svelte';
 
 	let { data } = $props();
 	const podcast = $derived(data.podcast);
+
+	// if nothing is playing anywhere, quietly load this episode into the
+	// miniplayer (paused) so its controls and transcript sync are ready without
+	// an explicit "Play episode" click. Leaves an already-active episode alone.
+	$effect(() => {
+		if (podcast.audioSrc && !podcastPlayer.src) {
+			podcastPlayer.open({ src: podcast.audioSrc, title: podcast.title }, { autoplay: false });
+		}
+	});
 </script>
 
 <svelte:head>
@@ -23,13 +34,16 @@
 	</div>
 </header>
 
-{#if podcast.audioSrc}
-	<div class="player">
-		<PodcastPlayer src={podcast.audioSrc} />
-	</div>
-{/if}
+<div class="actions">
+	{#if podcast.audioSrc}
+		<PodcastPlayer src={podcast.audioSrc} title={podcast.title} />
+	{/if}
+	<a class="pill" href={podcast.href} target="_blank" rel="noopener">Listen on the original site &rarr;</a>
+</div>
 
-<a class="pill" href={podcast.href} target="_blank" rel="noopener">Listen on the original site &rarr;</a>
+{#if podcast.audioSrc && podcast.subtitlesSrc}
+	<PodcastTranscript src={podcast.audioSrc} title={podcast.title} subtitlesSrc={podcast.subtitlesSrc} />
+{/if}
 
 <style>
 	header {
@@ -62,24 +76,24 @@
 		font-size: 12px;
 		color: var(--faint);
 	}
-	.player {
-		margin-top: 40px;
-		padding: 24px;
-		border: 1px solid var(--hair);
-		border-radius: var(--radius-2);
+	.actions {
+		margin-top: 32px;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 12px;
 	}
 	.pill {
 		display: inline-flex;
 		align-items: center;
 		gap: 8px;
-		margin-top: 24px;
 		font-family: var(--font-mono);
 		font-size: 13px;
 		font-weight: 500;
 		color: #21201c;
 		background: var(--yellow);
 		border-radius: var(--radius-round);
-		padding: 9px 18px;
+		padding: 11px 20px;
 		text-decoration: none;
 		transition: transform 0.25s var(--ease-pop);
 	}

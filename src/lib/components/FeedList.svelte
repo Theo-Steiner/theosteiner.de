@@ -2,7 +2,6 @@
 	import type { FeedItem } from '$lib/types';
 	import { shortDate } from '$lib/format';
 	import FeedRow from './FeedRow.svelte';
-	import PodcastRow from './PodcastRow.svelte';
 
 	let { items, withYear = false }: { items: FeedItem[]; withYear?: boolean } = $props();
 </script>
@@ -10,11 +9,7 @@
 <div class="list">
 	{#each items as item (item.href + item.date)}
 		<div class="item">
-			{#if item.type === 'podcast'}
-				<PodcastRow {item} date={shortDate(item.date, withYear)} />
-			{:else}
-				<FeedRow {item} date={shortDate(item.date, withYear)} />
-			{/if}
+			<FeedRow {item} date={shortDate(item.date, withYear)} />
 		</div>
 	{/each}
 </div>

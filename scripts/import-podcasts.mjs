@@ -1,15 +1,20 @@
 /**
  * Imports Theo's episodes of UIT INSIDE (the LINEヤフー UIT podcast) into
  * src/content/podcasts.uit.ts — every feed item whose itunes:author contains
- * "(TheoSteiner)".
+ * "(TheoSteiner)". Each episode's WebVTT transcript (where UIT has one) is
+ * downloaded alongside it into static/transcripts/, so the player can fetch
+ * it same-origin — the transcript host doesn't send CORS headers, so fetching
+ * it directly from the browser would be blocked.
  *
  * Usage: node scripts/import-podcasts.mjs   (or: pnpm import:podcasts)
- * Idempotent: regenerates the file from the live feed on every run.
+ * Idempotent: regenerates the file (and re-downloads transcripts) from the
+ * live feed on every run.
  */
-import { writeFile } from 'node:fs/promises';
+import { mkdir, writeFile } from 'node:fs/promises';
 
 const FEED_URL = 'https://uit-inside.linecorp.com/feed.atom';
 const OUT = new URL('../src/content/podcasts.uit.ts', import.meta.url).pathname;
+const TRANSCRIPTS_DIR = new URL('../static/transcripts/', import.meta.url).pathname;
 
 function unescapeXml(value) {
 	return value
@@ -26,6 +31,15 @@ function tag(block, name) {
 	return match ? unescapeXml(match[1].trim()) : null;
 }
 
+async function downloadTranscript(episodeNumber, slug) {
+	const url = `https://uit-inside.linecorp.com/episode/${episodeNumber}/transcript.vtt`;
+	const res = await fetch(url);
+	if (!res.ok) return null; // not every episode has one — that's fine
+	await mkdir(TRANSCRIPTS_DIR, { recursive: true });
+	await writeFile(`${TRANSCRIPTS_DIR}${slug}.vtt`, await res.text());
+	return `/transcripts/${slug}.vtt`;
+}
+
 const res = await fetch(FEED_URL);
 if (!res.ok) throw new Error(`${res.status} ${res.statusText} for ${FEED_URL}`);
 const xml = await res.text();
@@ -40,12 +54,15 @@ for (const [, item] of xml.matchAll(/<item>([\s\S]*?)<\/item>/g)) {
 	// titles are mostly Japanese, which the generic slugify() strips almost
 	// entirely — derive a clean, stable slug from the episode number instead
 	const episodeNumber = href?.match(/\/episode\/(\d+)/)?.[1];
+	const slug = episodeNumber ? `uit-inside-${episodeNumber}` : undefined;
+	const subtitlesSrc = slug ? await downloadTranscript(episodeNumber, slug) : null;
 	episodes.push({
 		title: `UIT INSIDE — ${tag(item, 'title')}`,
 		date: new Date(tag(item, 'pubDate')).toISOString().slice(0, 10),
 		href,
-		...(episodeNumber ? { slug: `uit-inside-${episodeNumber}` } : {}),
-		...(enclosure ? { audioSrc: unescapeXml(enclosure[1]) } : {})
+		...(slug ? { slug } : {}),
+		...(enclosure ? { audioSrc: unescapeXml(enclosure[1]) } : {}),
+		...(subtitlesSrc ? { subtitlesSrc } : {})
 	});
 }
 episodes.sort((a, b) => (a.date < b.date ? 1 : -1));
@@ -57,7 +74,8 @@ const entries = episodes
 			`date: ${JSON.stringify(episode.date)}`,
 			`href: ${JSON.stringify(episode.href)}`,
 			...(episode.slug ? [`slug: ${JSON.stringify(episode.slug)}`] : []),
-			...(episode.audioSrc ? [`audioSrc: ${JSON.stringify(episode.audioSrc)}`] : [])
+			...(episode.audioSrc ? [`audioSrc: ${JSON.stringify(episode.audioSrc)}`] : []),
+			...(episode.subtitlesSrc ? [`subtitlesSrc: ${JSON.stringify(episode.subtitlesSrc)}`] : [])
 		];
 		return `\t{\n${fields.map((f) => `\t\t${f}`).join(',\n')}\n\t}`;
 	})
