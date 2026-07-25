@@ -22,4 +22,32 @@
 	.bsky {
 		margin-top: 64px;
 	}
+
+	/* atproto-comments is a web component: theme it through its documented
+	   custom properties and ::part() hooks rather than fighting its shadow DOM.
+	   :global() is required — Svelte doesn't scope-class custom elements, so
+	   an unwrapped selector is treated as dead code and dropped. */
+	:global(atproto-comments) {
+		--atproto-comments-accent: var(--red);
+		--atproto-comments-on-accent: #fff;
+		--atproto-comments-bg: var(--bg);
+		--atproto-comments-fg: var(--ink);
+		--atproto-comments-border: var(--hair);
+		--atproto-comments-muted: var(--faint);
+		--atproto-comments-error: var(--red);
+		--atproto-comments-radius: var(--radius-2);
+	}
+
+	/* mono for identity/meta, matching the mono treatment on the legacy
+	   GitHub-era comments and the rest of the site's small UI text */
+	:global(atproto-comments)::part(author),
+	:global(atproto-comments)::part(handle),
+	:global(atproto-comments)::part(timestamp),
+	:global(atproto-comments)::part(reply-button) {
+		font-family: var(--font-mono);
+	}
+
+	:global(atproto-comments)::part(reply-button) {
+		font-size: 12px;
+	}
 </style>
