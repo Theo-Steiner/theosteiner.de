@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { getFeed } from '$lib/data.remote';
-	import { SITE_DESCRIPTION, SITE_TITLE, SITE_URL, DEFAULT_OG_IMAGE } from '$lib/siteConfig';
+	import { SITE_DESCRIPTION, SITE_TITLE } from '$lib/siteConfig';
 	import Logo from '$lib/components/Logo.svelte';
 	import FeedList from '$lib/components/FeedList.svelte';
+	import Seo from '$lib/components/Seo.svelte';
 
 	// async Svelte: awaited straight in the component, resolved at prerender time
 	const feed = $derived(await getFeed());
@@ -15,14 +16,7 @@
 	});
 </script>
 
-<svelte:head>
-	<title>{SITE_TITLE}</title>
-	<meta name="description" content={SITE_DESCRIPTION} />
-	<link rel="canonical" href={SITE_URL} />
-	<meta property="og:title" content={SITE_TITLE} />
-	<meta property="og:description" content={SITE_DESCRIPTION} />
-	<meta property="og:image" content={DEFAULT_OG_IMAGE} />
-</svelte:head>
+<Seo title={SITE_TITLE} description={SITE_DESCRIPTION} path="/" />
 
 <header>
 	<div class="greeting">

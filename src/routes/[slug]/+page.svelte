@@ -1,8 +1,9 @@
 <script lang="ts">
-	import { BLUESKY_URL, SITE_URL, DEFAULT_OG_IMAGE } from '$lib/siteConfig';
+	import { BLUESKY_URL, ogImage } from '$lib/siteConfig';
 	import { longDate } from '$lib/format';
 	import Comments from '$lib/components/Comments.svelte';
 	import BskyComments from '$lib/components/BskyComments.svelte';
+	import Seo from '$lib/components/Seo.svelte';
 
 	let { data } = $props();
 
@@ -10,16 +11,14 @@
 	const meta = $derived(data.meta);
 </script>
 
+<Seo
+	title={meta.title}
+	description={meta.description}
+	path={meta.canonical ?? `/${data.slug}`}
+	image={ogImage('blog', data.slug)}
+	type="article"
+/>
 <svelte:head>
-	<title>{meta.title} — Theo Steiner</title>
-	{#if meta.description}
-		<meta name="description" content={meta.description} />
-		<meta property="og:description" content={meta.description} />
-	{/if}
-	<link rel="canonical" href={meta.canonical ?? `${SITE_URL}/${data.slug}`} />
-	<meta property="og:title" content={meta.title} />
-	<meta property="og:type" content="article" />
-	<meta property="og:image" content={meta.image ?? DEFAULT_OG_IMAGE} />
 	{#if meta.tags?.length}
 		<meta name="keywords" content={meta.tags.join(', ')} />
 	{/if}

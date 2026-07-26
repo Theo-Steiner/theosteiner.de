@@ -1,9 +1,10 @@
 <script lang="ts">
-	import { SITE_URL } from '$lib/siteConfig';
+	import { ogImage } from '$lib/siteConfig';
 	import { longDate } from '$lib/format';
 	import PodcastPlayer from '$lib/components/PodcastPlayer.svelte';
 	import PodcastTranscript from '$lib/components/PodcastTranscript.svelte';
 	import { podcastPlayer } from '$lib/podcast-player.svelte';
+	import Seo from '$lib/components/Seo.svelte';
 
 	let { data } = $props();
 	const podcast = $derived(data.podcast);
@@ -18,12 +19,12 @@
 	});
 </script>
 
-<svelte:head>
-	<title>{podcast.title} — Theo Steiner</title>
-	<link rel="canonical" href="{SITE_URL}/podcasts/{podcast.slug}" />
-	<meta property="og:title" content={podcast.title} />
-	<meta property="og:type" content="music.song" />
-</svelte:head>
+<Seo
+	title={podcast.title}
+	path={`/podcasts/${podcast.slug}`}
+	image={ogImage('podcast', podcast.slug)}
+	type="music.song"
+/>
 
 <header>
 	<a href="/contents?type=podcast" class="back">&larr; everything</a>

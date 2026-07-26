@@ -1,16 +1,15 @@
 <script lang="ts">
-	import { SITE_URL } from '$lib/siteConfig';
+	import { ogImage } from '$lib/siteConfig';
 	import portrait from '$lib/assets/theo_steiner.webp';
+	import Seo from '$lib/components/Seo.svelte';
 </script>
 
-<svelte:head>
-	<title>About — Theo Steiner</title>
-	<meta
-		name="description"
-		content="Theo Steiner is a frontend engineer in Tokyo, Svelte Ambassador, and organizer of the Svelte community in Japan."
-	/>
-	<link rel="canonical" href="{SITE_URL}/about" />
-</svelte:head>
+<Seo
+	title="About"
+	description="Theo Steiner is a frontend engineer in Tokyo, Svelte Ambassador, and organizer of the Svelte community in Japan."
+	path="/about"
+	image={ogImage('page', 'about')}
+/>
 
 <header>
 	<div class="heading">

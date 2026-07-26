@@ -2,8 +2,9 @@
 	import { getFeed } from '$lib/data.remote';
 	import { page } from '$app/state';
 	import { goto } from '$app/navigation';
-	import { SITE_URL } from '$lib/siteConfig';
+	import { ogImage } from '$lib/siteConfig';
 	import FeedList from '$lib/components/FeedList.svelte';
+	import Seo from '$lib/components/Seo.svelte';
 
 	const feed = $derived(await getFeed());
 
@@ -38,14 +39,12 @@
 	const items = $derived(feed.filter((item) => filter === 'all' || item.type === filter));
 </script>
 
-<svelte:head>
-	<title>Everything — Theo Steiner</title>
-	<meta
-		name="description"
-		content="Everything Theo Steiner has written, said or posted — essays, talks, podcasts and the occasional Bluesky post."
-	/>
-	<link rel="canonical" href="{SITE_URL}/contents" />
-</svelte:head>
+<Seo
+	title="Everything"
+	description="Everything Theo Steiner has written, said or posted — essays, talks, podcasts and the occasional Bluesky post."
+	path="/contents"
+	image={ogImage('page', 'contents')}
+/>
 
 <header>
 	<div class="heading">

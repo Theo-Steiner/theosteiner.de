@@ -1,22 +1,21 @@
 <script lang="ts">
-	import { SITE_URL } from '$lib/siteConfig';
+	import { ogImage } from '$lib/siteConfig';
 	import { longDate } from '$lib/format';
 	import { youtubeId } from '$lib/youtube';
+	import Seo from '$lib/components/Seo.svelte';
 
 	let { data } = $props();
 	const talk = $derived(data.talk);
 	const embedId = $derived(youtubeId(talk.href));
 </script>
 
-<svelte:head>
-	<title>{talk.title} — Theo Steiner</title>
-	{#if talk.description}
-		<meta name="description" content={talk.description} />
-	{/if}
-	<link rel="canonical" href="{SITE_URL}/talks/{talk.slug}" />
-	<meta property="og:title" content={talk.title} />
-	<meta property="og:type" content="video.other" />
-</svelte:head>
+<Seo
+	title={talk.title}
+	description={talk.description}
+	path={`/talks/${talk.slug}`}
+	image={ogImage('talk', talk.slug)}
+	type="video.other"
+/>
 
 <header>
 	<a href="/contents?type=talk" class="back">&larr; everything</a>
