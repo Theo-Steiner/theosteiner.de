@@ -2,6 +2,7 @@
 	import { ogImage } from '$lib/siteConfig';
 	import portrait from '$lib/assets/theo_steiner.webp';
 	import Seo from '$lib/components/Seo.svelte';
+	import Bio from '../../content/about.md';
 </script>
 
 <Seo
@@ -23,36 +24,7 @@
 		<img src={portrait} alt="Theo Steiner" width="172" height="172" />
 		<span class="caption">me, allegedly</span>
 	</div>
-	<p>
-		I&rsquo;m Theo Steiner, a software engineer at <span class="mono-inline">LINE</span> in Tokyo,
-		building b2b2c things for one of the world&rsquo;s biggest messaging platforms. Massive scale,
-		interesting problems, and a strict personal methodology of
-		<em class="serif">tummy-driven development</em>: write code, eat sushi, sleep, repeat.
-	</p>
-	<p>
-		My native language is German; I also speak Japanese and English fluently, plus enough Spanish
-		and French to confidently mispronounce <em class="serif">croissant</em> in two extra languages.
-	</p>
-	<p>
-		I hold a Master&rsquo;s from
-		<span class="mark">上智大学 (Sophia University, Tokyo)</span>, where I built a web platform for
-		spatial literary analysis with GIS. My Bachelor&rsquo;s was Japanese Studies with a side of
-		databases and NLP &mdash; which explains a lot about this website.
-	</p>
-	<p>
-		Since sitting at a computer all week isn&rsquo;t bad enough for my posture, I also program for
-		fun on weekends. Most of that time disappears into my neovim config or the Svelte Discord, but
-		occasionally something productive escapes: tiny contributions to
-		<a href="https://nodejs.org" class="link-inline">Node.js</a> and
-		<a href="https://svelte.dev" class="link-inline">Svelte</a>.
-	</p>
-	<p>
-		The community side of open source is the part I love most. I&rsquo;m honored to be one of the
-		inaugural <span class="mark">Svelte Ambassadors</span>, and I sometimes organize meetups to grow
-		the small but mighty
-		<a href="https://svelte.jp/" class="link-inline">Svelte community in Japan</a>. Come say hi some
-		day.
-	</p>
+	<Bio />
 </section>
 
 <style>
@@ -106,19 +78,52 @@
 		padding: 2px 8px;
 		border-radius: var(--radius-1);
 	}
-	.bio p {
+	.bio :global(p) {
 		margin: 0;
 		font-size: 17px;
 		line-height: 1.75;
 		color: var(--muted);
 		text-wrap: pretty;
 	}
-	.bio p + p {
+	.bio :global(p + p) {
 		margin-top: 16px;
 	}
-	.mono-inline {
+	.bio :global(h2) {
+		margin: 40px 0 0;
+		font-size: 21px;
+		font-weight: 600;
+		letter-spacing: -0.015em;
+		line-height: 1.35;
+		color: var(--ink);
+	}
+	.bio :global(.mono-inline) {
 		font-family: var(--font-mono);
 		font-size: 15px;
+	}
+	.bio :global(em) {
+		font-family: var(--font-serif);
+		font-size: 1.06em;
+		font-style: italic;
+		color: var(--ink);
+	}
+	.bio :global(a) {
+		color: var(--ink);
+		text-decoration: none;
+		background-image: linear-gradient(var(--ghost), var(--ghost));
+		background-repeat: no-repeat;
+		background-position: 0 100%;
+		background-size: 100% 1px;
+	}
+	.bio :global(a:hover) {
+		background-image: linear-gradient(var(--ink), var(--ink));
+	}
+	.bio :global(code) {
+		font-family: var(--font-mono);
+		font-size: 14px;
+		background: var(--codebg);
+		padding: 1px 6px;
+		border-radius: var(--radius-1);
+		color: var(--ink);
 	}
 	@media (max-width: 480px) {
 		.portrait {
