@@ -55,23 +55,6 @@
 	</p>
 </section>
 
-<section class="facts">
-	<div class="kicker">
-		<h2>Vital statistics</h2>
-		<span class="kicker-ja">データ</span>
-	</div>
-	<dl>
-		<dt>editor</dt>
-		<dd>neovim, config perpetually 90% done</dd>
-		<dt>framework</dt>
-		<dd>Svelte, and I will bring it up unprompted</dd>
-		<dt>languages</dt>
-		<dd>de · ja · en · fr(ish) · es(ish) · TypeScript</dd>
-		<dt>fuel</dt>
-		<dd>onigiri, konbini coffee, Yamanote-line podcasts</dd>
-	</dl>
-</section>
-
 <style>
 	header {
 		margin-top: 72px;
@@ -137,36 +120,10 @@
 		font-family: var(--font-mono);
 		font-size: 15px;
 	}
-	.facts {
-		margin-top: 56px;
-		clear: both;
-	}
-	dl {
-		margin: 16px 0 0;
-		display: grid;
-		grid-template-columns: 140px 1fr;
-		row-gap: 10px;
-		column-gap: 16px;
-		font-size: 15px;
-		line-height: 1.6;
-	}
-	dt {
-		font-family: var(--font-mono);
-		font-size: 12px;
-		color: var(--faint);
-		padding-top: 2px;
-	}
-	dd {
-		margin: 0;
-		color: var(--muted);
-	}
 	@media (max-width: 480px) {
 		.portrait {
 			float: none;
 			margin: 0 0 20px;
-		}
-		dl {
-			grid-template-columns: 100px 1fr;
 		}
 	}
 </style>
