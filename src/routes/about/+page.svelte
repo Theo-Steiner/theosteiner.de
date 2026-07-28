@@ -14,7 +14,7 @@
 
 <header>
 	<div class="heading">
-		<h1>About me.</h1>
+		<h1>Who?!</h1>
 		<span class="ja">自己紹介</span>
 	</div>
 </header>

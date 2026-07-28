@@ -48,12 +48,11 @@
 
 <header>
 	<div class="heading">
-		<h1>Everything I&rsquo;ve made.</h1>
-		<span class="ja">全部</span>
+		<h1>Contents</h1>
+		<span class="ja">コンテンツ</span>
 	</div>
 	<p>
-		Essays, talks, podcast appearances, and the occasional Bluesky post I refuse to let die in the
-		timeline.
+		Blog posts, essays, talks, podcast appearances - maybe even artsy stuff?
 	</p>
 </header>
 

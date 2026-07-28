@@ -24,28 +24,22 @@
 			<span>Hey, I&rsquo;m</span>
 			<span class="wordmark"><Logo height={20} /></span><span class="period">.</span>
 		</h1>
-		<span class="ja">こんにちは。</span>
+		<span class="ja">ヤッホー！</span>
 	</div>
 	<p>
-		I build frontends in Tokyo and care an unreasonable amount about the trip
-		<span class="mark">from your browser to your editor</span>
-		&mdash; Svelte things, developer tools, and one four-line PR I will never stop mentioning.
-	</p>
-	<p>
-		The editor is <em class="serif">neovim</em>, obviously. The Japanese is a work in progress. The
-		<em class="serif">onigiri</em> intake is world-class.
+		Software Engineer at LINE in Tokyo, Svelte Ambassador, creator of <a href="https://svebcomponents.dev">svebcomponents</a>, tiger.dad at <a href="https://tiger.mom">tiger.mom</a>, atproto enthusiast, neovim aficionado, <em>destroyer of sushi</em>, OSS committer, host of the <a href="/contents?type=podcast">UIT INSIDE podcast</a>, a literature nerd, distant father to a thousand side projects, wearer of many hats.
 	</p>
 </header>
 
 <section>
 	<div class="kicker">
 		<h2>Lately</h2>
-		<span class="kicker-ja">最近</span>
+		<span class="kicker-ja">最近出したやつ</span>
 	</div>
 	<div class="feed">
 		<FeedList {items} withYear />
 	</div>
-	<a href="/contents" class="link-marker more">Everything I&rsquo;ve made &rarr;</a>
+	<a href="/contents" class="link-marker more">→ everything</a>
 </section>
 
 <style>
@@ -92,8 +86,22 @@
 		color: var(--muted);
 		text-wrap: pretty;
 	}
-	header p + p {
-		margin-top: 14px;
+	header p a {
+		color: var(--ink);
+		text-decoration: none;
+		background-image: linear-gradient(var(--ghost), var(--ghost));
+		background-repeat: no-repeat;
+		background-position: 0 100%;
+		background-size: 100% 1px;
+	}
+	header p a:hover {
+		background-image: linear-gradient(var(--ink), var(--ink));
+	}
+	header p em {
+		font-family: var(--font-serif);
+		font-size: 1.06em;
+		font-style: italic;
+		color: var(--ink);
 	}
 	section {
 		margin-top: 80px;
