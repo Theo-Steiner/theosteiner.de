@@ -27,7 +27,7 @@
 />
 
 <header>
-	<a href="/contents?type=podcast" class="back">&larr; everything</a>
+	<a href="/contents?type=podcast" class="back">&larr; podcast</a>
 	<h1 style:view-transition-name={`podcast-${podcast.slug}`}>{podcast.title}</h1>
 	<div class="meta">
 		<span>{longDate(podcast.date)}</span>

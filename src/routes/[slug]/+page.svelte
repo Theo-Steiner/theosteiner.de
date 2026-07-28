@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { BLUESKY_URL, ogImage } from '$lib/siteConfig';
+	import { BLUESKY_URL, ogImage, SITE_URL } from '$lib/siteConfig';
 	import { longDate } from '$lib/format';
 	import Comments from '$lib/components/Comments.svelte';
 	import BskyComments from '$lib/components/BskyComments.svelte';
@@ -9,6 +9,11 @@
 
 	const Content = $derived(data.content);
 	const meta = $derived(data.meta);
+	const pageUrl = $derived(
+		meta.canonical?.startsWith('http')
+			? meta.canonical
+			: `${SITE_URL}${meta.canonical ?? `/${data.slug}`}`
+	);
 </script>
 
 <Seo
@@ -25,7 +30,7 @@
 </svelte:head>
 
 <header>
-	<a href="/contents" class="back">&larr; everything</a>
+	<a href="/contents?type=blog" class="back">&larr; blog</a>
 	<h1 style:view-transition-name={`post-${data.slug}`}>{meta.title}</h1>
 	<div class="meta">
 		<span>{longDate(meta.date)}</span>
@@ -49,10 +54,12 @@
 	</span>
 </div>
 
-<Comments slug={data.slug} />
+{#if meta.githubIssue}
+	<Comments slug={data.slug} githubIssue={meta.githubIssue} />
+{/if}
 
 {#if meta.bskyThread}
-	<BskyComments thread={meta.bskyThread} />
+	<BskyComments thread={meta.bskyThread} {pageUrl} />
 {/if}
 
 <style>

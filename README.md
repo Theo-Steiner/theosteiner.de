@@ -31,10 +31,8 @@ frozen into the repo by `pnpm migrate` (`scripts/migrate-from-github.mjs`):
 - comments → `src/content/comments/<slug>.json`, rendered read-only under each post
 - commenter avatars → `static/avatars/`
 
-Re-run it only if you want to pull comments that arrived on GitHub since the
-last snapshot. New commenting will eventually come from
-[svebcomponent-bsky](https://github.com/Theo-Steiner) (atproto) — statuses and
-comments then swap to the PDS as a source, same shapes, no design change.
+Re-run it to pull comments that arrived on the original GitHub issues since the
+last snapshot.
 
 ## Commands
 

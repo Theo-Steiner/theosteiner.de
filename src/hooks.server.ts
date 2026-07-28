@@ -1,5 +1,4 @@
-// Registers the atproto-comments SSR renderer with ElementRendererRegistry so
-// the server can render <atproto-comments> into declarative shadow DOM. The
-// module self-registers on import (and installs the DOM shim first), so this
-// side-effect import is all that's needed.
+// Loads the package's Svelte-specific server entrypoint. It installs the DOM
+// shim and self-registers the atproto-comments renderer, allowing the Vite
+// wrapper to emit declarative shadow DOM during SSR.
 import '@svebcomponents/atproto.comments/ssr';

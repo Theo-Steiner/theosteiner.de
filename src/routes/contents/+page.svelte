@@ -8,7 +8,7 @@
 
 	const feed = $derived(await getFeed());
 
-	const types = ['all', 'blog', 'talk', 'podcast', 'bluesky'] as const;
+	const types = ['all', 'blog', 'talk', 'podcast'] as const;
 	type Filter = (typeof types)[number];
 
 	function readFilter(): Filter {

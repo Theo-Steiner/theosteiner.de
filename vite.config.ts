@@ -3,9 +3,8 @@ import svebcomponents from '@svebcomponents/ssr/vite';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-	// Must precede sveltekit(): during SSR it renders <atproto-comments> into
-	// declarative shadow DOM (server build) and hands the browser the client
-	// build for hydration. Async wrapper is auto-detected from svelte's
-	// experimental.async.
+	// Must precede sveltekit(): it wraps custom elements for declarative-shadow-
+	// DOM rendering on the server, while the package's Svelte export conditions
+	// provide the matching server and browser implementations.
 	plugins: [svebcomponents(), sveltekit()]
 });

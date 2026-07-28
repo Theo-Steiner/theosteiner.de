@@ -18,7 +18,7 @@
 />
 
 <header>
-	<a href="/contents?type=talk" class="back">&larr; everything</a>
+	<a href="/contents?type=talk" class="back">&larr; talk</a>
 	<h1 style:view-transition-name={`talk-${talk.slug}`}>{talk.title}</h1>
 	<div class="meta">
 		<span>{longDate(talk.date)}</span>

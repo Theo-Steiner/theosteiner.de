@@ -1,13 +1,13 @@
 <script lang="ts">
-	// The @svebcomponents/ssr Vite plugin rewrites <atproto-comments> to its SSR
-	// wrapper during server rendering (declarative shadow DOM) and uses the
-	// client build in the browser, so a top-level import is SSR-safe. The
+	// The package exposes Svelte-specific client and server builds. This import
+	// registers the browser custom element; the matching /ssr import in
+	// hooks.server.ts registers its declarative-shadow-DOM renderer. The
 	// component self-fetches the thread during SSR and serializes it for
 	// hydration. After hydration, the default hosted service keeps that snapshot
 	// current through SSE and also handles sign-in and posting.
 	import '@svebcomponents/atproto.comments';
 
-	let { thread }: { thread: string } = $props();
+	let { thread, pageUrl }: { thread: string; pageUrl: string } = $props();
 </script>
 
 <section class="bsky">
@@ -15,7 +15,7 @@
 		<h2>Bluesky replies</h2>
 		<span class="kicker-ja">返信</span>
 	</div>
-	<atproto-comments {thread}></atproto-comments>
+	<atproto-comments {thread} page-url={pageUrl}></atproto-comments>
 </section>
 
 <style>
@@ -43,10 +43,14 @@
 	:global(atproto-comments)::part(author),
 	:global(atproto-comments)::part(handle),
 	:global(atproto-comments)::part(timestamp),
+	:global(atproto-comments)::part(like-button),
+	:global(atproto-comments)::part(repost-button),
 	:global(atproto-comments)::part(reply-button) {
 		font-family: var(--font-mono);
 	}
 
+	:global(atproto-comments)::part(like-button),
+	:global(atproto-comments)::part(repost-button),
 	:global(atproto-comments)::part(reply-button) {
 		font-size: 12px;
 	}

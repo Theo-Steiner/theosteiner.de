@@ -2,7 +2,7 @@
 	import { getComments } from '$lib/data.remote';
 	import { longDate } from '$lib/format';
 
-	let { slug }: { slug: string } = $props();
+	let { slug, githubIssue }: { slug: string; githubIssue: string } = $props();
 
 	const comments = $derived(await getComments(slug));
 </script>
@@ -14,8 +14,9 @@
 			<span class="kicker-ja">コメント</span>
 		</div>
 		<p class="note">
-			Preserved from this post&rsquo;s GitHub-issue era — new comments will arrive with the
-			<a href="https://atproto.com" class="link-inline">atproto</a> backend, some day.
+			These comments are from this blog&rsquo;s GitHub CMS era. If you
+			<a href={githubIssue} class="link-inline">leave a comment on GitHub</a>, I&rsquo;ll do my
+			best to make it show up here!
 		</p>
 		<ol>
 			{#each comments as comment (comment.url)}

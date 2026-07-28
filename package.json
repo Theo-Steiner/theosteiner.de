@@ -12,7 +12,6 @@
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"freeze:comments": "node scripts/freeze-comments.mjs",
 		"test:comments": "node --test scripts/lib/render-comment-html.test.mjs",
-		"migrate:atproto": "node --env-file-if-exists=.env scripts/migrate-to-atproto.mjs",
 		"migrate": "node scripts/migrate-from-github.mjs",
 		"import:podcasts": "node scripts/import-podcasts.mjs"
 	},
@@ -41,7 +40,7 @@
 		"vite": "^8.0.16"
 	},
 	"dependencies": {
-		"@svebcomponents/atproto.comments": "^0.2.0",
+		"@svebcomponents/atproto.comments": "^0.3.0",
 		"@svebcomponents/ssr": "^0.3.1"
 	}
 }
