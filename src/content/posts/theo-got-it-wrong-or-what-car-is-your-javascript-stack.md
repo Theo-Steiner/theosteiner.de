@@ -5,6 +5,7 @@ description: "A rebuttal of Theo's take on RSC being a less risky bet than Svelt
 tags: ["code", "react", "svelte", "javascript", "RSC"]
 reactions: 16
 githubIssue: "https://github.com/Theo-Steiner/v1-theosteiner.de/issues/3"
+standardSiteUri: "at://did:plc:nsmlf6uhdg2onrsrdr7oiyv4/site.standard.document/3mrqylqshdm23"
 ---
 
 ## Don’t pick the wrong tool

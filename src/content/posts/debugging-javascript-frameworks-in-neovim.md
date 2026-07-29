@@ -5,6 +5,7 @@ description: "A guide on how to setup debugging for JavaScript projects in neovi
 tags: ["code", "nvim", "svelte", "javascript", "guide"]
 reactions: 18
 githubIssue: "https://github.com/Theo-Steiner/v1-theosteiner.de/issues/2"
+standardSiteUri: "at://did:plc:nsmlf6uhdg2onrsrdr7oiyv4/site.standard.document/3mrqylpjc7s24"
 ---
 
 # Configuring Neovim for Debugging JavaScript Frameworks

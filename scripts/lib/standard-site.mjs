@@ -55,6 +55,25 @@ export async function xrpc(accessJwt, method, body) {
 	return response.json();
 }
 
+/** Resolve a discussion post to the strong reference required by Standard.site. */
+export async function bskyPostRef(thread) {
+	const uri = thread.startsWith('at://')
+		? thread
+		: thread.replace(
+			/^https:\/\/bsky\.app\/profile\/([^/]+)\/post\/([^/?#]+).*$/,
+			'at://$1/app.bsky.feed.post/$2'
+		);
+	if (!uri.startsWith('at://')) throw new Error(`Invalid Bluesky thread URL: ${thread}`);
+	const response = await fetch(
+		`https://public.api.bsky.app/xrpc/app.bsky.feed.getPostThread?uri=${encodeURIComponent(uri)}`
+	);
+	if (!response.ok) throw new Error(`Could not resolve Bluesky thread: ${await response.text()}`);
+	const value = await response.json();
+	const post = value.thread?.post;
+	if (!post?.uri || !post?.cid) throw new Error(`No post found for Bluesky thread: ${thread}`);
+	return { uri: post.uri, cid: post.cid };
+}
+
 export async function publicationUri() {
 	const source = await readFile(PUBLICATION_CONFIG, 'utf8');
 	const match = source.match(/STANDARD_SITE_PUBLICATION_URI: string \| undefined = ['"]([^'"]+)['"]/);

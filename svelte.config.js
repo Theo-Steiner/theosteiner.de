@@ -43,7 +43,10 @@ const config = {
 			remoteFunctions: true
 		},
 		prerender: {
-			handleHttpError: 'fail'
+			handleHttpError: 'fail',
+			// Standard.site verification uses valid at:// link relations, but those
+			// are not URLs SvelteKit's static crawler can fetch.
+			handleInvalidUrl: 'ignore'
 		}
 	}
 };

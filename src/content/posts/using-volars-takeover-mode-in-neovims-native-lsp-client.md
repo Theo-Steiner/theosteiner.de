@@ -5,6 +5,7 @@ description: "A guide on how to setup neovim to enable Volar's takeover mode to 
 tags: ["code", "nvim", "vue", "volar"]
 reactions: 10
 githubIssue: "https://github.com/Theo-Steiner/v1-theosteiner.de/issues/1"
+standardSiteUri: "at://did:plc:nsmlf6uhdg2onrsrdr7oiyv4/site.standard.document/3mrqylr3av32p"
 ---
 
 ## Vue Type Errors only inside Neovim

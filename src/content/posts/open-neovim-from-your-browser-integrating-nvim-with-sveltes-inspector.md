@@ -6,6 +6,7 @@ tags: ["code", "vite", "svelte", "neovim", "click", "svelte inspector"]
 image: "https://user-images.githubusercontent.com/40017636/275247342-f2e5f994-9aea-4b74-bc0e-fd7277736170.png"
 reactions: 6
 githubIssue: "https://github.com/Theo-Steiner/v1-theosteiner.de/issues/4"
+standardSiteUri: "at://did:plc:nsmlf6uhdg2onrsrdr7oiyv4/site.standard.document/3mrqylpsrwk24"
 ---
 
 <img src="https://github.com/Theo-Steiner/v1-theosteiner.de/assets/40017636/5fe2b7ff-e100-40dd-a3c4-cfbc98376b74" alt="svelte_inspector" width="1417" height="793" />

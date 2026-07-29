@@ -3,6 +3,7 @@
 	import { longDate } from '$lib/format';
 	import { youtubeId } from '$lib/youtube';
 	import Seo from '$lib/components/Seo.svelte';
+	import { STANDARD_SITE_DOCUMENT_URIS } from '$lib/standardSiteDocuments';
 
 	let { data } = $props();
 	const talk = $derived(data.talk);
@@ -15,6 +16,7 @@
 	path={`/talks/${talk.slug}`}
 	image={ogImage('talk', talk.slug)}
 	type="video.other"
+	standardSiteDocumentUri={STANDARD_SITE_DOCUMENT_URIS[`/talks/${talk.slug}`]}
 />
 
 <header>

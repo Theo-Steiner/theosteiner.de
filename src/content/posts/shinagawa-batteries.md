@@ -3,6 +3,7 @@ title: "Shinagawa Batteries - Last Line of Defense"
 date: "2021-07-27"
 description: "How the Shinagawa Batteries marked a strategic shift in Edo Bay maritime defense after the arrival of American gunboats."
 tags: ["japanese studies", "history", "edo", "japan"]
+standardSiteUri: "at://did:plc:nsmlf6uhdg2onrsrdr7oiyv4/site.standard.document/3mrqylqizle23"
 ---
 
 # The Shinagawa Batteries as a Paradigm Shift in Edo Bay Maritime Defense

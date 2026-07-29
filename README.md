@@ -54,9 +54,10 @@ Graph metadata alone only produces the normal link card. The one-time setup is:
 2. Run `pnpm standard-site:create-publication`. It creates the publication
    record, writes its AT-URI to `src/lib/standardSite.ts`, and creates the
    static `/.well-known/site.standard.publication` verification response.
-3. Run `pnpm standard-site:publish all` to publish every blog post, or
-   `pnpm standard-site:publish <slug>` for one post. This publishes (or
-   updates) document records and saves their URIs in post frontmatter.
+3. Run `pnpm standard-site:publish all` to publish every blog post plus local
+   talk and podcast detail page, or `pnpm standard-site:publish <slug>` for
+   one blog post. This publishes (or updates) document records and saves their
+   URIs in post frontmatter or `standard-site-documents.json`.
 
 The page template emits the required `site.standard.publication` and
 `site.standard.document` link relations for published posts.

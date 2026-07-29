@@ -6,6 +6,7 @@
 	import BskyComments from '$lib/components/BskyComments.svelte';
 	import { podcastPlayer } from '$lib/podcast-player.svelte';
 	import Seo from '$lib/components/Seo.svelte';
+	import { STANDARD_SITE_DOCUMENT_URIS } from '$lib/standardSiteDocuments';
 
 	let { data } = $props();
 	const podcast = $derived(data.podcast);
@@ -26,6 +27,7 @@
 	path={`/podcasts/${podcast.slug}`}
 	image={ogImage('podcast', podcast.slug)}
 	type="music.song"
+	standardSiteDocumentUri={STANDARD_SITE_DOCUMENT_URIS[`/podcasts/${podcast.slug}`]}
 />
 
 <header>
