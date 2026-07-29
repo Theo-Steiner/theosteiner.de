@@ -77,25 +77,34 @@ async function publish(document, existingUri) {
 		tags: document.tags,
 		...(document.bskyThread ? { bskyPostRef: await bskyPostRef(document.bskyThread) } : {})
 	};
+	const create = async () => {
+		const created = await xrpc(accessJwt, 'com.atproto.repo.createRecord', {
+			repo: DID,
+			collection: 'site.standard.document',
+			record
+		});
+		return created.uri;
+	};
 
 	if (existingUri) {
 		const match = existingUri.match(/^at:\/\/[^/]+\/site\.standard\.document\/([^/]+)$/);
 		if (!match) throw new Error(`Invalid standardSiteUri: ${existingUri}`);
-		await xrpc(accessJwt, 'com.atproto.repo.putRecord', {
-			repo: DID,
-			collection: 'site.standard.document',
-			rkey: match[1],
-			record
-		});
-		return existingUri;
+		try {
+			await xrpc(accessJwt, 'com.atproto.repo.putRecord', {
+				repo: DID,
+				collection: 'site.standard.document',
+				rkey: match[1],
+				record
+			});
+			return existingUri;
+		} catch (error) {
+			if (!String(error).includes('RecordNotFound')) throw error;
+			console.warn(`Replacing deleted Standard.site record for ${document.path}`);
+			return create();
+		}
 	}
 
-	const created = await xrpc(accessJwt, 'com.atproto.repo.createRecord', {
-		repo: DID,
-		collection: 'site.standard.document',
-		record
-	});
-	return created.uri;
+	return create();
 }
 
 async function posts() {
@@ -122,9 +131,13 @@ async function posts() {
 			tags,
 			bskyThread: frontmatterValue(frontmatter, 'bskyThread')
 		};
-		const uri = await publish(document, frontmatterValue(frontmatter, 'standardSiteUri'));
-		if (!frontmatterValue(frontmatter, 'standardSiteUri')) {
-			await writeFile(filename, source.replace(frontmatter, `${frontmatter}\nstandardSiteUri: "${uri}"`));
+		const existingUri = frontmatterValue(frontmatter, 'standardSiteUri');
+		const uri = await publish(document, existingUri);
+		if (uri !== existingUri) {
+			const updatedFrontmatter = existingUri
+				? frontmatter.replace(/^standardSiteUri:\s*.*$/m, `standardSiteUri: "${uri}"`)
+				: `${frontmatter}\nstandardSiteUri: "${uri}"`;
+			await writeFile(filename, source.replace(frontmatter, updatedFrontmatter));
 		}
 		console.log(`Published ${document.path}: ${uri}`);
 	}
