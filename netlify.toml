@@ -5,6 +5,14 @@
 [build.environment]
   NODE_VERSION = "24"
 
+# `og` loads the appropriate Japanese font slice at runtime. Netlify's tracer
+# cannot infer those filenames from the Fontsource CSS, so retain them in the
+# generated SvelteKit server function.
+[functions]
+  included_files = [
+    "node_modules/@fontsource/noto-sans-jp/files/*.woff"
+  ]
+
 [[headers]]
   for = "/*"
   [headers.values]

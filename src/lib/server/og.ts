@@ -1,5 +1,6 @@
 import { readFileSync } from "node:fs";
-import { resolve } from "node:path";
+import { createRequire } from "node:module";
+import { dirname, resolve } from "node:path";
 import { Resvg } from "@resvg/resvg-js";
 import { openSync } from "fontkit";
 import type { Font } from "fontkit";
@@ -33,12 +34,13 @@ export const ogEntries: OgEntry[] = [
 const logo = logoComponent.match(/<g fill="currentColor">[\s\S]*?<\/g>/)?.[0];
 if (!logo) throw new Error("Could not extract the wordmark from Logo.svelte");
 
-const fontRoot = resolve(process.cwd(), "node_modules/@fontsource");
-const instrumentFont = resolve(
-  fontRoot,
-  "instrument-sans/files/instrument-sans-latin-600-normal.woff"
+// Resolve package assets instead of constructing paths below node_modules. The
+// latter breaks Netlify's function file tracer when pnpm uses symlinked modules.
+const require = createRequire(import.meta.url);
+const instrumentFont = require.resolve(
+  "@fontsource/instrument-sans/files/instrument-sans-latin-600-normal.woff"
 );
-const notoRoot = resolve(fontRoot, "noto-sans-jp");
+const notoRoot = dirname(require.resolve("@fontsource/noto-sans-jp/600.css"));
 
 interface FontSlice {
   file: string;
