@@ -40,8 +40,8 @@
 </script>
 
 <Seo
-	title="Everything"
-	description="Everything Theo Steiner has written, said or posted — essays, talks, podcasts and the occasional Bluesky post."
+	title="Contents"
+	description="Blog posts, essays, talks, podcast appearances - maybe even artsy stuff?"
 	path="/contents"
 	image={ogImage('page', 'contents')}
 />

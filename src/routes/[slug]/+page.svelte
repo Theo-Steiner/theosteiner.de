@@ -215,6 +215,19 @@
 		max-width: 100%;
 		border-radius: var(--radius-2);
 	}
+	.prose :global(figure) {
+		margin: 28px 0 0;
+	}
+	.prose :global(figcaption) {
+		margin-top: 8px;
+		font-family: var(--font-mono);
+		font-size: 11px;
+		line-height: 1.6;
+		color: var(--faint);
+	}
+	.prose :global(figcaption a) {
+		color: inherit;
+	}
 	.prose :global(hr) {
 		margin: 40px 0;
 		border: 0;
