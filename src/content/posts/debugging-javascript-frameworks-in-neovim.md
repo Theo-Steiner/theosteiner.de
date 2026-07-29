@@ -19,7 +19,7 @@ Only Problem: Since I'm a show-off, I use Neovim - and how on earth do you debug
 ## The Objective
 
 Before we dive into the config files, let us first establish what we are trying to accomplish here: Extending Neovim, so that we can debug code from (modern) JavaScript frameworks without leaving the editor.
-![debug_neovim_two](https://github.com/Theo-Steiner/theosteiner.de/assets/40017636/9a3e958e-3d11-4eb3-9062-1e731161e7e1)
+<img src="https://github.com/Theo-Steiner/theosteiner.de/assets/40017636/9a3e958e-3d11-4eb3-9062-1e731161e7e1" alt="debug_neovim_two" width="1425" height="810" />
 Since I mostly develop in Svelte.js, the settings shown here are only tested to work with Svelte and SvelteKit projects. <br/>I don’t see a reason however, why this shouldn’t work for other JavaScript frameworks, such as React or Vue and I’ll highlight where I write svelte specific configuration, so you can adjust it to accommodate your JavaScript Flavor of choice. (Or give svelte.js a try and use the config as is ❤️)
 
 One more caveat: In order to have my neovim boot up blazingly fast, I use folke’s lazy.nvim as a package manager.<br/> If you use Packer or some other tool, you’ll have to change the lazy specific parts of my config. If you get stuck, check out [the lazy.nvim migration guide](https://github.com/folke/lazy.nvim#-migration-guide) that shows how lazy.nvim APIs map to the APIs of other package managers.
@@ -380,7 +380,7 @@ require("lazy").setup({
 
 ### Debugging plain old JavaScript
 
-![debug_neovim_two](https://github.com/Theo-Steiner/theosteiner.de/assets/40017636/9a3e958e-3d11-4eb3-9062-1e731161e7e1)
+<img src="https://github.com/Theo-Steiner/theosteiner.de/assets/40017636/9a3e958e-3d11-4eb3-9062-1e731161e7e1" alt="debug_neovim_two" width="1425" height="810" />
 
 Now with everything setup, let’s see it in action.<br/>
 Let’s do a test run with a plain JavaScript file first: <br/>
@@ -409,7 +409,7 @@ This will now open a few windows, which show you the current state of the runtim
 
 ### Debugging Client Side JavaScript
 
-![svelte_client](https://github.com/Theo-Steiner/theosteiner.de/assets/40017636/727ba95a-6058-4056-8ac5-5903f2972dde)
+<img src="https://github.com/Theo-Steiner/theosteiner.de/assets/40017636/727ba95a-6058-4056-8ac5-5903f2972dde" alt="svelte_client" width="1425" height="810" />
 
 To debug Client Side Javascript, the concept is the same, but the steps are a bit different. Let’s go through it and try to debug the very SvelteKit site you’re reading this article on. Here are the necessary steps:
 

@@ -38,6 +38,8 @@ export interface PodcastAppearance {
 	subtitlesSrc?: string;
 	/** overrides the auto-generated (slugified-title) detail-page slug */
 	slug?: string;
+	/** at:// URI or bsky.app URL of the Bluesky post that hosts this episode's discussion */
+	bskyThread?: string;
 }
 
 export interface BlueskyStatus {

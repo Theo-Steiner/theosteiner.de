@@ -1,11 +1,23 @@
 <script lang="ts">
 	import { getComments } from '$lib/data.remote';
 	import { longDate } from '$lib/format';
+	import { BLUESKY_URL } from '$lib/siteConfig';
 
-	let { slug, githubIssue }: { slug: string; githubIssue: string } = $props();
+	let {
+		slug,
+		githubIssue,
+		reactions = 0
+	}: { slug: string; githubIssue: string; reactions?: number } = $props();
 
 	const comments = $derived(await getComments(slug));
 </script>
+
+<div class="reactions">
+	<a class="pill" href={githubIssue}>&hearts; {reactions} reactions</a>
+	<span class="cta">
+		Liked this? Share it on	<a href={BLUESKY_URL} class="link-inline">Bluesky</a> to make my day!
+	</span>
+</div>
 
 {#if comments.length > 0}
 	<section class="comments">
@@ -42,6 +54,41 @@
 {/if}
 
 <style>
+	.reactions {
+		margin-top: 56px;
+		padding-top: 24px;
+		border-top: 1px solid var(--hair);
+		display: flex;
+		align-items: center;
+		gap: 16px;
+		flex-wrap: wrap;
+	}
+	.pill {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		font-family: var(--font-mono);
+		font-size: 13px;
+		font-weight: 500;
+		color: #21201c;
+		background: var(--yellow);
+		border: none;
+		border-radius: var(--radius-round);
+		padding: 9px 18px;
+		text-decoration: none;
+		cursor: pointer;
+		transition: transform 0.25s var(--ease-pop);
+	}
+	.pill:hover {
+		transform: scale(1.05) rotate(-1deg);
+	}
+	.pill:active {
+		transform: scale(0.96);
+	}
+	.cta {
+		font-size: 14px;
+		color: var(--soft);
+	}
 	.comments {
 		margin-top: 64px;
 	}

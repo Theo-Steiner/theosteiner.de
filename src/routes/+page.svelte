@@ -27,7 +27,7 @@
 		<span class="ja">ヤッホー！</span>
 	</div>
 	<p>
-		Software Engineer at LINE in Tokyo, Svelte Ambassador, creator of <a href="https://svebcomponents.dev">svebcomponents</a>, tiger.dad at <a href="https://tiger.mom">tiger.mom</a>, atproto enthusiast, neovim aficionado, <em>destroyer of sushi</em>, OSS committer, host of the <a href="/contents?type=podcast">UIT INSIDE podcast</a>, a literature nerd, distant father to a thousand side projects, wearer of many hats.
+		Software Engineer at LINE in Tokyo, Svelte Ambassador, creator of <a href="https://svebcomponents.dev">svebcomponents</a>, tiger.dad at <a href="https://tiger.mom">tiger.mom</a>, atproto enthusiast, neovim aficionado, <em>destroyer of sushi</em>, <a href="https://github.com/search?q=is:pr+author:Theo-Steiner+is:merged+-user:Theo-Steiner+-org:svebcomponents&type=pullrequests&p=1">OSS committer</a>, host of the <a href="/contents?type=podcast">UIT INSIDE podcast</a>, a literature nerd, distant father to a thousand side projects, wearer of many hats.
 	</p>
 </header>
 

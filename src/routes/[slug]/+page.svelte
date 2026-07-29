@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { BLUESKY_URL, ogImage, SITE_URL } from '$lib/siteConfig';
+	import { ogImage, SITE_URL } from '$lib/siteConfig';
 	import { longDate } from '$lib/format';
-	import Comments from '$lib/components/Comments.svelte';
+	import GitHubComments from '$lib/components/GitHubComments.svelte';
 	import BskyComments from '$lib/components/BskyComments.svelte';
 	import Seo from '$lib/components/Seo.svelte';
 
@@ -46,16 +46,8 @@
 	<Content />
 </article>
 
-<div class="reactions">
-	<a class="pill" href={meta.githubIssue}>&hearts; {meta.reactions ?? 0} reactions</a>
-	<span class="cta">
-		Liked this? Tell me on
-		<a href={BLUESKY_URL} class="link-inline">Bluesky</a> &mdash; I answer faster than my CI.
-	</span>
-</div>
-
 {#if meta.githubIssue}
-	<Comments slug={data.slug} githubIssue={meta.githubIssue} />
+	<GitHubComments slug={data.slug} githubIssue={meta.githubIssue} reactions={meta.reactions} />
 {/if}
 
 {#if meta.bskyThread}
@@ -132,6 +124,21 @@
 	.prose :global(h3 + p) {
 		margin-top: 14px;
 	}
+	.prose :global(h1 a),
+	.prose :global(h2 a),
+	.prose :global(h3 a) {
+		color: inherit;
+		background: none;
+	}
+	.prose :global(h1 a:hover::after),
+	.prose :global(h2 a:hover::after),
+	.prose :global(h3 a:hover::after) {
+		content: ' #';
+		font-family: var(--font-mono);
+		font-size: 0.72em;
+		font-weight: 500;
+		color: var(--red);
+	}
 	.prose :global(a) {
 		color: var(--ink);
 		text-decoration: none;
@@ -204,6 +211,7 @@
 		line-height: 1.7;
 	}
 	.prose :global(img) {
+		height: auto;
 		max-width: 100%;
 		border-radius: var(--radius-2);
 	}
@@ -213,40 +221,4 @@
 		border-top: 1px solid var(--hair);
 	}
 
-	/* --- reactions ------------------------------------------------------ */
-	.reactions {
-		margin-top: 56px;
-		padding-top: 24px;
-		border-top: 1px solid var(--hair);
-		display: flex;
-		align-items: center;
-		gap: 16px;
-		flex-wrap: wrap;
-	}
-	.pill {
-		display: inline-flex;
-		align-items: center;
-		gap: 8px;
-		font-family: var(--font-mono);
-		font-size: 13px;
-		font-weight: 500;
-		color: #21201c;
-		background: var(--yellow);
-		border: none;
-		border-radius: var(--radius-round);
-		padding: 9px 18px;
-		text-decoration: none;
-		cursor: pointer;
-		transition: transform 0.25s var(--ease-pop);
-	}
-	.pill:hover {
-		transform: scale(1.05) rotate(-1deg);
-	}
-	.pill:active {
-		transform: scale(0.96);
-	}
-	.cta {
-		font-size: 14px;
-		color: var(--soft);
-	}
 </style>

@@ -12,7 +12,7 @@
 
 <section class="bsky">
 	<div class="kicker">
-		<h2>Bluesky replies</h2>
+		<h2>Atproto reactions</h2>
 		<span class="kicker-ja">返信</span>
 	</div>
 	<atproto-comments {thread} page-url={pageUrl}></atproto-comments>

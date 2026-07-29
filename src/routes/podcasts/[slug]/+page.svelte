@@ -1,13 +1,15 @@
 <script lang="ts">
-	import { ogImage } from '$lib/siteConfig';
+	import { ogImage, SITE_URL } from '$lib/siteConfig';
 	import { longDate } from '$lib/format';
 	import PodcastPlayer from '$lib/components/PodcastPlayer.svelte';
 	import PodcastTranscript from '$lib/components/PodcastTranscript.svelte';
+	import BskyComments from '$lib/components/BskyComments.svelte';
 	import { podcastPlayer } from '$lib/podcast-player.svelte';
 	import Seo from '$lib/components/Seo.svelte';
 
 	let { data } = $props();
 	const podcast = $derived(data.podcast);
+	const pageUrl = $derived(`${SITE_URL}/podcasts/${podcast.slug}`);
 
 	// if nothing is playing anywhere, quietly load this episode into the
 	// miniplayer (paused) so its controls and transcript sync are ready without
@@ -44,6 +46,10 @@
 
 {#if podcast.audioSrc && podcast.subtitlesSrc}
 	<PodcastTranscript src={podcast.audioSrc} title={podcast.title} subtitlesSrc={podcast.subtitlesSrc} />
+{/if}
+
+{#if podcast.bskyThread}
+	<BskyComments thread={podcast.bskyThread} {pageUrl} />
 {/if}
 
 <style>

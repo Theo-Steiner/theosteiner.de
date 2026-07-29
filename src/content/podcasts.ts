@@ -1,5 +1,22 @@
-import type { PodcastAppearance } from '$lib/types';
-import { uitPodcasts } from './podcasts.uit';
+import type { PodcastAppearance } from "$lib/types";
+import { uitPodcasts } from "./podcasts.uit";
+
+// Kept outside the generated UIT import so `pnpm import:podcasts` preserves
+// the discussion threads discovered from Theo's public PDS.
+const uitThreads: Record<string, string> = {
+  "uit-inside-188":
+    "https://bsky.app/profile/theosteiner.de/post/3mmt4b2hm6k2p",
+  "uit-inside-185":
+    "https://bsky.app/profile/theosteiner.de/post/3mj2mpseqts22",
+  "uit-inside-180":
+    "https://bsky.app/profile/theosteiner.de/post/3lzqa7vc2cs2c",
+  "uit-inside-173":
+    "https://bsky.app/profile/theosteiner.de/post/3lrciewcptc27",
+  "uit-inside-165":
+    "https://bsky.app/profile/theosteiner.de/post/3laxua47dpc2v",
+  "uit-inside-164":
+    "https://bsky.app/profile/theosteiner.de/post/3l7syd2lr5y2g",
+};
 
 /**
  * Podcast appearances appear in the home "Lately" feed and on /contents.
@@ -14,12 +31,15 @@ import { uitPodcasts } from './podcasts.uit';
  * `pnpm import:podcasts`; add other appearances manually below.
  */
 export const podcasts: PodcastAppearance[] = [
-	// {
-	// 	title: 'Svelte Radio — Being a Svelte Ambassador in Japan',
-	// 	date: '2023-11-02',
-	// 	href: 'https://www.svelteradio.com/',
-	// 	audioSrc: 'https://example.com/episode.mp3',
-	// 	subtitlesSrc: '/transcripts/svelte-radio-japan.vtt'
-	// }
-	...uitPodcasts
+  // {
+  // 	title: 'Svelte Radio — Being a Svelte Ambassador in Japan',
+  // 	date: '2023-11-02',
+  // 	href: 'https://www.svelteradio.com/',
+  // 	audioSrc: 'https://example.com/episode.mp3',
+  // 	subtitlesSrc: '/transcripts/svelte-radio-japan.vtt'
+  // }
+  ...uitPodcasts.map((podcast) => ({
+    ...podcast,
+    bskyThread: podcast.slug ? uitThreads[podcast.slug] : undefined,
+  })),
 ];
