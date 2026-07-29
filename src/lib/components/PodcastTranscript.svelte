@@ -2,8 +2,18 @@
 	import { podcastPlayer, parseVTT, formatPlaybackTime, type SubtitleCue } from '$lib/podcast-player.svelte';
 	import { theme } from '$lib/theme.svelte';
 
-	let { src, title, subtitlesSrc }: { src: string; title: string; subtitlesSrc: string } =
-		$props();
+	let {
+		src,
+		title,
+		transcripts
+	}: {
+		src: string;
+		title: string;
+		transcripts: { label: string; src: string }[];
+	} = $props();
+
+	let selectedTranscript = $state(0);
+	let loading = $state(false);
 
 	// speaker hues step along the site's own yellow -> red gradient, assigned in
 	// order of first appearance. Pure --yellow reads fine on a dark background but
@@ -16,17 +26,20 @@
 	let container: HTMLDivElement | undefined = $state();
 
 	$effect(() => {
-		const forSrc = subtitlesSrc;
-		cues = [];
+		const forSrc = transcripts[selectedTranscript]?.src;
+		if (!forSrc) return;
+		loading = true;
 		(async () => {
 			try {
 				const res = await fetch(forSrc);
 				if (!res.ok) return;
 				const text = await res.text();
-				if (subtitlesSrc !== forSrc) return; // props changed while this was in flight
+				if (transcripts[selectedTranscript]?.src !== forSrc) return;
 				cues = parseVTT(text);
 			} catch {
 				// no transcript available — the section just won't show
+			} finally {
+				if (transcripts[selectedTranscript]?.src === forSrc) loading = false;
 			}
 		})();
 	});
@@ -65,12 +78,28 @@
 	}
 </script>
 
-{#if cues.length}
+{#if transcripts.length}
 	<div class="kicker">
-		<h2>Transcript</h2>
-		<span class="kicker-ja">文字起こし</span>
+		<div>
+			<h2>Transcript</h2>
+			<span class="kicker-ja">文字起こし</span>
+		</div>
+		{#if transcripts.length > 1}
+			<div class="languages" aria-label="Transcript language">
+				{#each transcripts as transcript, i (transcript.src)}
+					<button
+						type="button"
+						class:active={i === selectedTranscript}
+						aria-pressed={i === selectedTranscript}
+						onclick={() => (selectedTranscript = i)}
+					>
+						{transcript.label}
+					</button>
+					{/each}
+				</div>
+		{/if}
 	</div>
-	<div class="transcript" bind:this={container}>
+	<div class:loading class="transcript" bind:this={container} aria-busy={loading}>
 		{#each cues as cue, i (i)}
 			<button
 				type="button"
@@ -96,6 +125,32 @@
 <style>
 	.kicker {
 		margin-top: 40px;
+		display: flex;
+		align-items: end;
+		justify-content: space-between;
+		gap: 16px;
+	}
+	.languages {
+		display: flex;
+		gap: 4px;
+		padding: 3px;
+		border: 1px solid var(--hair);
+		border-radius: var(--radius-2);
+	}
+	.languages button {
+		border: 0;
+		border-radius: calc(var(--radius-2) - 2px);
+		padding: 4px 8px;
+		background: transparent;
+		color: var(--faint);
+		font-family: var(--font-mono);
+		font-size: 11px;
+		cursor: pointer;
+	}
+	.languages button:hover,
+	.languages button.active {
+		background: var(--wash);
+		color: var(--ink);
 	}
 	.transcript {
 		margin-top: 14px;
@@ -104,6 +159,10 @@
 		border: 1px solid var(--hair);
 		border-radius: var(--radius-2);
 		padding: 4px;
+		transition: opacity 0.15s ease;
+	}
+	.transcript.loading {
+		opacity: 0.72;
 	}
 	.cue {
 		display: flex;

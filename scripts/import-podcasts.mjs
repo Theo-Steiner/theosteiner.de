@@ -55,14 +55,14 @@ for (const [, item] of xml.matchAll(/<item>([\s\S]*?)<\/item>/g)) {
 	// entirely — derive a clean, stable slug from the episode number instead
 	const episodeNumber = href?.match(/\/episode\/(\d+)/)?.[1];
 	const slug = episodeNumber ? `uit-inside-${episodeNumber}` : undefined;
-	const subtitlesSrc = slug ? await downloadTranscript(episodeNumber, slug) : null;
+	const transcriptSrc = slug ? await downloadTranscript(episodeNumber, slug) : null;
 	episodes.push({
 		title: `UIT INSIDE — ${tag(item, 'title')}`,
 		date: new Date(tag(item, 'pubDate')).toISOString().slice(0, 10),
 		href,
 		...(slug ? { slug } : {}),
 		...(enclosure ? { audioSrc: unescapeXml(enclosure[1]) } : {}),
-		...(subtitlesSrc ? { subtitlesSrc } : {})
+		...(transcriptSrc ? { transcripts: [{ label: 'English', src: transcriptSrc }] } : {})
 	});
 }
 episodes.sort((a, b) => (a.date < b.date ? 1 : -1));
@@ -75,7 +75,7 @@ const entries = episodes
 			`href: ${JSON.stringify(episode.href)}`,
 			...(episode.slug ? [`slug: ${JSON.stringify(episode.slug)}`] : []),
 			...(episode.audioSrc ? [`audioSrc: ${JSON.stringify(episode.audioSrc)}`] : []),
-			...(episode.subtitlesSrc ? [`subtitlesSrc: ${JSON.stringify(episode.subtitlesSrc)}`] : [])
+			...(episode.transcripts ? [`transcripts: ${JSON.stringify(episode.transcripts)}`] : [])
 		];
 		return `\t{\n${fields.map((f) => `\t\t${f}`).join(',\n')}\n\t}`;
 	})

@@ -60,8 +60,12 @@
 	</div>
 {/if}
 
-{#if podcast.audioSrc && podcast.subtitlesSrc}
-	<PodcastTranscript src={podcast.audioSrc} title={podcast.title} subtitlesSrc={podcast.subtitlesSrc} />
+{#if podcast.audioSrc && podcast.transcripts?.length}
+	<PodcastTranscript
+		src={podcast.audioSrc}
+		title={podcast.title}
+		transcripts={podcast.transcripts}
+	/>
 {/if}
 
 {#if podcast.bskyThread}

@@ -40,12 +40,17 @@ export interface PodcastAppearance {
 	audioSrc?: string;
 	/** optional YouTube recording for the episode */
 	videoHref?: string;
-	/** WebVTT transcript URL; when present the player shows captions synced to playback */
-	subtitlesSrc?: string;
+	/** available WebVTT transcript languages */
+	transcripts?: PodcastTranscript[];
 	/** overrides the auto-generated (slugified-title) detail-page slug */
 	slug?: string;
 	/** at:// URI or bsky.app URL of the Bluesky post that hosts this episode's discussion */
 	bskyThread?: string;
+}
+
+export interface PodcastTranscript {
+	label: string;
+	src: string;
 }
 
 export interface BlueskyStatus {

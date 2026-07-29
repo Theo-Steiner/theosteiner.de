@@ -10,7 +10,7 @@ export const uitPodcasts: PodcastAppearance[] = [
 		slug: "uit-inside-192",
 		bskyThread: "https://bsky.app/profile/theosteiner.de/post/3mrrcmmijbk2z",
 		audioSrc: "https://vos.line-scdn.net/landpress-content-v2-aolf0l4r424gmi3gqsmdyi9q/92d8df640af64ba29e1fd0d8509a118d.mp3?updatedAt=1785289498000",
-		subtitlesSrc: "/transcripts/uit-inside-192.vtt"
+		transcripts: [{ label: "English", src: "/transcripts/uit-inside-192.vtt" }]
 	},
 	{
 		title: "UIT INSIDE — ep.189『Google I/O 2026 現地レポート — Antigravity、WebMCP、Built-in AI と Web の未来』",
@@ -18,7 +18,7 @@ export const uitPodcasts: PodcastAppearance[] = [
 		href: "https://uit-inside.linecorp.com/episode/189",
 		slug: "uit-inside-189",
 		audioSrc: "https://vos.line-scdn.net/landpress-content-v2-aolf0l4r424gmi3gqsmdyi9q/73f77a3d8e024d8fa83187d3fde5d47a.mp3?updatedAt=1781067188000",
-		subtitlesSrc: "/transcripts/uit-inside-189.vtt"
+		transcripts: [{ label: "English", src: "/transcripts/uit-inside-189.vtt" }]
 	},
 	{
 		title: "UIT INSIDE — ep.188『コアチームと語るvite 8 - 再構築されるフロントエンドツールチェーン』",
@@ -26,7 +26,7 @@ export const uitPodcasts: PodcastAppearance[] = [
 		href: "https://uit-inside.linecorp.com/episode/188",
 		slug: "uit-inside-188",
 		audioSrc: "https://vos.line-scdn.net/landpress-content-v2-aolf0l4r424gmi3gqsmdyi9q/39b7bc5c5202498883cf6a688189f4ca.mp3?updatedAt=1779865175000",
-		subtitlesSrc: "/transcripts/uit-inside-188.vtt"
+		transcripts: [{ label: "English", src: "/transcripts/uit-inside-188.vtt" }]
 	},
 	{
 		title: "UIT INSIDE — ep.185『ブラウザを壊す人たち — バグハンティングとセキュリティリサーチの世界』",
@@ -41,7 +41,7 @@ export const uitPodcasts: PodcastAppearance[] = [
 		href: "https://uit-inside.linecorp.com/episode/182",
 		slug: "uit-inside-182",
 		audioSrc: "https://vos.line-scdn.net/landpress-content-v2-aolf0l4r424gmi3gqsmdyi9q/da3510195e044d43bb92dc3881da00be.mp3?updatedAt=1779950265000",
-		subtitlesSrc: "/transcripts/uit-inside-182.vtt"
+		transcripts: [{ label: "English", src: "/transcripts/uit-inside-182.vtt" }]
 	},
 	{
 		title: "UIT INSIDE — ep.180『コミュニティースターと語るVue Fes Japan 2025 の魅力』",
@@ -49,7 +49,7 @@ export const uitPodcasts: PodcastAppearance[] = [
 		href: "https://uit-inside.linecorp.com/episode/180",
 		slug: "uit-inside-180",
 		audioSrc: "https://vos.line-scdn.net/landpress-content-v2-aolf0l4r424gmi3gqsmdyi9q/fc0591f224a24602a356a960bb5b83a0.mp3?updatedAt=1779950788000",
-		subtitlesSrc: "/transcripts/uit-inside-180.vtt"
+		transcripts: [{ label: "English", src: "/transcripts/uit-inside-180.vtt" }]
 	},
 	{
 		title: "UIT INSIDE — ep.174『Google I/O ライブ特集：AI、グラス、新たなWebの進展』",
@@ -57,7 +57,7 @@ export const uitPodcasts: PodcastAppearance[] = [
 		href: "https://uit-inside.linecorp.com/episode/174",
 		slug: "uit-inside-174",
 		audioSrc: "https://vos.line-scdn.net/landpress-content-v2-aolf0l4r424gmi3gqsmdyi9q/37200f238f414c389541f0f64070e90f.mp3?updatedAt=1779950780000",
-		subtitlesSrc: "/transcripts/uit-inside-174.vtt"
+		transcripts: [{ label: "English", src: "/transcripts/uit-inside-174.vtt" }]
 	},
 	{
 		title: "UIT INSIDE — ep.173『Recap: Svelte Summit 2025 注目プレゼンを振り返る』",
@@ -65,7 +65,7 @@ export const uitPodcasts: PodcastAppearance[] = [
 		href: "https://uit-inside.linecorp.com/episode/173",
 		slug: "uit-inside-173",
 		audioSrc: "https://vos.line-scdn.net/landpress-content-v2-aolf0l4r424gmi3gqsmdyi9q/29ce4dbbd0644f078a2a6202c12353a8.mp3?updatedAt=1779950776000",
-		subtitlesSrc: "/transcripts/uit-inside-173.vtt"
+		transcripts: [{ label: "English", src: "/transcripts/uit-inside-173.vtt" }]
 	},
 	{
 		title: "UIT INSIDE — ep.165『Upcoming Vue.js Ecosystem Developments with @​posva』",
@@ -73,7 +73,7 @@ export const uitPodcasts: PodcastAppearance[] = [
 		href: "https://uit-inside.linecorp.com/episode/165",
 		slug: "uit-inside-165",
 		audioSrc: "https://vos.line-scdn.net/landpress-content-v2-aolf0l4r424gmi3gqsmdyi9q/cc251cbb211a406291a38ada1d0243cb.mp3?updatedAt=1779950759000",
-		subtitlesSrc: "/transcripts/uit-inside-165.vtt"
+		transcripts: [{ label: "English", src: "/transcripts/uit-inside-165.vtt" }]
 	},
 	{
 		title: "UIT INSIDE — ep.164『コアメンバーと語る！Svelte 5の革新』",
@@ -81,7 +81,7 @@ export const uitPodcasts: PodcastAppearance[] = [
 		href: "https://uit-inside.linecorp.com/episode/164",
 		slug: "uit-inside-164",
 		audioSrc: "https://vos.line-scdn.net/landpress-content-v2-aolf0l4r424gmi3gqsmdyi9q/87dfc9e192f54a9c9b55dd97f69fc1be.mp3?updatedAt=1779950757000",
-		subtitlesSrc: "/transcripts/uit-inside-164.vtt"
+		transcripts: [{ label: "English", src: "/transcripts/uit-inside-164.vtt" }]
 	},
 	{
 		title: "UIT INSIDE — ep.163『LINEヤフー初！フロントエンド開発インターンシップを参加者と振り返る』",
@@ -89,7 +89,7 @@ export const uitPodcasts: PodcastAppearance[] = [
 		href: "https://uit-inside.linecorp.com/episode/163",
 		slug: "uit-inside-163",
 		audioSrc: "https://vos.line-scdn.net/landpress-content-v2-aolf0l4r424gmi3gqsmdyi9q/f516fd7208d646329544923b40bc91f9.mp3?updatedAt=1779950754000",
-		subtitlesSrc: "/transcripts/uit-inside-163.vtt"
+		transcripts: [{ label: "English", src: "/transcripts/uit-inside-163.vtt" }]
 	},
 	{
 		title: "UIT INSIDE — ep.157『Google I/O 2024 Web front-end 現地レポート』",
@@ -97,7 +97,7 @@ export const uitPodcasts: PodcastAppearance[] = [
 		href: "https://uit-inside.linecorp.com/episode/157",
 		slug: "uit-inside-157",
 		audioSrc: "https://vos.line-scdn.net/landpress-content-v2-aolf0l4r424gmi3gqsmdyi9q/ed5d20fabc394dc08197676bfe1dce91.mp3?updatedAt=1779950743000",
-		subtitlesSrc: "/transcripts/uit-inside-157.vtt"
+		transcripts: [{ label: "English", src: "/transcripts/uit-inside-157.vtt" }]
 	},
 	{
 		title: "UIT INSIDE — ep.148『UIT新卒エンジニアが話すWeb開発の原体験』",
@@ -105,7 +105,7 @@ export const uitPodcasts: PodcastAppearance[] = [
 		href: "https://uit-inside.linecorp.com/episode/148",
 		slug: "uit-inside-148",
 		audioSrc: "https://vos.line-scdn.net/landpress-content-v2-aolf0l4r424gmi3gqsmdyi9q/931df024d803434982c406be5899d2c8.mp3?updatedAt=1779950724000",
-		subtitlesSrc: "/transcripts/uit-inside-148.vtt"
+		transcripts: [{ label: "English", src: "/transcripts/uit-inside-148.vtt" }]
 	},
 	{
 		title: "UIT INSIDE — ep.146 変更点が少ないのに期待が高まる？ Lit v3.0メジャーバージョンアップのねらい",
@@ -113,6 +113,6 @@ export const uitPodcasts: PodcastAppearance[] = [
 		href: "https://uit-inside.linecorp.com/episode/146",
 		slug: "uit-inside-146",
 		audioSrc: "https://vos.line-scdn.net/landpress-content-v2-aolf0l4r424gmi3gqsmdyi9q/d9c36d993e5140198be80752221c1d85.mp3?updatedAt=1779950718000",
-		subtitlesSrc: "/transcripts/uit-inside-146.vtt"
+		transcripts: [{ label: "English", src: "/transcripts/uit-inside-146.vtt" }]
 	}
 ];
