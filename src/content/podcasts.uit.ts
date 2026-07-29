@@ -8,6 +8,7 @@ export const uitPodcasts: PodcastAppearance[] = [
 		date: "2026-07-29",
 		href: "https://uit-inside.linecorp.com/episode/192",
 		slug: "uit-inside-192",
+		bskyThread: "https://bsky.app/profile/theosteiner.de/post/3mrrcmmijbk2z",
 		audioSrc: "https://vos.line-scdn.net/landpress-content-v2-aolf0l4r424gmi3gqsmdyi9q/92d8df640af64ba29e1fd0d8509a118d.mp3?updatedAt=1785289498000",
 		subtitlesSrc: "/transcripts/uit-inside-192.vtt"
 	},
