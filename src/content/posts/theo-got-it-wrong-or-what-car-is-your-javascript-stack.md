@@ -4,7 +4,7 @@ date: "2023-07-08"
 description: "A rebuttal of Theo's take on RSC being a less risky bet than SvelteKit."
 tags: ["code", "react", "svelte", "javascript", "RSC"]
 reactions: 16
-githubIssue: "https://github.com/Theo-Steiner/theosteiner.de/issues/3"
+githubIssue: "https://github.com/Theo-Steiner/v1-theosteiner.de/issues/3"
 ---
 
 ## Don’t pick the wrong tool

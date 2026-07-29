@@ -5,10 +5,10 @@ description: "Integrating Svelte's Inspector with Neovim allows you to simply cl
 tags: ["code", "vite", "svelte", "neovim", "click", "svelte inspector"]
 image: "https://user-images.githubusercontent.com/40017636/275247342-f2e5f994-9aea-4b74-bc0e-fd7277736170.png"
 reactions: 6
-githubIssue: "https://github.com/Theo-Steiner/theosteiner.de/issues/4"
+githubIssue: "https://github.com/Theo-Steiner/v1-theosteiner.de/issues/4"
 ---
 
-<img src="https://github.com/Theo-Steiner/theosteiner.de/assets/40017636/5fe2b7ff-e100-40dd-a3c4-cfbc98376b74" alt="svelte_inspector" width="1417" height="793" />
+<img src="https://github.com/Theo-Steiner/v1-theosteiner.de/assets/40017636/5fe2b7ff-e100-40dd-a3c4-cfbc98376b74" alt="svelte_inspector" width="1417" height="793" />
 Let's say you're doing some web development and you notice that one button you haven't touched in years has a slight contrast issue. Searching for the relevant component could literally cost you seconds and just thinking about searching for it in your codebase gives you major anxiety?
 What if I told you, you can just click the element in question, and just like that, your editor opens at the correct position, you finish your daily tasks with never before seen agility and finally get that promotion you deserve?
 
@@ -283,7 +283,7 @@ Finally, we check if the pid_cwd is identical to the directory of the currently 
 
 ## tada~ 🎉 IT JUST WORKS! ™
 
-<img src="https://github.com/Theo-Steiner/theosteiner.de/assets/40017636/426735a2-209f-4ac2-8703-7e0a73576036" alt="svelte_inspector1" width="1417" height="789" />
+<img src="https://github.com/Theo-Steiner/v1-theosteiner.de/assets/40017636/426735a2-209f-4ac2-8703-7e0a73576036" alt="svelte_inspector1" width="1417" height="789" />
 
 ### The final code:
 

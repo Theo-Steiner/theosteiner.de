@@ -22,6 +22,7 @@
 	path={meta.canonical ?? `/${data.slug}`}
 	image={ogImage('blog', data.slug)}
 	type="article"
+	standardSiteDocumentUri={meta.standardSiteUri}
 />
 <svelte:head>
 	{#if meta.tags?.length}
@@ -130,14 +131,11 @@
 		color: inherit;
 		background: none;
 	}
-	.prose :global(h1 a:hover::after),
-	.prose :global(h2 a:hover::after),
-	.prose :global(h3 a:hover::after) {
-		content: ' #';
-		font-family: var(--font-mono);
-		font-size: 0.72em;
-		font-weight: 500;
-		color: var(--red);
+	.prose :global(h1 a:hover),
+	.prose :global(h2 a:hover),
+	.prose :global(h3 a:hover) {
+		color: inherit;
+		background-image: none;
 	}
 	.prose :global(a) {
 		color: var(--ink);

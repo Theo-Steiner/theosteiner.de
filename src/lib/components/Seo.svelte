@@ -4,19 +4,22 @@
 		SITE_TITLE,
 		SITE_URL
 	} from '$lib/siteConfig';
+	import { STANDARD_SITE_PUBLICATION_URI } from '$lib/standardSite';
 
 	let {
 		title,
 		description,
 		path,
 		image = DEFAULT_OG_IMAGE,
-		type = 'website'
+		type = 'website',
+		standardSiteDocumentUri
 	}: {
 		title: string;
 		description?: string;
 		path: string;
 		image?: string;
 		type?: string;
+		standardSiteDocumentUri?: string;
 	} = $props();
 
 	const canonical = $derived(path.startsWith('http') ? path : `${SITE_URL}${path === '/' ? '' : path}`);
@@ -31,6 +34,12 @@
 		<meta name="twitter:description" content={description} />
 	{/if}
 	<link rel="canonical" href={canonical} />
+	{#if STANDARD_SITE_PUBLICATION_URI}
+		<link rel="site.standard.publication" href={STANDARD_SITE_PUBLICATION_URI} />
+	{/if}
+	{#if standardSiteDocumentUri}
+		<link rel="site.standard.document" href={standardSiteDocumentUri} />
+	{/if}
 	<meta property="og:site_name" content={SITE_TITLE} />
 	<meta property="og:title" content={title} />
 	<meta property="og:type" content={type} />

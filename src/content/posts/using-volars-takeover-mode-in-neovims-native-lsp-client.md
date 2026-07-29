@@ -4,7 +4,7 @@ date: "2023-05-14"
 description: "A guide on how to setup neovim to enable Volar's takeover mode to allow vscode like type checking of vue projects in nvim"
 tags: ["code", "nvim", "vue", "volar"]
 reactions: 10
-githubIssue: "https://github.com/Theo-Steiner/theosteiner.de/issues/1"
+githubIssue: "https://github.com/Theo-Steiner/v1-theosteiner.de/issues/1"
 ---
 
 ## Vue Type Errors only inside Neovim

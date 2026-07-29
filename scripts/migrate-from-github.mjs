@@ -1,6 +1,6 @@
 /**
  * One-time migration: exports published blog posts and their comments from
- * the swyxkit GitHub-issues backend (Theo-Steiner/theosteiner.de) into this
+ * the swyxkit GitHub-issues backend (Theo-Steiner/v1-theosteiner.de) into this
  * repo, so the site has no runtime or build-time GitHub dependency.
  *
  *   posts    → src/content/posts/<slug>.md   (frontmatter + markdown body)
@@ -14,7 +14,7 @@ import { mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { renderCommentHtml } from './lib/render-comment-html.mjs';
 
-const REPO = 'Theo-Steiner/theosteiner.de';
+const REPO = 'Theo-Steiner/v1-theosteiner.de';
 const ROOT = new URL('..', import.meta.url).pathname;
 const POSTS_DIR = path.join(ROOT, 'src/content/posts');
 const COMMENTS_DIR = path.join(ROOT, 'src/content/comments');

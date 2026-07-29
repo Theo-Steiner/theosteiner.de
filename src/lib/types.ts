@@ -11,6 +11,8 @@ export interface PostMeta {
 	githubIssue?: string;
 	/** at:// URI or bsky.app URL of the Bluesky post that hosts this post's comment thread */
 	bskyThread?: string;
+	/** verified Standard.site document record for Bluesky's enhanced link card */
+	standardSiteUri?: string;
 }
 
 export interface Talk {
