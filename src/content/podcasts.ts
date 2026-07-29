@@ -44,7 +44,7 @@ export const podcasts: PodcastAppearance[] = [
   // }
   ...uitPodcasts.map((podcast) => ({
     ...podcast,
-    bskyThread: podcast.slug ? uitThreads[podcast.slug] : undefined,
+    bskyThread: podcast.bskyThread ?? (podcast.slug ? uitThreads[podcast.slug] : undefined),
     videoHref: podcast.slug ? uitVideos[podcast.slug] : undefined,
   })),
 ];
