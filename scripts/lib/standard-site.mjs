@@ -55,6 +55,14 @@ export async function xrpc(accessJwt, method, body) {
 	return response.json();
 }
 
+export async function xrpcGet(accessJwt, method, params) {
+	const response = await fetch(`${PDS}/xrpc/${method}?${new URLSearchParams(params)}`, {
+		headers: { authorization: `Bearer ${accessJwt}` }
+	});
+	if (!response.ok) throw new Error(`${method} failed: ${await response.text()}`);
+	return response.json();
+}
+
 /** Resolve a discussion post to the strong reference required by Standard.site. */
 export async function bskyPostRef(thread) {
 	const uri = thread.startsWith('at://')

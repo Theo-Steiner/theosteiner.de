@@ -4,6 +4,14 @@ import type { PodcastAppearance } from '$lib/types';
 
 export const uitPodcasts: PodcastAppearance[] = [
 	{
+		title: "UIT INSIDE — ep.192『Walking Up the ATProto Stack with Dan Abramov』",
+		date: "2026-07-29",
+		href: "https://uit-inside.linecorp.com/episode/192",
+		slug: "uit-inside-192",
+		audioSrc: "https://vos.line-scdn.net/landpress-content-v2-aolf0l4r424gmi3gqsmdyi9q/92d8df640af64ba29e1fd0d8509a118d.mp3?updatedAt=1785289498000",
+		subtitlesSrc: "/transcripts/uit-inside-192.vtt"
+	},
+	{
 		title: "UIT INSIDE — ep.189『Google I/O 2026 現地レポート — Antigravity、WebMCP、Built-in AI と Web の未来』",
 		date: "2026-06-10",
 		href: "https://uit-inside.linecorp.com/episode/189",

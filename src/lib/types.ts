@@ -38,6 +38,8 @@ export interface PodcastAppearance {
 	href: string;
 	/** direct audio file; enables the player on the episode's detail page */
 	audioSrc?: string;
+	/** optional YouTube recording for the episode */
+	videoHref?: string;
 	/** WebVTT transcript URL; when present the player shows captions synced to playback */
 	subtitlesSrc?: string;
 	/** overrides the auto-generated (slugified-title) detail-page slug */

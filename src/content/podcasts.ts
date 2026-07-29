@@ -18,6 +18,10 @@ const uitThreads: Record<string, string> = {
     "https://bsky.app/profile/theosteiner.de/post/3l7syd2lr5y2g",
 };
 
+const uitVideos: Record<string, string> = {
+  "uit-inside-192": "https://www.youtube.com/watch?v=z3cWUJHbRbM"
+};
+
 /**
  * Podcast appearances appear in the home "Lately" feed and on /contents.
  * `audioSrc` (a direct mp3/m4a URL) enables the inline player; without it
@@ -41,5 +45,6 @@ export const podcasts: PodcastAppearance[] = [
   ...uitPodcasts.map((podcast) => ({
     ...podcast,
     bskyThread: podcast.slug ? uitThreads[podcast.slug] : undefined,
+    videoHref: podcast.slug ? uitVideos[podcast.slug] : undefined,
   })),
 ];

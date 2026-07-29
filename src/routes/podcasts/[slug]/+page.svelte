@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { ogImage, SITE_URL } from '$lib/siteConfig';
 	import { longDate } from '$lib/format';
+	import { youtubeId } from '$lib/youtube';
 	import PodcastPlayer from '$lib/components/PodcastPlayer.svelte';
 	import PodcastTranscript from '$lib/components/PodcastTranscript.svelte';
 	import BskyComments from '$lib/components/BskyComments.svelte';
@@ -11,6 +12,7 @@
 	let { data } = $props();
 	const podcast = $derived(data.podcast);
 	const pageUrl = $derived(`${SITE_URL}/podcasts/${podcast.slug}`);
+	const embedId = $derived(podcast.videoHref ? youtubeId(podcast.videoHref) : undefined);
 
 	// if nothing is playing anywhere, quietly load this episode into the
 	// miniplayer (paused) so its controls and transcript sync are ready without
@@ -45,6 +47,18 @@
 	{/if}
 	<a class="pill" href={podcast.href} target="_blank" rel="noopener">Listen on the original site &rarr;</a>
 </div>
+
+{#if embedId}
+	<div class="embed">
+		<iframe
+			src="https://www.youtube-nocookie.com/embed/{embedId}"
+			title={`${podcast.title} video recording`}
+			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+			allowfullscreen
+			loading="lazy"
+		></iframe>
+	</div>
+{/if}
 
 {#if podcast.audioSrc && podcast.subtitlesSrc}
 	<PodcastTranscript src={podcast.audioSrc} title={podcast.title} subtitlesSrc={podcast.subtitlesSrc} />
@@ -91,6 +105,21 @@
 		flex-wrap: wrap;
 		align-items: center;
 		gap: 12px;
+	}
+	.embed {
+		margin-top: 28px;
+		position: relative;
+		aspect-ratio: 16 / 9;
+		border-radius: var(--radius-2);
+		overflow: hidden;
+		background: var(--codebg);
+	}
+	.embed iframe {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		border: 0;
 	}
 	.pill {
 		display: inline-flex;

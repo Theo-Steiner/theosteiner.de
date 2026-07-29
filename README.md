@@ -52,8 +52,9 @@ Graph metadata alone only produces the normal link card. The one-time setup is:
 1. Create a Bluesky app password, then add `ATPROTO_HANDLE=theosteiner.de` and
    `ATPROTO_APP_PASSWORD=…` to `.env`.
 2. Run `pnpm standard-site:create-publication`. It creates the publication
-   record, writes its AT-URI to `src/lib/standardSite.ts`, and creates the
-   static `/.well-known/site.standard.publication` verification response.
+   record once (or safely reuses the existing one), writes its AT-URI to
+   `src/lib/standardSite.ts`, and creates the static
+   `/.well-known/site.standard.publication` verification response.
 3. Run `pnpm standard-site:publish all` to publish every blog post plus local
    talk and podcast detail page, or `pnpm standard-site:publish <slug>` for
    one blog post. This publishes (or updates) document records and saves their
@@ -61,3 +62,25 @@ Graph metadata alone only produces the normal link card. The one-time setup is:
 
 The page template emits the required `site.standard.publication` and
 `site.standard.document` link relations for published posts.
+
+### Publishing flow
+
+The publication setup above is a one-time action. For each new or materially
+updated article, talk, or podcast detail page:
+
+1. Add or edit the content locally.
+2. Run `pnpm standard-site:publish all` to create or update its Standard.site
+   document record and save the resulting AT-URI in the repository.
+3. Commit and push those changes; CI deploys the page with its verification
+   link tag.
+4. Once the deployment is live, create the Bluesky post linking to the public
+   page. Creating it after deployment lets Bluesky discover the verified
+   Standard.site document and render its enhanced card.
+5. Save that post's URL as `bskyThread` on the local content item, run
+   `pnpm standard-site:publish all` again, then commit, push, and deploy.
+
+The second publish resolves `bskyThread` to Standard.site's strong
+`bskyPostRef` (`at://` URI plus CID). That associates the document with its
+Bluesky discussion and powers the on-page comments component. It does not
+retroactively change the link card stored on an existing Bluesky post, which
+is why the first deployment must happen before creating the Bluesky post.
