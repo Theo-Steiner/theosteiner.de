@@ -759,15 +759,15 @@
 	}
 
 	@page {
-		size: A4;
+		size: A4 portrait;
 		margin: 0;
 	}
 
 	@media print {
 		:global(html),
 		:global(body) {
-			width: 210mm;
-			height: 297mm;
+			width: auto;
+			height: auto;
 			margin: 0;
 			padding: 0;
 			background: #fcfcfa !important;
@@ -776,8 +776,9 @@
 		}
 
 		.resume-page {
-			width: 210mm;
-			height: 297mm;
+			width: auto;
+			min-height: 0;
+			height: auto;
 			margin: 0;
 			padding: 0;
 		}
@@ -788,11 +789,152 @@
 
 		.resume-document {
 			width: 210mm;
-			height: 297mm;
-			min-height: 297mm;
+			height: auto;
+			min-height: 0;
 			margin: 0;
+			padding: 7mm 13mm 6mm;
 			box-shadow: none;
-			overflow: hidden;
+			overflow: visible;
+			font-size: 8.3pt;
+			line-height: 1.36;
+			break-inside: avoid;
+			page-break-inside: avoid;
+		}
+
+		.resume-header {
+			display: flex;
+			padding-bottom: 3.5mm;
+		}
+
+		.brand {
+			margin-bottom: 2.5mm;
+		}
+
+		h1 {
+			font-size: 25px;
+		}
+
+		.contact {
+			margin-top: 0;
+			text-align: right;
+			font-size: 6.5pt;
+		}
+
+		.profile {
+			display: grid;
+			grid-template-columns: 25mm 1fr;
+			margin: 3.5mm 0 4mm;
+			padding: 3mm 4mm;
+		}
+
+		.profile h2 {
+			margin: 1px 0 0;
+		}
+
+		.profile p {
+			font-size: 11px;
+		}
+
+		.resume-columns {
+			display: grid;
+		}
+
+		aside {
+			margin-top: 0;
+			padding-left: 6mm;
+			border-left: 1px solid #e3e1da;
+		}
+
+		section + section {
+			margin-top: 4mm;
+		}
+
+		h2 {
+			margin-bottom: 2.4mm;
+			font-size: 7pt;
+		}
+
+		h3 {
+			font-size: 9.1pt;
+		}
+
+		aside section + section {
+			margin-top: 5mm;
+		}
+
+		.entry + .entry {
+			margin-top: 4mm;
+		}
+
+		.recognition {
+			margin: 1.5mm 0;
+			padding: 1.2mm 2mm;
+			font-size: 9.3px;
+		}
+
+		.entry-role {
+			font-size: 7.1pt;
+		}
+
+		.date,
+		.entry-note {
+			font-size: 6.5pt;
+		}
+
+		li {
+			margin-top: 1.35mm;
+			padding-left: 3.2mm;
+		}
+
+		li::before {
+			width: 1.2mm;
+			height: 1.2mm;
+		}
+
+		.projects-main {
+			margin-top: 4mm;
+		}
+
+		.projects-grid {
+			display: grid;
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+		}
+
+		.project-card {
+			padding-top: 2mm;
+		}
+
+		.project-card + .project-card {
+			margin-top: 0;
+		}
+
+		.side-title span {
+			font-size: 6pt;
+		}
+
+		.detail-link {
+			font-size: 6.1pt;
+		}
+
+		.skills {
+			gap: 1.5mm;
+		}
+
+		.skills div {
+			grid-template-columns: 15.5mm minmax(0, 1fr);
+			gap: 1.5mm;
+		}
+
+		.resume-footer {
+			display: flex;
+			margin-top: 3.5mm;
+			padding-top: 2.3mm;
+			font-size: 6.1pt;
+			line-height: 1.36;
+		}
+
+		.footer-mark {
+			margin-top: 0 !important;
 		}
 
 		a {
