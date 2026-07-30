@@ -21,3 +21,10 @@
     Cache-Control = "public, max-age=4000"
     # in loving memory
     X-Clacks-Overhead = "GNU Terry Pratchett"
+
+[[headers]]
+  for = "/resume"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow, noarchive"
+    Cache-Control = "private, no-store"
+    Referrer-Policy = "no-referrer"

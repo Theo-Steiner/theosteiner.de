@@ -5,11 +5,13 @@
 	import '@fontsource-variable/geist-mono/wght.css';
 	import '../app.css';
 	import { onNavigate } from '$app/navigation';
+	import { page } from '$app/state';
 	import Nav from '$lib/components/Nav.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import NowPlayingBar from '$lib/components/NowPlayingBar.svelte';
 
 	let { children } = $props();
+	const isResume = $derived(page.route.id === '/resume');
 
 	// animate client-side navigations with the View Transitions API
 	// https://svelte.dev/blog/view-transitions
@@ -26,11 +28,15 @@
 	});
 </script>
 
-<div class="page">
-	<Nav />
-	<main>
-		{@render children()}
-	</main>
-	<Footer />
-</div>
-<NowPlayingBar />
+{#if isResume}
+	{@render children()}
+{:else}
+	<div class="page">
+		<Nav />
+		<main>
+			{@render children()}
+		</main>
+		<Footer />
+	</div>
+	<NowPlayingBar />
+{/if}

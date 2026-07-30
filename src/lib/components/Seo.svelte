@@ -12,7 +12,8 @@
 		path,
 		image = DEFAULT_OG_IMAGE,
 		type = 'website',
-		standardSiteDocumentUri
+		standardSiteDocumentUri,
+		noindex = false
 	}: {
 		title: string;
 		description?: string;
@@ -20,6 +21,7 @@
 		image?: string;
 		type?: string;
 		standardSiteDocumentUri?: string;
+		noindex?: boolean;
 	} = $props();
 
 	const canonical = $derived(path.startsWith('http') ? path : `${SITE_URL}${path === '/' ? '' : path}`);
@@ -28,6 +30,9 @@
 
 <svelte:head>
 	<title>{documentTitle}</title>
+	{#if noindex}
+		<meta name="robots" content="noindex, nofollow, noarchive" />
+	{/if}
 	{#if description}
 		<meta name="description" content={description} />
 		<meta property="og:description" content={description} />
