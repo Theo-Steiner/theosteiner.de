@@ -8,6 +8,8 @@ githubIssue: "https://github.com/Theo-Steiner/v1-theosteiner.de/issues/3"
 standardSiteUri: "at://did:plc:nsmlf6uhdg2onrsrdr7oiyv4/site.standard.document/3mrqylqshdm23"
 ---
 
+EDIT: [theo since replied to this post](https://x.com/theo/status/1677902838247358478)
+
 ## Don’t pick the wrong tool
 
 Theo recently published a video titled `Don’t pick the wrong tool` and as expected there are some spicy takes in it 🌶️. While I agree with much of what is said throughout the video, I think Theo got one fundamental thing wrong. And I even have a stupid car analogy to back it up 🚗.
@@ -15,8 +17,7 @@ Theo recently published a video titled `Don’t pick the wrong tool` and as expe
 If you haven’t seen it, go watch now: [https://www.youtube.com/watch?v=uEx9sZvTwuI](https://www.youtube.com/watch?v=uEx9sZvTwuI)
 
 > To those who think I have gone full mad and talk about myself in the third person: While I might be slightly mad, it turns out there’s actually more than one `Theo` out there… Who would have thought 🤯 <br/>
-But it’s actually not confusing at all, because [my name](https://upload.wikimedia.org/wikipedia/commons/9/91/De-Theo.ogg) is pronounced `ˈteːo` while [@t3dotgg’s name](https://en.wiktionary.org/wiki/Theo) is `ˈθioʊ`. See, not confusing at all!
-> 
+> But it’s actually not confusing at all, because [my name](https://upload.wikimedia.org/wikipedia/commons/9/91/De-Theo.ogg) is pronounced `ˈteːo` while [@t3dotgg’s name](https://en.wiktionary.org/wiki/Theo) is `ˈθioʊ`. See, not confusing at all!
 
 ## The Bleeding Edge is a Gradient
 
@@ -25,7 +26,7 @@ Applied to the world of JavaScript frameworks this means that since the usage of
 
 So far, I wholeheartedly agree: innovation doesn’t occur in a vacuum and the reputation and reach of the entity behind a new technology obviously influences its adoption in the long run. So if you want to benefit from the advancements of the bleeding edge, while at the same time keeping risks minimal, Reactland is where you wanna be!
 
-The argument begins to break down however, once we move from the general to the specific case. While the bleeding edge for **technology A** in the React ecosystem is associated with less risk than the equivalent in the Svelte ecosystem, that does *not* automatically imply that **technology B** in React is also less risky than **technology A** in Svelte. <br/>
+The argument begins to break down however, once we move from the general to the specific case. While the bleeding edge for **technology A** in the React ecosystem is associated with less risk than the equivalent in the Svelte ecosystem, that does _not_ automatically imply that **technology B** in React is also less risky than **technology A** in Svelte. <br/>
 
 Yup, this mysterious **technology B** I’m talking about is `React Server Components`.
 In his video, Theo equates Next 13’s app directory with SvelteKit, and argues that betting on the former is less risky since it is part of the React ecosystem. I believe by doing so, he massively understates the paradigm shift that RSCs actually are, rendering his conclusion invalid. So here comes my time to shine by busting out a car analogy to explain this in the most conflated way possible!
@@ -47,7 +48,7 @@ Now, whether or not you should buy a Model 3 over a Toyota Corolla is mostly dow
 
 Obviously, Toyota is not sleeping on the innovation though, and they are also planning to release battery electric vehicles (`React forget`).
 
-But perhaps most excitingly they have a clear cut vision for the future: a deeply integrated hydrogen economy where surplus energy is used to produce liquid hydrogen that can be used in a new type of car. This hydrogen fueled car can be refueled quickly while retaining most benefits of the electric powertrain. They believe so much in this, that they literally named this car *Mirai*, which means future in Japanese. 
+But perhaps most excitingly they have a clear cut vision for the future: a deeply integrated hydrogen economy where surplus energy is used to produce liquid hydrogen that can be used in a new type of car. This hydrogen fueled car can be refueled quickly while retaining most benefits of the electric powertrain. They believe so much in this, that they literally named this car _Mirai_, which means future in Japanese.
 Perhaps also "future", because for now there exist about 1000 hydrogen fuel stations. Globally.
 Now could Toyota make the Hydrogen Economy happen? Probably! But a vision like that is difficult to materialize even for the biggest player.
 

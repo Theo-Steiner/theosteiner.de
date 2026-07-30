@@ -7,7 +7,7 @@
 
 <Seo
 	title="Résumé"
-	description="Theodor Steiner — software engineer, open-source contributor, and community builder in Tokyo."
+	description="Theodor Steiner — software engineer, open-source contributor, conference speaker, and community builder in Tokyo."
 	path="/resume"
 	noindex
 />
@@ -26,7 +26,7 @@
 					<Logo height={15} title="theosteiner" />
 				</a>
 				<h1>Theodor Baltus Steiner</h1>
-				<p class="role">Software Engineer <span aria-hidden="true">·</span> Tokyo, Japan</p>
+				<p class="role">Software Engineer, Frontend Technical Lead <span aria-hidden="true">·</span> Tokyo, Japan</p>
 			</div>
 
 			<div class="contact" aria-label="Contact information">
@@ -43,7 +43,7 @@
 				Product-minded software engineer specializing in <strong>TypeScript, frontend
 				architecture, and developer tooling</strong>. Leads multi-million-user products at LY
 				Corporation and turns complex platform knowledge into reusable systems adopted across
-				teams. Persistent problem solver, open-source contributor, and community builder who
+				teams. Persistent problem solver, open-source contributor, conference speaker, and community builder who
 				carries ambiguous problems from first diagram to production.
 			</p>
 		</section>
@@ -69,10 +69,14 @@
 
 						<ul>
 							<li>
-								Lead frontend architecture for <strong>Order with LINE</strong>, a greenfield,
+								<strong>Lead frontend architecture</strong> for Order with LINE, a greenfield,
 								multi-tenant restaurant-ordering product integrated with LINE Messenger.
 								Designed real-time synchronization with optimistic updates and single-flight
 								mutations.
+							</li>
+							<li>
+								Initiated and helped lead a multi-year effort to unify the launch architecture
+								of several large LINE applications, <strong>coordinating across multiple engineering teams</strong>.
 							</li>
 							<li>
 								Own frontend technical direction across a portfolio of Official Account
@@ -85,25 +89,21 @@
 								preserving production quality.
 							</li>
 							<li>
-								Initiated and helped lead a multi-year effort to unify the launch architecture
-								of several large LINE applications, coordinating across Messenger, native-app,
-								backend, product, design, and data-science teams.
-							</li>
-							<li>
 								Created type-safe tooling for localization and telemetry platforms, deriving
 								application types from platform specifications to move correctness checks into
 								the compiler. The tools reduce integration errors and are used by
 								<strong>5+ teams</strong>.
 							</li>
 							<li>
-								Reworked deployment architecture shared by multiple consumer applications and
-								contributed accessible web-component primitives to LY Corporation’s component
-								ecosystem.
+								Reworked <strong>deployment architecture</strong> shared by multiple consumer applications to decouple frontend and backend releases.
+							</li>
+							<li>
+								Contributed accessible web-component implementations to LY Corporation’s toly design library.
 							</li>
 							<li>
 								Represented LY Corporation at Google I/O three times, giving direct feedback on
-								proposed web-platform features and building technical relationships with
-								engineers at Google and Vercel.
+								proposed web-platform features and <strong>building technical relationships</strong> with
+								engineers at Google.
 							</li>
 						</ul>
 					</div>
@@ -140,6 +140,16 @@
 					<h2 id="community-heading">Community</h2>
 					<div class="side-entry">
 						<div class="side-title">
+							<h3>UIT INSIDE Podcast</h3>
+							<span>since Jun 2023</span>
+						</div>
+						<p>
+							Hosted episodes in both English & Japanese featuring high-profile developers like Dan Abramov, Anthony Fu, and
+							Sapphi-red.
+						</p>
+						</div>
+					<div class="side-entry">
+						<div class="side-title">
 							<h3>Svelte Ambassador</h3>
 							<span>since Jan 2022</span>
 						</div>
@@ -150,10 +160,6 @@
 						<p>
 							Helped grow Svelte Japan from <strong>&lt;100 to &gt;1,000 members</strong>;
 							organized its first in-person meetup and multiple online and offline events.
-						</p>
-						<p>
-							Host of <strong>UIT INSIDE</strong>, featuring Dan Abramov, Anthony Fu, and
-							Sapphi-red.
 						</p>
 					</div>
 				</section>
@@ -169,7 +175,7 @@
 					<div class="side-entry education-entry">
 						<h3>BA, East Asian Studies</h3>
 						<p>Universität Hamburg · 2020</p>
-						<p>GPA 3.4 · DAAD Scholarship</p>
+						<p>German Grade: 1.58 · DAAD Scholarship</p>
 						<p>Minor in Computer Science</p>
 					</div>
 				</section>
@@ -188,7 +194,7 @@
 						<div>
 							<dt>Focus</dt>
 							<dd>
-								Frontend architecture, library development, developer tooling, accessible
+								Software architecture, library development, developer tooling, accessible
 								web components, real-time applications
 							</dd>
 						</div>
@@ -220,18 +226,19 @@
 						<span>creator</span>
 					</div>
 					<p>
-						Open-source tools for accessible, standards-based web components with Svelte.
-						Presented on the main stage at Svelte Summit Spring 2025.<br/>
-						With &#60;atproto-comments&#62; as first party reference implementation.
+						Created an open source library for building server-renderable web components with Svelte.<br/>
+						Presented on the main stage at Svelte Summit Spring 2025.
 					</p>
 					<a class="detail-link" href="https://svebcomponents.dev">svebcomponents.dev ↗</a>
 				</div>
 
 				<div class="project-card">
-					<h3>Open source</h3>
+					<div class="side-title">
+						<h3>open source</h3>
+						<span>contributor</span>
+					</div>
 					<p>
-						High-impact merged contributions to Node.js and Svelte, spanning runtime
-						reliability, developer tooling, and framework ergonomics.
+						Contributor to Node.js, Svelte, SvelteKit, spanning runtime reliability, documentation, developer tooling, and framework ergonomics.<br/>
 					</p>
 					<a class="detail-link" href="https://github.com/search?q=is:pr+author:Theo-Steiner+is:merged+-user:Theo-Steiner+-org:svebcomponents&type=pullrequests&p=1">github.com ↗</a>
 				</div>
