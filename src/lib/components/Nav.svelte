@@ -8,18 +8,18 @@
 
 <nav class:home={isHome}>
 	{#if !isHome}
-		<a href="/" aria-label="Home" class="logo"><Logo height={16} /></a>
+		<a href="/" aria-label="Home" class="logo"><Logo /></a>
 	{/if}
 	<div class="links">
 		<a
 			href="/contents"
 			class="link-marker"
-			aria-current={page.route.id === '/contents' ? 'page' : undefined}>Contents</a
+			aria-current={page.route.id === '/contents' ? 'page' : undefined}>contents</a
 		>
 		<a
 			href="/about"
 			class="link-marker"
-			aria-current={page.route.id === '/about' ? 'page' : undefined}>About</a
+			aria-current={page.route.id === '/about' ? 'page' : undefined}>about</a
 		>
 		<a class="social-link" href="https://github.com/Theo-Steiner" aria-label="GitHub">
 			<svg viewBox="0 0 24 24" aria-hidden="true">
@@ -48,15 +48,17 @@
 <style>
 	nav {
 		display: flex;
-		align-items: center;
+		align-items: baseline;
 		justify-content: space-between;
+		font-size: 15px;
 	}
 	nav.home {
 		justify-content: flex-end;
 	}
 	.logo {
 		color: var(--ink);
-		display: block;
+		display: inline-block;
+		line-height: 1;
 		transition: transform 0.3s var(--ease-pop);
 		view-transition-name: logo;
 	}
@@ -65,21 +67,24 @@
 	}
 	.links {
 		display: flex;
-		align-items: center;
+		align-items: baseline;
 		gap: 26px;
-		font-size: 13.5px;
 	}
 	.social-link {
 		color: var(--soft);
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
+		/* Inline SVGs synthesize a baseline at their bottom edge. Move their
+		   optical center onto Instrument Sans's 0.51em x-height center. */
+		transform: translateY(calc(8px - 0.255em));
 		transition: color 0.2s;
 	}
 	.social-link:hover {
 		color: var(--ink);
 	}
 	.social-link svg {
+		display: block;
 		width: 16px;
 		height: 16px;
 	}

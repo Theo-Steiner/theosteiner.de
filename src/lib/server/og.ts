@@ -4,7 +4,6 @@ import { dirname, resolve } from "node:path";
 import { Resvg } from "@resvg/resvg-js";
 import { openSync } from "fontkit";
 import type { Font } from "fontkit";
-import logoComponent from "$lib/components/Logo.svelte?raw";
 import { podcastEntries, posts, talkEntries } from "$lib/server/content";
 import { SITE_TITLE } from "$lib/siteConfig";
 
@@ -31,14 +30,14 @@ export const ogEntries: OgEntry[] = [
   })),
 ];
 
-const logo = logoComponent.match(/<g fill="currentColor">[\s\S]*?<\/g>/)?.[0];
-if (!logo) throw new Error("Could not extract the wordmark from Logo.svelte");
-
 // Resolve package assets instead of constructing paths below node_modules. The
 // latter breaks Netlify's function file tracer when pnpm uses symlinked modules.
 const require = createRequire(import.meta.url);
 const instrumentFont = require.resolve(
   "@fontsource/instrument-sans/files/instrument-sans-latin-600-normal.woff"
+);
+const geistMonoFont = require.resolve(
+  "@fontsource/geist-mono/files/geist-mono-latin-700-normal.woff"
 );
 const notoRoot = dirname(require.resolve("@fontsource/noto-sans-jp/600.css"));
 
@@ -76,6 +75,7 @@ function loadFont(file: string): Font {
 
 interface FontContext {
   instrument: Font;
+  geistMono: Font;
   japanese: Map<string, Font>;
 }
 
@@ -148,7 +148,8 @@ function vectorText(
   baseline: number,
   fontSize: number,
   letterSpacing: number,
-  fonts: FontContext
+  fonts: FontContext,
+  fill = "#21201c"
 ) {
   const runs: Array<{ font: Font; text: string }> = [];
   for (const character of value) {
@@ -173,7 +174,7 @@ function vectorText(
             cursor + position.xOffset * scale
           } ${
             baseline - position.yOffset * scale
-          }) scale(${scale} ${-scale})" fill="#21201c"/>`
+          }) scale(${scale} ${-scale})" fill="${fill}"/>`
         );
       }
       cursor += position.xAdvance * scale + letterSpacing;
@@ -182,10 +183,23 @@ function vectorText(
   return paths.join("");
 }
 
+function vectorLogo(x: number, baseline: number, fontSize: number, fonts: FontContext) {
+  const monoContext: FontContext = { ...fonts, instrument: fonts.geistMono };
+  const advance = fontSize * 0.6;
+  const spacing = 0;
+  const cell = advance + spacing;
+  return [
+    vectorText("{the", x, baseline, fontSize, spacing, monoContext),
+    `<circle cx="${x + cell * 4 + advance / 2 + fontSize * 0.08}" cy="${baseline - fontSize * 0.267}" r="${fontSize * 0.279}" fill="#e1000d"/>`,
+    vectorText("steiner}", x + cell * 5 + fontSize * 0.25, baseline, fontSize, spacing, monoContext),
+  ].join("");
+}
+
 export function renderOgImage(entry: OgEntry) {
   // Fontkit caches mutable shaping state, so each image gets an isolated context.
   const fonts: FontContext = {
     instrument: loadFont(instrumentFont),
+    geistMono: loadFont(geistMonoFont),
     japanese: new Map(),
   };
   const { fontSize, lines } = titleLayout(entry.title);
@@ -203,7 +217,7 @@ export function renderOgImage(entry: OgEntry) {
 		<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" style="color:#21201c">
 			<rect width="1200" height="630" fill="#fcfcfa"/>
 			<rect x="0" y="0" width="18" height="630" fill="#facc15"/>
-			<g transform="translate(100 72) scale(1.14)">${logo}</g>
+			${vectorLogo(100, 101, 32, fonts)}
 			${title}
 			<g opacity="0.65">${vectorText(label.toUpperCase(), 100, 558, 22, 2, fonts)}</g>
 		</svg>

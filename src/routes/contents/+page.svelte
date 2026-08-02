@@ -94,8 +94,10 @@
 		line-height: 1.25;
 	}
 	.ja {
-		font-family: var(--font-mono);
+		font-family: var(--font-ja);
 		font-size: 14px;
+		font-weight: 400;
+		letter-spacing: 0.02em;
 		color: var(--faint);
 	}
 	header p {

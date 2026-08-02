@@ -6,7 +6,7 @@ Theo's personal site & blog — the "Highlighter" redesign, rebuilt on SvelteKit
 
 - **SvelteKit 2** with the new toys: [remote functions](https://svelte.dev/docs/kit/remote-functions) (`$lib/data.remote.ts`, prerendered) and Svelte's experimental **async components** (`await` directly in components)
 - **mdsvex + shiki** (`vesper` theme) for markdown posts with highlighted code
-- **open-props** scales + hand-rolled design tokens (`src/app.css`) implementing the Highlighter design: cream/near-black pages, yellow marker accents, Instrument Sans / Newsreader italic / Geist Mono (self-hosted via fontsource)
+- **open-props** scales + hand-rolled design tokens (`src/app.css`) implementing the Highlighter design: cream/near-black pages, yellow marker accents, Instrument Sans / Instrument Serif / Noto Sans JP / Geist Mono (self-hosted via fontsource)
 - **adapter-netlify**, fully prerendered — no runtime backend at all
 
 ## Content model

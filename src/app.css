@@ -7,8 +7,8 @@
 /* ==========================================================================
    theosteiner.de — "Highlighter" theme
    Quiet cream/near-black pages; yellow only as a marker-pen accent, red in
-   tiny doses. Instrument Sans for UI, Newsreader italic for emphasis,
-   Geist Mono for everything computery.
+   tiny doses. Instrument Sans for body and UI, its sibling Instrument Serif
+   for emphasis, Noto Sans JP for Japanese, and Geist Mono for metadata.
    ========================================================================== */
 
 :root {
@@ -30,9 +30,10 @@
 	--mark: rgba(250, 204, 21, 0.55);
 
 	/* type */
-	--font-sans: 'Instrument Sans Variable', var(--font-humanist);
-	--font-serif: 'Newsreader Variable', var(--font-old-style);
-	--font-mono: 'Geist Mono Variable', var(--font-monospace-code);
+	--font-ja: 'Noto Sans JP', sans-serif;
+	--font-sans: 'Instrument Sans Variable', 'Noto Sans JP', var(--font-humanist);
+	--font-serif: 'Instrument Serif', var(--font-old-style);
+	--font-mono: 'Geist Mono Variable', 'Noto Sans JP', var(--font-monospace-code);
 
 	/* motion (design-specific springs; open-props easings for the rest) */
 	--ease-pop: cubic-bezier(0.3, 1.4, 0.4, 1);
@@ -97,22 +98,20 @@ body {
 
 /* --- link treatments -------------------------------------------------- */
 
-/* nav & "everything →" links: yellow marker underline grows on hover */
+/* nav & directional links: one quiet underline treatment */
 .link-marker {
 	color: var(--soft);
 	text-decoration: none;
-	background-image: linear-gradient(var(--yellow), var(--yellow));
+	background-image: linear-gradient(var(--ghost), var(--ghost));
 	background-repeat: no-repeat;
 	background-position: 0 100%;
-	background-size: 0% 6px;
-	transition:
-		background-size 0.25s,
-		color 0.2s;
+	background-size: 100% 1px;
+	transition: color 0.2s;
 	padding-bottom: 1px;
 }
 .link-marker:hover,
 .link-marker[aria-current='page'] {
-	background-size: 100% 6px;
+	background-image: linear-gradient(var(--ink), var(--ink));
 	color: var(--ink);
 }
 
@@ -176,8 +175,10 @@ body {
 	color: var(--faint);
 }
 .kicker .kicker-ja {
-	font-family: var(--font-mono);
+	font-family: var(--font-ja);
 	font-size: 11px;
+	font-weight: 400;
+	letter-spacing: 0.04em;
 	color: var(--ghost);
 }
 

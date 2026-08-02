@@ -22,7 +22,7 @@
 	<div class="greeting">
 		<h1>
 			<span>Hey, I&rsquo;m</span>
-			<span class="wordmark"><Logo height={20} /></span><span class="period">.</span>
+			<span class="wordmark"><Logo /></span><span class="period">.</span>
 		</h1>
 		<span class="ja">ヤッホー！</span>
 	</div>
@@ -63,20 +63,22 @@
 		gap: 9px;
 	}
 	.wordmark {
-		display: inline-flex;
-		transform: translateY(1px);
+		display: inline-block;
+		line-height: 1;
 		transition: transform 0.3s var(--ease-pop);
 		view-transition-name: logo;
 	}
 	.wordmark:hover {
-		transform: translateY(1px) rotate(-2deg) scale(1.04);
+		transform: rotate(-2deg) scale(1.04);
 	}
 	.period {
 		margin-left: -6px;
 	}
 	.ja {
-		font-family: var(--font-mono);
+		font-family: var(--font-ja);
 		font-size: 14px;
+		font-weight: 400;
+		letter-spacing: 0.02em;
 		color: var(--faint);
 	}
 	header p {
@@ -87,7 +89,7 @@
 		text-wrap: pretty;
 	}
 	header p a {
-		color: var(--ink);
+		color: inherit;
 		text-decoration: none;
 		background-image: linear-gradient(var(--ghost), var(--ghost));
 		background-repeat: no-repeat;
@@ -95,13 +97,14 @@
 		background-size: 100% 1px;
 	}
 	header p a:hover {
+		color: var(--ink);
 		background-image: linear-gradient(var(--ink), var(--ink));
 	}
 	header p em {
-		font-family: var(--font-serif);
-		font-size: 1.06em;
+		font-family: inherit;
+		font-size: inherit;
 		font-style: italic;
-		color: var(--ink);
+		color: inherit;
 	}
 	section {
 		margin-top: 80px;

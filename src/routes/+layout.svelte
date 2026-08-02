@@ -1,7 +1,10 @@
 <script lang="ts">
 	import '@fontsource-variable/instrument-sans/wght.css';
 	import '@fontsource-variable/instrument-sans/wght-italic.css';
-	import '@fontsource-variable/newsreader/opsz-italic.css';
+	import '@fontsource/instrument-serif/400.css';
+	import '@fontsource/instrument-serif/400-italic.css';
+	import '@fontsource/noto-sans-jp/japanese-400.css';
+	import '@fontsource/noto-sans-jp/japanese-600.css';
 	import '@fontsource-variable/geist-mono/wght.css';
 	import '../app.css';
 	import { onNavigate } from '$app/navigation';
