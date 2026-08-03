@@ -14,7 +14,7 @@
 
 <div class="resume-page">
 	<div class="toolbar">
-		<a href="/" class="back-link">← theosteiner.de</a>
+		<a href="https://theosteiner.de" class="back-link">← theosteiner.de</a>
 		<span class="privacy-note">résumé</span>
 		<button type="button" onclick={printResume}>Print / save as PDF</button>
 	</div>
@@ -22,7 +22,7 @@
 	<article class="resume-document">
 		<header class="resume-header">
 			<div class="identity">
-				<a class="brand" href="/" aria-label="theosteiner.de">
+				<a class="brand" href="https://theosteiner.de" aria-label="theosteiner.de">
 					<Logo height={15} title="theosteiner" />
 				</a>
 				<h1>Theodor Baltus Steiner</h1>
@@ -43,7 +43,7 @@
 				Product-minded software engineer specializing in <strong>TypeScript, frontend
 				architecture, and developer tooling</strong>. Leads multi-million-user products at LY
 				Corporation and turns complex platform knowledge into reusable systems adopted across
-				teams. Persistent problem solver, open-source contributor, conference speaker, and community builder who
+				teams. <strong>Persistent problem solver, open-source contributor, conference speaker, and community builder</strong> who
 				carries ambiguous problems from first diagram to production.
 			</p>
 		</section>
@@ -81,7 +81,7 @@
 							<li>
 								Own frontend technical direction across a portfolio of Official Account
 								consumer applications—including ordering, profiles, coupons, memberships, and
-								loyalty products—collectively serving <strong>millions of daily active users</strong>.
+								loyalty products - collectively serving <strong>millions of daily active users</strong>.
 							</li>
 							<li>
 								Architecting an <strong>LLM-powered QA agent</strong> to automate regression
@@ -106,6 +106,7 @@
 								engineers at Google.
 							</li>
 						</ul>
+						<a class="detail-link" href="https://www.lycorp.co.jp/en/company/">lycorp.co.jp ↗</a>
 					</div>
 
 					<div class="entry compact-entry">
@@ -116,9 +117,6 @@
 							</div>
 							<p class="date">Jan 2021–present</p>
 						</div>
-						<p class="entry-note">
-							Primary occupation until Oct 2022; selected client engagements thereafter.
-						</p>
 						<ul>
 							<li>
 								Co-founded a web-development agency and delivered production applications for
@@ -144,8 +142,9 @@
 							<span>since Jun 2023</span>
 						</div>
 						<p>
-							Hosted episodes in both English & Japanese featuring high-profile developers like Dan Abramov, Anthony Fu, and
-							Sapphi-red.
+							<strong>Produced and hosted</strong> episodes in English and Japanese,
+							<strong>developing topics and booking</strong> prominent developers including Dan
+							Abramov, Anthony Fu, and Sapphi-red.
 						</p>
 						</div>
 					<div class="side-entry">
@@ -189,12 +188,12 @@
 						</div>
 						<div>
 							<dt>Additional</dt>
-							<dd>SQL, Go, Python, AT Protocol</dd>
+							<dd>SQL, Go, Python, ATProto</dd>
 						</div>
 						<div>
 							<dt>Focus</dt>
 							<dd>
-								Software architecture, library development, developer tooling, accessible
+								Software architecture, library development, developer tooling,
 								web components, real-time applications
 							</dd>
 						</div>
@@ -210,11 +209,11 @@
 				<div class="project-card">
 					<div class="side-title">
 						<h3>tiger.mom</h3>
-						<span>in development</span>
+						<span>founder</span>
 					</div>
 					<p>
-						AI accountability for iOS that restricts distractions until users submit evidence
-						of progress. Native iOS and Go with a custom model harness, Markdown memory, Apple
+						AI accountability app for iOS that restricts distractions until users submit evidence
+						of progress. Native iOS and Go with a custom model harness, Markdown memory, fine tuned Apple
 						Foundation Models, and Gemini fallback.
 					</p>
 					<a class="detail-link" href="https://tiger.mom">tiger.mom ↗</a>
@@ -250,7 +249,7 @@
 				<strong>Languages</strong> German — native · Japanese — professional, JLPT N1 ·
 				English — professional, IELTS 8.0
 			</p>
-			<p class="footer-mark"><span></span> theosteiner.de/resume</p>
+			<p class="footer-mark"><span></span> <a class="detail-link" href="https://theosteiner.de/resume">theosteiner.de/resume</a></p>
 		</footer>
 	</article>
 </div>
@@ -343,16 +342,16 @@
 
 	h1 {
 		margin: 0;
-		font-size: 25px;
+		font-size: 21px;
 		font-weight: 650;
-		letter-spacing: -0.035em;
-		line-height: 1;
+		letter-spacing: -0.025em;
+		line-height: 1.05;
 	}
 
 	.role {
 		margin: 6px 0 0;
-		font-family: var(--font-mono);
-		font-size: 9.5px;
+		font-size: inherit;
+		font-weight: 500;
 		color: #625f56;
 	}
 
@@ -391,10 +390,8 @@
 
 	.profile p {
 		margin: 0;
-		font-family: var(--font-serif);
-		font-size: 11px;
-		font-style: italic;
-		line-height: 1.38;
+		font-size: inherit;
+		line-height: inherit;
 		color: #34322d;
 	}
 
@@ -404,13 +401,18 @@
 
 	.resume-columns {
 		display: grid;
-		grid-template-columns: minmax(0, 1.68fr) minmax(0, 1fr);
-		gap: 7mm;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 4mm;
+	}
+
+	.experience {
+		grid-column: span 2;
+		padding-right: 4mm;
+		border-right: 1px solid #e3e1da;
 	}
 
 	aside {
-		padding-left: 6mm;
-		border-left: 1px solid #e3e1da;
+		grid-column: span 1;
 	}
 
 	section + section {
@@ -425,16 +427,6 @@
 		letter-spacing: 0.12em;
 		text-transform: uppercase;
 		color: #77746b;
-	}
-
-	h2::after {
-		content: '';
-		display: inline-block;
-		width: 13px;
-		height: 4px;
-		margin-left: 6px;
-		background: var(--yellow);
-		transform: rotate(-2deg);
 	}
 
 	h3 {
@@ -476,17 +468,8 @@
 		margin: 2.2mm 0;
 		padding: 1.6mm 2.2mm;
 		background: #f3f1ea;
-		font-family: var(--font-serif);
-		font-size: 9.3px;
-		font-style: italic;
+		font-size: inherit;
 		color: #403e37;
-	}
-
-	.entry-note {
-		margin: 1.2mm 0 1.8mm;
-		font-family: var(--font-mono);
-		font-size: 6.5pt;
-		color: #77746b;
 	}
 
 	ul {
@@ -584,7 +567,7 @@
 		display: grid;
 		grid-template-columns: 15.5mm minmax(0, 1fr);
 		gap: 1.5mm;
-		align-items: start;
+		align-items: baseline;
 	}
 
 	.skills dt {
@@ -660,7 +643,7 @@
 		}
 
 		h1 {
-			font-size: clamp(27px, 8vw, 38px);
+			font-size: clamp(24px, 7vw, 32px);
 		}
 
 		.contact {
@@ -679,10 +662,6 @@
 			margin-bottom: 10px;
 		}
 
-		.profile p {
-			font-size: 15px;
-		}
-
 		.resume-columns {
 			display: block;
 		}
@@ -691,6 +670,11 @@
 			margin-top: 28px;
 			padding: 0;
 			border: 0;
+		}
+
+		.experience {
+			padding-right: 0;
+			border-right: 0;
 		}
 
 		.projects-grid {
@@ -734,10 +718,8 @@
 		.recognition {
 			margin: 10px 0;
 			padding: 9px 10px;
-			font-size: 12.5px;
 		}
 
-		.entry-note,
 		.side-title span,
 		.detail-link {
 			font-size: 9px;
@@ -818,7 +800,7 @@
 		}
 
 		h1 {
-			font-size: 25px;
+			font-size: 21px;
 		}
 
 		.contact {
@@ -838,18 +820,12 @@
 			margin: 1px 0 0;
 		}
 
-		.profile p {
-			font-size: 11px;
-		}
-
 		.resume-columns {
 			display: grid;
 		}
 
 		aside {
 			margin-top: 0;
-			padding-left: 6mm;
-			border-left: 1px solid #e3e1da;
 		}
 
 		section + section {
@@ -876,15 +852,13 @@
 		.recognition {
 			margin: 1.5mm 0;
 			padding: 1.2mm 2mm;
-			font-size: 9.3px;
 		}
 
 		.entry-role {
 			font-size: 7.1pt;
 		}
 
-		.date,
-		.entry-note {
+		.date {
 			font-size: 6.5pt;
 		}
 
