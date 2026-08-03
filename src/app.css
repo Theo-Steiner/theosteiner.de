@@ -98,20 +98,22 @@ body {
 
 /* --- link treatments -------------------------------------------------- */
 
-/* nav & directional links: one quiet underline treatment */
+/* nav & directional links: underline only the current page */
 .link-marker {
 	color: var(--soft);
 	text-decoration: none;
-	background-image: linear-gradient(var(--ghost), var(--ghost));
+	background-image: linear-gradient(var(--ink), var(--ink));
 	background-repeat: no-repeat;
 	background-position: 0 100%;
-	background-size: 100% 1px;
+	background-size: 0 1px;
 	transition: color 0.2s;
 	padding-bottom: 1px;
 }
-.link-marker:hover,
+.link-marker:hover {
+	color: var(--ink);
+}
 .link-marker[aria-current='page'] {
-	background-image: linear-gradient(var(--ink), var(--ink));
+	background-size: 100% 1px;
 	color: var(--ink);
 }
 
