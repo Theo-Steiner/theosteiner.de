@@ -1,12 +1,9 @@
 <script lang="ts">
-	import { BLUESKY_URL, GITHUB_URL } from '$lib/siteConfig';
 	import { theme, toggleTheme } from '$lib/theme.svelte';
 </script>
 
 <footer>
-	<a class="link-mono" href={GITHUB_URL}>github</a>
-	<a class="link-mono" href={BLUESKY_URL}>bluesky</a>
-	<a class="link-mono" href="/rss.xml" data-sveltekit-reload>rss</a>
+	<a class="link-mono" href="/rss.xml" data-sveltekit-reload>:get rss</a>
 	<button type="button" onclick={toggleTheme}>
 		{theme.dark ? ':set bg=light' : ':set bg=dark'}
 	</button>
