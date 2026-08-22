@@ -1,7 +1,7 @@
 <script lang="ts">
-	// The package exposes Svelte-specific client and server builds. This import
-	// registers the browser custom element; the matching /ssr import in
-	// hooks.server.ts registers its declarative-shadow-DOM renderer. The
+	// This import registers the browser custom element (one compiled build,
+	// Svelte bundled); the /ssr import in hooks.server.ts registers its
+	// declarative-shadow-DOM renderer. The
 	// component self-fetches the thread during SSR and serializes it for
 	// hydration. After hydration, the default hosted service keeps that snapshot
 	// current through SSE and also handles sign-in and posting.

@@ -4,7 +4,8 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
 	// Must precede sveltekit(): it wraps custom elements for declarative-shadow-
-	// DOM rendering on the server, while the package's Svelte export conditions
-	// provide the matching server and browser implementations.
+	// DOM rendering on the server. The component ships one compiled custom
+	// element build (no svelte export condition); its generated /ssr entry,
+	// loaded in hooks.server.ts, registers the matching server renderer.
 	plugins: [svebcomponents(), sveltekit()]
 });

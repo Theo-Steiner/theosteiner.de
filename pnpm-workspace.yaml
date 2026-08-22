@@ -1,4 +1,7 @@
+# @svebcomponents/* are maintained by the site owner — install new releases
+# immediately instead of waiting out pnpm's built-in 1-day release-age window.
+minimumReleaseAgeExclude:
+  - '@svebcomponents/*'
 allowBuilds:
-  esbuild: set this to true or false
-onlyBuiltDependencies:
-  - esbuild
+  # pnpm 11 replaced onlyBuiltDependencies with allowBuilds
+  esbuild: true
