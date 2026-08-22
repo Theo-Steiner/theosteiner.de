@@ -14,7 +14,9 @@
 	import NowPlayingBar from '$lib/components/NowPlayingBar.svelte';
 
 	let { children } = $props();
-	const isResume = $derived(page.route.id === '/resume');
+	const isBareDocument = $derived(
+		page.route.id === '/resume' || page.route.id === '/cover-letter'
+	);
 
 	// animate client-side navigations with the View Transitions API
 	// https://svelte.dev/blog/view-transitions
@@ -31,7 +33,7 @@
 	});
 </script>
 
-{#if isResume}
+{#if isBareDocument}
 	{@render children()}
 {:else}
 	<div class="page">
