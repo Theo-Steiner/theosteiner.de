@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -966 1300 1300">
+	<title>theosteiner</title>
+	<style>
+		.braces { fill: #21201c; color: #21201c; }
+		@media (prefers-color-scheme: dark) {
+			.braces { fill: #e8e6e1; color: #e8e6e1; }
+		}
+	</style>
+	<defs>
+		<path id="brace-open" d="M404-125Q309-125 267-73.5T225 58v96q0 63-19.5 85T106 261v109q80 0 99.5 22t19.5 85v95q0 81 42 132.5T404 756h90V649h-74q-79 0-79-87v-82q0-71-34-113t-103-48v-7q69-6 103-47.5T341 150V69q0-87 79-87h74v-107Z" />
+		<path id="brace-close" d="M196-125h-90V-18h74q79 0 79 87v81q0 73 34.5 114.5T396 312v7q-68 6-102.5 48T259 480v82q0 87-79 87h-74v107h90q95 0 137-51.5T375 572v-95q0-63 20-85t99-22V261q-79 0-99-22t-20-85V58q0-80-42-131.5T196-125Z" />
+	</defs>
+	<g class="braces" stroke="currentColor" stroke-width="22" stroke-linejoin="round" paint-order="stroke fill">
+		<use href="#brace-open" transform="scale(1 -1)" />
+		<use href="#brace-close" transform="translate(700 0) scale(1 -1)" />
+	</g>
+	<circle cx="650" cy="-315.5" r="170" fill="#e1000d" />
+</svg>
