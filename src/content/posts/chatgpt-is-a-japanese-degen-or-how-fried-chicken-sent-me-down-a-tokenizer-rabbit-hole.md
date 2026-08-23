@@ -3,6 +3,7 @@ title: "ChatGPT Is a Japanese Internet Degen, or: How Fried Chicken Sent Me Down
 date: "2026-08-23"
 description: "A stray piece of 2ch boilerplate in a ChatGPT answer sent me down a rabbit hole through Japanese internet history, tokenizers, training data, and one very weird token."
 tags: ["ai", "llm", "tokenizers", "japan", "internet-culture"]
+standardSiteUri: "at://did:plc:nsmlf6uhdg2onrsrdr7oiyv4/site.standard.document/3mtqeqdoa7e2j"
 ---
 
 <script>
