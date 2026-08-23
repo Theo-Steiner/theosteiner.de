@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@svebcomponents/atproto.comments':
-        specifier: ^0.5.0
-        version: 0.5.0(@svebcomponents/ssr@0.8.0(rolldown@1.1.5)(rollup@4.62.2)(svelte@5.56.6)(vite@8.1.5))
+        specifier: ^0.6.0
+        version: 0.6.0(@svebcomponents/ssr@0.8.0(rolldown@1.1.5)(rollup@4.62.2)(svelte@5.56.6)(vite@8.1.5))
       '@svebcomponents/ssr':
         specifier: ^0.8.0
         version: 0.8.0(rolldown@1.1.5)(rollup@4.62.2)(svelte@5.56.6)(vite@8.1.5)
@@ -841,12 +841,12 @@ packages:
   '@standard-schema/spec@1.1.0':
     resolution: {integrity: sha512-l2aFy5jALhniG5HgqrD6jXLi/rUWrKvqN/qJx6yoJsgKhblVd+iqqU4RCXavm/jPityDo5TCvKMnpjKnOriy0w==}
 
-  '@svebcomponents/atproto.client@0.4.0':
-    resolution: {integrity: sha512-InjJadwAHkcxqu3BQn0eW4MZXFrLAdTaWUn7c9SeJEkVzrxvINjloo39JIx7q4UNCIT/BL+LKssgx678IFsglQ==}
+  '@svebcomponents/atproto.client@0.5.0':
+    resolution: {integrity: sha512-D/G49+AfmZKUnxIeQCjpWBrIirnVjK1BC5nDh+6Ma9Z1Fqo0T1FUFCaMswjYEZDFsBZ4pGz+fl2AlUKI7+8Tig==}
     engines: {node: '>=18'}
 
-  '@svebcomponents/atproto.comments@0.5.0':
-    resolution: {integrity: sha512-grqKKm/wLvsw5ANp+VJZtPz1xA0BDZv1NoMziSbnPKFEJGwWJhgTLcBdGpDLhDn8geP/9TyScJCCrT3nR/menA==}
+  '@svebcomponents/atproto.comments@0.6.0':
+    resolution: {integrity: sha512-cX9bQ+oDj/hZklf0iSYHcKhFVXk5GOZLMY6nSLXQrM3sbc8CeLllNHXUDwRjkR6/X+VX7+MNOUrchA7yqHn5dw==}
     engines: {node: '>=20.19.0'}
     peerDependencies:
       '@svebcomponents/ssr': ^0.8.0
@@ -2090,11 +2090,11 @@ snapshots:
 
   '@standard-schema/spec@1.1.0': {}
 
-  '@svebcomponents/atproto.client@0.4.0': {}
+  '@svebcomponents/atproto.client@0.5.0': {}
 
-  '@svebcomponents/atproto.comments@0.5.0(@svebcomponents/ssr@0.8.0(rolldown@1.1.5)(rollup@4.62.2)(svelte@5.56.6)(vite@8.1.5))':
+  '@svebcomponents/atproto.comments@0.6.0(@svebcomponents/ssr@0.8.0(rolldown@1.1.5)(rollup@4.62.2)(svelte@5.56.6)(vite@8.1.5))':
     dependencies:
-      '@svebcomponents/atproto.client': 0.4.0
+      '@svebcomponents/atproto.client': 0.5.0
     optionalDependencies:
       '@svebcomponents/ssr': 0.8.0(rolldown@1.1.5)(rollup@4.62.2)(svelte@5.56.6)(vite@8.1.5)
 
