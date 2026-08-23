@@ -1,5 +1,5 @@
 ---
-title: "Theo Got It Wrong or: What Car is Your JavaScript Stack?"
+title: "Theo Got It Wrong, or: What Car is Your JavaScript Stack?"
 date: "2023-07-08"
 description: "A rebuttal of Theo's take on RSC being a less risky bet than SvelteKit."
 tags: ["code", "react", "svelte", "javascript", "RSC"]
