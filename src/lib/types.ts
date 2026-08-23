@@ -69,7 +69,7 @@ export interface FeedItem {
 	href: string;
 	/** row headline (blog/talk/podcast title, or the status text for bluesky) */
 	text: string;
-	/** bluesky statuses render in serif italic quotes */
+	/** bluesky statuses render in sans italic quotes */
 	isStatus: boolean;
 	/** longer description, shown on detail-ish surfaces */
 	description?: string;

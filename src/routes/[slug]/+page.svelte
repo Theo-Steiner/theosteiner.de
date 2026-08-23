@@ -95,7 +95,7 @@
 
 	/* --- prose: styles for the rendered markdown ----------------------- */
 	.prose :global(p) {
-		margin: 16px 0 0;
+		margin: 14px 0 0;
 		font-size: 17px;
 		line-height: 1.75;
 		color: var(--muted);
@@ -149,9 +149,7 @@
 		background-image: linear-gradient(var(--ink), var(--ink));
 	}
 	.prose :global(em) {
-		font-family: var(--font-serif);
 		font-style: italic;
-		font-size: 1.06em;
 		color: var(--ink);
 	}
 	.prose :global(strong) {
@@ -203,17 +201,15 @@
 	}
 	.prose :global(blockquote p) {
 		margin: 0;
-		font-family: var(--font-serif);
-		font-style: italic;
 		font-size: 17px;
-		line-height: 1.7;
+		line-height: 1.75;
 	}
 	.prose :global(img) {
 		height: auto;
 		max-width: 100%;
 		border-radius: var(--radius-2);
 	}
-	.prose :global(figure) {
+	.prose :global(figure:not(.post-image)) {
 		margin: 28px 0 0;
 	}
 	.prose :global(figcaption) {

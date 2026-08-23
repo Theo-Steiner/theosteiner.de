@@ -1,3 +1,4 @@
+import { enhancedImages } from '@sveltejs/enhanced-img';
 import { sveltekit } from '@sveltejs/kit/vite';
 import svebcomponents from '@svebcomponents/ssr/vite';
 import { defineConfig } from 'vite';
@@ -7,5 +8,5 @@ export default defineConfig({
 	// DOM rendering on the server. The component ships one compiled custom
 	// element build (no svelte export condition); its generated /ssr entry,
 	// loaded in hooks.server.ts, registers the matching server renderer.
-	plugins: [svebcomponents(), sveltekit()]
+	plugins: [enhancedImages(), svebcomponents(), sveltekit()]
 });

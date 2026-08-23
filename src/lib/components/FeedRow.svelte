@@ -48,7 +48,6 @@
 	.status {
 		flex: 1;
 		font-size: 15.5px;
-		font-family: var(--font-serif);
 		font-style: italic;
 		color: var(--muted);
 		line-height: 1.5;

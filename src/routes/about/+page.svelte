@@ -103,8 +103,6 @@
 		font-size: 15px;
 	}
 	.bio :global(em) {
-		font-family: var(--font-serif);
-		font-size: 1.06em;
 		font-style: italic;
 		color: var(--ink);
 	}

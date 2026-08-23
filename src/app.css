@@ -7,8 +7,8 @@
 /* ==========================================================================
    theosteiner.de — "Highlighter" theme
    Quiet cream/near-black pages; yellow only as a marker-pen accent, red in
-   tiny doses. Instrument Sans for body and UI, its sibling Instrument Serif
-   for emphasis, Noto Sans JP for Japanese, and Geist Mono for metadata.
+   tiny doses. Instrument Sans for body and UI, Noto Sans JP for Japanese,
+   and Geist Mono for metadata and code.
    ========================================================================== */
 
 :root {
@@ -32,7 +32,6 @@
 	/* type */
 	--font-ja: 'Noto Sans JP', sans-serif;
 	--font-sans: 'Instrument Sans Variable', 'Noto Sans JP', var(--font-humanist);
-	--font-serif: 'Instrument Serif', var(--font-old-style);
 	--font-mono: 'Geist Mono Variable', 'Noto Sans JP', var(--font-monospace-code);
 
 	/* motion (design-specific springs; open-props easings for the rest) */
@@ -83,7 +82,7 @@ body {
 
 /* --- the centered reading column every page uses --------------------- */
 .page {
-	max-width: 620px;
+	max-width: 680px;
 	margin: 0 auto;
 	padding: 56px 24px 64px;
 	box-sizing: border-box;
@@ -151,14 +150,6 @@ body {
 	background-position: 0 88%;
 	background-size: 100% 38%;
 	padding: 0 2px;
-}
-
-/* serif italic emphasis */
-.serif {
-	font-family: var(--font-serif);
-	font-style: italic;
-	font-size: 1.06em;
-	color: var(--ink);
 }
 
 /* section kicker: LATELY 最近 */

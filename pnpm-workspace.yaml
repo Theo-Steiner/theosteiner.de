@@ -5,3 +5,4 @@ minimumReleaseAgeExclude:
 allowBuilds:
   # pnpm 11 replaced onlyBuiltDependencies with allowBuilds
   esbuild: true
+  sharp: true
