@@ -9,11 +9,11 @@ importers:
   .:
     dependencies:
       '@svebcomponents/atproto.comments':
-        specifier: ^0.6.0
-        version: 0.6.0(@svebcomponents/ssr@0.8.0(rolldown@1.1.5)(rollup@4.62.2)(svelte@5.56.6)(vite@8.1.5))
+        specifier: ^0.7.0
+        version: 0.7.0(@svebcomponents/ssr@0.8.1(rolldown@1.1.5)(rollup@4.62.2)(svelte@5.56.6)(vite@8.1.5))
       '@svebcomponents/ssr':
-        specifier: ^0.8.0
-        version: 0.8.0(rolldown@1.1.5)(rollup@4.62.2)(svelte@5.56.6)(vite@8.1.5)
+        specifier: ^0.8.1
+        version: 0.8.1(rolldown@1.1.5)(rollup@4.62.2)(svelte@5.56.6)(vite@8.1.5)
     devDependencies:
       '@fontsource-variable/geist-mono':
         specifier: ^5.3.0
@@ -841,12 +841,12 @@ packages:
   '@standard-schema/spec@1.1.0':
     resolution: {integrity: sha512-l2aFy5jALhniG5HgqrD6jXLi/rUWrKvqN/qJx6yoJsgKhblVd+iqqU4RCXavm/jPityDo5TCvKMnpjKnOriy0w==}
 
-  '@svebcomponents/atproto.client@0.5.0':
-    resolution: {integrity: sha512-D/G49+AfmZKUnxIeQCjpWBrIirnVjK1BC5nDh+6Ma9Z1Fqo0T1FUFCaMswjYEZDFsBZ4pGz+fl2AlUKI7+8Tig==}
+  '@svebcomponents/atproto.client@0.6.0':
+    resolution: {integrity: sha512-955AJl0Ub+rTGp2OVpe05zl1A+q7/d5v7F26hnZ4PDbK6XOv68sBJR55b+nyIuyUpvkIgQHTMmAHUEJIuVRsyA==}
     engines: {node: '>=18'}
 
-  '@svebcomponents/atproto.comments@0.6.0':
-    resolution: {integrity: sha512-cX9bQ+oDj/hZklf0iSYHcKhFVXk5GOZLMY6nSLXQrM3sbc8CeLllNHXUDwRjkR6/X+VX7+MNOUrchA7yqHn5dw==}
+  '@svebcomponents/atproto.comments@0.7.0':
+    resolution: {integrity: sha512-+ELvt7fIlnlgTAe6hZOByqaTxKO35Rq1bUOjyjtx4JD6M2W8wMCaavyhPRxmoPRUJbvB/cssFEDyFVMnOjKn2Q==}
     engines: {node: '>=20.19.0'}
     peerDependencies:
       '@svebcomponents/ssr': ^0.8.0
@@ -854,8 +854,8 @@ packages:
       '@svebcomponents/ssr':
         optional: true
 
-  '@svebcomponents/ssr@0.8.0':
-    resolution: {integrity: sha512-jXbGCkPHnR1Wq54AtACXEKhgVOgLu4j33urY2Pjbh3XCAfnT/qaP3aE/gjOqgUqKBWLi/0LR70iVeQD2smA6Ew==}
+  '@svebcomponents/ssr@0.8.1':
+    resolution: {integrity: sha512-9OjcKMN4/2vAqphitU1IX6IVEFZH/sQAOdrgkGcSgIBe/GLwZywMh1i0zFoT+LMGEXw6mtB2jIcKsQl+Df5H8Q==}
     engines: {node: '>=20.19.0'}
     peerDependencies:
       rolldown: '>=1.0.0-beta.0'
@@ -2090,15 +2090,15 @@ snapshots:
 
   '@standard-schema/spec@1.1.0': {}
 
-  '@svebcomponents/atproto.client@0.5.0': {}
+  '@svebcomponents/atproto.client@0.6.0': {}
 
-  '@svebcomponents/atproto.comments@0.6.0(@svebcomponents/ssr@0.8.0(rolldown@1.1.5)(rollup@4.62.2)(svelte@5.56.6)(vite@8.1.5))':
+  '@svebcomponents/atproto.comments@0.7.0(@svebcomponents/ssr@0.8.1(rolldown@1.1.5)(rollup@4.62.2)(svelte@5.56.6)(vite@8.1.5))':
     dependencies:
-      '@svebcomponents/atproto.client': 0.5.0
+      '@svebcomponents/atproto.client': 0.6.0
     optionalDependencies:
-      '@svebcomponents/ssr': 0.8.0(rolldown@1.1.5)(rollup@4.62.2)(svelte@5.56.6)(vite@8.1.5)
+      '@svebcomponents/ssr': 0.8.1(rolldown@1.1.5)(rollup@4.62.2)(svelte@5.56.6)(vite@8.1.5)
 
-  '@svebcomponents/ssr@0.8.0(rolldown@1.1.5)(rollup@4.62.2)(svelte@5.56.6)(vite@8.1.5)':
+  '@svebcomponents/ssr@0.8.1(rolldown@1.1.5)(rollup@4.62.2)(svelte@5.56.6)(vite@8.1.5)':
     dependencies:
       '@lit-labs/ssr': 4.1.0
       '@lit-labs/ssr-dom-shim': 1.6.0
