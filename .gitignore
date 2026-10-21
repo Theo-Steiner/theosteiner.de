@@ -5,6 +5,8 @@ node_modules
 .output
 .vercel
 .netlify
+.void
+.void-wrangler.jsonc
 .wrangler
 /.svelte-kit
 /build

@@ -4,5 +4,7 @@ minimumReleaseAgeExclude:
   - '@svebcomponents/*'
 allowBuilds:
   # pnpm 11 replaced onlyBuiltDependencies with allowBuilds
+  better-sqlite3: false
   esbuild: true
   sharp: true
+  workerd: true

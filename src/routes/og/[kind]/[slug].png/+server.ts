@@ -4,7 +4,7 @@ import { error } from '@sveltejs/kit';
 import { ogEntries, renderOgImage } from '$lib/server/og';
 import type { RequestHandler } from './$types';
 
-export const prerender = 'auto';
+export const prerender = true;
 
 export const entries = () =>
 	ogEntries

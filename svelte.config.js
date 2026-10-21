@@ -1,4 +1,4 @@
-import adapter from '@sveltejs/adapter-netlify';
+import adapter from '@sveltejs/adapter-static';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import { mdsvex, escapeSvelte } from 'mdsvex';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
@@ -38,7 +38,7 @@ const config = {
 		handler(warning);
 	},
 	kit: {
-		adapter: adapter(),
+		adapter: adapter({ fallback: '404.html' }),
 		experimental: {
 			remoteFunctions: true
 		},

@@ -25,8 +25,7 @@
     "@fontsource/instrument-sans": "^5.3.0",
     "@fontsource/noto-sans-jp": "^5.3.0",
     "@resvg/resvg-js": "^2.6.2",
-    "@sveltejs/adapter-auto": "^7.0.1",
-    "@sveltejs/adapter-netlify": "^6.0.4",
+    "@sveltejs/adapter-static": "^4.0.0",
     "@sveltejs/enhanced-img": "^0.11.0",
     "@sveltejs/kit": "^2.63.0",
     "@sveltejs/vite-plugin-svelte": "^7.1.2",
@@ -43,7 +42,8 @@
     "svelte": "^5.56.1",
     "svelte-check": "^4.6.0",
     "typescript": "^6.0.3",
-    "vite": "^8.0.16"
+    "vite": "^8.0.16",
+    "void": "1.1.11"
   },
   "dependencies": {
     "@svebcomponents/atproto.comments": "^0.7.0",
