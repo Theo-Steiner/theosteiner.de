@@ -4,6 +4,8 @@ import { uitPodcasts } from "./podcasts.uit";
 // Kept outside the generated UIT import so `pnpm import:podcasts` preserves
 // the discussion threads discovered from Theo's public PDS.
 const uitThreads: Record<string, string> = {
+  "uit-inside-194":
+    "https://bsky.app/profile/theosteiner.de/post/3myeg3tcr2s2j",
   "uit-inside-188":
     "https://bsky.app/profile/theosteiner.de/post/3mmt4b2hm6k2p",
   "uit-inside-185":
