@@ -1,0 +1,4323 @@
+WEBVTT
+
+1
+00:00:09.015 --> 00:00:10.917
+Theo: Hi, I'm Theo from UIT.
+
+2
+00:00:10.917 --> 00:00:16.086
+Theo: Welcome back to UIT INSIDE, the podcast for
+developers who love user interfaces and technology.
+
+3
+00:00:16.086 --> 00:00:22.755
+Theo: Today I'm joined by ubugeeei and baseballyama
+
+4
+00:00:22.755 --> 00:00:30.146
+Theo: for an episode to get us excited about Vue Fes
+2026.
+
+5
+00:00:30.146 --> 00:00:31.368
+Theo: Thanks for joining me.
+
+6
+00:00:31.909 --> 00:00:33.271
+ubugeeei / baseballyama: Thanks for having us.
+
+7
+00:00:33.271 --> 00:00:36.916
+Theo: Let's start with some introductions, shall we?
+
+8
+00:00:37.197 --> 00:00:41.223
+ubugeeei: Sure, I'll go first. I'm ubugeeei.
+
+9
+00:00:41.223 --> 00:00:47.633
+ubugeeei: I think this is my third time on UIT INSIDE.
+
+10
+00:00:47.633 --> 00:00:51.960
+ubugeeei: As for what I do, I'm a Vue.js core team
+member.
+
+11
+00:00:52.045 --> 00:00:56.853
+ubugeeei: I build various tools and write a lot of Vue
+at work.
+
+12
+00:00:56.853 --> 00:01:01.882
+ubugeeei: I'm also on the Vue Fes core staff.
+
+13
+00:01:01.882 --> 00:01:04.046
+Theo: Are you speaking at this year's Vue Fes too?
+
+14
+00:01:03.947 --> 00:01:10.498
+ubugeeei: Yes, I'm giving a talk as a guest speaker. We
+might get into this later,
+
+15
+00:01:10.498 --> 00:01:13.823
+ubugeeei: but apparently there's a chibivue hands-on
+workshop this year,
+
+16
+00:01:13.823 --> 00:01:16.948
+ubugeeei: so I'm planning to drop by that as well.
+
+17
+00:01:16.948 --> 00:01:19.994
+Theo: Is chibivue a community?
+
+18
+00:01:19.994 --> 00:01:26.284
+ubugeeei: Well, it's, you know... [unclear] Something
+we'll all do together.
+
+19
+00:01:24.050 --> 00:01:25.950
+Theo: Oh, that sounds fun.
+
+20
+00:01:26.384 --> 00:01:29.629
+ubugeeei: Definitely. Although there aren't any tickets
+left; it's sold out.
+
+21
+00:01:30.315 --> 00:01:32.000
+Theo: Yes, if you managed to get a ticket.
+
+22
+00:01:32.000 --> 00:01:34.604
+ubugeeei: Yes, I hope to see you there.
+
+23
+00:01:34.604 --> 00:01:36.147
+Theo: And next, Yama.
+
+24
+00:01:36.529 --> 00:01:42.463
+baseballyama: Hi, I'm Yamashita. I work at a company
+called flyle,
+
+25
+00:01:42.463 --> 00:01:45.872
+baseballyama: where my title is VP of Technology.
+
+26
+00:01:45.872 --> 00:01:49.559
+baseballyama: I'm on the Svelte core team.
+
+27
+00:01:49.559 --> 00:01:54.488
+baseballyama: Officially, I mainly maintain things like
+the ESLint plugin,
+
+28
+00:01:54.986 --> 00:02:00.156
+baseballyama: but lately I've also been working on a
+project
+
+29
+00:02:00.156 --> 00:02:05.487
+baseballyama: to try writing a Svelte compiler and
+formatter in Rust.
+
+30
+00:02:05.487 --> 00:02:06.609
+baseballyama: Thanks for having me.
+
+31
+00:02:07.511 --> 00:02:14.967
+Theo: Thanks for coming. Writing compilers and linters
+in Rust
+
+32
+00:02:14.967 --> 00:02:20.615
+Theo: is actually our main topic today.
+
+33
+00:02:20.615 --> 00:02:26.202
+Theo: Lately, a lot of Vue Fes talks seem to be about
+building tools in Rust rather than JavaScript.
+
+34
+00:02:26.202 --> 00:02:33.851
+Theo: And both of you have recently been working on
+
+35
+00:02:33.851 --> 00:02:38.256
+Theo: some kind of Rust tooling for your respective
+frameworks.
+
+36
+00:02:38.256 --> 00:02:41.600
+Theo: In your case, ubugeeei, that's Vize?
+
+37
+00:02:41.779 --> 00:02:46.650
+ubugeeei: Yes. I'm working on a project called Vize.
+
+38
+00:02:46.650 --> 00:02:52.323
+ubugeeei: It's a Vue.js toolchain with a compiler, type
+checker, formatter, linter,
+
+39
+00:02:52.323 --> 00:02:55.550
+ubugeeei: and a bunch of other things, written in Rust.
+
+40
+00:02:56.882 --> 00:03:03.395
+Theo: And Yama, you're writing a Svelte compiler and
+formatter in Rust too.
+
+41
+00:03:03.415 --> 00:03:07.464
+Theo: So here's an incredibly broad question: why?
+[laughs]
+
+42
+00:03:07.065 --> 00:03:11.734
+ubugeeei: Why? [laughs] Who wants to go first?
+
+43
+00:03:10.000 --> 00:03:12.600
+baseballyama: Oh, go ahead. [laughs]
+
+44
+00:03:11.914 --> 00:03:15.602
+ubugeeei: To put it very broadly,
+
+45
+00:03:15.602 --> 00:03:19.611
+ubugeeei: when you write Rust... well, if you put the
+effort in,
+
+46
+00:03:19.611 --> 00:03:22.054
+ubugeeei: and I'll stress that to avoid any
+misunderstanding,
+
+47
+00:03:22.054 --> 00:03:26.481
+ubugeeei: you can make it really fast. That's basically
+why.
+
+48
+00:03:26.481 --> 00:03:29.785
+ubugeeei: A lot of existing TypeScript toolchains
+
+49
+00:03:29.785 --> 00:03:37.766
+ubugeeei: weren't designed around performance from the
+outset.
+
+50
+00:03:37.766 --> 00:03:45.120
+ubugeeei: With Rust, it's easier to really commit to
+writing extremely fast code,
+
+51
+00:03:45.120 --> 00:03:48.847
+ubugeeei: and the result actually is extremely fast.
+That's my reason.
+
+52
+00:03:48.847 --> 00:03:50.350
+Theo: Native performance.
+
+53
+00:03:50.251 --> 00:03:56.983
+ubugeeei: Yes, that too. But the language also makes it
+easier to optimize memory allocation
+
+54
+00:03:56.983 --> 00:04:01.992
+ubugeeei: and computation at compile time. Compared with
+TypeScript,
+
+55
+00:04:01.992 --> 00:04:04.757
+ubugeeei: you have more room for low-level tuning.
+
+56
+00:04:04.757 --> 00:04:12.511
+ubugeeei: The language's compiler itself is also very
+good and very fast. That's another reason.
+
+57
+00:04:12.511 --> 00:04:13.893
+ubugeeei: Is it the same for you, Yama?
+
+58
+00:04:14.480 --> 00:04:21.771
+baseballyama: Basically, yes. But let me explain it from
+a slightly different angle.
+
+59
+00:04:21.771 --> 00:04:27.259
+baseballyama: I maintain things like
+eslint-plugin-svelte.
+
+60
+00:04:27.259 --> 00:04:33.108
+baseballyama: I've always felt that linting Svelte files
+takes quite a while,
+
+61
+00:04:33.108 --> 00:04:36.307
+baseballyama: and we've had issues filed about it too.
+
+62
+00:04:36.307 --> 00:04:42.302
+baseballyama: When we tried Oxlint on a large project at
+work, it was incredibly fast.
+
+63
+00:04:42.302 --> 00:04:46.673
+baseballyama: But it couldn't natively support Svelte
+files,
+
+64
+00:04:46.673 --> 00:04:49.681
+baseballyama: so we still needed eslint-plugin-svelte.
+
+65
+00:04:49.681 --> 00:04:56.971
+baseballyama: It felt like such a waste, given how fast
+Oxlint was. That's one reason.
+
+66
+00:04:56.971 --> 00:05:04.162
+baseballyama: And now that AI can write so much code,
+things have changed. Before, you'd work hard on an
+implementation,
+
+67
+00:05:04.162 --> 00:05:08.348
+baseballyama: then run the linter while you went to get
+a coffee.
+
+68
+00:05:08.348 --> 00:05:13.099
+baseballyama: That was fine. But now, implementation
+happens in parallel,
+
+69
+00:05:13.099 --> 00:05:18.531
+baseballyama: so shortening that feedback loop has a
+very direct impact on development speed.
+
+70
+00:05:18.531 --> 00:05:22.861
+baseballyama: As that changes, I thought it'd be good
+for Svelte to join the move to Rust,
+
+71
+00:05:22.861 --> 00:05:26.830
+baseballyama: so I decided to give it a try. That's the
+background.
+
+72
+00:05:27.431 --> 00:05:32.721
+Theo: What you said about AI really resonates with me.
+
+73
+00:05:33.082 --> 00:05:40.637
+Theo: For personal projects, I use an M1 MacBook Air
+with 8 GB of RAM.
+
+74
+00:05:41.319 --> 00:05:46.749
+Theo: It's a really underpowered machine. [laughs] If I
+vibe-code in parallel on it,
+
+75
+00:05:47.312 --> 00:05:54.203
+Theo: it starts filling up swap almost immediately. It's
+painful.
+
+76
+00:05:54.203 --> 00:05:59.692
+Theo: If the formatter, compiler, and linter all run
+natively,
+
+77
+00:05:59.692 --> 00:06:04.781
+Theo: they can use memory more efficiently too.
+
+78
+00:06:04.781 --> 00:06:12.163
+Theo: That's definitely becoming an important
+consideration.
+
+79
+00:06:12.163 --> 00:06:15.790
+Theo: But as you touched on earlier, over the past one,
+two,
+
+80
+00:06:15.790 --> 00:06:22.842
+Theo: or three years, there's been this movement to take
+the toolchain native
+
+81
+00:06:22.842 --> 00:06:25.366
+Theo: within the JavaScript ecosystem.
+
+82
+00:06:25.366 --> 00:06:32.718
+Theo: We've got Oxlint, Oxc, and TypeScript 7's tsgo,
+for example.
+
+83
+00:06:32.718 --> 00:06:38.749
+Theo: So why do we still need implementations
+specifically for Svelte and Vue?
+
+84
+00:06:39.410 --> 00:06:44.660
+Theo: I'm asking that very casually, but I suspect the
+answer is pretty complicated. [laughs]
+
+85
+00:06:45.311 --> 00:06:50.757
+baseballyama: Well, the short answer is that a Svelte
+file isn't JavaScript
+
+86
+00:06:50.757 --> 00:06:55.262
+baseballyama: or TypeScript. That's the starting point.
+A Svelte file,
+
+87
+00:06:55.262 --> 00:06:58.245
+baseballyama: and I think Vue is the same here,
+
+88
+00:06:58.245 --> 00:07:06.154
+baseballyama: gets roughly split into template, script,
+and style sections, using things like regular
+expressions.
+
+89
+00:07:06.154 --> 00:07:10.439
+baseballyama: Then a parser for each language runs on
+those sections.
+
+90
+00:07:10.629 --> 00:07:18.208
+baseballyama: Those three parts are related, so you
+analyze how they fit together,
+
+91
+00:07:18.208 --> 00:07:20.614
+baseballyama: and then ultimately compile the result,
+
+92
+00:07:20.614 --> 00:07:25.407
+baseballyama: or use it for linting, formatting, and so
+on. Very roughly,
+
+93
+00:07:25.407 --> 00:07:27.129
+baseballyama: that's how the process works.
+
+94
+00:07:27.129 --> 00:07:31.897
+baseballyama: Toolchains like Oxc understand JavaScript
+and TypeScript.
+
+95
+00:07:31.897 --> 00:07:36.625
+baseballyama: I think they're starting to support some
+HTML and other languages too,
+
+96
+00:07:36.625 --> 00:07:41.994
+baseballyama: but they can't inherently understand
+framework-specific languages
+
+97
+00:07:41.994 --> 00:07:49.607
+baseballyama: like Svelte or Vue. You need some way to
+teach them that.
+
+98
+00:07:49.607 --> 00:07:55.839
+baseballyama: With Oxc as it stands, you go through
+JavaScript to call a parser or whatever you need,
+
+99
+00:07:55.839 --> 00:08:01.869
+baseballyama: and eventually make it work. The ecosystem
+is built around using
+
+100
+00:08:01.869 --> 00:08:04.193
+baseballyama: the existing JavaScript ecosystem.
+
+101
+00:08:04.193 --> 00:08:08.741
+baseballyama: But then you drop back into JavaScript and
+lose performance there.
+
+102
+00:08:08.741 --> 00:08:12.988
+baseballyama: And, getting into the details,
+
+103
+00:08:13.191 --> 00:08:17.980
+baseballyama: you have to exchange all sorts of data
+between Rust and JavaScript.
+
+104
+00:08:17.980 --> 00:08:23.309
+baseballyama: Even if one side gets faster, the overhead
+of that exchange can wipe out the benefit.
+
+105
+00:08:23.309 --> 00:08:26.535
+baseballyama: That's roughly where things stand, I
+think.
+
+106
+00:08:28.389 --> 00:08:33.399
+ubugeeei: Also, talking about Oxc and Vite+,
+
+107
+00:08:33.660 --> 00:08:40.474
+ubugeeei: they're aiming to be very framework-agnostic.
+
+108
+00:08:40.474 --> 00:08:44.322
+ubugeeei: They don't want to lean toward a particular
+framework.
+
+109
+00:08:44.322 --> 00:08:48.230
+ubugeeei: They're building a more general JavaScript and
+web toolchain.
+
+110
+00:08:48.791 --> 00:08:56.748
+ubugeeei: So making Vue and Svelte built into Oxc
+
+111
+00:08:57.470 --> 00:09:01.939
+ubugeeei: would probably go against that philosophy,
+although there are some Vue rules.
+
+112
+00:09:01.939 --> 00:09:06.970
+ubugeeei: There are tradeoffs there too.
+
+113
+00:09:08.173 --> 00:09:14.665
+ubugeeei: Even for an integrated toolchain, bundling
+every framework in the world would make it huge.
+
+114
+00:09:14.665 --> 00:09:22.280
+ubugeeei: It'd be hard to implement, and above all,
+require an enormous amount of developer time.
+
+115
+00:09:22.280 --> 00:09:27.270
+ubugeeei: So there's a bit of a division of
+responsibilities. I'm building the Vue toolchain,
+
+116
+00:09:27.492 --> 00:09:33.682
+ubugeeei: and people actually joke that the Oxc team
+can't allocate resources to Vue because I'm already
+doing it. [laughs]
+
+117
+00:09:33.682 --> 00:09:40.193
+ubugeeei: That's how short of people the ecosystem is
+overall.
+
+118
+00:09:40.193 --> 00:09:45.882
+ubugeeei: So we're taking the approach of building
+something in the community, as a third-party project,
+
+119
+00:09:45.882 --> 00:09:50.330
+ubugeeei: that can integrate well with those tools.
+
+120
+00:09:52.671 --> 00:10:00.083
+baseballyama: I think this is a tricky issue. We're
+getting into the details now,
+
+121
+00:10:00.083 --> 00:10:04.530
+baseballyama: but there's something I've wanted to ask
+you about, ubugeeei.
+
+122
+00:10:04.550 --> 00:10:08.456
+baseballyama: As long as Rust and JavaScript are both
+involved in the current way,
+
+123
+00:10:08.456 --> 00:10:11.160
+baseballyama: making Svelte and Vue really fast,
+
+124
+00:10:11.160 --> 00:10:14.606
+baseballyama: in the way we're imagining, just isn't
+possible.
+
+125
+00:10:14.606 --> 00:10:17.150
+baseballyama: I think we can take that as our starting
+assumption.
+
+126
+00:10:17.511 --> 00:10:24.503
+baseballyama: So we need Rust, or at least some faster
+approach. It doesn't have to be Rust.
+
+127
+00:10:25.285 --> 00:10:31.416
+baseballyama: But Oxc, for example, is a natively
+compiled executable,
+
+128
+00:10:31.416 --> 00:10:36.685
+baseballyama: and it doesn't include the ability to
+understand Svelte or Vue files.
+
+129
+00:10:36.685 --> 00:10:41.691
+baseballyama: Somehow, you have to give it that ability.
+
+130
+00:10:41.691 --> 00:10:46.877
+baseballyama: You could use dynamic calls, or whatever
+the right term is.
+
+131
+00:10:46.877 --> 00:10:51.503
+baseballyama: But even if you defined an ABI for that,
+
+132
+00:10:51.503 --> 00:10:56.910
+baseballyama: Oxlint, for instance, already has a fixed
+set of AST node types.
+
+133
+00:10:56.910 --> 00:11:02.698
+baseballyama: It can't understand Svelte-specific nodes,
+so I don't think it could process them correctly.
+
+134
+00:11:02.698 --> 00:11:05.962
+baseballyama: To integrate that support natively,
+
+135
+00:11:05.962 --> 00:11:13.911
+baseballyama: it seems like Oxc's core, or a layer close
+to it, would ultimately need some knowledge
+
+136
+00:11:13.911 --> 00:11:16.935
+baseballyama: of Svelte and Vue nodes. Otherwise, I
+don't see how it could work.
+
+137
+00:11:16.935 --> 00:11:23.770
+baseballyama: Which makes me feel we'd have to get code
+that understands Svelte and Vue
+
+138
+00:11:23.770 --> 00:11:27.896
+baseballyama: into Oxc itself. There was an RFC in Oxc
+about this,
+
+139
+00:11:27.896 --> 00:11:32.181
+baseballyama: but I understood it as: first convert
+Svelte or Vue into JavaScript,
+
+140
+00:11:32.181 --> 00:11:35.186
+baseballyama: then figure out how to handle it from
+there.
+
+141
+00:11:35.186 --> 00:11:38.490
+baseballyama: But that loses all the framework-specific
+semantics.
+
+142
+00:11:38.871 --> 00:11:44.378
+baseballyama: We're putting all this effort into
+building Vize and rsvelte,
+
+143
+00:11:44.378 --> 00:11:51.248
+baseballyama: and I'm really struggling with what the
+path forward should be.
+
+144
+00:11:51.248 --> 00:11:55.815
+baseballyama: I wanted to ask how you're thinking about
+that.
+
+145
+00:11:55.815 --> 00:11:59.162
+ubugeeei: We've gotten pretty deep. Sorry.
+
+146
+00:11:59.162 --> 00:12:03.427
+Theo: Before we go there,
+
+147
+00:12:03.427 --> 00:12:10.077
+Theo: let me check whether I, as the non-expert here,
+actually understand. [laughs]
+
+148
+00:12:10.077 --> 00:12:17.448
+Theo: Oxc is a toolkit for building things like
+JavaScript ASTs, abstract syntax trees.
+
+149
+00:12:17.448 --> 00:12:23.420
+Theo: Then Oxlint and Oxfmt run on top of it to do
+formatting
+
+150
+00:12:23.420 --> 00:12:31.237
+Theo: and linting. But it's fundamentally a JavaScript
+toolkit,
+
+151
+00:12:31.237 --> 00:12:37.430
+Theo: so you can't directly apply it to supersets like
+Vue or Svelte.
+
+152
+00:12:37.771 --> 00:12:45.504
+Theo: Their templates contain JavaScript inside
+something that looks like HTML,
+
+153
+00:12:45.504 --> 00:12:50.031
+Theo: which means those tools can't use them directly.
+
+154
+00:12:50.031 --> 00:12:57.303
+Theo: Oxc doesn't include an HTML parser, so it has no
+way to understand them. Is that right?
+
+155
+00:12:57.704 --> 00:13:05.077
+Theo: And from the Oxc team's perspective, if you want
+to process Svelte or Vue,
+
+156
+00:13:05.077 --> 00:13:12.970
+Theo: you should first use a framework-specific tool,
+like Vize or rsvelte,
+
+157
+00:13:12.970 --> 00:13:20.081
+Theo: to turn the template into JavaScript, or something
+resembling JavaScript,
+
+158
+00:13:20.081 --> 00:13:25.290
+Theo: and pass that to Oxc. That's the proposed design.
+
+159
+00:13:25.911 --> 00:13:31.979
+Theo: And you're saying that would undermine the
+performance gains from going native?
+
+160
+00:13:31.979 --> 00:13:36.325
+Theo: Is that the concern?
+
+161
+00:13:36.325 --> 00:13:38.528
+baseballyama: I agree, apart from that last bit.
+
+162
+00:13:38.528 --> 00:13:42.835
+baseballyama: I'd like ubugeeei to confirm whether we're
+right. But on the last point,
+
+163
+00:13:43.936 --> 00:13:48.823
+baseballyama: if converting Svelte or Vue files to
+JavaScript really did solve everything,
+
+164
+00:13:49.232 --> 00:13:54.143
+baseballyama: then as long as that conversion could
+happen through a native-to-native dynamic call,
+
+165
+00:13:54.143 --> 00:13:58.553
+baseballyama: I think we'd get the full performance
+benefit.
+
+166
+00:13:58.553 --> 00:14:05.710
+baseballyama: The problem is that converting to
+JavaScript loses Svelte- and Vue-specific information.
+
+167
+00:14:05.710 --> 00:14:09.998
+baseballyama: With ESLint, let has Svelte-specific
+implications, especially in Svelte 4 and earlier.
+
+168
+00:14:09.998 --> 00:14:19.315
+baseballyama: That kind of thing
+
+169
+00:14:19.315 --> 00:14:22.260
+baseballyama: would be ignored, so linting wouldn't be
+correct.
+
+170
+00:14:22.260 --> 00:14:25.806
+baseballyama: Since all that framework-specific
+information gets lost,
+
+171
+00:14:25.806 --> 00:14:30.314
+baseballyama: I don't think that approach is really
+viable. It's a problem before you even get to
+performance.
+
+172
+00:14:30.433 --> 00:14:34.543
+Theo: So the framework changes how JavaScript itself is
+interpreted,
+
+173
+00:14:34.543 --> 00:14:38.373
+Theo: and Oxc's general-purpose understanding of
+JavaScript isn't enough.
+
+174
+00:14:38.373 --> 00:14:41.000
+baseballyama: That's how I see it.
+
+175
+00:14:41.000 --> 00:14:45.432
+Theo: That was my layperson's paraphrase. What do you
+think, ubugeeei?
+
+176
+00:14:47.710 --> 00:14:55.005
+ubugeeei: Right, there are several points here. To give
+our predecessors their due,
+
+177
+00:14:55.005 --> 00:15:01.578
+ubugeeei: we've been talking about Oxc,
+
+178
+00:15:01.578 --> 00:15:07.270
+ubugeeei: but SWC was doing JavaScript tooling in Rust
+before that.
+
+179
+00:15:07.512 --> 00:15:13.746
+ubugeeei: SWC handles some of this through things like
+dynamic linking. With SWC,
+
+180
+00:15:13.746 --> 00:15:21.844
+ubugeeei: you write the plugins
+
+181
+00:15:21.844 --> 00:15:27.479
+ubugeeei: in Rust. But its users are JavaScript
+developers,
+
+182
+00:15:27.479 --> 00:15:31.466
+ubugeeei: so they want to write plugins in JavaScript.
+
+183
+00:15:31.466 --> 00:15:39.461
+ubugeeei: Oxc has made choices to balance those
+tradeoffs, including compatibility with existing
+JavaScript plugins,
+
+184
+00:15:39.461 --> 00:15:44.530
+ubugeeei: and I think some of that is unavoidable.
+
+185
+00:15:45.811 --> 00:15:52.221
+ubugeeei: Not everyone can write native plugins,
+
+186
+00:15:52.221 --> 00:15:58.712
+ubugeeei: so we'll leave that point there for now.
+[laughs] Also,
+
+187
+00:15:58.712 --> 00:16:06.705
+ubugeeei: on the question of whether Oxc itself needs to
+understand
+
+188
+00:16:06.705 --> 00:16:09.910
+ubugeeei: framework-specific behavior for this to work,
+
+189
+00:16:10.799 --> 00:16:16.331
+ubugeeei: and all that discussion about ABIs,
+
+190
+00:16:16.331 --> 00:16:23.286
+ubugeeei: I do sometimes talk to Evan You about Vite and
+Oxc.
+
+191
+00:16:23.286 --> 00:16:31.259
+ubugeeei: The short answer is that, right now,
+
+192
+00:16:31.259 --> 00:16:36.550
+ubugeeei: there probably isn't a definitive solution.
+For conflicting rules, you just disable the built-in
+ones
+
+193
+00:16:36.550 --> 00:16:44.247
+ubugeeei: and handle them on the Vue or framework side.
+With more AI-assisted coding now,
+
+194
+00:16:44.247 --> 00:16:49.697
+ubugeeei: it's feasible to implement those ourselves, so
+I don't see it as a huge problem.
+
+195
+00:16:49.697 --> 00:16:56.368
+ubugeeei: There's waste, of course. Something already
+exists upstream, but a small difference means we can't
+use it.
+
+196
+00:16:56.368 --> 00:17:03.700
+ubugeeei: Still, I'm fairly optimistic: we can build our
+own version and make it work.
+
+197
+00:17:03.700 --> 00:17:08.000
+ubugeeei: That's one point. There are a couple more. Is
+it okay to keep going?
+
+198
+00:17:08.000 --> 00:17:10.812
+Theo: Please go on.
+
+199
+00:17:10.812 --> 00:17:14.999
+ubugeeei: This is very much cutting-edge stuff.
+
+200
+00:17:14.999 --> 00:17:19.569
+ubugeeei: It hasn't been settled globally, let alone
+released,
+
+201
+00:17:19.569 --> 00:17:25.017
+ubugeeei: but TSGo has an initiative called Content
+Mappers.
+
+202
+00:17:25.017 --> 00:17:33.591
+ubugeeei: And today is September 25; just this week,
+
+203
+00:17:33.591 --> 00:17:41.604
+ubugeeei: someone on the Rolldown team personally
+proposed an RFC to change
+
+204
+00:17:41.604 --> 00:17:45.142
+ubugeeei: the API for Vite's transform pipeline.
+
+205
+00:17:45.142 --> 00:17:47.946
+ubugeeei: It's precisely about cases like Vue.
+
+206
+00:17:47.946 --> 00:17:53.936
+ubugeeei: If you read the RFC, you'll see Vue used as an
+example.
+
+207
+00:17:53.936 --> 00:18:01.689
+ubugeeei: Vite's compilation pipeline is currently just
+a chain of transforms.
+
+208
+00:18:02.493 --> 00:18:08.441
+ubugeeei: There's no way to tell Vite or the rest of the
+ecosystem
+
+209
+00:18:08.441 --> 00:18:13.068
+ubugeeei: how the JavaScript in that pipeline was
+actually produced.
+
+210
+00:18:13.068 --> 00:18:19.639
+ubugeeei: The RFC proposes making that declarative and
+composable.
+
+211
+00:18:19.639 --> 00:18:26.930
+ubugeeei: I don't think Vite or Rolldown will ever
+interpret Vue or Svelte themselves,
+
+212
+00:18:26.930 --> 00:18:34.721
+ubugeeei: but they could work with more abstract
+information about where this JavaScript came from:
+
+213
+00:18:34.721 --> 00:18:39.647
+ubugeeei: process this internally, leave that alone, or
+let Vite's build handle it.
+
+214
+00:18:39.647 --> 00:18:47.518
+ubugeeei: That kind of work is happening, and I think
+it'll be pretty central to Vize,
+
+215
+00:18:47.518 --> 00:18:52.285
+ubugeeei: at least. Of course, that's a discussion about
+Vite and Rolldown.
+
+216
+00:18:52.285 --> 00:18:57.938
+ubugeeei: For linters and formatters, it's still early
+days.
+
+217
+00:18:57.938 --> 00:19:03.169
+ubugeeei: A lot remains undecided. As for TypeScript
+integration,
+
+218
+00:19:04.132 --> 00:19:09.962
+ubugeeei: Content Mappers is being implemented precisely
+for things like Svelte and Vue.
+
+219
+00:19:10.102 --> 00:19:15.752
+ubugeeei: I think it'll come in the next minor release,
+probably sometime after October or November,
+
+220
+00:19:15.752 --> 00:19:19.338
+ubugeeei: so it isn't out yet.
+
+221
+00:19:19.338 --> 00:19:23.645
+ubugeeei: It operates at a similar level to Vite's
+transformers.
+
+222
+00:19:24.335 --> 00:19:31.948
+ubugeeei: Rather than understanding Vue or Svelte
+themselves, it provides an API to declare
+
+223
+00:19:32.088 --> 00:19:39.282
+ubugeeei: what the TypeScript generated as an
+intermediate representation actually means.
+
+224
+00:19:39.282 --> 00:19:43.670
+ubugeeei: So it still stays framework-agnostic and
+neutral,
+
+225
+00:19:43.670 --> 00:19:51.773
+ubugeeei: but moves beyond the existing APIs to express
+where the JavaScript or TypeScript came from,
+
+226
+00:19:51.773 --> 00:19:57.970
+ubugeeei: and to design APIs that account for that in
+the first place.
+
+227
+00:19:57.970 --> 00:20:02.260
+ubugeeei: I'm watching how that develops.
+
+228
+00:20:02.260 --> 00:20:08.833
+ubugeeei: That's roughly where things stand for me.
+
+229
+00:20:08.833 --> 00:20:12.039
+ubugeeei: I wonder if any of that came across. [laughs]
+
+230
+00:20:12.039 --> 00:20:17.310
+baseballyama: So you're saying we should first separate
+type checking, Vite bundling, linting,
+
+231
+00:20:17.310 --> 00:20:22.159
+baseballyama: and formatting. Treat them as different
+problems.
+
+232
+00:20:22.159 --> 00:20:26.747
+baseballyama: I'm really looking forward to Content
+Mappers for types too.
+
+233
+00:20:26.747 --> 00:20:31.496
+baseballyama: Once 7.1 comes out, I think we can move
+everything at work to TSGo.
+
+234
+00:20:31.496 --> 00:20:36.000
+baseballyama: I believe svelte-check already has a PR
+for Content Mappers support,
+
+235
+00:20:36.000 --> 00:20:38.007
+Theo: It's currently blocked, right?
+
+236
+00:20:38.007 --> 00:20:39.810
+baseballyama: Yes, that's what's blocking it.
+
+237
+00:20:39.831 --> 00:20:46.767
+baseballyama: Once that lands, all our Svelte projects
+at work can finally move to TSGo.
+
+238
+00:20:46.767 --> 00:20:51.919
+baseballyama: That's pretty great. And I feel similarly
+about Vite.
+
+239
+00:20:52.019 --> 00:20:56.670
+baseballyama: Every time, you end up transforming
+everything back into source code.
+
+240
+00:20:57.470 --> 00:21:05.021
+baseballyama: You've already built an AST, so why parse
+it all over again? [laughs] It's always felt wasteful.
+
+241
+00:21:05.021 --> 00:21:09.867
+baseballyama: I hadn't heard about the RFC from this
+week,
+
+242
+00:21:09.867 --> 00:21:11.950
+baseballyama: but that sounds like a great initiative.
+
+243
+00:21:12.151 --> 00:21:17.157
+baseballyama: If we could then call that natively,
+without going through JavaScript at all,
+
+244
+00:21:17.157 --> 00:21:22.624
+baseballyama: that'd be excellent. But then there's
+linting. [laughs]
+
+245
+00:21:22.624 --> 00:21:30.513
+baseballyama: With your Vize... Vize, right. With Vize,
+
+246
+00:21:30.513 --> 00:21:37.441
+baseballyama: and that little oxlint-plugins project
+we've been working on together,
+
+247
+00:21:37.441 --> 00:21:41.185
+baseballyama: which does sort of exist,
+
+248
+00:21:41.185 --> 00:21:45.930
+baseballyama: you first parse and check everything with
+Oxlint, and that's one pass done.
+
+249
+00:21:45.930 --> 00:21:51.361
+baseballyama: Then another plugin parses and checks
+everything again. Oxlint itself is so fast, [laughs]
+
+250
+00:21:51.361 --> 00:21:56.030
+baseballyama: so it's fine in a sense, but personally I
+still find it very inefficient.
+
+251
+00:21:56.030 --> 00:22:01.300
+baseballyama: It'd be nice if Oxlint had a slightly more
+elegant solution
+
+252
+00:22:01.300 --> 00:22:07.253
+baseballyama: for that. And then there's formatting.
+
+253
+00:22:07.253 --> 00:22:10.017
+baseballyama: You didn't really mention formatters
+earlier,
+
+254
+00:22:11.340 --> 00:22:17.388
+baseballyama: but they're already much faster than
+linters,
+
+255
+00:22:17.388 --> 00:22:20.493
+baseballyama: so they're probably a somewhat lower
+priority.
+
+256
+00:22:20.493 --> 00:22:27.138
+baseballyama: Vize and rsvelte currently take a similar
+approach: wrapping Oxfmt
+
+257
+00:22:27.138 --> 00:22:33.715
+baseballyama: and providing it that way. I think that's
+fine for the time being.
+
+258
+00:22:33.715 --> 00:22:39.910
+ubugeeei: This gets into some fairly experimental work
+in Vize,
+
+259
+00:22:39.910 --> 00:22:47.515
+ubugeeei: but we've been talking about ASTs, or
+JavaScript and TypeScript as intermediate
+representations,
+
+260
+00:22:47.656 --> 00:22:52.070
+ubugeeei: as the interface to other, existing
+toolchains.
+
+261
+00:22:52.070 --> 00:22:59.119
+ubugeeei: And about repeatedly manipulating ASTs or
+running them separately through a type checker or
+formatter.
+
+262
+00:22:59.119 --> 00:23:04.625
+ubugeeei: Well, lately, Vize has actually been moving
+toward
+
+263
+00:23:04.625 --> 00:23:07.769
+ubugeeei: getting rid of the AST. [laughs]
+
+264
+00:23:09.492 --> 00:23:13.216
+Theo: How deep does this rabbit hole go? [laughs]
+
+265
+00:23:16.617 --> 00:23:24.609
+ubugeeei: For people familiar with the terminology, I'm
+trying to build something like a Vue.js version of MLIR.
+
+266
+00:23:24.609 --> 00:23:28.535
+ubugeeei: That's what I'm working toward.
+
+267
+00:23:28.535 --> 00:23:36.609
+ubugeeei: It's a more abstract intermediate
+representation. It's neither an AST nor a CST,
+
+268
+00:23:36.609 --> 00:23:40.418
+ubugeeei: nor a red-green tree like Biome's.
+
+269
+00:23:40.880 --> 00:23:44.830
+ubugeeei: It captures Vue's semantics and structure,
+
+270
+00:23:44.830 --> 00:23:52.530
+ubugeeei: including the styling information needed by
+the formatter, across multiple layers of IR.
+
+271
+00:23:52.631 --> 00:23:56.800
+ubugeeei: I'm trying to unify things through that.
+
+272
+00:23:56.800 --> 00:24:04.756
+ubugeeei: It doesn't solve the fact that separate
+processing still happens on the Oxc side,
+
+273
+00:24:04.756 --> 00:24:06.981
+ubugeeei: but for the formatter, linter,
+
+274
+00:24:06.981 --> 00:24:11.430
+ubugeeei: and type checker, I want to eliminate
+redundant work in the Vue-specific parts.
+
+275
+00:24:12.290 --> 00:24:15.338
+ubugeeei: That's something I've been working on lately.
+
+276
+00:24:15.338 --> 00:24:21.473
+ubugeeei: Repeatedly parsing an AST, or keeping a
+separate AST for the formatter,
+
+277
+00:24:21.473 --> 00:24:27.468
+ubugeeei: are things I'm trying hard to eliminate.
+
+278
+00:24:27.468 --> 00:24:29.312
+Theo: This is getting very compiler-like...
+
+279
+00:24:29.398 --> 00:24:32.622
+ubugeeei: It really is a compiler discussion.
+
+280
+00:24:32.622 --> 00:24:40.052
+Theo: Rather than directly converting the AST into
+JavaScript,
+
+281
+00:24:40.052 --> 00:24:48.042
+Theo: you create an abstract, Vue-specific
+representation to work with.
+
+282
+00:24:48.042 --> 00:24:54.150
+Theo: Then processing it that way avoids all the
+repeated back-and-forth?
+
+283
+00:24:54.303 --> 00:24:58.150
+ubugeeei: Just to clarify a little,
+
+284
+00:24:58.150 --> 00:25:02.438
+ubugeeei: I'm not putting every piece of information
+into one intermediate representation.
+
+285
+00:25:02.438 --> 00:25:07.709
+ubugeeei: MLIR has intermediate representations at
+different layers. There's a concept called lowering,
+
+286
+00:25:07.709 --> 00:25:15.504
+ubugeeei: where you go down to the next representation.
+So there's a layer needed for formatting,
+
+287
+00:25:15.504 --> 00:25:20.024
+ubugeeei: one for semantic analysis, one for type
+checking,
+
+288
+00:25:20.024 --> 00:25:28.022
+ubugeeei: and, experimentally, layers for incorporating
+languages other than JavaScript as dialects.
+
+289
+00:25:28.022 --> 00:25:36.021
+ubugeeei: With this multilayer IR, I want to unify the
+tools needed for the Vue-specific parts.
+
+290
+00:25:36.041 --> 00:25:43.456
+ubugeeei: After that, Rolldown or Oxlint will probably
+take over,
+
+291
+00:25:43.456 --> 00:25:48.827
+ubugeeei: with some adjustments on our side, such as
+disabling built-in behavior we can't use and handling it
+ourselves.
+
+292
+00:25:48.827 --> 00:25:56.701
+ubugeeei: That's broadly how I'm trying to improve
+performance and cut out redundant work.
+
+293
+00:25:56.701 --> 00:26:02.610
+ubugeeei: I'm still building it, but that's the idea.
+
+294
+00:26:02.610 --> 00:26:09.301
+Theo: So you're trying to resolve these issues within
+Vize's intermediate representations,
+
+295
+00:26:09.301 --> 00:26:14.970
+Theo: without waiting for a general solution from the
+JavaScript toolchain.
+
+296
+00:26:14.970 --> 00:26:15.270
+ubugeeei: Yes.
+
+297
+00:26:16.371 --> 00:26:24.151
+baseballyama: In that flow, do you start with a Vue file
+and parse it just once,
+
+298
+00:26:24.151 --> 00:26:31.049
+baseballyama: then call the formatter and linter within
+that same process and finish everything there?
+
+299
+00:26:31.049 --> 00:26:31.349
+baseballyama: Right?
+
+300
+00:26:31.459 --> 00:26:39.237
+ubugeeei: No, it's a bit different. It's less like an
+existing pipeline.
+
+301
+00:26:39.237 --> 00:26:47.177
+ubugeeei: It's more ad hoc, and even the structure of
+the optimization passes is quite different.
+
+302
+00:26:47.177 --> 00:26:51.513
+ubugeeei: You don't start by converting an AST into an
+IR.
+
+303
+00:26:51.513 --> 00:26:55.178
+ubugeeei: There are choices about which approach makes
+more sense.
+
+304
+00:26:55.178 --> 00:27:00.424
+ubugeeei: For instance, parsing expressions comes up in
+various places, right?
+
+305
+00:27:00.424 --> 00:27:07.994
+ubugeeei: Before you've parsed everything, you bring in
+the semantics of Vue's syntax as you reach those points.
+
+306
+00:27:08.191 --> 00:27:14.361
+ubugeeei: When you encounter a binding, for example,
+that part gets parsed as a JavaScript expression.
+
+307
+00:27:14.361 --> 00:27:19.268
+ubugeeei: It's quite interconnected. It isn't really a
+case of first doing Vue,
+
+308
+00:27:19.268 --> 00:27:22.733
+ubugeeei: then JavaScript. You move back and forth,
+
+309
+00:27:23.234 --> 00:27:27.962
+ubugeeei: so you have to thread the needle carefully.
+[laughs]
+
+310
+00:27:27.962 --> 00:27:33.210
+Theo: Will you cover this in your Vue Fes talk?
+
+311
+00:27:33.572 --> 00:27:36.497
+ubugeeei: I'm planning to touch on it,
+
+312
+00:27:36.497 --> 00:27:44.454
+ubugeeei: but lots of people at Vue Fes probably won't
+have heard of Vize,
+
+313
+00:27:44.454 --> 00:27:47.600
+ubugeeei: so it'll be a more general talk,
+
+314
+00:27:47.600 --> 00:27:52.330
+ubugeeei: and I can't go that deep in 30 minutes, so I
+won't cover it in detail.
+
+315
+00:27:52.330 --> 00:27:56.077
+ubugeeei: But I'll mention that this is the sort of
+thing I'm working on.
+
+316
+00:27:56.077 --> 00:28:00.344
+ubugeeei: There's still about a month to go,
+
+317
+00:28:00.344 --> 00:28:06.053
+ubugeeei: so I hope to share the progress too. But I
+won't spend the whole talk focusing on that.
+
+318
+00:28:05.654 --> 00:28:10.800
+Theo: By the way, Vapor was announced at Vue Fes two
+years ago.
+
+319
+00:28:10.800 --> 00:28:15.467
+Theo: There was some discussion of the middle end then
+too,
+
+320
+00:28:15.467 --> 00:28:18.452
+Theo: and something like MLIR,
+
+321
+00:28:18.452 --> 00:28:20.655
+Theo: an inter... [trails off]
+
+322
+00:28:20.655 --> 00:28:26.804
+ubugeeei: MLIR itself is part of the LLVM project.
+
+323
+00:28:26.804 --> 00:28:31.270
+ubugeeei: IR stands for intermediate representation.
+It's the representation in between.
+
+324
+00:28:31.833 --> 00:28:34.518
+Theo: Intermediate representation. Right.
+
+325
+00:28:34.518 --> 00:28:38.085
+Theo: That's entirely down to Theo's Japanese.
+
+326
+00:28:38.085 --> 00:28:40.290
+Theo: So there's an intermediate representation.
+
+327
+00:28:40.290 --> 00:28:47.844
+Theo: Is the IR used by the Vapor compiler the same as
+the one Vize uses internally?
+
+328
+00:28:47.825 --> 00:28:51.772
+ubugeeei: Good question. That's a really good question.
+
+329
+00:28:51.772 --> 00:28:59.405
+ubugeeei: I want to unify that on the Vize side too.
+Vize has its own compiler,
+
+330
+00:28:59.405 --> 00:29:02.409
+ubugeeei: and Vapor mode currently has an IR,
+
+331
+00:29:02.530 --> 00:29:09.137
+ubugeeei: but upstream Vue.js doesn't have that concept
+for the regular VNode-based mode.
+
+332
+00:29:09.137 --> 00:29:12.761
+ubugeeei: When you think about it, that's a little
+awkward, isn't it?
+
+333
+00:29:12.761 --> 00:29:15.665
+ubugeeei: A common Vue.js IR with shared semantics would
+be cleaner,
+
+334
+00:29:15.665 --> 00:29:22.772
+ubugeeei: and then connect it neatly to both VNodes and
+Vapor.
+
+335
+00:29:22.772 --> 00:29:25.395
+ubugeeei: So my work encompasses that too.
+
+336
+00:29:25.864 --> 00:29:31.090
+ubugeeei: If you're asking whether it's the same as
+Vapor's IR, it'll actually be quite different.
+
+337
+00:29:31.090 --> 00:29:36.977
+ubugeeei: But architecturally, it's closer to how
+Vapor's current IR works.
+
+338
+00:29:36.977 --> 00:29:40.381
+ubugeeei: I want to bring the VNode side onto that
+approach too.
+
+339
+00:29:40.381 --> 00:29:47.710
+Theo: One of LLVM's strengths is that different
+languages use the same IR.
+
+340
+00:29:47.732 --> 00:29:53.864
+Theo: That made me wonder whether all frontend
+frameworks might someday share an IR.
+
+341
+00:29:55.327 --> 00:29:58.213
+Theo: Does rsvelte use an IR internally too?
+
+342
+00:29:58.213 --> 00:30:02.281
+baseballyama: No, rsvelte doesn't do anything quite that
+complicated.
+
+343
+00:30:03.043 --> 00:30:05.648
+baseballyama: Our thinking differs a little there.
+
+344
+00:30:06.003 --> 00:30:13.934
+baseballyama: My understanding is that Vize tries more
+advanced ideas
+
+345
+00:30:13.934 --> 00:30:17.459
+baseballyama: and gives the good results back to the
+community.
+
+346
+00:30:17.459 --> 00:30:25.451
+baseballyama: rsvelte has a simpler scope: take the
+Svelte ecosystem
+
+347
+00:30:25.451 --> 00:30:28.055
+baseballyama: and replace its implementation with Rust.
+
+348
+00:30:29.280 --> 00:30:32.527
+baseballyama: Partly, that's because I can't come up
+with ideas that advanced,
+
+349
+00:30:32.527 --> 00:30:39.844
+baseballyama: but I also want it to be practical, and
+that requires solid compatibility,
+
+350
+00:30:39.844 --> 00:30:42.550
+baseballyama: especially with upstream.
+
+351
+00:30:42.550 --> 00:30:47.725
+baseballyama: That's where I'm putting more of my
+effort.
+
+352
+00:30:47.725 --> 00:30:55.301
+baseballyama: I've heard Vue people discuss this IR idea
+a few times,
+
+353
+00:30:55.301 --> 00:30:58.227
+baseballyama: and it'd be amazing if it worked.
+
+354
+00:30:58.227 --> 00:31:02.155
+ubugeeei: I'm trying to make it happen. [laughs] Just
+putting that out there quietly.
+
+355
+00:31:03.372 --> 00:31:08.400
+Theo: With an IR, you'd need a complete representation,
+wouldn't you?
+
+356
+00:31:08.400 --> 00:31:16.393
+Theo: You'd need syntax and concepts that can express
+anything
+
+357
+00:31:16.393 --> 00:31:21.460
+Theo: found in any frontend framework. But some things
+exist only in Vue, not Svelte,
+
+358
+00:31:21.460 --> 00:31:27.109
+Theo: and plenty exist in Svelte but not Vue. How do you
+handle that?
+
+359
+00:31:28.231 --> 00:31:33.261
+ubugeeei: That's exactly the idea behind the MLIR
+approach I mentioned.
+
+360
+00:31:33.261 --> 00:31:37.691
+ubugeeei: As I said, there isn't just one IR.
+
+361
+00:31:37.691 --> 00:31:42.520
+ubugeeei: MLIR stands for Multi-Level Intermediate
+Representation.
+
+362
+00:31:44.188 --> 00:31:51.120
+ubugeeei: It has this concept of dialects, which can
+take care of Vue-specific things.
+
+363
+00:31:51.120 --> 00:31:56.770
+ubugeeei: So it's a shared, multilayer IR.
+
+364
+00:31:56.770 --> 00:32:01.017
+ubugeeei: In Vize, I'm building something like a
+UI-level IR.
+
+365
+00:32:01.017 --> 00:32:06.066
+ubugeeei: Whether it's Svelte, Vue, or Angular, you have
+bindings,
+
+366
+00:32:06.548 --> 00:32:11.236
+ubugeeei: derived state, and so on. That's the more
+abstract layer.
+
+367
+00:32:11.236 --> 00:32:17.808
+ubugeeei: Then the design also accepts concepts specific
+to Vue or Svelte as dialects.
+
+368
+00:32:17.808 --> 00:32:19.832
+ubugeeei: I haven't built the Svelte part yet,
+
+369
+00:32:19.832 --> 00:32:23.539
+ubugeeei: and I wouldn't actually put Svelte support
+into Vize,
+
+370
+00:32:23.539 --> 00:32:28.288
+ubugeeei: but I want it to be possible to connect to
+that.
+
+371
+00:32:28.288 --> 00:32:35.954
+ubugeeei: Once you lower things to this IR, the
+remaining compilation could emit similar JavaScript.
+
+372
+00:32:35.954 --> 00:32:40.538
+ubugeeei: That's precisely what I'm aiming for right
+now. Well, aiming for...
+
+373
+00:32:40.538 --> 00:32:46.204
+ubugeeei: This is largely a hobby project. It simply
+sounds interesting, so I want to try it.
+
+374
+00:32:46.204 --> 00:32:51.350
+ubugeeei: That's really where I'm coming from. Another
+thing I've been thinking about lately
+
+375
+00:32:54.171 --> 00:33:00.985
+ubugeeei: is preprocessors. Some projects use them.
+Maybe they're less common now,
+
+376
+00:33:00.985 --> 00:33:04.231
+ubugeeei: but older projects may still want them.
+
+377
+00:33:04.231 --> 00:33:11.165
+ubugeeei: For templates, there's Pug, for example, or
+Sass and SCSS for styles.
+
+378
+00:33:11.165 --> 00:33:15.787
+ubugeeei: Vue actually lets you write templates in Pug
+by setting lang="pug",
+
+379
+00:33:15.787 --> 00:33:20.274
+ubugeeei: but that sort of thing isn't supported either.
+
+380
+00:33:20.274 --> 00:33:24.420
+ubugeeei: A multilayer IR would help with those cases
+too.
+
+381
+00:33:24.420 --> 00:33:29.067
+ubugeeei: Whether you write Pug or the regular syntax,
+you could have an IR layer
+
+382
+00:33:29.067 --> 00:33:36.893
+ubugeeei: that represents the same meaning. With those
+multiple layers,
+
+383
+00:33:36.893 --> 00:33:42.923
+ubugeeei: I'm trying to normalize all of that. That's
+another thing I've been working on.
+
+384
+00:33:42.824 --> 00:33:48.572
+Theo: Comparing these two projects, I'm seeing a pretty
+big difference.
+
+385
+00:33:48.572 --> 00:33:53.440
+Theo: There's a more general solution
+
+386
+00:33:53.440 --> 00:33:59.729
+Theo: and a more directly applied one. Though Vize is
+practical too, of course.
+
+387
+00:33:59.729 --> 00:34:07.562
+Theo: But over the long term, something like that IR
+
+388
+00:34:07.562 --> 00:34:10.006
+Theo: gives it a different ultimate goal.
+
+389
+00:34:11.808 --> 00:34:14.973
+baseballyama: Another reason I'm not pursuing that
+approach,
+
+390
+00:34:15.974 --> 00:34:21.362
+baseballyama: and there's no single right answer here;
+people should explore what interests them and let good
+ideas spread,
+
+391
+00:34:24.682 --> 00:34:32.131
+baseballyama: is that more layers mean more abstractions
+and more things to think about. It gets very difficult.
+
+392
+00:34:32.131 --> 00:34:35.515
+baseballyama: Implementation itself has become
+incredibly fast now.
+
+393
+00:34:35.515 --> 00:34:42.763
+baseballyama: If you want to create a UI framework, you
+can just create it without thinking about all those
+abstractions.
+
+394
+00:34:42.763 --> 00:34:46.027
+baseballyama: Define the syntax, write a compiler to
+turn it into JavaScript,
+
+395
+00:34:46.027 --> 00:34:48.210
+baseballyama: then write a runtime, and there you go.
+
+396
+00:34:48.630 --> 00:34:53.776
+baseballyama: You can just build one straightforward
+pipeline without all that abstraction, and you're done.
+
+397
+00:34:53.776 --> 00:35:00.222
+baseballyama: The biggest reason is that other people
+are already thinking about those problems,
+
+398
+00:35:00.222 --> 00:35:05.448
+baseballyama: but personally, I also think there's
+something to be said for whoever has a good idea
+
+399
+00:35:05.448 --> 00:35:09.412
+baseballyama: just building a straightforward pipeline
+for it. That's simpler.
+
+400
+00:35:09.412 --> 00:35:13.636
+ubugeeei: DHH! DHH! DHH! [laughs]
+
+401
+00:35:14.997 --> 00:35:20.544
+baseballyama: [laughs] Right. Rust is the best language,
+as long as you don't read it.
+
+402
+00:35:20.544 --> 00:35:23.207
+ubugeeei: We used to talk constantly about things like
+DRY...
+
+403
+00:35:23.247 --> 00:35:29.474
+ubugeeei: Oh, I see. Now AI can handle all of that at
+once, so it isn't such a problem anymore.
+
+404
+00:35:29.496 --> 00:35:32.603
+ubugeeei: Yeah. You can just write each one separately.
+
+405
+00:35:32.663 --> 00:35:36.031
+baseballyama: Ah, that's the idea.
+
+406
+00:35:36.031 --> 00:35:42.869
+Theo: That's the thing that was going viral on X,
+formerly Twitter, this morning. [laughs]
+
+407
+00:35:42.869 --> 00:35:47.897
+Theo: Vibe coding is turning code into something
+disposable,
+
+408
+00:35:47.897 --> 00:35:53.205
+Theo: so maybe we don't even need to think about IRs
+anymore.
+
+409
+00:35:53.205 --> 00:35:58.193
+Theo: Just have AI write it directly. That's the idea,
+right?
+
+410
+00:35:58.193 --> 00:35:59.695
+ubugeeei: If it scales horizontally.
+
+411
+00:35:59.972 --> 00:36:06.082
+Theo: Right. I'd like to dig into something here.
+
+412
+00:36:06.082 --> 00:36:11.752
+Theo: I'm curious about the response from the community
+and other maintainers.
+
+413
+00:36:11.752 --> 00:36:19.126
+Theo: I imagine not every Vue or Svelte maintainer can
+write Rust.
+
+414
+00:36:19.126 --> 00:36:21.450
+Theo: How have people reacted?
+
+415
+00:36:24.953 --> 00:36:30.621
+ubugeeei: Well, for context, Evan You, the creator of
+Vue.js, can't write Rust.
+
+416
+00:36:30.621 --> 00:36:34.608
+ubugeeei: People at VoidZero can, but Evan himself
+hasn't written Rust.
+
+417
+00:36:37.072 --> 00:36:42.783
+ubugeeei: At one point, he even moved from preferring
+TypeScript to preferring JavaScript. [laughs]
+
+418
+00:36:42.783 --> 00:36:47.733
+ubugeeei: That's a little like Rich Harris, Svelte's
+creator. [laughs]
+
+419
+00:36:47.733 --> 00:36:51.060
+ubugeeei: As for the core team,
+
+420
+00:36:51.060 --> 00:36:55.369
+ubugeeei: among the people currently active
+
+421
+00:36:55.369 --> 00:37:02.358
+ubugeeei: in Vue's core team, most probably can't write
+Rust.
+
+422
+00:37:02.358 --> 00:37:05.161
+ubugeeei: After I started writing Rust,
+
+423
+00:37:07.109 --> 00:37:14.359
+ubugeeei: there have been some people who've said
+they've started too,
+
+424
+00:37:14.359 --> 00:37:20.789
+ubugeeei: but on the whole, people don't write it much.
+
+425
+00:37:20.789 --> 00:37:24.014
+ubugeeei: And it's not just a Rust issue.
+
+426
+00:37:24.014 --> 00:37:27.480
+ubugeeei: The people building JavaScript toolchains, at
+SWC, VoidZero, or Oxc,
+
+427
+00:37:27.480 --> 00:37:34.477
+ubugeeei: often don't know much about Vue or Svelte
+either.
+
+428
+00:37:34.477 --> 00:37:41.836
+ubugeeei: There aren't many specialists in that overlap.
+It's because we sit between those worlds
+
+429
+00:37:41.836 --> 00:37:48.064
+ubugeeei: that Yama and I are doing this. I think that's
+a more accurate way to put it.
+
+430
+00:37:48.064 --> 00:37:55.495
+ubugeeei: I guess there aren't that many Rust developers
+on the Svelte team either?
+
+431
+00:37:55.495 --> 00:37:59.101
+baseballyama: I haven't heard anyone say they're really
+fluent in Rust.
+
+432
+00:37:59.101 --> 00:38:04.930
+Theo: Do you discuss rsvelte in the maintainers'
+channel?
+
+433
+00:38:04.510 --> 00:38:12.504
+baseballyama: Yes. First, there are all kinds of people
+on Svelte's core team,
+
+434
+00:38:12.504 --> 00:38:15.609
+baseballyama: so this isn't a unanimous position. But
+from reading the channel,
+
+435
+00:38:15.978 --> 00:38:23.948
+baseballyama: there seems to be a broad consensus that
+we'll have to get good at using AI.
+
+436
+00:38:23.948 --> 00:38:28.033
+baseballyama: That's the direction things seem to be
+heading.
+
+437
+00:38:28.033 --> 00:38:34.863
+baseballyama: And of course, everyone agrees that Oxc
+and Rust-based toolchains are very fast.
+
+438
+00:38:34.863 --> 00:38:40.530
+baseballyama: Given that, if we can write the toolchain
+in Rust, then of course that sounds better.
+
+439
+00:38:40.530 --> 00:38:47.980
+baseballyama: A consensus along those lines may
+gradually be forming, with Rich Harris at the center of
+it.
+
+440
+00:38:47.980 --> 00:38:55.250
+baseballyama: That's where we are. The problem is that
+many people aren't fluent in Rust.
+
+441
+00:38:55.250 --> 00:39:00.757
+baseballyama: When you want to add a major new feature
+to Svelte, like async Svelte,
+
+442
+00:39:00.757 --> 00:39:08.573
+baseballyama: and you're not fluent in Rust, with AI
+doing most of the coding,
+
+443
+00:39:09.014 --> 00:39:12.118
+baseballyama: how do you actually make implementation
+work?
+
+444
+00:39:12.118 --> 00:39:14.821
+baseballyama: That's still a major challenge.
+
+445
+00:39:14.821 --> 00:39:21.490
+baseballyama: We've discussed how moving Rust to the
+center of things would be difficult without solving
+that.
+
+446
+00:39:21.490 --> 00:39:26.016
+baseballyama: We're considering whether to put it on the
+agenda
+
+447
+00:39:26.016 --> 00:39:32.125
+baseballyama: for the offsite meeting before Svelte
+Summit.
+
+448
+00:39:32.125 --> 00:39:37.293
+baseballyama: The Svelte project is also working on
+getting better at using AI.
+
+449
+00:39:37.293 --> 00:39:44.665
+baseballyama: In some Svelte repositories, AI has
+recently been triaging bugs and opening PRs.
+
+450
+00:39:44.665 --> 00:39:47.829
+baseballyama: Sometimes the changes are wrong and get
+reverted,
+
+451
+00:39:48.272 --> 00:39:53.162
+baseballyama: but my impression lately is that people
+are putting a lot of effort into this.
+
+452
+00:39:53.162 --> 00:39:55.567
+ubugeeei: Another thing I keep coming back to
+
+453
+00:39:55.567 --> 00:40:01.460
+ubugeeei: is that people say they can't write Rust
+because they haven't written it before.
+
+454
+00:40:01.460 --> 00:40:06.205
+ubugeeei: If Rust becomes the language we use, I think
+people will end up writing it, because they'll have to.
+
+455
+00:40:06.205 --> 00:40:10.570
+ubugeeei: I'm fairly optimistic about that.
+
+456
+00:40:10.570 --> 00:40:15.656
+ubugeeei: Evan founded VoidZero, a company building
+JavaScript tooling in Rust,
+
+457
+00:40:15.656 --> 00:40:20.756
+ubugeeei: without being able to write Rust himself. But
+he can make a small fix if he needs to,
+
+458
+00:40:20.756 --> 00:40:28.753
+ubugeeei: and people who can write it can do that work.
+You don't say, 'Our team only knows TypeScript,
+
+459
+00:40:28.753 --> 00:40:34.947
+ubugeeei: so we'll only use TypeScript.' To put it
+bluntly, programming languages are only tools.
+
+460
+00:40:35.188 --> 00:40:44.795
+ubugeeei: If everyone decides Rust is a good fit and the
+project moves to Rust, people will find ways to write
+it.
+
+461
+00:40:44.795 --> 00:40:50.270
+ubugeeei: And when it comes to whether a language is
+easy or hard for the team to use,
+
+462
+00:40:50.270 --> 00:40:57.204
+ubugeeei: it wasn't as though TypeScript
+
+463
+00:40:59.428 --> 00:41:03.175
+ubugeeei: was selected because the core team happened to
+have lots of people
+
+464
+00:41:03.175 --> 00:41:06.120
+ubugeeei: who were extremely good at it.
+
+465
+00:41:06.341 --> 00:41:11.249
+ubugeeei: We call it a core team, but a lot of the work
+really comes down to individuals.
+
+466
+00:41:11.391 --> 00:41:19.142
+ubugeeei: It's less like a company setting priorities
+and more like, if someone can do the work, why not?
+
+467
+00:41:19.142 --> 00:41:26.313
+ubugeeei: I'm fairly optimistic about that. Take
+Vue.js's core team.
+
+468
+00:41:26.313 --> 00:41:28.737
+ubugeeei: It sounds like a big team,
+
+469
+00:41:28.737 --> 00:41:33.565
+ubugeeei: but the Vapor compiler is effectively being
+driven by one person on the core team.
+
+470
+00:41:33.565 --> 00:41:38.257
+ubugeeei: Edison is doing an enormous amount of that
+work. That's how these things go, right?
+
+471
+00:41:38.257 --> 00:41:40.902
+ubugeeei: Others aren't necessarily working on those
+parts.
+
+472
+00:41:41.483 --> 00:41:48.175
+ubugeeei: If there's one person who's really good at
+Rust, I think it's fine for things to revolve around
+Rust.
+
+473
+00:41:48.175 --> 00:41:50.479
+ubugeeei: Of course, that depends on the team's
+direction.
+
+474
+00:41:50.479 --> 00:41:58.013
+ubugeeei: Lately, I haven't really felt that 'nobody
+knows Rust' is ultimately such a big concern.
+
+475
+00:41:58.414 --> 00:42:02.824
+ubugeeei: At VoidZero,
+
+476
+00:42:02.824 --> 00:42:07.973
+ubugeeei: the Vite team in particular weren't originally
+Rust developers.
+
+477
+00:42:07.973 --> 00:42:15.966
+ubugeeei: With Rolldown and Vite, they've had to reach
+into Rust,
+
+478
+00:42:15.966 --> 00:42:20.874
+ubugeeei: and now they're doing substantial Rust work in
+Rolldown. That's actually happening.
+
+479
+00:42:20.874 --> 00:42:26.163
+ubugeeei: I think something similar could happen here.
+
+480
+00:42:26.163 --> 00:42:32.000
+baseballyama: Interesting.
+
+481
+00:42:32.000 --> 00:42:33.875
+Theo: We've gone in a slightly different direction
+
+482
+00:42:33.875 --> 00:42:41.107
+Theo: than I expected. Something just occurred to me.
+
+483
+00:42:41.107 --> 00:42:46.828
+Theo: This is more abstract, maybe even philosophical,
+
+484
+00:42:46.828 --> 00:42:54.368
+Theo: but both Vize and rsvelte are being built more or
+less by one person, or one person plus AI.
+
+485
+00:42:54.511 --> 00:43:01.741
+Theo: That's what the contributions look like, anyway.
+In the future of open source,
+
+486
+00:43:01.741 --> 00:43:09.191
+Theo: will we see more projects built by a single person
+like that?
+
+487
+00:43:09.191 --> 00:43:16.882
+Theo: Or, to ask a pretty big question, will open-source
+communities still be necessary?
+
+488
+00:43:16.882 --> 00:43:24.033
+Theo: I'm curious how you think about that.
+
+489
+00:43:24.033 --> 00:43:31.821
+baseballyama: Well, to give my answer first, I think
+communities
+
+490
+00:43:31.821 --> 00:43:35.044
+baseballyama: are absolutely necessary. The reason is,
+
+491
+00:43:35.304 --> 00:43:40.910
+baseballyama: to make something better, you need to hear
+from its users.
+
+492
+00:43:41.411 --> 00:43:46.520
+baseballyama: Something that works well for you might be
+enough for version 1,
+
+493
+00:43:46.520 --> 00:43:53.572
+baseballyama: but if you want to grow it into version 2
+or 3, you need to know about different use cases.
+
+494
+00:43:53.572 --> 00:43:56.517
+baseballyama: Otherwise, you can't make something better
+or more useful.
+
+495
+00:43:56.517 --> 00:43:59.843
+baseballyama: I think the only way to get that is
+through community feedback.
+
+496
+00:43:59.843 --> 00:44:04.170
+baseballyama: What matters is how people actually want
+to use it.
+
+497
+00:44:04.511 --> 00:44:09.622
+baseballyama: So I don't think that changes: communities
+will remain absolutely necessary.
+
+498
+00:44:09.622 --> 00:44:13.430
+baseballyama: That's how I see it.
+
+499
+00:44:13.430 --> 00:44:19.944
+baseballyama: As for whether we'll see more impressive
+open-source projects built by one person,
+
+500
+00:44:19.944 --> 00:44:22.670
+baseballyama: I think that's largely how it's always
+been.
+
+501
+00:44:22.670 --> 00:44:30.424
+baseballyama: Someone extraordinarily productive
+suddenly builds something amazing. Anthony Fu is like
+that.
+
+502
+00:44:30.424 --> 00:44:35.915
+baseballyama: Take Git, for example. Linus Torvalds
+suddenly created it,
+
+503
+00:44:35.915 --> 00:44:39.706
+baseballyama: and it came together incredibly quickly,
+in about ten days, didn't it?
+
+504
+00:44:39.706 --> 00:44:43.257
+ubugeeei: Evan and Rich Harris are similar.
+
+505
+00:44:43.257 --> 00:44:44.301
+baseballyama: Vite too, right?
+
+506
+00:44:44.301 --> 00:44:50.689
+baseballyama: Evan had a good idea one evening, coded
+until morning, and had the first version.
+
+507
+00:44:50.689 --> 00:44:57.998
+baseballyama: An extraordinarily productive person with
+a good idea builds something,
+
+508
+00:44:57.998 --> 00:45:02.844
+baseballyama: and it spreads because it's good. I think
+that's always been the pattern.
+
+509
+00:45:02.844 --> 00:45:06.908
+baseballyama: In that sense, I don't think the
+underlying structure changes much.
+
+510
+00:45:06.908 --> 00:45:10.617
+baseballyama: One thing that may change is that someone
+can have a great idea,
+
+511
+00:45:10.617 --> 00:45:17.272
+baseballyama: but be too busy with work, family, or
+other commitments to put time into it.
+
+512
+00:45:17.272 --> 00:45:20.058
+baseballyama: It's easier now for them to make those
+ideas real.
+
+513
+00:45:20.996 --> 00:45:24.521
+baseballyama: That could let more good things make it
+out into the world.
+
+514
+00:45:24.521 --> 00:45:29.388
+baseballyama: That's one way to look at it.
+
+515
+00:45:29.388 --> 00:45:31.852
+baseballyama: This might be a little off topic,
+
+516
+00:45:31.852 --> 00:45:37.160
+baseballyama: but what worries me about AI coding, at
+least as of 2026, is quality.
+
+517
+00:45:37.160 --> 00:45:40.845
+baseballyama: With code written by highly productive
+people,
+
+518
+00:45:40.845 --> 00:45:45.454
+baseballyama: you sometimes hear that people who write
+code quickly somehow also produce fewer bugs.
+
+519
+00:45:45.574 --> 00:45:51.827
+baseballyama: But even now, in 2026, AI can introduce
+terrible bugs in places you didn't expect.
+
+520
+00:45:51.827 --> 00:45:58.120
+baseballyama: So I think we could use more established
+practices for maintaining quality,
+
+521
+00:45:58.120 --> 00:46:05.273
+baseballyama: and it would be good for those practices
+to become more standardized.
+
+522
+00:46:05.273 --> 00:46:10.680
+baseballyama: That would make it easier to feel
+confident using projects written with AI.
+
+523
+00:46:10.680 --> 00:46:13.624
+baseballyama: That's something I think about.
+
+524
+00:46:13.624 --> 00:46:20.533
+ubugeeei: I completely agree, especially that this is
+largely how it's always been.
+
+525
+00:46:20.533 --> 00:46:25.540
+ubugeeei: Evan built Vue mostly on his own,
+
+526
+00:46:25.540 --> 00:46:28.000
+ubugeeei: and of course Rich created Svelte.
+
+527
+00:46:28.000 --> 00:46:34.563
+baseballyama: And Rollup too. That was Rich as well.
+[laughs]
+
+528
+00:46:34.563 --> 00:46:41.574
+ubugeeei: So in that sense,
+
+529
+00:46:41.574 --> 00:46:49.566
+ubugeeei: it's still the same story: exceptionally
+capable people becoming even more capable.
+
+530
+00:46:49.566 --> 00:46:55.882
+ubugeeei: Setting that aside, you also mentioned wanting
+more ways
+
+531
+00:46:55.882 --> 00:46:59.388
+ubugeeei: to maintain quality.
+
+532
+00:46:59.388 --> 00:47:05.378
+ubugeeei: With Vize, for instance, we have far more test
+cases and fixtures than people used to write by hand.
+
+533
+00:47:07.261 --> 00:47:10.412
+ubugeeei: We pull huge numbers of them from GitHub and
+run tons of tests.
+
+534
+00:47:10.412 --> 00:47:16.266
+ubugeeei: Another thing I've been doing lately,
+
+535
+00:47:16.266 --> 00:47:23.925
+ubugeeei: in most of my open-source projects, is writing
+an 'ubugeeei-redundancy' document to make my own role
+replaceable.
+
+536
+00:47:23.925 --> 00:47:31.817
+ubugeeei: The idea is that, given that document, an AI
+could do roughly the same work I do.
+
+537
+00:47:31.817 --> 00:47:39.667
+ubugeeei: That's the kind of documentation it is. And
+this may sound very irresponsible,
+
+538
+00:47:39.667 --> 00:47:45.453
+ubugeeei: but it's an unofficial third-party project; it
+isn't being merged into the main project.
+
+539
+00:47:45.453 --> 00:47:51.140
+ubugeeei: If there's a problem, people can fork it and
+use their own version.
+
+540
+00:47:51.140 --> 00:47:55.882
+ubugeeei: I've put it under the MIT license to allow
+that too.
+
+541
+00:47:55.882 --> 00:48:02.578
+ubugeeei: Honestly, I don't currently see the person
+rapidly building it becoming a single point of failure
+
+542
+00:48:02.578 --> 00:48:05.925
+ubugeeei: as such a major problem here.
+
+543
+00:48:05.925 --> 00:48:12.938
+ubugeeei: There are lots of tests, there's
+documentation, and it isn't going straight into
+upstream.
+
+544
+00:48:12.938 --> 00:48:20.306
+ubugeeei: So I'm just carrying on with it in that
+spirit.
+
+545
+00:48:20.306 --> 00:48:23.389
+Theo: What does adoption look like? Do Vize and rsvelte
+
+546
+00:48:23.389 --> 00:48:25.892
+Theo: have many users yet?
+
+547
+00:48:29.883 --> 00:48:32.486
+baseballyama: Vize probably has more.
+
+548
+00:48:32.486 --> 00:48:37.352
+baseballyama: rsvelte is used in a meta-framework called
+Mochi, for example.
+
+549
+00:48:37.393 --> 00:48:42.319
+baseballyama: And occasionally people seem to be using
+it, because we get issues from them.
+
+550
+00:48:42.319 --> 00:48:45.704
+baseballyama: I don't really know how much it's being
+used in production,
+
+551
+00:48:45.704 --> 00:48:50.992
+baseballyama: but if the question is whether anyone is
+using it at all, there do seem to be a few users.
+
+552
+00:48:50.992 --> 00:48:52.053
+baseballyama: Yeah.
+
+553
+00:48:52.296 --> 00:48:56.342
+Theo: Can you use it with SvelteKit, for example?
+
+554
+00:48:56.342 --> 00:48:57.925
+baseballyama: Yes, it works with SvelteKit.
+
+555
+00:48:57.925 --> 00:49:02.912
+baseballyama: rsvelte has its own vite-plugin-svelte.
+
+556
+00:49:02.912 --> 00:49:08.100
+baseballyama: If you use that, I think changing a single
+line is enough to swap out the compiler.
+
+557
+00:49:08.100 --> 00:49:12.747
+Theo: That compatibility you mentioned earlier. It's a
+port rather than a rewrite.
+
+558
+00:49:12.747 --> 00:49:16.533
+baseballyama: Right, it's a port of the Svelte compiler.
+
+559
+00:49:16.448 --> 00:49:19.073
+Theo: And is Vize getting fairly widespread use?
+
+560
+00:49:19.073 --> 00:49:24.725
+ubugeeei: No, it hasn't spread to the point of being
+people's first choice.
+
+561
+00:49:24.725 --> 00:49:30.999
+ubugeeei: But it does have actual users. And an
+interesting thing
+
+562
+00:49:30.999 --> 00:49:36.170
+ubugeeei: is that, by my rough impression, about half
+the usage is through forks.
+
+563
+00:49:36.392 --> 00:49:43.168
+ubugeeei: We're used to toolchains being distributed
+through npm,
+
+564
+00:49:43.168 --> 00:49:47.338
+ubugeeei: but Vize is still experimental, and naturally
+some parts don't work for people yet.
+
+565
+00:49:47.338 --> 00:49:52.270
+ubugeeei: Now it's much easier to fork it and change
+some behavior, even if you can't read Rust.
+
+566
+00:49:52.270 --> 00:49:56.696
+ubugeeei: I find that interesting, and it feels a little
+new.
+
+567
+00:49:56.696 --> 00:50:03.585
+ubugeeei: Either way, people use it as an npm package or
+through forks.
+
+568
+00:50:03.585 --> 00:50:08.491
+ubugeeei: The linter, compiler, and type checker all
+seem to be getting use.
+
+569
+00:50:08.491 --> 00:50:16.053
+ubugeeei: Some companies use it, and we use parts of it
+at my own company too.
+
+570
+00:50:16.053 --> 00:50:16.353
+ubugeeei: Yeah.
+
+571
+00:50:16.154 --> 00:50:21.631
+baseballyama: Unlike JavaScript, you can't just make a
+little tweak with pnpm patch. [laughs]
+
+572
+00:50:21.631 --> 00:50:25.796
+baseballyama: If you really want to change something,
+you have to fork it and build it yourself.
+
+573
+00:50:25.917 --> 00:50:27.058
+ubugeeei: Exactly.
+
+574
+00:50:27.058 --> 00:50:28.880
+Theo: That's just Rust being a pain. [laughs]
+
+575
+00:50:28.880 --> 00:50:30.823
+baseballyama: That part is a bit of a hassle, isn't it?
+
+576
+00:50:30.983 --> 00:50:34.147
+ubugeeei: It is, yeah.
+
+577
+00:50:34.147 --> 00:50:40.916
+Theo: By the way, had both of you been writing Rust
+before these projects?
+
+578
+00:50:40.838 --> 00:50:48.838
+ubugeeei: I'd been writing quite a bit. Rust was one of
+my favorite languages
+
+579
+00:50:50.062 --> 00:50:57.455
+ubugeeei: even before the Oxc wave. I'd wanted to do
+something in Rust
+
+580
+00:50:57.455 --> 00:51:03.541
+ubugeeei: around Vue since about 2022 or 2023.
+
+581
+00:51:03.541 --> 00:51:08.065
+ubugeeei: Then Oxc and similar tools started developing.
+
+582
+00:51:08.065 --> 00:51:11.548
+ubugeeei: At that point,
+
+583
+00:51:11.548 --> 00:51:17.453
+ubugeeei: AI wasn't nearly as wild as it is now,
+
+584
+00:51:17.453 --> 00:51:21.056
+ubugeeei: but the idea had been on my mind for a long
+time.
+
+585
+00:51:21.056 --> 00:51:25.080
+ubugeeei: AI advanced so much that, as Yama said, ideas
+can become reality very quickly.
+
+586
+00:51:27.256 --> 00:51:33.927
+ubugeeei: That improvement was so dramatic that I really
+got going this year.
+
+587
+00:51:33.927 --> 00:51:40.317
+ubugeeei: So the idea goes back a long way, and I'd been
+writing Rust for quite a while before that.
+
+588
+00:51:40.317 --> 00:51:43.783
+baseballyama: I hadn't written that much Rust.
+
+589
+00:51:43.783 --> 00:51:48.772
+baseballyama: When Oxc came along and I wanted to use it
+at work,
+
+590
+00:51:48.772 --> 00:51:54.141
+baseballyama: I wanted to understand what kind of tool
+it was.
+
+591
+00:51:54.141 --> 00:52:00.190
+baseballyama: For me, submitting pull requests is the
+best way to understand something.
+
+592
+00:52:00.511 --> 00:52:06.441
+baseballyama: So I read the code and documentation and
+submitted a few PRs.
+
+593
+00:52:06.441 --> 00:52:11.712
+baseballyama: That wasn't quite my first experience with
+Rust, but it was pretty close.
+
+594
+00:52:11.712 --> 00:52:18.561
+baseballyama: That's basically the extent of my
+experience.
+
+595
+00:52:18.561 --> 00:52:23.548
+baseballyama: I'm very fluent in JavaScript, although
+maybe I've forgotten how to write it because I use AI so
+much now.
+
+596
+00:52:23.548 --> 00:52:25.531
+baseballyama: I can write JavaScript reasonably
+fluently,
+
+597
+00:52:25.531 --> 00:52:29.876
+baseballyama: but I'm shakier in Rust. I still wrestle
+with compiler errors.
+
+598
+00:52:30.458 --> 00:52:33.081
+baseballyama: That's roughly where I am.
+
+599
+00:52:33.924 --> 00:52:39.974
+ubugeeei: Even so, I spend more time writing Rust than
+TypeScript now.
+
+600
+00:52:36.700 --> 00:52:38.200
+baseballyama: Oh! [laughs]
+
+601
+00:52:40.014 --> 00:52:44.282
+baseballyama: For me, it's 99% languages other than
+Rust. [laughs]
+
+602
+00:52:44.282 --> 00:52:48.249
+baseballyama: That's about where things stand, yeah.
+
+603
+00:52:48.249 --> 00:52:55.685
+Theo: One last thing: you're building quite a bit of
+Vize and rsvelte
+
+604
+00:52:55.685 --> 00:53:00.192
+Theo: through vibe coding these days, right?
+
+605
+00:53:00.192 --> 00:53:03.517
+ubugeeei: That's right. Vibe coding.
+
+606
+00:53:03.000 --> 00:53:05.150
+Theo: Is that not the case for you, ubugeeei?
+
+607
+00:53:03.517 --> 00:53:05.440
+baseballyama: For me, yes, it's vibe coding. [laughs]
+
+608
+00:53:05.440 --> 00:53:09.106
+baseballyama: Vibe coding, using AI.
+
+609
+00:53:10.709 --> 00:53:14.877
+ubugeeei: There are still quite a few things I want to
+write myself.
+
+610
+00:53:14.877 --> 00:53:21.720
+ubugeeei: I don't really feel like I'm just coding by
+vibes. [laughs]
+
+611
+00:53:23.559 --> 00:53:30.350
+Theo: Maybe 'vibe coding' wasn't quite the right term.
+
+612
+00:53:30.350 --> 00:53:37.983
+Theo: I meant that AI writes most of the code, and the
+author reviews it.
+
+613
+00:53:40.114 --> 00:53:44.225
+ubugeeei: I do a lot of code reading, although I don't
+review every change individually.
+
+614
+00:53:44.225 --> 00:53:49.721
+ubugeeei: But honestly, the rest of the time I'm
+working, and it's the same at work.
+
+615
+00:53:49.721 --> 00:53:52.810
+ubugeeei: Other team members implement things,
+
+616
+00:53:53.532 --> 00:53:59.691
+ubugeeei: and the lead doesn't inspect every tiny
+detail. That structure hasn't changed.
+
+617
+00:53:59.691 --> 00:54:05.450
+ubugeeei: For me, this hasn't gone beyond that. There's
+probably a huge amount of code,
+
+618
+00:54:05.450 --> 00:54:12.248
+ubugeeei: but I understand and review it to roughly the
+extent I would if I were leading a team.
+
+619
+00:54:12.248 --> 00:54:17.422
+ubugeeei: It isn't a case of handing everything over
+blindly.
+
+620
+00:54:17.422 --> 00:54:21.409
+ubugeeei: Really, it hasn't changed all that much.
+
+621
+00:54:21.549 --> 00:54:25.116
+ubugeeei: Instead of paying people to write code,
+
+622
+00:54:25.116 --> 00:54:29.223
+ubugeeei: I pay to have generative AI generate it.
+
+623
+00:54:29.223 --> 00:54:35.635
+ubugeeei: That's about the difference. What was the
+original question again?
+
+624
+00:54:35.635 --> 00:54:38.220
+baseballyama: Something like, 'Are you vibe coding?'
+
+625
+00:54:40.554 --> 00:54:45.514
+Theo: Vibe coding has become so... Well, even if you
+don't call it vibe coding,
+
+626
+00:54:46.200 --> 00:54:50.567
+Theo: we're entering an era where people use AI to write
+code.
+
+627
+00:54:50.567 --> 00:54:56.477
+Theo: So my question is, why do Vize and rsvelte,
+
+628
+00:54:56.477 --> 00:55:04.470
+Theo: or even the higher-level Vue and Svelte
+themselves, need to be in the middle?
+
+629
+00:55:04.470 --> 00:55:09.117
+Theo: Why not just have AI write JavaScript directly?
+
+630
+00:55:09.117 --> 00:55:15.406
+Theo: Depending on how good the AI is, that might
+perform better in some cases.
+
+631
+00:55:15.406 --> 00:55:20.092
+Theo: I think frameworks exist to make code easier for
+people to read,
+
+632
+00:55:20.092 --> 00:55:25.340
+Theo: but do we still need to keep that layer?
+
+633
+00:55:25.340 --> 00:55:26.161
+ubugeeei: Tough! [laughs]
+
+634
+00:55:30.471 --> 00:55:34.419
+ubugeeei: It is. One thing we probably have in common is
+a bit of stubborn pride.
+
+635
+00:55:34.419 --> 00:55:37.967
+ubugeeei: We like Vue or Svelte, so we build tools for
+them.
+
+636
+00:55:38.689 --> 00:55:44.000
+ubugeeei: That's one reason. Do you have anything to
+add, Yama?
+
+637
+00:55:45.539 --> 00:55:48.062
+baseballyama: By writing JavaScript directly, you mean
+
+638
+00:55:48.062 --> 00:55:54.531
+baseballyama: doing things like document.appendChild,
+right?
+
+639
+00:55:54.531 --> 00:55:56.254
+baseballyama: Wouldn't that be unreadable?
+
+640
+00:55:56.254 --> 00:56:01.782
+ubugeeei: The idea is that maybe it no longer needs to
+be readable. With AI,
+
+641
+00:56:01.782 --> 00:56:07.710
+ubugeeei: we, as people whose job is to build UIs, could
+stop using frameworks
+
+642
+00:56:08.694 --> 00:56:13.202
+ubugeeei: and just have it write good JavaScript. Until
+now, we needed to be able to read
+
+643
+00:56:13.202 --> 00:56:14.404
+ubugeeei: and write it ourselves,
+
+644
+00:56:14.404 --> 00:56:22.241
+ubugeeei: but maybe AI can take over some of the work
+that frameworks used to do for us.
+
+645
+00:56:22.241 --> 00:56:30.620
+baseballyama: To me, that's a bit like saying we should
+have AI write assembly or machine code directly.
+[laughs]
+
+646
+00:56:30.620 --> 00:56:38.101
+baseballyama: I'd first separate work from hobbies.
+
+647
+00:56:38.101 --> 00:56:45.561
+baseballyama: At work, I'm ultimately responsible, so
+the code has to be something I can read,
+
+648
+00:56:45.561 --> 00:56:51.610
+baseballyama: or at least understand properly if I put
+my mind to it.
+
+649
+00:56:51.610 --> 00:56:58.320
+baseballyama: Given my abilities, if a huge production
+codebase were all document.appendChild
+
+650
+00:56:58.320 --> 00:57:02.527
+baseballyama: and things like Svelte's compiled output,
+I honestly couldn't understand it.
+
+651
+00:57:02.527 --> 00:57:04.530
+baseballyama: Then I couldn't take responsibility for
+it.
+
+652
+00:57:04.671 --> 00:57:09.680
+baseballyama: So it needs to be written in a more
+human-friendly, readable language.
+
+653
+00:57:09.680 --> 00:57:13.627
+baseballyama: That's how I feel about work, at least.
+
+654
+00:57:13.627 --> 00:57:17.774
+baseballyama: For hobbies, sure, maybe that approach is
+fine.
+
+655
+00:57:17.774 --> 00:57:21.301
+baseballyama: But even hobbies differ. If all you need
+is for it to run,
+
+656
+00:57:21.962 --> 00:57:26.330
+baseballyama: if it's just a hobby app, then direct AI
+generation is honestly fine.
+
+657
+00:57:26.330 --> 00:57:31.261
+baseballyama: You wouldn't need a build step, and
+deployment would probably be easy. That's convenient, so
+why not?
+
+658
+00:57:31.261 --> 00:57:33.846
+baseballyama: But if you want to keep maintaining it,
+
+659
+00:57:33.846 --> 00:57:39.639
+baseballyama: or make it open source and have a wider
+community use it and help it grow,
+
+660
+00:57:39.639 --> 00:57:44.168
+baseballyama: at some point, quality starts to matter to
+some extent.
+
+661
+00:57:44.471 --> 00:57:50.240
+baseballyama: Even under an MIT license, I think you'd
+feel some responsibility.
+
+662
+00:57:50.240 --> 00:57:56.450
+baseballyama: If the code is completely unmaintainable,
+you can't take responsibility, just as in the work
+example.
+
+663
+00:57:56.450 --> 00:58:01.097
+baseballyama: Personally, that makes me question whether
+it's a viable project.
+
+664
+00:58:01.097 --> 00:58:03.922
+baseballyama: So whether it's Svelte, Vue, React, or
+something else,
+
+665
+00:58:03.922 --> 00:58:09.110
+baseballyama: I think we'll still need to write things
+in a form that's easy for humans to read.
+
+666
+00:58:09.812 --> 00:58:17.801
+ubugeeei: There's that, of course. But even for AI, is
+compiled JavaScript
+
+667
+00:58:17.801 --> 00:58:22.828
+ubugeeei: actually easier to read? I don't think it is.
+
+668
+00:58:22.828 --> 00:58:29.056
+ubugeeei: If it keeps generating minified .js files,
+reading and understanding those
+
+669
+00:58:29.056 --> 00:58:34.527
+ubugeeei: seems like it'd take an enormous amount of
+time. It's hard for AI to read too,
+
+670
+00:58:34.527 --> 00:58:37.933
+ubugeeei: just as it is for us. If anything, I think
+
+671
+00:58:37.933 --> 00:58:45.648
+ubugeeei: the more fast, smart, deterministic,
+feature-rich tools we have at a higher level,
+
+672
+00:58:45.648 --> 00:58:50.136
+ubugeeei: the faster AI can write code. That's why I'm
+building this.
+
+673
+00:58:50.136 --> 00:58:57.203
+ubugeeei: At the very beginning, Yama mentioned that
+faster verification cycles are better.
+
+674
+00:58:57.203 --> 00:59:04.238
+ubugeeei: If that layer has lots of useful features,
+that should benefit AI too when it's building something.
+
+675
+00:59:04.238 --> 00:59:09.630
+ubugeeei: Of course, whether you prefer React or Vue is
+partly a matter of taste,
+
+676
+00:59:10.212 --> 00:59:14.316
+ubugeeei: but that's another consideration.
+
+677
+00:59:14.316 --> 00:59:19.902
+ubugeeei: So I don't really think AI changes that very
+much.
+
+678
+00:59:19.902 --> 00:59:24.768
+ubugeeei: That's roughly how I see it.
+
+679
+00:59:24.768 --> 00:59:31.735
+baseballyama: But we're supposed to get incredibly
+powerful ASI, and humanity goes extinct in 2030, right?
+[laughs]
+
+680
+00:59:32.728 --> 00:59:37.660
+ubugeeei: Sounds great. [laughs] I'm really looking
+forward to that. [laughs]
+
+681
+00:59:37.660 --> 00:59:43.955
+baseballyama: If AI is really that powerful, then for
+them, and yes, I just called AI 'them',
+
+682
+00:59:44.718 --> 00:59:48.000
+baseballyama: this might be an incredibly trivial
+discussion. [laughs]
+
+683
+00:59:48.000 --> 00:59:52.478
+ubugeeei: With recent AI models,
+
+684
+00:59:52.478 --> 00:59:58.129
+ubugeeei: I've seen tuning make them produce
+intermediate output in language humans can't even
+understand. [laughs]
+
+685
+00:59:58.129 --> 01:00:05.082
+ubugeeei: I saw that on X recently. It's
+incomprehensible. [laughs]
+
+686
+01:00:04.893 --> 01:00:11.549
+Theo: Right. It's not as though every smart person
+thinks at a low level either.
+
+687
+01:00:11.549 --> 01:00:19.448
+Theo: We don't write every little throwaway program in
+assembly.
+
+688
+01:00:19.448 --> 01:00:26.446
+Theo: So a smart AI might also have less to think about
+with a higher-level language,
+
+689
+01:00:26.446 --> 01:00:33.784
+Theo: and be able to focus its attention on the things
+that matter more.
+
+690
+01:00:33.784 --> 01:00:36.550
+Theo: It might be surprisingly similar to humans in that
+respect.
+
+691
+01:00:36.471 --> 01:00:40.939
+ubugeeei: It's about scale and choosing the right thing
+for the situation.
+
+692
+01:00:40.939 --> 01:00:44.645
+ubugeeei: That's the same as it's always been, isn't it?
+
+693
+01:00:44.645 --> 01:00:48.833
+ubugeeei: I don't know exactly how large a product Yama
+had in mind earlier,
+
+694
+01:00:48.833 --> 01:00:53.020
+ubugeeei: At that scale, plain JavaScript would be
+painful. You'd want a framework.
+
+695
+01:00:53.020 --> 01:00:57.167
+ubugeeei: That's certainly one case. If you're just
+making a personal website,
+
+696
+01:00:57.167 --> 01:01:03.317
+ubugeeei: of course, you might not need one. It's about
+choosing appropriately and how far you want to scale,
+
+697
+01:01:03.317 --> 01:01:07.124
+ubugeeei: and how much responsibility you need to take.
+
+698
+01:01:07.124 --> 01:01:11.270
+ubugeeei: There isn't a single silver bullet. It
+ultimately depends on the situation.
+
+699
+01:01:11.270 --> 01:01:18.001
+ubugeeei: Maybe the conclusion is simply that it's good
+for both approaches to develop. That's how I see it.
+
+700
+01:01:17.742 --> 01:01:19.886
+baseballyama: By the way, to go back a little,
+
+701
+01:01:19.886 --> 01:01:26.480
+baseballyama: to your earlier question about whether
+we're vibe coding Vize and rsvelte,
+
+702
+01:01:26.480 --> 01:01:30.989
+baseballyama: this relates to what we've just been
+discussing. With rsvelte,
+
+703
+01:01:31.031 --> 01:01:35.719
+baseballyama: I'm deliberately giving AI a broader
+remit.
+
+704
+01:01:35.719 --> 01:01:38.965
+baseballyama: As I said earlier, at work, I have to take
+responsibility.
+
+705
+01:01:38.965 --> 01:01:43.813
+baseballyama: Even when I delegate to AI, I think very
+carefully about the design,
+
+706
+01:01:43.813 --> 01:01:46.578
+baseballyama: and check whether the resulting code makes
+structural sense.
+
+707
+01:01:46.578 --> 01:01:49.563
+baseballyama: I pay especially close attention to
+database migrations.
+
+708
+01:01:49.563 --> 01:01:53.690
+baseballyama: Honestly, I can't say I review every line
+of everything else,
+
+709
+01:01:54.331 --> 01:02:00.823
+baseballyama: but I do everything I can to fulfill my
+responsibilities at work.
+
+710
+01:02:00.823 --> 01:02:06.675
+baseballyama: Still, AI keeps improving, so I'm honestly
+unsure how much of that will remain necessary.
+
+711
+01:02:06.675 --> 01:02:10.823
+baseballyama: It's entirely possible we're putting less
+trust in AI than we need to.
+
+712
+01:02:10.823 --> 01:02:14.370
+baseballyama: Finding the right balance is a pretty
+difficult question.
+
+713
+01:02:14.370 --> 01:02:17.997
+baseballyama: But I can't take too much risk at work;
+I'm responsible.
+
+714
+01:02:17.997 --> 01:02:20.682
+baseballyama: I can't just leave everything to AI.
+
+715
+01:02:20.682 --> 01:02:27.393
+baseballyama: So one of the ideas behind rsvelte is to
+try taking that risk there instead.
+
+716
+01:02:27.393 --> 01:02:30.819
+baseballyama: This is a very crude oversimplification,
+and not literally how it happened,
+
+717
+01:02:30.819 --> 01:02:35.848
+baseballyama: but the initial request was basically, 'I
+want to port Svelte's compiler to Rust.
+
+718
+01:02:35.848 --> 01:02:37.290
+baseballyama: It needs to be compatible,
+
+719
+01:02:37.471 --> 01:02:41.777
+baseballyama: so please use the same directory structure
+as the Svelte compiler project
+
+720
+01:02:41.777 --> 01:02:48.407
+baseballyama: and implement it along the same lines.' To
+put it very extremely, that's what got us this far.
+
+721
+01:02:48.407 --> 01:02:52.634
+baseballyama: We've now compared real Svelte files from
+more than a hundred projects
+
+722
+01:02:52.634 --> 01:02:57.721
+baseballyama: against the upstream compiler, and we're
+at almost 100% compatibility.
+
+723
+01:02:58.703 --> 01:03:04.726
+baseballyama: With that much compatibility, most
+projects work, which is honestly quite reassuring.
+
+724
+01:03:04.726 --> 01:03:08.050
+baseballyama: So we have something that works reasonably
+well.
+
+725
+01:03:08.050 --> 01:03:11.815
+baseballyama: As Svelte releases new versions, we're
+keeping up with them in real time,
+
+726
+01:03:11.815 --> 01:03:15.519
+baseballyama: and that's going reasonably well too.
+
+727
+01:03:15.519 --> 01:03:20.606
+baseballyama: As a project left almost entirely to AI,
+
+728
+01:03:20.606 --> 01:03:24.170
+baseballyama: it's producing results: we're getting
+something that works and is usable.
+
+729
+01:03:24.170 --> 01:03:29.442
+baseballyama: The next issue, going back to our earlier
+discussion, is implementing major new features.
+
+730
+01:03:29.442 --> 01:03:34.312
+baseballyama: How do you add a new feature to what is,
+in a sense, mysterious code written by AI?
+
+731
+01:03:34.312 --> 01:03:39.904
+baseballyama: And when several people work together, can
+they really maintain it
+
+732
+01:03:39.904 --> 01:03:42.770
+baseballyama: if nobody understands its internals?
+That's the next challenge.
+
+733
+01:03:42.892 --> 01:03:47.359
+baseballyama: If we were to move rsvelte into the Svelte
+organization,
+
+734
+01:03:47.359 --> 01:03:51.706
+baseballyama: I think we'd first need to examine the
+internals and properly consider the design,
+
+735
+01:03:51.706 --> 01:03:53.630
+baseballyama: do some serious refactoring,
+
+736
+01:03:53.630 --> 01:03:59.139
+baseballyama: and make it reasonably readable for humans
+before moving it over.
+
+737
+01:03:59.139 --> 01:04:05.290
+baseballyama: But I also want to test how far we can
+actually leave things to AI.
+
+738
+01:04:05.290 --> 01:04:11.741
+baseballyama: That's why I'm deliberately leaning more
+heavily into vibe coding with rsvelte.
+
+739
+01:04:11.741 --> 01:04:15.588
+baseballyama: My stance differs a little from Vize's
+there. [laughs]
+
+740
+01:04:15.190 --> 01:04:20.894
+ubugeeei: We should have talked more about the process
+too. [laughs]
+
+741
+01:04:20.894 --> 01:04:23.486
+baseballyama: We still can. [laughs] There's no time
+limit.
+
+742
+01:04:22.666 --> 01:04:23.066
+baseballyama: [laughs]
+
+743
+01:04:22.667 --> 01:04:26.371
+ubugeeei: Yeah, that's the thing. With AI,
+
+744
+01:04:26.371 --> 01:04:32.381
+ubugeeei: though not just AI, there are quite different
+approaches to replacing an existing toolchain.
+
+745
+01:04:32.381 --> 01:04:38.010
+ubugeeei: Ports are popular now, almost file for file,
+using AI, people, or deterministic tools.
+
+746
+01:04:39.533 --> 01:04:46.505
+ubugeeei: So there's the approach of doing a port,
+
+747
+01:04:46.505 --> 01:04:52.478
+ubugeeei: and there's simply building something
+yourself. How did Vize get started?
+
+748
+01:04:52.478 --> 01:05:00.171
+ubugeeei: Actually, it was neither of those. I used AI
+to help generate huge numbers of fixtures from the
+upstream compiler,
+
+749
+01:05:00.171 --> 01:05:08.104
+ubugeeei: then rewrote it in Rust to match those
+fixtures exactly. [laughs]
+
+750
+01:05:08.104 --> 01:05:12.372
+ubugeeei: Like that. [laughs] The fixtures are where the
+two implementations meet.
+
+751
+01:05:12.372 --> 01:05:17.040
+ubugeeei: I didn't port the TypeScript implementation
+into Rust file by file,
+
+752
+01:05:17.722 --> 01:05:22.991
+ubugeeei: Nor did I simply set out to write a Vue
+compiler in Rust [exact premise unclear].
+
+753
+01:05:22.991 --> 01:05:28.100
+ubugeeei: I generated an enormous number of fixtures in
+advance and used those as the target,
+
+754
+01:05:28.100 --> 01:05:31.888
+ubugeeei: then had it write Rust code from scratch to
+meet that target. [laughs]
+
+755
+01:05:31.888 --> 01:05:33.412
+ubugeeei: That's my approach.
+
+756
+01:05:33.412 --> 01:05:38.386
+ubugeeei: It's interesting how different the process is
+from rsvelte's.
+
+757
+01:05:38.386 --> 01:05:41.714
+baseballyama: With rsvelte, it's easy to predict that,
+for quite a long time,
+
+758
+01:05:42.298 --> 01:05:47.546
+baseballyama: the JavaScript version will remain the
+upstream implementation.
+
+759
+01:05:47.546 --> 01:05:50.030
+baseballyama: When a change is made in JavaScript,
+
+760
+01:05:51.072 --> 01:05:57.842
+baseballyama: for example, Svelte's compiler is roughly
+divided into three steps: parsing, validation,
+
+761
+01:05:57.842 --> 01:05:59.725
+baseballyama: and transformation.
+
+762
+01:05:59.725 --> 01:06:03.030
+baseballyama: Sometimes it's a little ambiguous which
+layer should handle something.
+
+763
+01:06:03.030 --> 01:06:07.497
+baseballyama: Depending on the layer, you can get
+different error behavior,
+
+764
+01:06:07.497 --> 01:06:11.984
+baseballyama: or a case might compile successfully, even
+if that's actually just a bug.
+
+765
+01:06:11.984 --> 01:06:14.808
+baseballyama: Those differences can happen.
+
+766
+01:06:14.808 --> 01:06:19.677
+baseballyama: So even when you're implementing the same
+behavior, which layer does what
+
+767
+01:06:19.677 --> 01:06:21.741
+baseballyama: can matter to some extent.
+
+768
+01:06:21.741 --> 01:06:25.729
+baseballyama: If you can look at the JavaScript
+implementation and say, 'This happens at this layer,
+
+769
+01:06:25.729 --> 01:06:28.415
+baseballyama: and this happens at that layer,' then port
+it as it is,
+
+770
+01:06:28.415 --> 01:06:33.986
+baseballyama: those problems are less likely. That's why
+I thought I'd try that approach.
+
+771
+01:06:33.986 --> 01:06:36.150
+Theo: So it's a fairly faithful port?
+
+772
+01:06:37.351 --> 01:06:44.263
+baseballyama: If you look at the major directory
+divisions, I think Svelte's compiler has 1. parse,
+
+773
+01:06:44.263 --> 01:06:48.090
+baseballyama: 2. validate, and 3. transform.
+
+774
+01:06:48.090 --> 01:06:54.621
+baseballyama: But the contents are quite different, so
+it isn't actually a faithful one-file-to-one-file port.
+
+775
+01:06:54.621 --> 01:06:58.889
+baseballyama: Broadly speaking, though, that's the kind
+of port it is.
+
+776
+01:06:58.527 --> 01:07:05.540
+Theo: Rust and JavaScript are quite different, so I
+wouldn't expect an entirely faithful port anyway.
+
+777
+01:07:05.540 --> 01:07:09.768
+baseballyama: And there are libraries involved, like
+esrap.
+
+778
+01:07:09.768 --> 01:07:13.515
+baseballyama: Naturally, there isn't a Rust version of
+esrap.
+
+779
+01:07:13.515 --> 01:07:17.303
+baseballyama: In the parser, there are also places where
+you use Oxc's parser,
+
+780
+01:07:17.303 --> 01:07:21.209
+baseballyama: which differs a little from the JavaScript
+ecosystem.
+
+781
+01:07:22.875 --> 01:07:29.583
+baseballyama: The available libraries are quite
+different too, so of course a completely faithful port
+isn't possible.
+
+782
+01:07:29.583 --> 01:07:35.049
+Theo: By the way, how do you parse the HTML, or rather,
+the template part?
+
+783
+01:07:35.049 --> 01:07:39.494
+baseballyama: I write the template parser myself.
+
+784
+01:07:35.700 --> 01:07:38.000
+ubugeeei: Yourself. Me too.
+
+785
+01:07:39.795 --> 01:07:42.478
+baseballyama: Do you have to do that yourself for Vue
+too?
+
+786
+01:07:40.650 --> 01:07:41.750
+ubugeeei: Huh? Which part?
+
+787
+01:07:42.538 --> 01:07:47.925
+baseballyama: The template. In JavaScript, you can parse
+Vue's HTML-like templates with parse5,
+
+788
+01:07:47.925 --> 01:07:51.074
+baseballyama: but in Rust, is it better to write your
+own?
+
+789
+01:07:51.335 --> 01:07:56.922
+ubugeeei: Actually, with Vue too, when you think about
+optimization,
+
+790
+01:07:56.922 --> 01:08:04.572
+ubugeeei: it's better to use a Vue-specific parser than
+a general-purpose one. The current implementation does
+that as well.
+
+791
+01:08:05.433 --> 01:08:08.417
+ubugeeei: There's a library called htmlparser2.
+
+792
+01:08:08.417 --> 01:08:15.586
+ubugeeei: They forked it and extended it for
+interpolation.
+
+793
+01:08:15.586 --> 01:08:18.503
+ubugeeei: Using that forked, extended version
+
+794
+01:08:18.503 --> 01:08:26.259
+ubugeeei: gives much better performance. So ultimately,
+you end up doing it yourself.
+
+795
+01:08:26.259 --> 01:08:28.925
+ubugeeei: That's what I'm doing too.
+
+796
+01:08:28.925 --> 01:08:32.614
+ubugeeei: Also, going back to what we were saying,
+
+797
+01:08:32.614 --> 01:08:37.783
+ubugeeei: one clear difference between my stance and
+Yama's
+
+798
+01:08:38.024 --> 01:08:45.952
+ubugeeei: is that I don't think the current upstream
+Vue.js compiler is an especially good implementation.
+[laughs]
+
+799
+01:08:45.952 --> 01:08:53.340
+ubugeeei: How should I put this? There are concerns from
+a language-implementation perspective.
+
+800
+01:08:53.340 --> 01:08:58.746
+ubugeeei: If you ask whether it's a really well-built
+language implementation, it isn't exactly that.
+
+801
+01:08:58.746 --> 01:09:03.070
+ubugeeei: Some parts are quite ad hoc, more like
+workarounds.
+
+802
+01:09:05.369 --> 01:09:09.635
+ubugeeei: I wanted to bring those pieces together more
+systematically [exact wording unclear].
+
+803
+01:09:09.635 --> 01:09:14.562
+ubugeeei: and, how do I put it, do it properly. That's
+an odd way to phrase it,
+
+804
+01:09:14.562 --> 01:09:20.991
+ubugeeei: but I wanted to design the vertical
+integration properly and build a really good language
+implementation.
+
+805
+01:09:20.991 --> 01:09:27.900
+ubugeeei: Since I'm not especially in love with the
+upstream compiler in the first place, [laughs]
+
+806
+01:09:27.900 --> 01:09:31.330
+ubugeeei: matching it isn't my goal. That's a big
+difference in our approaches.
+
+807
+01:09:31.330 --> 01:09:38.222
+ubugeeei: There are lots of cases where I think a
+different architecture would make a new feature easier
+to implement.
+
+808
+01:09:38.222 --> 01:09:45.595
+ubugeeei: The clearest example is compiler macros.
+Rather than interpreting them as compiler macros,
+
+809
+01:09:45.595 --> 01:09:49.101
+ubugeeei: the implementation parses the JavaScript AST,
+
+810
+01:09:49.101 --> 01:09:54.124
+ubugeeei: then does further processing in terms of
+function calls [exact mechanics unclear].
+
+811
+01:09:54.124 --> 01:09:59.913
+ubugeeei: But as a Vue concept, compiler macros should
+really be evaluated as compiler macros.
+
+812
+01:09:59.913 --> 01:10:07.705
+ubugeeei: It should have an IR. I wanted to change the
+design itself from the outset.
+
+813
+01:10:07.705 --> 01:10:13.154
+ubugeeei: That's a clear difference between my position
+and Yama's.
+
+814
+01:10:13.820 --> 01:10:15.566
+baseballyama: Maybe I shouldn't say this,
+
+815
+01:10:15.566 --> 01:10:22.371
+baseballyama: but if we were still on Svelte 4, I might
+have done the same thing. [laughs]
+
+816
+01:10:21.700 --> 01:10:23.050
+ubugeeei: Ah. [laughs]
+
+817
+01:10:22.411 --> 01:10:23.735
+baseballyama: Up through Svelte 4,
+
+818
+01:10:24.942 --> 01:10:29.330
+baseballyama: I don't know whether it was exactly the
+same codebase since Svelte 1.0,
+
+819
+01:10:29.751 --> 01:10:36.825
+baseballyama: but I think Svelte was probably Rich
+Harris's first time writing a compiler.
+
+820
+01:10:36.825 --> 01:10:40.894
+baseballyama: He worked hard on it, and it was good,
+
+821
+01:10:40.894 --> 01:10:45.223
+baseballyama: but things gradually accumulated over
+time.
+
+822
+01:10:45.223 --> 01:10:51.648
+baseballyama: We'd occasionally get issues saying the
+source code was difficult to understand
+
+823
+01:10:51.648 --> 01:10:58.296
+baseballyama: and hard to contribute to. Was it really
+easy to follow?
+
+824
+01:10:58.296 --> 01:11:03.223
+baseballyama: There were certainly times when you
+couldn't wholeheartedly say yes.
+
+825
+01:11:03.223 --> 01:11:08.770
+baseballyama: Svelte 5 involved Dominic Gannaway, who
+used to be on the React team,
+
+826
+01:11:08.770 --> 01:11:14.120
+baseballyama: created Inferno, and now works on things
+like Ripple and Octane.
+
+827
+01:11:14.120 --> 01:11:16.000
+baseballyama: TSRX. TSRX. [name unverified]
+
+828
+01:11:16.000 --> 01:11:19.000
+Theo: He's at OpenAI now.
+
+829
+01:11:19.000 --> 01:11:25.500
+baseballyama: He worked on a very broad range of the
+implementation,
+
+830
+01:11:25.500 --> 01:11:31.450
+baseballyama: He had a lot of experience with compilers
+and JavaScript toolchains,
+
+831
+01:11:31.730 --> 01:11:33.953
+baseballyama: and Svelte 5 was rebuilt from scratch.
+
+832
+01:11:33.953 --> 01:11:36.335
+baseballyama: That made the code much easier to
+understand.
+
+833
+01:11:36.335 --> 01:11:38.717
+baseballyama: Svelte 5 also introduced Runes,
+
+834
+01:11:38.717 --> 01:11:43.222
+baseballyama: which moved some of what Svelte 4 handled
+in the compiler into the runtime.
+
+835
+01:11:43.222 --> 01:11:46.567
+baseballyama: That reduced the complexity of the
+compiler itself.
+
+836
+01:11:46.567 --> 01:11:52.717
+baseballyama: So compared with Svelte 4, things became
+much cleaner and better organized.
+
+837
+01:11:52.717 --> 01:11:55.121
+baseballyama: That may partly explain my approach too.
+
+838
+01:11:55.622 --> 01:12:02.054
+ubugeeei: Actually, to be fair, Vue was also rewritten
+from v2 to v3,
+
+839
+01:12:02.054 --> 01:12:06.482
+ubugeeei: and it's continually refactored. I wouldn't
+say its code is hard to read.
+
+840
+01:12:06.482 --> 01:12:09.226
+ubugeeei: The source code is properly designed.
+
+841
+01:12:09.226 --> 01:12:14.372
+ubugeeei: Maybe it's more accurate to say it wasn't the
+language implementation I wanted to write. [laughs]
+
+842
+01:12:14.372 --> 01:12:20.079
+ubugeeei: Something like that. That sounded a bit
+defensive,
+
+843
+01:12:20.079 --> 01:12:24.834
+ubugeeei: but Vue's implementation is fine for what it
+is.
+
+844
+01:12:24.994 --> 01:12:32.325
+ubugeeei: It isn't terrible code or anything. It's
+properly organized.
+
+845
+01:12:32.325 --> 01:12:38.795
+ubugeeei: It's just that Vue.js core is really designed
+only as a compiler.
+
+846
+01:12:38.795 --> 01:12:45.620
+ubugeeei: When you think about the whole toolchain, or
+Vue.js as a sort of programming language,
+
+847
+01:12:45.620 --> 01:12:52.410
+ubugeeei: is it designed as a complete language
+implementation, in the way Rust
+
+848
+01:12:52.410 --> 01:12:57.317
+ubugeeei: and various other languages are? Not really.
+Take the type checker too.
+
+849
+01:12:57.317 --> 01:13:03.286
+ubugeeei: It has its own parser, or generates a separate
+intermediate representation,
+
+850
+01:13:03.286 --> 01:13:07.956
+ubugeeei: and manipulates things differently. I wanted
+to unify all of that as one language.
+
+851
+01:13:07.956 --> 01:13:14.169
+ubugeeei: So I started thinking about it from the design
+stage. That's part of it.
+
+852
+01:13:14.169 --> 01:13:21.043
+ubugeeei: Looking at Vue's compiler purely as a
+compiler, I don't think there's anything particularly
+wrong with the code.
+
+853
+01:13:21.043 --> 01:13:23.328
+ubugeeei: That's roughly how I'd put it.
+
+854
+01:13:23.328 --> 01:13:27.437
+Theo: I'm really glad I invited both of you today.
+
+855
+01:13:27.437 --> 01:13:33.392
+Theo: We've discovered that your goals are fairly
+similar, but your approaches are completely different.
+
+856
+01:13:33.392 --> 01:13:38.525
+Theo: I skimmed the source code a little while
+preparing,
+
+857
+01:13:38.525 --> 01:13:46.300
+Theo: but I couldn't see all of that just from reading
+it. I'm glad we deliberately compared the two.
+
+858
+01:13:46.300 --> 01:13:52.090
+Theo: We've been going for over an hour now, so I'd like
+to start wrapping up.
+
+859
+01:13:52.090 --> 01:13:58.500
+Theo: I think you'll each be speaking about your
+projects, so please tell us about your talks,
+
+860
+01:13:58.500 --> 01:14:02.927
+Theo: and share any final thoughts you'd like to leave
+us with.
+
+861
+01:14:03.906 --> 01:14:09.834
+ubugeeei: We said we'd talk about Vue Fes, and then
+hardly talked about it at all. [laughs]
+
+862
+01:14:09.914 --> 01:14:16.864
+ubugeeei: What do I want to promote? Well, maybe nothing
+in particular. [laughs]
+
+863
+01:14:16.864 --> 01:14:20.870
+ubugeeei: I'm a speaker, but I'm also on the organizing
+team,
+
+864
+01:14:20.870 --> 01:14:25.121
+ubugeeei: so here's the official plug: if you haven't
+bought a ticket yet, please do. [laughs]
+
+865
+01:14:25.121 --> 01:14:30.667
+ubugeeei: Anything else for me? Yama, do you have
+something?
+
+866
+01:14:30.667 --> 01:14:38.517
+ubugeeei: You might have more to say as a speaker. I'm
+mostly looking at it as an organizer. [laughs]
+
+867
+01:14:38.517 --> 01:14:45.627
+baseballyama: Right. When I used to think of technical
+events,
+
+868
+01:14:45.627 --> 01:14:52.077
+baseballyama: I pictured going to a university
+
+869
+01:14:52.077 --> 01:14:57.546
+baseballyama: and sitting in a classroom, like those
+Google events.
+
+870
+01:14:57.546 --> 01:14:59.990
+baseballyama: That was the sort of image I had.
+
+871
+01:14:59.990 --> 01:15:04.518
+baseballyama: But Vue Fes has 'Fes' in its name.
+
+872
+01:15:04.518 --> 01:15:10.768
+baseballyama: Listening to the talks is fun, of course,
+
+873
+01:15:10.768 --> 01:15:16.578
+baseballyama: but the whole atmosphere gets you excited
+too.
+
+874
+01:15:17.018 --> 01:15:22.988
+baseballyama: It's a really enjoyable place. Especially
+since last year or so, it hasn't just been about Vue,
+but the ecosystem around Oxc.
+
+875
+01:15:22.988 --> 01:15:28.935
+baseballyama: VoidZero was acquired and became part of
+Cloudflare,
+
+876
+01:15:28.935 --> 01:15:32.603
+baseballyama: and you get to hear about the cutting edge
+of that ecosystem.
+
+877
+01:15:32.603 --> 01:15:39.760
+baseballyama: You learn things, and it's simply a fun
+place to be.
+
+878
+01:15:39.760 --> 01:15:45.090
+baseballyama: So if you haven't bought a ticket... I'm
+not an organizer or anything; they're just making me say
+this. [laughs]
+
+879
+01:15:45.090 --> 01:15:49.650
+baseballyama: Personally, I think buying a ticket will
+be well worth your time.
+
+880
+01:15:49.950 --> 01:15:50.850
+baseballyama: Yeah.
+
+881
+01:15:51.483 --> 01:15:55.290
+ubugeeei: Thank you for pitching Vue Fes better than the
+organizers. [laughs]
+
+882
+01:15:54.870 --> 01:16:01.861
+Theo: I really think that's exactly right. It really is
+a festival, and the talks are interesting.
+
+883
+01:16:01.861 --> 01:16:07.590
+Theo: And beyond the talks, there's what we call the
+hallway track in English.
+
+884
+01:16:07.590 --> 01:16:13.480
+Theo: It literally means a track in the hallway. It
+isn't unique to Vue Fes;
+
+885
+01:16:13.480 --> 01:16:18.709
+Theo: conferences have this hallway track where you
+simply talk to the people you meet,
+
+886
+01:16:18.709 --> 01:16:22.395
+Theo: and learn new things through those conversations.
+
+887
+01:16:22.395 --> 01:16:29.526
+Theo: Vue Fes brings together lots of people who are
+passionate about this technology,
+
+888
+01:16:29.526 --> 01:16:35.820
+Theo: so I'd really recommend going. And Yama, this
+isn't related to Vue Fes,
+
+889
+01:16:35.820 --> 01:16:42.189
+Theo: but I'm a bit of a Svelte fan myself, so I wanted
+to give this a shout-out too:
+
+890
+01:16:42.189 --> 01:16:44.433
+Theo: Svelte Summit.
+
+891
+01:16:44.433 --> 01:16:48.639
+baseballyama: Right. It's on November 19 and 20, over
+two days.
+
+892
+01:16:48.639 --> 01:16:54.388
+baseballyama: Svelte Summit is in Ljubljana, Slovenia.
+[laughs]
+
+893
+01:16:54.388 --> 01:16:59.634
+baseballyama: It's not exactly somewhere you can
+casually drop by. There's no direct flight, so you need
+a connection.
+
+894
+01:16:59.634 --> 01:17:05.260
+baseballyama: It takes a bit of effort to get there, but
+Svelte Summit runs for two days there.
+
+895
+01:17:05.260 --> 01:17:11.206
+baseballyama: I'm planning to give a talk about rsvelte
+too.
+
+896
+01:17:11.206 --> 01:17:18.134
+baseballyama: There'll probably be an online stream, so
+you should be able to watch online.
+
+897
+01:17:18.134 --> 01:17:20.516
+baseballyama: Of course, I think Rich Harris will be
+there too,
+
+898
+01:17:21.262 --> 01:17:24.466
+baseballyama: so there should be some great talks to
+look forward to.
+
+899
+01:17:24.466 --> 01:17:31.176
+baseballyama: And if you have the time and money, please
+come to Ljubljana in person.
+
+900
+01:17:31.176 --> 01:17:34.258
+baseballyama: We'd be happy to have more people from
+Japan there.
+
+901
+01:17:32.700 --> 01:17:35.450
+ubugeeei: Are you going there to give your talk in
+person, Yama?
+
+902
+01:17:35.640 --> 01:17:38.242
+baseballyama: Yes, I'm going in person.
+
+903
+01:17:38.242 --> 01:17:38.683
+ubugeeei: Oh!
+
+904
+01:17:38.683 --> 01:17:43.568
+Theo: I don't think I can make it this time, but good
+luck, Yama. [laughs]
+
+905
+01:17:43.568 --> 01:17:46.311
+baseballyama: [laughs] Thank you.
+
+906
+01:17:46.311 --> 01:17:48.012
+Theo: And with that,
+
+907
+01:17:48.012 --> 01:17:53.017
+Theo: we'll wrap up this episode of UIT INSIDE.
+Everyone,
+
+908
+01:17:53.017 --> 01:17:53.918
+Theo: thank you.
+
+909
+01:17:53.918 --> 01:17:55.299
+ubugeeei / baseballyama: Thank you.
+

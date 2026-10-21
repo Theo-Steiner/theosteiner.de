@@ -22,9 +22,13 @@ const uitVideos: Record<string, string> = {
   "uit-inside-192": "https://www.youtube.com/watch?v=z3cWUJHbRbM"
 };
 
-// The importer supplies each available English VTT. Keep hand-authored
-// translations here so refreshing that generated data cannot erase them.
+// The importer supplies each available English VTT. Keep custom transcript
+// tracks here so refreshing that generated data cannot erase their configuration.
 const uitTranscripts: Record<string, PodcastTranscript[]> = {
+  "uit-inside-194": [
+    { label: "English", src: "/transcripts/uit-inside-194-en.vtt" },
+    { label: "日本語", src: "/transcripts/uit-inside-194-ja.vtt" }
+  ],
   "uit-inside-192": [
     { label: "English", src: "/transcripts/uit-inside-192.vtt" },
     { label: "日本語", src: "/transcripts/uit-inside-192-ja.vtt" }
