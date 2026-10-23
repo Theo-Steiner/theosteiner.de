@@ -6,3 +6,5 @@ export const ogImage = (kind: 'page' | 'blog' | 'talk' | 'podcast', slug: string
 export const DEFAULT_OG_IMAGE = ogImage('page', 'home');
 export const GITHUB_URL = 'https://github.com/Theo-Steiner';
 export const BLUESKY_URL = 'https://bsky.app/profile/theosteiner.de';
+export const X_URL = 'https://x.com/_TheoSteiner';
+export const LINKEDIN_URL = 'https://www.linkedin.com/in/theodor-steiner-b3aa8113b/';

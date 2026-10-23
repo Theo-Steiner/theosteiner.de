@@ -5,7 +5,7 @@ import type { RequestHandler } from './$types';
 export const prerender = true;
 
 export const GET: RequestHandler = () => {
-	const pages = ['', '/contents', '/about', ...posts.map((post) => `/${post.slug}`)];
+	const pages = ['', '/contents', '/about', '/contact', ...posts.map((post) => `/${post.slug}`)];
 
 	const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

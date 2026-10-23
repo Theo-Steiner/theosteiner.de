@@ -17,6 +17,7 @@ export const ogEntries: OgEntry[] = [
   { kind: "page", slug: "home", title: SITE_TITLE },
   { kind: "page", slug: "about", title: "about" },
   { kind: "page", slug: "contents", title: "everything" },
+  { kind: "page", slug: "contact", title: "contact" },
   ...posts.map(({ slug, title }) => ({ kind: "blog" as const, slug, title })),
   ...talkEntries.map(({ slug, title }) => ({
     kind: "talk" as const,
